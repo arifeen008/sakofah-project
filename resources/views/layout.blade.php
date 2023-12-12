@@ -152,7 +152,7 @@
                     </li>
                 </ul>
                 <div class="d-flex align-items-center">
-                    <a data-mdb-ripple-init href="/" class="btn btn-link px-3 me-2">
+                    <a data-mdb-ripple-init href="/login" class="btn btn-link px-3 me-2">
                         เข้าสู่ระบบ
                     </a>
                 </div>
@@ -163,9 +163,8 @@
     <footer class="text-lg-start py-2" style="background-color: #25d321;">
         <div class="container">
             <div class="d-flex justify-content-between">
-                <p class="text-center text-dark me-3" style="font-family: 'Sarabun';">จำนวนผู้เข้าชม : 555</p>
-                <a href="{{ url('index/login_page') }}" class="btn btn-success me-3"><i
-                        class="fas fa-key me-3"></i>เข้าสู่ระบบ</a>
+                <div></div>
+                <a href="/login" class="btn btn-success me-3"><i class="fas fa-key me-3"></i>เข้าสู่ระบบ</a>
             </div>
         </div>
     </footer>

@@ -42,3 +42,4 @@ Route::get('/withus', [IndexController::class, 'withus']);
 
 //Officer
 Route::post('/login', [OfficerController::class, 'login']);
+Route::get('/officer', [OfficerController::class, 'officer']);

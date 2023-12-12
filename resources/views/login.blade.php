@@ -31,7 +31,7 @@
                         </div>
                         <div class="d-flex justify-content-around align-items-center mb-4">
                             <a href="/">หน้าหลัก</a>
-                            <a href="#" data-mdb-toggle="tooltip" title="ลืมรหัสผ่าน">ลืมรหัสผ่าน</a>
+                            <a href="/officer" data-mdb-toggle="tooltip" title="ลืมรหัสผ่าน">ลืมรหัสผ่าน</a>
                         </div>
                         <button type="submit" class="btn btn-success btn-lg btn-block">login</button>
                     </form>

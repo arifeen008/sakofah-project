@@ -21,7 +21,9 @@ class OfficerController extends Controller
 
         $result = DB::connection('mysql_second')->table('bk_h_teller_control')->where('user_id', $request->user_id)->where('password', $request->password)->first();
         dd($result);
+    }
 
-
+    public function officer(){
+        return view('/officer/search_member/search_member');
     }
 }

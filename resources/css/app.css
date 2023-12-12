@@ -1,0 +1,21 @@
+
+ 
+h2 {
+    color: green;
+}
+ 
+.gallery {
+    margin: 10px 40px;
+}
+ 
+.gallery img {
+    width: 200px;
+    height: 50px;
+    transition: 1s;
+    padding: 5px;
+}
+ 
+.gallery img:hover {
+    filter: drop-shadow(4px 4px 6px gray);
+    transform: scale(1.1);
+}

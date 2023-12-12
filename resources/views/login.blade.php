@@ -1,15 +1,6 @@
 @extends('layout')
 @section('title', 'เข้าสู่ระบบ | สหกรณ์อิสลามษะกอฟะฮ จำกัด')
 @section('content')
-    <style>
-        .divider:after,
-        .divider:before {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: #eee;
-        }
-    </style>
     <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex align-items-center justify-content-center h-100">
@@ -25,19 +16,18 @@
                                 <span class="text-danger">{{ $message }}</span>
                             </div>
                         @enderror
-                        <div class="form-outline mb-4">
-                            <input type="text" id="form1Example13" class="form-control form-control-lg" name="user_id" />
-                            <label class="form-label" for="form1Example13">username</label>
+                        <div data-mdb-input-init class="form-outline mb-4">
+                            <input type="text" id="form1Example1" name="user_id" class="form-control" />
+                            <label class="form-label" for="form1Example1">username</label>
                         </div>
                         @error('password')
                             <div class="my-2">
                                 <span class="text-danger">{{ $message }}</span>
                             </div>
                         @enderror
-                        <div class="form-outline mb-4">
-                            <input type="password" id="form1Example23" class="form-control form-control-lg"
-                                name="password" />
-                            <label class="form-label" for="form1Example23">password</label>
+                        <div data-mdb-input-init class="form-outline mb-4">
+                            <input type="password" id="form1Example2" name="password" class="form-control" />
+                            <label class="form-label" for="form1Example2">Password</label>
                         </div>
                         <div class="d-flex justify-content-around align-items-center mb-4">
                             <a href="/">หน้าหลัก</a>

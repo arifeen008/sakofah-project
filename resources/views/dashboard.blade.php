@@ -25,7 +25,6 @@
                 </a>
             </div>
         </div>
-        </div>
     </nav>
     <div class="container-fluid">
         <div class="row">

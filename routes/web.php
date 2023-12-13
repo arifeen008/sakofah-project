@@ -3,7 +3,7 @@
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\OfficerController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

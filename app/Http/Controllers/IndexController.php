@@ -13,10 +13,6 @@ class IndexController extends Controller
         return view('index');
     }
 
-    public function login()
-    {
-        return view('login');
-    }
     public function history()
     {
         return view('main/about/history');

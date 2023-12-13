@@ -3,15 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Officer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class OfficerController extends Controller
 {
     protected $connection = 'mysql_second';
-    public function login(Request $request)
+
+    public function login()
     {
-        $credentials = $request->validate([
+        return view('login');
+    }
+    public function loginPost(Request $request)
+    {
+        $request->validate([
             'user_id' => 'required',
             'password' => 'required',
         ], [
@@ -19,11 +25,21 @@ class OfficerController extends Controller
             'password.required' => 'ใส่ password',
         ]);
 
-        $result = DB::connection('mysql_second')->table('bk_h_teller_control')->where('user_id', $request->user_id)->where('password', $request->password)->first();
-        dd($result);
+        $credentials = [
+            'user_id' => $request->user_id,
+            'password' => $request->password
+        ];
+
+        if(Auth::attempt($credentials)){
+            return redirect('/officer/search_member/search_member')->with('success','Login success');
+        }
+
+        return back()->with('error','Wrong username or Password');
+
     }
 
-    public function officer(){
+    public function officer()
+    {
         return view('/officer/search_member/search_member');
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\News;
 use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller

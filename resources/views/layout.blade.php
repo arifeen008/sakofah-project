@@ -152,7 +152,7 @@
                     </li>
                 </ul>
                 <div class="d-flex align-items-center">
-                    <a data-mdb-ripple-init href="/login" class="btn btn-link px-3 me-2">
+                    <a data-mdb-ripple-init href="/officer/login" class="btn btn-link px-3 me-2">
                         เข้าสู่ระบบ
                     </a>
                 </div>

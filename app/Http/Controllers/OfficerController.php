@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Officer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OfficerController extends Controller
 {
@@ -24,22 +23,30 @@ class OfficerController extends Controller
             'user_id.required' => 'ใส่ username',
             'password.required' => 'ใส่ password',
         ]);
+        $data = DB::connection('mysql_second')->table('bk_h_teller_control')->where('user_id', $request->user_id)->where('password', $request->password)->first();
 
-        $credentials = [
-            'user_id' => $request->user_id,
-            'password' => $request->password
-        ];
-
-        if(Auth::attempt($credentials)){
-            return redirect('/officer/search_member/search_member')->with('success','Login success');
+        if (!empty($data)) {
+            $request->session()->put('user_id', $data->USER_ID);
+            $request->session()->put('username', $data->USER_NAME);
+            $request->session()->put('br_no', $data->BR_NO);
+            $request->session()->put('level_code', $data->LEVEL_CODE);
+            return view('officer/officer/search_member/search_member');
         }
+        return redirect()->back()->withErrors(['user_id' => 'Invalid credentials']);
 
-        return back()->with('error','Wrong username or Password');
+    }
 
+    public function logout(Request $request)
+    {
+        $request->session()->forget('user_id');
+        $request->session()->forget('username');
+        $request->session()->forget('br_no');
+        $request->session()->forget('level_code');
+        return redirect('/');
     }
 
     public function officer()
     {
-        return view('/officer/search_member/search_member');
+        return view('officer.search_member.search_member');
     }
 }

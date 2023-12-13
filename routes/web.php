@@ -3,7 +3,7 @@
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\OfficerController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,11 +40,11 @@ Route::get('/report', [IndexController::class, 'report']);
 Route::get('/withus', [IndexController::class, 'withus']);
 
 //Officer
-Route::get('/login', [OfficerController::class, 'login']);
-Route::post('/login', [OfficerController::class, 'loginPost']);
-Route::get('/officer', [OfficerController::class, 'officer']);
-Route::prefix('officer')->group(function () {
 
+Route::prefix('officer')->group(function () {
+    Route::get('/login', [OfficerController::class, 'login']);
+    Route::post('/login', [OfficerController::class, 'loginPost']);
+    Route::get('/officer', [OfficerController::class, 'officer']);
 });
 
 // Auth::routes();

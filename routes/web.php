@@ -40,11 +40,11 @@ Route::get('/report', [IndexController::class, 'report']);
 Route::get('/withus', [IndexController::class, 'withus']);
 
 //Officer
-
+Route::get('/login', [OfficerController::class, 'login']);
+Route::post('/login', [OfficerController::class, 'loginPost']);
+Route::get('/member', [OfficerController::class, 'member']);
+Route::post('/searchMember', [OfficerController::class, 'searchMember']);
 Route::prefix('officer')->group(function () {
-    Route::get('/login', [OfficerController::class, 'login']);
-    Route::post('/login', [OfficerController::class, 'loginPost']);
-    Route::get('/officer', [OfficerController::class, 'officer']);
 });
 
 // Auth::routes();

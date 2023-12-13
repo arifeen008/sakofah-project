@@ -10,6 +10,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+
+
 </head>
 
 <body>
@@ -19,10 +23,19 @@
                 <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="16"
                     alt="MDB Logo" loading="lazy" style="margin-top: -1px;" />
             </a>
-            <div class="d-flex align-items-center">
-                <a data-mdb-ripple-init href="/login" class="btn btn-link px-3 me-2">
-                    เข้าสู่ระบบ
-                </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-dropdown-init
+                            data-mdb-ripple-init aria-expanded="false">
+                            ยินดีต้อนรับ {{ session('username') }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+
+                        </ul>
+                    </div>
+                </ul>
             </div>
         </div>
     </nav>
@@ -36,7 +49,7 @@
             </div>
         </div>
     </div>
-
+    @yield('script')
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
 </body>
 

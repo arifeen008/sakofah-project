@@ -44,6 +44,10 @@ Route::get('/login', [OfficerController::class, 'login']);
 Route::post('/login', [OfficerController::class, 'loginPost']);
 Route::get('/member', [OfficerController::class, 'member']);
 Route::post('/searchMember', [OfficerController::class, 'searchMember']);
+Route::get('/data_member/{mem_id}/{br_no}', [OfficerController::class,'data_member']);
+Route::get('/account_details/{account_no}/', [OfficerController::class,'account_details']);
+Route::get('/loan_details/{code}/{br_no}', [OfficerController::class,'loan_details']);
+Route::get('creditUpload', [OfficerController::class,'creditUpload']);
 Route::prefix('officer')->group(function () {
 });
 

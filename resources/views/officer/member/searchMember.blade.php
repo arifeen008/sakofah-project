@@ -53,6 +53,7 @@
 
                     <!-- Submit Button -->
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="clear" class="btn btn-primary">clear</button>
                 </form>
             </div>
         </div>

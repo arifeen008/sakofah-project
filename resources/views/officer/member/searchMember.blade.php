@@ -5,7 +5,7 @@
     <div class="card m-3">
         <div class="card-body">
             <div class="card-text">
-                <h2 class="mb-4">Member Information Form</h2>
+                <h2 class="mb-4">ค้นหาข้อมูลสมาชิก</h2><hr>
                 <!-- Form -->
                 <form action="/searchMember" method="POST">
                     @csrf
@@ -52,8 +52,8 @@
                     </div>
 
                     <!-- Submit Button -->
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="clear" class="btn btn-primary">clear</button>
+                    <button type="submit" class="btn btn-primary">ค้นหา</button>
+                    <button type="reset" class="btn btn-warning">ล้างข้อมูล</button>
                 </form>
             </div>
         </div>

@@ -67,10 +67,11 @@ class OfficerController extends Controller
 
     public function data_member($mem_id, $br_no)
     {
-        $data_member = DB::connection('mysql_second')->table('MEM_H_MEMBER')->where([
-            ['MEM_ID', '=', $mem_id],
-            ['BR_NO', '=', $br_no],
-        ])->first();
+        $data_member = DB::connection('mysql_second')->table('MEM_H_MEMBER')
+            ->select('FNAME', 'LNAME', 'ID_CARD', 'DMY_BIRTH', 'SEX', 'FATHER', 'MOTHER', 'MARRIAGE_STATUS', 'BLO_GROUP', 'ADDRESS', 'MOO_ADDR', 'TUMBOL', 'LINE_ID', 'EMAIL', 'MOBILE_TEL')
+            ->where('MEM_ID', $mem_id)
+            ->where('BR_NO', $br_no)
+            ->first();
         $deposit_member = DB::connection('mysql_second')->table('BK_H_SAVINGACCOUNT')->where([
             ['MEM_ID', '=', $mem_id],
             ['BR_NO', '=', $br_no],
@@ -156,4 +157,29 @@ class OfficerController extends Controller
         ])->orderBy('LPD_DATE', 'asc')->select('LPD_DATE', 'SUM_SAL', 'LCONT_BAL_AMOUNT', 'LPD_NUM_INST')->get();
         return view('officer/member/loan_details', compact('loan_detail', 'loan_select'));
     }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function credit()
+    {
+        return view('officer/credit/search_credit');
+    }
+
+    public function uploadcredit()
+    {
+        return view('officer/credit/upload_credit');
+    }
+
+    public function searchcredit(Request $request)
+    {
+        $data = DB::table('credit_upload')->select('credit_upload.id_credit', 'credit_upload.mem_id', 'credit_upload.fname', 'credit_upload.lname', 'credit_upload.fullcont_id', 'credit_upload.path', 'credit_upload.name_upload', 'credit_upload.date_upload', 'credit_upload.year', 'branch_name.name_branch', 'credit_type.credit_name')
+            ->where('credit_upload.year', $request->year)
+            ->where('credit_upload.branch_id', $request->branch_id)
+            ->where('credit_upload.credit_id', $request->credit_id)
+            ->join('credit_type', 'credit_type.credit_id', '=', 'credit_upload.credit_id')
+            ->join('branch_name', 'branch_name.branch_id', '=', 'credit_upload.branch_id')
+            ->orderBy('credit_upload.date_upload', 'desc')
+            ->get();
+        return view('officer/credit/list_credit',compact('data'));
+    }
+
 }

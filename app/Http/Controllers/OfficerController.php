@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class OfficerController extends Controller
 {
@@ -169,6 +170,46 @@ class OfficerController extends Controller
         return view('officer/credit/upload_credit');
     }
 
+    public function postcredit(Request $request)
+    {
+        // Validate the uploaded file
+        $request->validate([
+            'file' => 'required|file|mimes:pdf,doc,docx', // Adjust file types as needed
+        ]);
+
+        // Get the uploaded file
+        $uploadedFile = $request->file('file');
+
+        // Generate a hash for the file content
+        $fileContent = file_get_contents($uploadedFile->path());
+        $fileHash = Hash::make($fileContent);
+    
+        // Save the file and hash to your storage or database
+        // $uploadedFile->storeAs('uploads', $uploadedFile->getClientOriginalName());
+
+        // You can save $fileHash to your storage or database for later verification
+
+        // return redirect()->back()->with('success', 'File uploaded successfully.');
+    }
+
+    public function publish()
+    {
+        $data = DB::table('internal_announcement')->select('internal_id', 'title', 'date', 'uploadfile')
+            ->where('type_announcement', 2)
+            ->orderBy('date', 'desc')
+            ->get();
+        return view('officer/publish/publish', compact('data'));
+    }
+
+    public function rules()
+    {
+        return view('officer/rules/rules');
+    }
+    public function order()
+    {
+        return view('officer/order/order');
+    }
+
     public function searchcredit(Request $request)
     {
         $data = DB::table('credit_upload')->select('credit_upload.id_credit', 'credit_upload.mem_id', 'credit_upload.fname', 'credit_upload.lname', 'credit_upload.fullcont_id', 'credit_upload.path', 'credit_upload.name_upload', 'credit_upload.date_upload', 'credit_upload.year', 'branch_name.name_branch', 'credit_type.credit_name')
@@ -179,7 +220,7 @@ class OfficerController extends Controller
             ->join('branch_name', 'branch_name.branch_id', '=', 'credit_upload.branch_id')
             ->orderBy('credit_upload.date_upload', 'desc')
             ->get();
-        return view('officer/credit/list_credit',compact('data'));
+        return view('officer/credit/list_credit', compact('data'));
     }
 
 }

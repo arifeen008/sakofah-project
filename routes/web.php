@@ -50,6 +50,10 @@ Route::get('/loan_details/{code}/{br_no}', [OfficerController::class,'loan_detai
 Route::get('/credit', [OfficerController::class,'credit']);
 Route::post('/searchcredit', [OfficerController::class,'searchcredit']);
 Route::get('/uploadcredit', [OfficerController::class,'uploadcredit']);
+Route::post('/postcredit', [OfficerController::class,'postcredit']);
+Route::get('/publish', [OfficerController::class,'publish']);
+Route::get('/rules', [OfficerController::class,'rules']);
+Route::get('/order', [OfficerController::class,'order']);
 Route::prefix('officer')->group(function () {
 });
 

@@ -1,42 +1,42 @@
 @extends('dashboard')
 @extends('sidebar')
-@section('title', 'ค้นหาสินเชื่อ')
+@section('title', 'อัพโหลดไฟล์สินเชื่อ')
 @section('content')
     <div class="card m-3">
         <div class="card-body">
             <b class="h3 card-title">อัพโหลดไฟล์สินเชื่อ</b>
             <hr>
             <!-- Form -->
-            <form action="/uploadFileCredit" method="post" enctype="multipart/form-data">
+            <form action="/postcredit" method="post" enctype="multipart/form-data">
                 @csrf
                 <!-- Member ID -->
                 <div class="mb-3">
                     <label for="memberID" class="form-label">เลขที่สมาชิก</label>
-                    <input type="text" class="form-control" id="memberID" name="memberID" required>
+                    <input type="text" class="form-control" id="memberID" name="memberID" >
                 </div>
 
                 <!-- First Name -->
                 <div class="mb-3">
                     <label for="firstName" class="form-label">ชื่อ</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                    <input type="text" class="form-control" id="firstName" name="firstName" >
                 </div>
 
                 <!-- Last Name -->
                 <div class="mb-3">
                     <label for="lastName" class="form-label">นามสกุล</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+                    <input type="text" class="form-control" id="lastName" name="lastName" >
                 </div>
 
                 <!-- Contract Number -->
                 <div class="mb-3">
                     <label for="contractNumber" class="form-label">เลขที่สัญญา</label>
-                    <input type="text" class="form-control" id="contractNumber" name="contractNumber" required>
+                    <input type="text" class="form-control" id="contractNumber" name="contractNumber" >
                 </div>
 
                 <!-- Contract Year -->
                 <div class="mb-3">
                     <label for="contractYear" class="form-label">ปีสัญญา</label>
-                    <select class="form-select" id="contractYear" name="contractYear" required>
+                    <select class="form-select" id="contractYear" name="contractYear" >
                         <option value="" disabled selected>เลือกปี</option>
                         <option value="2566">2566</option>
                         <option value="2567">2567</option>
@@ -49,7 +49,7 @@
                 <!-- Branch -->
                 <div class="mb-3">
                     <label for="branch" class="form-label">สาขา</label>
-                    <select class="form-select" id="branch" name="branch" required>
+                    <select class="form-select" id="branch" name="branch">
                         <option value="" disabled selected>เลือกสาขา</option>
                         <option value="000">สำนักงานใหญ่</option>
                         <option value="001">กระบี่</option>
@@ -66,7 +66,7 @@
                 <!-- Contract Type -->
                 <div class="mb-3">
                     <label for="contractType" class="form-label">ประเภทสัญญา</label>
-                    <select class="form-select" id="contractType" name="contractType" required>
+                    <select class="form-select" id="contractType" name="contractType">
                         <option value="" disabled selected>เลือกประเภทสัญญา</option>
                         <option value="1">ฉุกเฉิน</option>
                         <option value="2">สามัญฉุกเฉิน</option>
@@ -81,7 +81,7 @@
                 <!-- File Upload -->
                 <div class="mb-3">
                     <label for="fileUpload" class="form-label">File Upload</label>
-                    <input type="file" class="form-control" id="fileUpload" name="fileUpload" required>
+                    <input type="file" class="form-control" id="fileUpload" name="file">
                 </div>
 
                 <!-- Submit Button -->

@@ -19,38 +19,38 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link link-dark">
-                    <i class="fas fa-credit-card me-3"></i>
+                <a href="/publish" class="nav-link link-dark">
+                    <i class="fas fa-bullhorn me-3"></i>
                     ประกาศภายใน
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link link-dark">
-                    <i class="fas fa-credit-card me-3"></i>
+                <a href="/rules" class="nav-link link-dark">
+                    <i class="fab fa-leanpub me-3"></i>
                     ข้อบังคับสหกรณ์
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link link-dark">
-                    <i class="fas fa-credit-card me-3"></i>
+                <a href="/order" class="nav-link link-dark">
+                    <i class="fas fa-book-open-reader me-3"></i></i>
                     ระเบียบเจ้าหน้าที่
                 </a>
             </li>
             <li>
                 <a href="#" class="nav-link link-dark">
-                    <i class="fas fa-credit-card me-3"></i>
+                    <i class="far fa-clipboard me-3"></i>
                     แบบฟอร์มเจ้าหน้าที่
                 </a>
             </li>
             <li>
                 <a href="#" class="nav-link link-dark">
-                    <i class="fas fa-credit-card me-3"></i>
+                    <i class="fas fa-network-wired me-3"></i>
                     ผลการดำเนินงาน
                 </a>
             </li>
             <li>
                 <a href="/uploadcredit" class="nav-link link-dark">
-                    <i class="fas fa-credit-card me-3"></i>
+                    <i class="fas fa-square-poll-horizontal me-3"></i>
                     อัพโหลดสินเชื่อ
                 </a>
             </li>

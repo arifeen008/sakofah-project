@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="news_type" class="form-label">news_type</label>
+                    <label for="news_type" class="form-label">ประเภทข่าว</label>
                     <select class="form-select" id="news_type" name="news_type">
                         <option value="1">ประชาสัมพันธ์</option>
                         <option value="2">สวัสดิการ</option>
@@ -31,7 +31,7 @@
 
                 <div class="mb-3">
                     <label for="description" class="form-label">รายละเอียด :</label>
-                    <textarea id="editor"  class="form-control" id="description" name="description" rows="4"></textarea>
+                    <textarea id="description"  class="form-control" id="description" name="description" rows="4"></textarea>
                 </div>
 
                 <div class="mb-3">
@@ -51,6 +51,6 @@
 @endsection
 @section('script')
     <script>
-        CKEDITOR.replace('editor');
+        CKEDITOR.replace('description');
     </script>
 @endsection

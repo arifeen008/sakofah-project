@@ -454,9 +454,9 @@ class OfficerController extends Controller
 
     public function upload_news(Request $request)
     {
-        // $request->validate([
-        //     'uploadedFiles.*' => 'required|file|mimes:jpeg,png,jpg,gif|max:2048',
-        // ]);
+        $request->validate([
+            'uploadedFiles.*' => 'required|file|mimes:jpeg,png,jpg,gif',
+        ]);
 
         foreach ($request->file('uploadedFiles') as $file) {
 

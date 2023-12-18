@@ -9,7 +9,7 @@
             <form action="/searchcredit" method="post">
                 @csrf
                 <div class="mb-3">
-                    <label for="year" class="form-label">Year</label>
+                    <label for="year" class="form-label">ปี</label>
                     <select class="form-select" id="year" name="year" required>
                         <option value="" disabled selected>เลือกปี</option>
                         <option value="2566">2566</option>

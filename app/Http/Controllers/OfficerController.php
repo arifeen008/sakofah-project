@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
 class OfficerController extends Controller
 {
@@ -170,28 +169,6 @@ class OfficerController extends Controller
         return view('officer/credit/upload_credit');
     }
 
-    public function postcredit(Request $request)
-    {
-        // Validate the uploaded file
-        $request->validate([
-            'file' => 'required|file|mimes:pdf,doc,docx', // Adjust file types as needed
-        ]);
-
-        // Get the uploaded file
-        $uploadedFile = $request->file('file');
-
-        // Generate a hash for the file content
-        $fileContent = file_get_contents($uploadedFile->path());
-        $fileHash = Hash::make($fileContent);
-    
-        // Save the file and hash to your storage or database
-        // $uploadedFile->storeAs('uploads', $uploadedFile->getClientOriginalName());
-
-        // You can save $fileHash to your storage or database for later verification
-
-        // return redirect()->back()->with('success', 'File uploaded successfully.');
-    }
-
     public function publish()
     {
         $data = DB::table('internal_announcement')->select('internal_id', 'title', 'date', 'uploadfile')
@@ -210,6 +187,206 @@ class OfficerController extends Controller
         return view('officer/order/order');
     }
 
+    public function form()
+    {
+        $data = DB::table('internal_announcement')
+            ->select('internal_id', 'title', 'date', 'uploadfile')
+            ->where('type_announcement', 1)
+            ->orderBy('date', 'DESC')
+            ->get();
+        return view('officer/form/form', compact('data'));
+    }
+
+    public function performance()
+    {
+        $data = DB::table('performance')->get();
+        return view('officer/performance/performance', compact('data'));
+    }
+
+    public function postcredit(Request $request)
+    {
+        $request->validate([
+            'memberID' => 'required',
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'contractNumber' => 'required',
+            'contractYear' => 'required',
+            'branch' => 'required',
+            'contractType' => 'required',
+            'file' => 'required|file|mimes:pdf,doc,docx',
+        ]);
+        $uploadedFile = $request->file('file');
+        $path = 'file/credit_folder/' . $request->contractYear . '/' . $request->branch . '/' . $request->contractType;
+        $hashedFileName = md5($uploadedFile->getClientOriginalName()) . '.' . $uploadedFile->getClientOriginalExtension();
+        if ($uploadedFile->move(public_path($path), $hashedFileName)) {
+            $data = [
+                'mem_id' => $request->memberID,
+                'fname' => $request->firstName,
+                'lname' => $request->lastName,
+                'fullcont_id' => $request->contractNumber,
+                'branch_id' => $request->branch,
+                'credit_id' => $request->contractType,
+                'year' => $request->contractYear,
+                'file_name' => $hashedFileName,
+                'path' => $path,
+                'name_upload' => session('username'),
+                'date_upload' => date('Y-m-d'),
+            ];
+            DB::table('credit_upload')->insert($data);
+            return redirect()->back()->with('success', 'อัพโหลดไฟล์สำเร็จ');
+        } else {
+            return redirect()->back()->with('error', 'อัพโหลดไฟล์ไม่สำเร็จ');
+        }
+
+    }
+    public function creditconsider_process($credit_consider_id)
+    {
+        $data = DB::table('credit_consider_process')->where('credit_consider_process.credit_consider_id', $credit_consider_id)
+            ->join('status_credit', 'status_credit.status_id', '=', 'credit_consider_process.status_id')
+            ->orderByDesc('credit_consider_process.date')->get();
+        return view('officer/credit_consider/credit_consider_process', compact('data'));
+
+    }
+
+    public function credit_consider()
+    {
+        $data = DB::table('credit_consider')
+            ->where('credit_consider.username', session('username'))
+            ->join('status_credit', 'credit_consider.status_id', '=', 'status_credit.status_id')
+            ->join('credit_type', 'credit_consider.loan_id', '=', 'credit_type.credit_id')
+            ->join('branch_name', 'credit_consider.branch_id', '=', 'branch_name.branch_id')
+            ->orderBy('credit_consider.date', 'desc')
+            ->get();
+        return view('officer/credit_consider/credit_consider', compact('data'));
+    }
+
+    public function creditconsider()
+    {
+        switch (session('level_code')) {
+            case 'CC':
+                $status_id = 1;
+                break;
+            case 'CRM':
+                $status_id = 2;
+                break;
+            case 'M':
+                $status_id = 4;
+                break;
+            default:
+                $status_id = 1;
+                break;
+        }
+        $data = DB::table('credit_consider')->where('credit_consider.status_id', $status_id)
+            ->join('branch_name', 'branch_name.branch_id', '=', 'credit_consider.branch_id')
+            ->join('credit_type', 'credit_type.credit_id', '=', 'credit_consider.loan_id')
+            ->join('status_credit', 'status_credit.status_id', '=', 'credit_consider.status_id')
+            ->orderByDesc('credit_consider.date')->get();
+        return view('officer/credit_consider/creditconsider', compact('data'));
+    }
+
+    public function creditconsider_detail($credit_consider_id)
+    {
+        switch (session('level_code')) {
+            case 'CC':
+                $accept = 2;
+                $reject = 3;
+                break;
+            case 'CRM':
+                $accept = 4;
+                $reject = 5;
+                break;
+            case 'M':
+                $accept = 6;
+                $reject = 7;
+                break;
+            default:
+                $accept = 2;
+                $reject = 3;
+                break;
+        }
+        $data = DB::table('credit_consider')->where('credit_consider_id', $credit_consider_id)
+            ->join('branch_name', 'branch_name.branch_id', '=', 'credit_consider.branch_id')
+            ->join('credit_type', 'credit_type.credit_id', '=', 'credit_consider.loan_id')
+            ->first();
+        return view('officer/credit_consider/creditconsider_detail', compact('data', 'accept', 'reject'));
+    }
+
+    public function result_creditconsider(Request $request)
+    {
+        DB::table('credit_consider')->where('credit_consider_id', $request->credit_consider_id)->update([
+            'status_id' => $request->result,
+        ]);
+        $data = [
+            'credit_consider_id' => $request->credit_consider_id,
+            'date' => date('Y-m-d H:i:s'),
+            'status_id' => $request->result,
+        ];
+        DB::table('credit_consider_process')->insert($data);
+        return redirect('/creditconsider')->with('success', 'สำเร็จ');
+    }
+
+    public function uploadcredit_consider()
+    {
+        return view('officer/credit_consider/uploadcredit_consider');
+    }
+
+    public function postcredit_consider(Request $request)
+    {
+        date_default_timezone_set('Asia/Bangkok');
+        $request->validate([
+            'memberID' => 'required|max:5',
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'loanID' => 'required',
+            'loanYear' => 'required',
+            'branch' => 'required',
+            'fileInput' => 'required|file|mimes:pdf',
+        ]);
+        $uploadedFile = $request->file('fileInput');
+        $path = 'file/credit_consider/' . $request->loanYear . '/' . $request->branch . '/' . $request->loanID;
+        $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . '.' . $uploadedFile->getClientOriginalExtension();
+        $status_id = '1';
+        if ($uploadedFile->move(public_path($path), $hashedFileName)) {
+            $data = [
+                'username' => session('username'),
+                'mem_id' => $request->memberID,
+                'fname' => $request->firstName,
+                'lname' => $request->lastName,
+                'loan_year' => $request->loanYear,
+                'branch_id' => $request->branch,
+                'lnumber_id' => null,
+                'loan_id' => $request->loanID,
+                'path' => $path,
+                'file_name' => $hashedFileName,
+                'status_id' => $status_id,
+                'date' => date('Y-m-d H:i:s'),
+                'note' => null,
+            ];
+            $return_id = DB::table('credit_consider')->insertGetId($data);
+            $code_loan = array('', 'ฉ.', 'สฉ.', 'ส.', 'พ.', 'พค.', 'คส.', 'จท.');
+            DB::table('credit_consider')->where('credit_consider_id', $return_id)->update(['lnumber_id' => $code_loan[$request->loanID] . str_pad($return_id, 7, '0', STR_PAD_LEFT) . '/' . $request->loanYear]);
+            $data_process = [
+                'credit_consider_id' => $return_id,
+                'date' => date('Y-m-d H:i:s'),
+                'status_id' => $status_id,
+            ];
+            DB::table('credit_consider_process')->insert($data_process);
+            return redirect('/credit_consider')->with('success', 'อัพโหลดไฟล์สำเร็จ');
+        } else {
+            return redirect()->back()->with('error', 'อัพโหลดไฟล์ไม่สำเร็จ');
+        }
+    }
+
+    public function report_creditconsider()
+    {
+        $data = DB::table('credit_consider')
+            ->join('branch_name', 'branch_name.branch_id', '=', 'credit_consider.branch_id')
+            ->join('credit_type', 'credit_type.credit_id', '=', 'credit_consider.loan_id')
+            ->join('status_credit', 'status_credit.status_id', '=', 'credit_consider.status_id')
+            ->get();
+        return view('officer/credit_consider/report_creditconsider', compact('data'));
+    }
+
     public function searchcredit(Request $request)
     {
         $data = DB::table('credit_upload')->select('credit_upload.id_credit', 'credit_upload.mem_id', 'credit_upload.fname', 'credit_upload.lname', 'credit_upload.fullcont_id', 'credit_upload.path', 'credit_upload.name_upload', 'credit_upload.date_upload', 'credit_upload.year', 'branch_name.name_branch', 'credit_type.credit_name')
@@ -223,4 +400,73 @@ class OfficerController extends Controller
         return view('officer/credit/list_credit', compact('data'));
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public function admin_creditconsider()
+    {
+        $data = DB::table('status_credit')->get();
+        return view('officer/admin/admin_creditconsider', compact('data'));
+    }
+
+    public function status_form_add()
+    {
+        return view('officer/admin/status_form_add');
+    }
+
+    public function add_status(Request $request)
+    {
+        DB::table('status_credit')->insert([
+            'status_name' => $request->status_name]);
+        return redirect()->back()->with('success', 'เพิ่มสำเร็จ');
+    }
+
+    public function status_form_edit($status_id)
+    {
+        $data = DB::table('status_credit')->where('status_id', $status_id)->first();
+        return view('officer/admin/status_form_edit', compact('data'));
+    }
+
+    public function update_status(Request $request)
+    {
+        DB::table('status_credit')->where('status_id', $request->status_id)->update([
+            'status_name' => $request->status_name]);
+        return redirect('/admin_creditconsider')->with('success', 'แก้ไขสำเร็จ');
+    }
+
+    public function status_form_delete($status_id)
+    {
+        DB::table('status_credit')->where('status_id', $status_id)->delete();
+        return redirect()->back()->with('success', 'ลบสำเร็จ');
+    }
+
+    public function news_upload()
+    {
+        $data = DB::table('news')
+            ->join('news_type', 'news_type.news_typeid', '=', 'news.news_typeid')
+            ->get();
+        return view('officer/news_upload/news', compact('data'));
+    }
+
+    public function add_news()
+    {
+        return view('officer/news_upload/add_news');
+    }
+
+    public function upload_news(Request $request)
+    {
+        $request->validate([
+            'uploadedFiles.*' => 'required|file|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        dd($request->all());
+        foreach ($request->file('uploadedFiles') as $file) {
+
+            $hashedFileName = sha1($file->getClientOriginalName()) . '.' . $file->getClientOriginalExtension();
+            dd($file);
+
+            $file->move(public_path('uploads/'), $hashedFileName);
+        }
+
+        return redirect()->back()->with('success', 'Files uploaded successfully.');
+    }
 }

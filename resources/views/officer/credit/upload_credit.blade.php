@@ -6,37 +6,28 @@
         <div class="card-body">
             <b class="h3 card-title">อัพโหลดไฟล์สินเชื่อ</b>
             <hr>
-            <!-- Form -->
             <form action="/postcredit" method="post" enctype="multipart/form-data">
                 @csrf
-                <!-- Member ID -->
                 <div class="mb-3">
                     <label for="memberID" class="form-label">เลขที่สมาชิก</label>
-                    <input type="text" class="form-control" id="memberID" name="memberID" >
+                    <input type="text" class="form-control" id="memberID" name="memberID">
                 </div>
-
-                <!-- First Name -->
                 <div class="mb-3">
                     <label for="firstName" class="form-label">ชื่อ</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName" >
+                    <input type="text" class="form-control" id="firstName" name="firstName">
                 </div>
-
-                <!-- Last Name -->
                 <div class="mb-3">
                     <label for="lastName" class="form-label">นามสกุล</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" >
+                    <input type="text" class="form-control" id="lastName" name="lastName">
                 </div>
-
-                <!-- Contract Number -->
                 <div class="mb-3">
                     <label for="contractNumber" class="form-label">เลขที่สัญญา</label>
-                    <input type="text" class="form-control" id="contractNumber" name="contractNumber" >
+                    <input type="text" class="form-control" id="contractNumber" name="contractNumber"
+                        placeholder="ตัวอย่าง ฉ.0000001/2566">
                 </div>
-
-                <!-- Contract Year -->
                 <div class="mb-3">
                     <label for="contractYear" class="form-label">ปีสัญญา</label>
-                    <select class="form-select" id="contractYear" name="contractYear" >
+                    <select class="form-select" id="contractYear" name="contractYear">
                         <option value="" disabled selected>เลือกปี</option>
                         <option value="2566">2566</option>
                         <option value="2567">2567</option>
@@ -45,8 +36,6 @@
                         <option value="2570">2570</option>
                     </select>
                 </div>
-
-                <!-- Branch -->
                 <div class="mb-3">
                     <label for="branch" class="form-label">สาขา</label>
                     <select class="form-select" id="branch" name="branch">
@@ -62,8 +51,6 @@
                         <option value="008">เกาะลันตา</option>
                     </select>
                 </div>
-
-                <!-- Contract Type -->
                 <div class="mb-3">
                     <label for="contractType" class="form-label">ประเภทสัญญา</label>
                     <select class="form-select" id="contractType" name="contractType">
@@ -77,16 +64,32 @@
                         <option value="7">สวัสดิการเจ้าหน้าที่</option>
                     </select>
                 </div>
-
-                <!-- File Upload -->
                 <div class="mb-3">
                     <label for="fileUpload" class="form-label">File Upload</label>
                     <input type="file" class="form-control" id="fileUpload" name="file">
                 </div>
-
-                <!-- Submit Button -->
                 <button type="submit" class="btn btn-primary">อัพโหลด</button>
             </form>
         </div>
     </div>
+@endsection
+@section('script')
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                title: "Good job!",
+                text: "{{ session('success') }}",
+                icon: "success"
+            });
+        </script>
+    @endif
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                title: "Oops...",
+                text: "{{ session('error') }}",
+                icon: "error"
+            });
+        </script>
+    @endif
 @endsection

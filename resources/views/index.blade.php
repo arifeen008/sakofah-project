@@ -170,7 +170,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="row" style="font-family: 'Sarabun';">
+            <div class="row">
                 <div class="col-md-9">
                     <div class="card mt-2">
                         <p class="text-dark border-bottom border-info mx-2 mt-2"
@@ -208,42 +208,42 @@
                         <a target="_blank" class="hover-shadow" href="https://shorturl.asia/IKm8k">
                             <img class="rounded mx-auto d-block" width="120" height="120"
                                 src="{{ url('picture/ตรากรมที่ดิน.png') }}">
-                            <p class="text-center text-primary" style="font-family: 'Sarabun';">a</p>
+                            <p class="text-center text-primary">กรมที่ดิน</p>
                         </a>
                     </div>
                     <div class="card mb-2">
                         <a target="_blank" class="hover-shadow" href="https://shorturl.asia/VpM47">
                             <img class="rounded mx-auto d-block" width="120" height="120"
                                 src="{{ url('picture/กระทรวงเกษตรและสหกรณ์.png') }}">
-                            <p class="text-center text-primary" style="font-family: 'Sarabun';">a</p>
+                            <p class="text-center text-primary">กระทรวงเกษตรและสหกรณ์</p>
                         </a>
                     </div>
                     <div class="card mb-2">
                         <a target="_blank" class="hover-shadow" href="https://shorturl.asia/PRMAt">
                             <img class="rounded mx-auto d-block" width="120" height="120"
                                 src="{{ url('picture/img_fd06b99e276ab69db92a5bae61228dc2.png') }}">
-                            <p class="text-center text-primary" style="font-family: 'Sarabun';">a</p>
+                            <p class="text-center text-primary">กรมตรวจบัญชีสหกรณ์กระบี่</p>
                         </a>
                     </div>
                     <div class="card mb-2">
                         <a target="_blank" class="hover-shadow" href="https://shorturl.asia/SCMmA">
                             <img class="rounded mx-auto d-block" width="120" height="120"
                                 src="{{ url('picture/ตราสำนักงานสหกรณ์จังหวัดกระบี่.jpg') }}">
-                            <p class="text-center text-primary" style="font-family: 'Sarabun';">a</p>
+                            <p class="text-center text-primary">สำนักงานสหกรณ์จังหวัดกระบี่</p>
                         </a>
                     </div>
                     <div class="card mb-2">
                         <a target="_blank" class="hover-shadow" href="https://shorturl.asia/g56qA">
                             <img class="rounded mx-auto d-block" width="120" height="120"
                                 src="{{ url('picture/img_12b077835cddf4f35d3a3c285545a815.jpg') }}">
-                            <p class="text-center text-primary" style="font-family: 'Sarabun';">a</p>
+                            <p class="text-center text-primary">กระทรวงแรงงาน</p>
                         </a>
                     </div>
                     <div class="card mb-2">
                         <a target="_blank" class="hover-shadow" href="https://shorturl.asia/uE52O">
                             <img class="rounded mx-auto d-block" width="120" height="120"
                                 src="{{ url('picture/กรมส่งเสริมสหกรณ์.png') }}">
-                            <p class="text-center text-primary" style="font-family: 'Sarabun';">a</p>
+                            <p class="text-center text-primary">กรมส่งเสริมสหกรณ์</p>
                         </a>
                     </div>
                 </div>

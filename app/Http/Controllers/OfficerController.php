@@ -454,19 +454,16 @@ class OfficerController extends Controller
 
     public function upload_news(Request $request)
     {
-        $request->validate([
-            'uploadedFiles.*' => 'required|file|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+        // $request->validate([
+        //     'uploadedFiles.*' => 'required|file|mimes:jpeg,png,jpg,gif|max:2048',
+        // ]);
 
-        dd($request->all());
         foreach ($request->file('uploadedFiles') as $file) {
 
             $hashedFileName = sha1($file->getClientOriginalName()) . '.' . $file->getClientOriginalExtension();
-            dd($file);
-
             $file->move(public_path('uploads/'), $hashedFileName);
         }
 
-        return redirect()->back()->with('success', 'Files uploaded successfully.');
+        return redirect('/news_upload')->with('success', 'Files uploaded successfully.');
     }
 }

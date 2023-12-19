@@ -13,10 +13,28 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img src="{{ url('picture/logo-web1.jpg') }}"></a>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars text-dark"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+                {{-- <span class="navbar-text">
+                    <div class="d-inline-flex p-1 text-dark">ภาษา</div>
+                    <a href="?lang=th" class="btn btn-outline-success mx-2" data-mdb-ripple-color="primary">TH</a>
+                    <a href="?lang=en" class="btn btn-outline-success mx-2" data-mdb-ripple-color="primary">EN</a>
+                </span> --}}
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #25d321;">
         <div class="container">
             <a class="navbar-brand me-2" href="/">
-                <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="16"
+                <img src="{{ url('picture/sakofag-logo.png') }}" height="25"
                     alt="MDB Logo" loading="lazy" style="margin-top: -1px;" />
             </a>
             <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarButtonsExample"

@@ -6,12 +6,12 @@
         <div class="card-body">
             <b class="h3 card-title">แบบฟอร์มฝ่ายบุคคล</b>
             <hr>
-            <table id="datatable">
-                <thead>
+            <table id="datatable" class="table">
+                <thead class="text-center">
                     <tr>
-                        <th class="text-center">ประกาศ</th>
-                        <th class="text-center">วันที่</th>
-                        <th class="text-center">ดาวน์โหลด</th>
+                        <th>ประกาศ</th>
+                        <th>วันที่</th>
+                        <th>ดาวน์โหลด</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,7 +19,12 @@
                         <tr>
                             <td>{{ $item->title }} </td>
                             <td class="text-center">{{ thaidate('j M Y ', $item->date) }} </td>
-                            <td class="text-center"><a href="{{ url('file/inside_publish/' . $item->uploadfile) }}"target="_blank" class="btn btn-outline-success" data-mdb-ripple-color="success"><i class="fas fa-download"></i></td>
+                            <td class="text-center">
+                                <a href="file/inside_publish/{{ $item->uploadfile }}" target="_blank"
+                                    class="btn btn-outline-success">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

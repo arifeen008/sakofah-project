@@ -7,7 +7,7 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a href="/member" class="nav-link" aria-current="page">
+                <a href="/member" class="nav-link link-dark" aria-current="page">
                     <i class="fas fa-fingerprint me-3"></i>
                     ค้นหาสมาชิก
                 </a>

@@ -215,7 +215,25 @@ class OfficerController extends Controller
 
     public function update_publish(Request $request)
     {
-
+        $request->validate([
+            'internal_id' => 'required',
+            'title' => 'required',
+            'date' => 'required',
+            'type_announcement' => 'required',
+            'uploadFile' => 'required',
+        ]);
+        $uploadedFile = $request->file('uploadFile');
+        $path = 'file/inside_publish/';
+        $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . '.' . $uploadedFile->getClientOriginalExtension();
+        $file = DB::table('internal_announcement')->where('internal_id', $request->internal_id)->select('uploadfile')->first();
+        if (unlink($path . $file->uploadfile) && $uploadedFile->move(public_path($path), $hashedFileName)) {
+            DB::table('internal_announcement')->insert([
+                'title' => $request->title,
+                'date' => $request->date,
+                'type_announcement' => $request->type_announcement,
+                'uploadfile' => $hashedFileName,
+            ]);
+        }
     }
 
     public function delete_publish($internal_id)
@@ -224,11 +242,10 @@ class OfficerController extends Controller
         if (unlink('file/inside_publish/' . $file->uploadfile)) {
             DB::table('internal_announcement')->where('internal_id', $internal_id)->delete();
             return redirect()->back()->with('success', 'Delete this publish success');
+        } else {
+            return redirect()->back()->with('error', 'Cannot delete this publish');
         }
-        else{
-            return redirect()->back()->with('error','Cannot delete this publish');
-        }
-        
+
     }
 
     public function rules()

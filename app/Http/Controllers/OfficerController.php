@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class OfficerController extends Controller
@@ -38,10 +39,11 @@ class OfficerController extends Controller
 
     public function logout(Request $request)
     {
-        $request->session()->forget('user_id');
-        $request->session()->forget('username');
-        $request->session()->forget('br_no');
-        $request->session()->forget('level_code');
+        // $request->session()->forget('user_id');
+        // $request->session()->forget('username');
+        // $request->session()->forget('br_no');
+        // $request->session()->forget('level_code');
+        Auth::logout();
         return redirect('/');
     }
 
@@ -442,7 +444,7 @@ class OfficerController extends Controller
     public function news_upload()
     {
         $data = DB::table('news')
-            ->join('news_type', 'news_type.news_typeid', '=', 'news.news_typeid')
+            ->join('news_type', 'news_type.news_typeid', '=', 'news.news_typeid')->orderByDesc('dateupload')
             ->get();
         return view('officer/news_upload/news', compact('data'));
     }
@@ -455,15 +457,67 @@ class OfficerController extends Controller
     public function upload_news(Request $request)
     {
         $request->validate([
+            'title' => 'required',
+            'news_type' => 'required',
+            'date' => 'required',
+            'description' => 'required',
+            'coverImage' => 'required|file|mimes:jpeg,png,jpg,gif',
             'uploadedFiles.*' => 'required|file|mimes:jpeg,png,jpg,gif',
         ]);
 
+        do {
+            $news_number = mt_rand(1, 10000);
+            $data = DB::table('news')->where('news_number', $news_number)->first();
+        } while ($data != null);
         foreach ($request->file('uploadedFiles') as $file) {
-
             $hashedFileName = sha1($file->getClientOriginalName()) . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads/'), $hashedFileName);
+            DB::table('picture')->insert([
+                'news_number' => $news_number,
+                'picture_name' => $hashedFileName,
+            ]);
         }
 
-        return redirect('/news_upload')->with('success', 'Files uploaded successfully.');
+        DB::table('news')->insert([
+            'news_number' => $news_number,
+            'title' => $request->title,
+            'news_typeid' => $request->news_type,
+            'dateupload' => $request->date,
+            'description' => $request->description,
+            'path' => 'uploads/',
+            'picture_name' => $hashedFileName = sha1($request->coverImage->getClientOriginalName()) . '.' . $request->coverImage->getClientOriginalExtension(),
+        ]);
+
+        return redirect('/news_upload')->with('success', 'News uploaded successfully.');
     }
+
+    public function edit_news($news_number)
+    {
+        $news = DB::table('news')->where('news_number', $news_number)->first();
+        // dd($news);
+        return view('officer/news_upload/edit_news', compact('news'));
+    }
+
+    public function update_news(Request $request)
+    {
+        DB::table('news')->where('news_number', $request->news_number)->update([
+            'title' => $request->title,
+            'news_typeid' => $request->news_type,
+            'dateupload' => $request->date,
+            'description' => $request->description,
+        ]);
+        return redirect('/news_upload')->with('success', 'แก้ไขข่าวเสร๊จสิ้น.');
+    }
+
+    public function delete_news($news_number)
+    {
+        $picture_name = DB::table('picture')->where('news_number', $news_number)->select('picture_name')->get();
+        foreach ($picture_name as $item) {
+            unlink('uploads/' . $item->picture_name);
+        }
+        DB::table('news')->where('news_number', $news_number)->delete();
+        DB::table('picture')->where('news_number', $news_number)->delete();
+        return redirect()->back()->with('success', 'Delete Success');
+    }
+
 }

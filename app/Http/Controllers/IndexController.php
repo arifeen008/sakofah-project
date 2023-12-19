@@ -76,7 +76,7 @@ class IndexController extends Controller
 
     public function activity()
     {
-        $news = DB::table('news')->join('picture_cover', 'picture_cover.news_number', '=', 'news.news_number')->select('news.news_number', 'news.title', 'picture_cover.picture_name', 'news.dateupload')->paginate(20);
+        $news = DB::table('news')->orderByDesc('dateupload')->paginate(20);
         return view('main/news/activity', compact('news'));
     }
 

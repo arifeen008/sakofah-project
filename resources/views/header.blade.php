@@ -102,9 +102,9 @@
                         <li>
                             <a class="dropdown-item" href="/vacantList">ที่ดินเปล่า</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a class="dropdown-item" href="/condoList">คอนโด</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

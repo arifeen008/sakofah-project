@@ -84,7 +84,7 @@ class IndexController extends Controller
     {
         $image_news = DB::table('picture')->where('news_number', $id)->get();
         $news = DB::table('news')->where('news_number', $id)->get()->first();
-        $side_news = DB::table('news')->orderByDesc('news.dateupload')->join('picture_cover', 'picture_cover.news_number', '=', 'news.news_number')->where('news.news_number', '!=', $id)->select('news.news_number', 'news.title', 'picture_cover.picture_name', 'news.dateupload')->limit(5)->get();
+        $side_news = DB::table('news')->orderByDesc('dateupload')->where('news_number', '!=', $id)->limit(5)->get();
         return view('main/news/news', compact('image_news', 'news', 'side_news'));
     }
 
@@ -108,6 +108,27 @@ class IndexController extends Controller
         $asset = DB::table('asset')->where('asset.asset_type', '3')->paginate(10);
         return view('main/asset/condoList', compact('asset'));
     }
+
+    public function home($asset_number)
+    {
+        $image = DB::table('asset_picture')->where('asset_number', $asset_number)->get();
+        $detail = DB::table('asset')->where('asset_number', $asset_number)->first();
+        return view('main/asset/home', compact('image', 'detail'));
+    }
+
+    public function vacant($asset_number)
+    {
+        $image = DB::table('asset_picture')->where('asset_number', $asset_number)->get();
+        $detail = DB::table('asset')->where('asset_number', $asset_number)->first();
+        return view('main/asset/vacant', compact('image', 'detail'));
+    }
+
+    public function condo($asset_number)
+    {
+        $image = DB::table('asset_picture')->where('asset_number', $asset_number)->get();
+        $detail = DB::table('asset')->where('asset_number', $asset_number)->first();
+        return view('main/asset/condo', compact('image', 'detail'));
+    }
     public function document()
     {
         return view('main/download/document');
@@ -122,5 +143,4 @@ class IndexController extends Controller
         return view('main/contact/withus');
     }
 
-    
 }

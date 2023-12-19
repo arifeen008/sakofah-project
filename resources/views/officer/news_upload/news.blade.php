@@ -28,18 +28,16 @@
                             <td class="text-center"><a href="/edit_news/{{ $item->news_number }}"
                                     class="btn btn-warning me-3"><i class="fas fa-pen"></i></a></td>
                             <td class="text-center">
-                                <a href="/delete_news/{{ $item->news_number }}" onclick="confirm('Wnat to delete this news ?')"
-                                    class="delete-file btn btn-danger me-3"><i class="far fa-trash-alt"></i></a>
+                                <a href="/delete_news/{{ $item->news_number }}" class="delete btn btn-danger me-3"><i
+                                        class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     @endforeach
-                </tbody>
             </table>
         </div>
     </div>
 @endsection
 @section('script')
-
     <script>
         $(document).ready(function() {
             $('#datatable').DataTable();
@@ -54,4 +52,23 @@
             });
         </script>
     @endif
+    <script>
+        $('.delete').on('click', function(e) {
+            e.preventDefault();
+            const href = $(this).attr('href');
+            Swal.fire({
+                title: 'ต้องการลบหรือไม่',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'ลบ',
+                denyButtonText: 'ยกเลิก',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.location.href = href;
+                } else if (result.isDenied) {
+                    Swal.fire('ยกเลิก', '', 'info')
+                }
+            })
+        })
+    </script>
 @endsection

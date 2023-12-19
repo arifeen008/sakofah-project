@@ -34,8 +34,8 @@
     <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #25d321;">
         <div class="container">
             <a class="navbar-brand me-2" href="/">
-                <img src="{{ url('picture/sakofag-logo.png') }}" height="25"
-                    alt="MDB Logo" loading="lazy" style="margin-top: -1px;" />
+                <img src="{{ url('picture/sakofag-logo.png') }}" height="25" alt="MDB Logo" loading="lazy"
+                    style="margin-top: -1px;" />
             </a>
             <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarButtonsExample"
                 aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
@@ -177,16 +177,56 @@
             </div>
         </div>
     </nav>
+
     @yield('content')
     <footer class="text-lg-start py-2" style="background-color: #25d321;">
         <div class="container">
             <div class="d-flex justify-content-between">
                 <div></div>
-                <a href="/login" class="btn btn-success me-3"><i class="fas fa-key me-3"></i>เข้าสู่ระบบ</a>
+                {{-- <a href="/login" class="btn btn-success me-3"><i class="fas fa-key me-3"></i>เข้าสู่ระบบ</a> --}}
             </div>
         </div>
     </footer>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mdb-ui-kit/js/mdb.min.js"></script>
 </body>
 
 </html>
+
+
+{{-- <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #25d321;">
+    <div class="container">
+        <a class="navbar-brand me-2" href="/">
+            <img src="{{ url('picture/sakofag-logo.png') }}" height="25" alt="MDB Logo" loading="lazy"
+                style="margin-top: -1px;" />
+        </a>
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarButtonsExample"
+            aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- ... Other menu items ... -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-mdb-toggle="dropdown"
+                        aria-expanded="false">
+                        เกี่ยวกับเรา
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                        <li><a class="dropdown-item" href="/history">ประวัติความเป็นมา</a></li>
+                        <li><a class="dropdown-item" href="/vision">วิสัยทัศน์ พันธกิจ วัตถุประสงค์</a></li>
+                        <!-- Add more about us dropdown items as needed -->
+                    </ul>
+                </li>
+                <!-- ... Repeat the same structure for other dropdowns ... -->
+            </ul>
+            <div class="d-flex align-items-center">
+                <a data-mdb-ripple-init href="/login" class="btn btn-link px-3 me-2">
+                    เข้าสู่ระบบ
+                </a>
+            </div>
+        </div>
+    </div>
+</nav> --}}

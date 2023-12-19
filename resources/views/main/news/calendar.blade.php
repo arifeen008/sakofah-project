@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'ปฏิทินสหกรณ์ |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'ปฏิทินสหกรณ์ | สหกรณ์อิสลามษะกอฟะฮ จำกัด')
 @section('content')
     <style>
         .nav-pills .nav-link.active {
@@ -7,7 +7,7 @@
         }
     </style>
     <img src="{{ url('picture/cover.jpg') }}" class="mb-2" style="width: 100%;">
-    <div class="container my-2">
+    {{-- <div class="container my-2">
         <div class="row">
             <div class="col-md-3">
                 <div class="nav flex-column nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -78,6 +78,47 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+
+
+    <div class="container my-2">
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="nav nav-pills flex-column text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    @for ($i = 1; $i <= 12; $i++)
+                        @php
+                            $month = str_pad($i, 2, '0', STR_PAD_LEFT); // Ensure two-digit month format
+                            $isActive = date('m') == $month ? 'active' : '';
+                        @endphp
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link {{ $isActive }}" id="v-pills-{{ $i }}-tab"
+                                data-mdb-toggle="pill" href="#v-pills-{{ $i }}" role="tab"
+                                aria-controls="{{ $i }}" aria-selected="{{ $isActive ? 'true' : 'false' }}">
+                                {{ DateTime::createFromFormat('!m', $i)->format('F') }}
+                            </a>
+                        </li>
+                    @endfor
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <div class="tab-content" id="v-pills-tabContent">
+                    @for ($i = 1; $i <= 12; $i++)
+                        @php
+                            $month = str_pad($i, 2, '0', STR_PAD_LEFT);
+                            $isActive = date('m') == $month ? 'show active' : '';
+                            $imagePath = asset("picture/cal_m{$month}.jpg");
+                        @endphp
+                        <div class="tab-pane fade {{ $isActive }}" id="v-pills-{{ $i }}" role="tabpanel"
+                            aria-labelledby="v-pills-{{ $i }}-tab">
+                            <img src="{{ $imagePath }}" class="mb-2" style="width: 100%;">
+                        </div>
+                    @endfor
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
 
 @endsection

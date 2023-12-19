@@ -175,9 +175,60 @@ class OfficerController extends Controller
     {
         $data = DB::table('internal_announcement')->select('internal_id', 'title', 'date', 'uploadfile')
             ->where('type_announcement', 2)
-            ->orderBy('date', 'desc')
+            ->orderByDesc('date')
             ->get();
         return view('officer/publish/publish', compact('data'));
+    }
+
+    public function upload_publish()
+    {
+        return view('officer/publish/upload_publish');
+    }
+
+    public function add_publish(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'type_announcement' => 'required',
+            'uploadFile' => 'required',
+        ]);
+        $uploadedFile = $request->file('uploadFile');
+        $path = 'file/inside_publish/';
+        $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . '.' . $uploadedFile->getClientOriginalExtension();
+        if ($uploadedFile->move(public_path($path), $hashedFileName)) {
+            DB::table('internal_announcement')->insert([
+                'title' => $request->title,
+                'date' => $request->date,
+                'type_announcement' => $request->type_announcement,
+                'uploadfile' => $hashedFileName,
+            ]);
+        }
+        return redirect()->back()->with('success', 'อัพโหลดประกาศเสร็จสิ้น');
+    }
+
+    public function edit_publish()
+    {
+        $data = DB::table('internal_announcement')->get();
+        return view('officer/publish/edit_publish', compact('data'));
+    }
+
+    public function update_publish(Request $request)
+    {
+
+    }
+
+    public function delete_publish($internal_id)
+    {
+        $file = DB::table('internal_announcement')->where('internal_id', $internal_id)->select('uploadfile')->first();
+        if (unlink('file/inside_publish/' . $file->uploadfile)) {
+            DB::table('internal_announcement')->where('internal_id', $internal_id)->delete();
+            return redirect()->back()->with('success', 'Delete this publish success');
+        }
+        else{
+            return redirect()->back()->with('error','Cannot delete this publish');
+        }
+        
     }
 
     public function rules()
@@ -347,7 +398,6 @@ class OfficerController extends Controller
         $uploadedFile = $request->file('fileInput');
         $path = 'file/credit_consider/' . $request->loanYear . '/' . $request->branch . '/' . $request->loanID;
         $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . '.' . $uploadedFile->getClientOriginalExtension();
-        $status_id = '1';
         if ($uploadedFile->move(public_path($path), $hashedFileName)) {
             $data = [
                 'username' => session('username'),
@@ -360,7 +410,7 @@ class OfficerController extends Controller
                 'loan_id' => $request->loanID,
                 'path' => $path,
                 'file_name' => $hashedFileName,
-                'status_id' => $status_id,
+                'status_id' => '1',
                 'date' => date('Y-m-d H:i:s'),
                 'note' => null,
             ];
@@ -370,7 +420,7 @@ class OfficerController extends Controller
             $data_process = [
                 'credit_consider_id' => $return_id,
                 'date' => date('Y-m-d H:i:s'),
-                'status_id' => $status_id,
+                'status_id' => '1',
             ];
             DB::table('credit_consider_process')->insert($data_process);
             return redirect('/credit_consider')->with('success', 'อัพโหลดไฟล์สำเร็จ');
@@ -485,7 +535,7 @@ class OfficerController extends Controller
             'dateupload' => $request->date,
             'description' => $request->description,
             'path' => 'uploads/',
-            'picture_name' => $hashedFileName = sha1($request->coverImage->getClientOriginalName()) . '.' . $request->coverImage->getClientOriginalExtension(),
+            'picture_name' => sha1($request->coverImage->getClientOriginalName()) . '.' . $request->coverImage->getClientOriginalExtension(),
         ]);
 
         return redirect('/news_upload')->with('success', 'News uploaded successfully.');
@@ -494,7 +544,6 @@ class OfficerController extends Controller
     public function edit_news($news_number)
     {
         $news = DB::table('news')->where('news_number', $news_number)->first();
-        // dd($news);
         return view('officer/news_upload/edit_news', compact('news'));
     }
 

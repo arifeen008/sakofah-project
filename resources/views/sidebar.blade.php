@@ -131,13 +131,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link link-dark">
+                    <a href="/upload_publish" class="nav-link link-dark">
                         <i class="fas fa-credit-card me-3"></i>
                         อัพโหลดประกาศ
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link link-dark">
+                    <a href="/edit_publish" class="nav-link link-dark">
                         <i class="fas fa-credit-card me-3"></i>
                         แก้ไขประกาศ
                     </a>

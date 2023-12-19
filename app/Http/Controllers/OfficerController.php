@@ -17,6 +17,7 @@ class OfficerController extends Controller
     }
     public function loginPost(Request $request)
     {
+        date_default_timezone_set('Asia/Bangkok');
         $request->validate([
             'user_id' => 'required',
             'password' => 'required',
@@ -31,8 +32,22 @@ class OfficerController extends Controller
             $request->session()->put('username', $data->USER_NAME);
             $request->session()->put('br_no', $data->BR_NO);
             $request->session()->put('level_code', $data->LEVEL_CODE);
+            $userAgent = $request->header('User-Agent');
+            $agent = new \Jenssegers\Agent\Agent();
+            $agent->setUserAgent($userAgent);
+            DB::table('signin_history')->insert([
+                'user_id' => $data->USER_ID,
+                'branch_id' => $data->BR_NO,
+                'user_name' => $data->USER_NAME,
+                'login_time' => date('Y-m-d H:i:s'),
+                'ip_address' => $request->ip(),
+                'browser' => $agent->browser(),
+                'version' => $agent->version($agent->browser()),
+                'platform' => $agent->platform(),
+            ]);
             return view('officer/member/searchMember');
         }
+
         return redirect()->back()->withErrors(['user_id' => 'Invalid credentials']);
 
     }
@@ -213,28 +228,28 @@ class OfficerController extends Controller
         return view('officer/publish/edit_publish', compact('data'));
     }
 
-    public function update_publish(Request $request)
-    {
-        $request->validate([
-            'internal_id' => 'required',
-            'title' => 'required',
-            'date' => 'required',
-            'type_announcement' => 'required',
-            'uploadFile' => 'required',
-        ]);
-        $uploadedFile = $request->file('uploadFile');
-        $path = 'file/inside_publish/';
-        $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . '.' . $uploadedFile->getClientOriginalExtension();
-        $file = DB::table('internal_announcement')->where('internal_id', $request->internal_id)->select('uploadfile')->first();
-        if (unlink($path . $file->uploadfile) && $uploadedFile->move(public_path($path), $hashedFileName)) {
-            DB::table('internal_announcement')->insert([
-                'title' => $request->title,
-                'date' => $request->date,
-                'type_announcement' => $request->type_announcement,
-                'uploadfile' => $hashedFileName,
-            ]);
-        }
-    }
+    // public function update_publish(Request $request)
+    // {
+    //     $request->validate([
+    //         'internal_id' => 'required',
+    //         'title' => 'required',
+    //         'date' => 'required',
+    //         'type_announcement' => 'required',
+    //         'uploadFile' => 'required',
+    //     ]);
+    //     $uploadedFile = $request->file('uploadFile');
+    //     $path = 'file/inside_publish/';
+    //     $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . '.' . $uploadedFile->getClientOriginalExtension();
+    //     $file = DB::table('internal_announcement')->where('internal_id', $request->internal_id)->select('uploadfile')->first();
+    //     if (unlink($path . $file->uploadfile) && $uploadedFile->move(public_path($path), $hashedFileName)) {
+    //         DB::table('internal_announcement')->insert([
+    //             'title' => $request->title,
+    //             'date' => $request->date,
+    //             'type_announcement' => $request->type_announcement,
+    //             'uploadfile' => $hashedFileName,
+    //         ]);
+    //     }
+    // }
 
     public function delete_publish($internal_id)
     {

@@ -90,5 +90,3 @@ Route::get('/delete_news/{news_number}', [OfficerController::class, 'delete_news
 // });
 
 // Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

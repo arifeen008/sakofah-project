@@ -408,15 +408,15 @@ class OfficerController extends Controller
     public function postcredit_consider(Request $request)
     {
         date_default_timezone_set('Asia/Bangkok');
-        // $request->validate([
-        //     'mem_id' => 'required|max:5',
-        //     'firstname' => 'required',
-        //     'lastname' => 'required',
-        //     'loan_type' => 'required',
-        //     'loan_year' => 'required',
-        //     'branch' => 'required',
-        //     'fileInput' => 'required|file|mimes:pdf',
-        // ]);
+        $request->validate([
+            'mem_id' => 'required|max:5',
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'loan_type' => 'required',
+            'loan_year' => 'required',
+            'branch' => 'required',
+            'fileInput' => 'required|file|mimes:pdf',
+        ]);
         $uploadedFile = $request->file('fileInput');
         $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . time() . '.' . $uploadedFile->getClientOriginalExtension();
         $name_loan = array('', 'ฉุกเฉิน', 'สามัญฉุกเฉิน', 'สามัญ', 'พิเศษ', 'พิเศษโครงการ', 'โครงการสินทรัพย์', 'สวัสดิการเจ้าหน้าที่');
@@ -430,13 +430,13 @@ class OfficerController extends Controller
                 'loan_year' => $request->loan_year,
                 'branch_name' => $request->branch,
                 'lnumber_id' => null,
-                'loan_type' => $name_loan[$request->loantype],
+                'loan_type' => $name_loan[$request->loan_type],
                 'file_name' => $hashedFileName,
                 'status_id' => '1',
                 'date' => date('Y-m-d H:i:s'),
                 'note' => null,
             ]);
-            DB::table('credit_consider')->where('credit_consider_id', $return_id)->update(['lnumber_id' => $code_loan[$request->loantype] . str_pad($return_id, 7, '0', STR_PAD_LEFT) . '/' . $request->loan_year]);
+            DB::table('credit_consider')->where('credit_consider_id', $return_id)->update(['lnumber_id' => $code_loan[$request->loan_type] . str_pad($return_id, 7, '0', STR_PAD_LEFT) . '/' . $request->loan_year]);
             $data_process = [
                 'credit_consider_id' => $return_id,
                 'date' => date('Y-m-d H:i:s'),

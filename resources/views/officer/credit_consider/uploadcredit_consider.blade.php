@@ -8,11 +8,14 @@
             <hr>
             <form action="/postcredit_consider" method="post" enctype="multipart/form-data">
                 @csrf
-                @error('error')
-                <div class="my-2">
-                    <span class="text-danger">{{ $error }}</span>
-                </div>
-            @enderror
+                @if ($errors->any())
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li> <span class="text-danger">{{ $error }}</span></li>
+                        @endforeach
+                    </ul>
+                @endif
+
                 <div class="mb-3">
                     <label for="mem_id" class="form-label">เลขสมาชิก</label>
                     <input type="text" class="form-control" id="mem_id" name="mem_id" maxlength="5">
@@ -34,8 +37,8 @@
                 <div class="row">
                     <div class="col">
                         <div class="mb-3">
-                            <label for="loantype" class="form-label">ประเภทสินเชื่อ</label>
-                            <select class="form-select" id="loantype" name="loantype">
+                            <label for="loan_type" class="form-label">ประเภทสินเชื่อ</label>
+                            <select class="form-select" id="loan_type" name="loan_type">
                                 <option value="" disabled selected>Select Loan ID</option>
                                 <option value="1">ฉุกเฉิน</option>
                                 <option value="2">สามัญฉุกเฉิน</option>

@@ -416,7 +416,7 @@ class OfficerController extends Controller
     {
         date_default_timezone_set('Asia/Bangkok');
         // $request->validate([
-        //     'memberID' => 'required|max:5',
+        //     'mem_id' => 'required|max:5',
         //     'firstname' => 'required',
         //     'lastname' => 'required',
         //     'loan_type' => 'required',
@@ -431,7 +431,7 @@ class OfficerController extends Controller
         if ($uploadedFile->move(public_path('file/credit_consider/'), $hashedFileName)) {
             $data = [
                 'username' => session('username'),
-                'mem_id' => $request->memberID,
+                'mem_id' => $request->mem_id,
                 'firstname' => $request->firstname,
                 'lastname' => $request->lastname,
                 'loan_year' => $request->loan_year,
@@ -445,7 +445,7 @@ class OfficerController extends Controller
             ];
             $return_id = DB::table('credit_consider')->insertGetId($data);
 
-            DB::table('credit_consider')->where('credit_consider_id', $return_id)->update(['lnumber_id' => $code_loan[$request->loantype] . str_pad($return_id, 7, '0', STR_PAD_LEFT) . '/' . $request->loanYear]);
+            DB::table('credit_consider')->where('credit_consider_id', $return_id)->update(['lnumber_id' => $code_loan[$request->loantype] . str_pad($return_id, 7, '0', STR_PAD_LEFT) . '/' . $request->loan_year]);
             $data_process = [
                 'credit_consider_id' => $return_id,
                 'date' => date('Y-m-d H:i:s'),
@@ -491,19 +491,14 @@ class OfficerController extends Controller
 
     public function data_creditconsider()
     {
-        $data = DB::table('credit_consider')
-            ->join('status_credit', 'credit_consider.status_id', '=', 'status_credit.status_id')
-            ->join('credit_type', 'credit_consider.loan_id', '=', 'credit_type.credit_id')
-            ->join('branch_name', 'credit_consider.branch_id', '=', 'branch_name.branch_id')
-            ->get();
+        $data = DB::table('credit_consider')->get();
         return view('officer/admin/data_creditconsider', compact('data'));
     }
 
     public function delete_creditconsider($credit_consider_id)
     {
-        $file = DB::table('credit_consider')->where('credit_consider_id', $credit_consider_id)->select('path', 'file_name')->first();
-        // dd($file);
-        if (unlink($file->path . $file->file_name)) {
+        $file = DB::table('credit_consider')->where('credit_consider_id', $credit_consider_id)->select('file_name')->first();
+        if (unlink('file/credit_consider/' . $file->file_name)) {
             DB::table('credit_consider')->where('credit_consider_id', $credit_consider_id)->delete();
             DB::table('credit_consider_process')->where('credit_consider_id', $credit_consider_id)->delete();
             return redirect()->back()->with('success', 'ลบแล้ว');

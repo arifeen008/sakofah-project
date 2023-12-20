@@ -50,7 +50,7 @@
                     <div class="col">
                         <div class="mb-3">
                             <label for="loanYear" class="form-label">ปีสัญญา</label>
-                            <select class="form-select" id="loanYear" name="loanYear">
+                            <select class="form-select" id="loanYear" name="loan_year">
                                 <option value="" disabled selected>Select Loan Year</option>
                                 <option value="2566">2566</option>
                                 <option value="2567">2567</option>

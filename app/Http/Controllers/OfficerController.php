@@ -378,10 +378,7 @@ class OfficerController extends Controller
                 $reject = 3;
                 break;
         }
-        $data = DB::table('credit_consider')->where('credit_consider_id', $credit_consider_id)
-        // ->join('branch_name', 'branch_name.branch_id', '=', 'credit_consider.branch_id')
-        // ->join('credit_type', 'credit_type.credit_id', '=', 'credit_consider.loan_id')
-            ->first();
+        $data = DB::table('credit_consider')->where('credit_consider_id', $credit_consider_id)->first();
         return view('officer/credit_consider/creditconsider_detail', compact('data', 'accept', 'reject'));
     }
 
@@ -391,13 +388,18 @@ class OfficerController extends Controller
         DB::table('credit_consider')->where('credit_consider_id', $request->credit_consider_id)->update([
             'status_id' => $request->result,
         ]);
-        $data = [
+        DB::table('credit_consider_process')->insert([
             'credit_consider_id' => $request->credit_consider_id,
             'date' => date('Y-m-d H:i:s'),
             'status_id' => $request->result,
-        ];
-        DB::table('credit_consider_process')->insert($data);
-        return redirect('/creditconsider')->with('success', 'สำเร็จ');
+        ]);
+        if ($request->result == '2' || $request->result == '4' || $request->result == '6') {
+            $message = 'อนุมัติสำเร็จ';
+        } else {
+            $message = 'ปฏิเสธสำเร็จ';
+        }
+        return redirect('/creditconsider')->with('success', $message);
+
     }
 
     public function uploadcredit_consider()
@@ -451,9 +453,7 @@ class OfficerController extends Controller
 
     public function report_creditconsider()
     {
-        $data = DB::table('credit_consider')
-            ->join('status_credit', 'status_credit.status_id', '=', 'credit_consider.status_id')
-            ->get();
+        $data = DB::table('credit_consider')->join('status_credit', 'status_credit.status_id', '=', 'credit_consider.status_id')->get();
         return view('officer/credit_consider/report_creditconsider', compact('data'));
     }
 
@@ -532,9 +532,9 @@ class OfficerController extends Controller
 
     public function news_upload()
     {
-        $data = DB::table('news')->join('news_type','news.news_typeid','=','news_type.news_typeid')
-        ->select('title','news_typename','dateupload','news_number','news_number')
-        ->get();
+        $data = DB::table('news')->join('news_type', 'news.news_typeid', '=', 'news_type.news_typeid')
+            ->select('title', 'news_typename', 'dateupload', 'news_number', 'news_number')
+            ->get();
         return view('officer/news_upload/news', compact('data'));
     }
 

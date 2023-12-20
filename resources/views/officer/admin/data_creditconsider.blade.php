@@ -34,14 +34,15 @@
                                     <p>{{ thaidate('j M Y ', strtotime($item->date)) }}</p>
                                     <p>{{ thaidate('H:i', strtotime($item->date)) }}</p>
                                 </td>
-                                <td class="text-center"><span
+                                <td class="text-center">
+                                <span
                                         class="badge badge-success rounded-pill d-inline">{{ $item->status_name }}</span>
                                 </td>
                                 <td>
                                     <a href="/delete_creditconsider/{{ $item->credit_consider_id }}"
                                         class="btn btn-danger">ลบ</a>
                                 </td>
-
+                               
                             </tr>
                         @endforeach
                     </tbody>

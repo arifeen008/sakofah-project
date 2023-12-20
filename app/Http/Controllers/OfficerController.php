@@ -500,10 +500,11 @@ class OfficerController extends Controller
 
     public function delete_creditconsider($credit_consider_id)
     {
-        $file = DB::table('credit_consider')->where('credit_consider_id', $credit_consider_id)->first();
-        if (unlink($file->file_name . $file->file_name)) {
-            DB::table('credit_consider')->wheres('credit_consider_id', $credit_consider_id)->delete();
-            DB::table('credit_consider_process')->wheres('credit_consider_id', $credit_consider_id)->delete();
+        $file = DB::table('credit_consider')->where('credit_consider_id', $credit_consider_id)->select('path', 'file_name')->first();
+        // dd($file);
+        if (unlink($file->path . '/' . $file->file_name)) {
+            DB::table('credit_consider')->where('credit_consider_id', $credit_consider_id)->delete();
+            DB::table('credit_consider_process')->where('credit_consider_id', $credit_consider_id)->delete();
             return redirect()->back()->with('success', 'ลบแล้ว');
         } else {
             return redirect()->back()->with('error', 'ลบไม่ได้');

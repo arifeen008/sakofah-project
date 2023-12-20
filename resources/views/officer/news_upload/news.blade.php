@@ -12,7 +12,7 @@
             <table id="datatable">
                 <thead class="text-center">
                     <tr>
-                        <th class="text-center" width=500>หัวข้อ</th>
+                        <th class="text-center">หัวข้อ</th>
                         <th class="text-center">ประเภทข่าว</th>
                         <th class="text-center">เวลาอัพโหลด</th>
                         <th class="text-center">แก้ไข</th>

@@ -480,7 +480,9 @@ class OfficerController extends Controller
 
     public function data_creditconsider()
     {
-        $data = DB::table('credit_consider')->get();
+        $data = DB::table('credit_consider')
+            ->join('status_credit', 'status_credit.status_id', '=', 'credit_consider.status_id')
+            ->get();
         return view('officer/admin/data_creditconsider', compact('data'));
     }
 
@@ -530,9 +532,9 @@ class OfficerController extends Controller
 
     public function news_upload()
     {
-        $data = DB::table('news')
-            ->join('news_type', 'news_type.news_typeid', '=', 'news.news_typeid')->orderByDesc('dateupload')
-            ->get();
+        $data = DB::table('news')->join('news_type','news.news_typeid','=','news_type.news_typeid')
+        ->select('title','news_typename','dateupload','news_number','news_number')
+        ->get();
         return view('officer/news_upload/news', compact('data'));
     }
 

@@ -13,7 +13,7 @@
                 <thead class="text-center">
                     <tr>
                         <th class="text-center">หัวข้อ</th>
-                        <th class="text-center">ประเภทข่าว</th>
+                        {{-- <th class="text-center">ประเภทข่าว</th> --}}
                         <th class="text-center">เวลาอัพโหลด</th>
                         <th class="text-center">แก้ไข</th>
                         <th class="text-center">ลบ</th>
@@ -23,7 +23,7 @@
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ Str::limit($item->title, 70) }}</td>
-                            <td class="text-center">{{ $item->news_typename }}</td>
+                            {{-- <td class="text-center">{{ $item->news_typename }}</td> --}}
                             <td class="text-center">{{ thaidate('j M Y ', $item->dateupload) }} </td>
                             <td class="text-center"><a href="/edit_news/{{ $item->news_number }}"
                                     class="btn btn-warning me-3"><i class="fas fa-pen"></i></a></td>

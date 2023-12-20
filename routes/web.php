@@ -76,6 +76,8 @@ Route::get('/report_creditconsider', [OfficerController::class, 'report_creditco
 
 // Credit consider status
 Route::get('/admin_creditconsider', [OfficerController::class, 'admin_creditconsider']);
+Route::get('/data_creditconsider', [OfficerController::class,'data_creditconsider']);
+Route::get('/delete_creditconsider/{credit_consider_id }', [OfficerController::class,'delete_creditconsider']);
 Route::get('/status_form_add', [OfficerController::class, 'status_form_add']);
 Route::post('/add_status', [OfficerController::class, 'add_status']);
 Route::get('/status_form_edit/{status_id}', [OfficerController::class, 'status_form_edit']);

@@ -4,9 +4,10 @@
 @section('content')
     <div class="card m-3">
         <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-                <h3 class="card-title"><b>Admin พิจารณาสินเชื่อ</b></h3>
-                <a href="/status_form_add" class="btn btn-success"><i class="fas fa-plus me-2"></i>เพิ่ม Status</a>
+            <div class="h-100 d-flex justify-content-center align-items-center">
+                <h3 class="me-auto">Admin พิจารณาสินเชื่อ</h3>
+                <a href="/data_creditconsider" class="btn btn-success me-2"><i class="fas fa-address-card me-2"></i>สินเชื่อ</a>
+                <a href="/status_form_add" class="btn btn-success me-2"><i class="fas fa-plus me-2"></i>เพิ่ม Status</a>
             </div>
             <hr>
             <table id="datatable" class="text-center">

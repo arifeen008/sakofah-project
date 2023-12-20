@@ -54,10 +54,6 @@ class OfficerController extends Controller
 
     public function logout(Request $request)
     {
-        // $request->session()->forget('user_id');
-        // $request->session()->forget('username');
-        // $request->session()->forget('br_no');
-        // $request->session()->forget('level_code');
         Auth::logout();
         return redirect('/');
     }
@@ -490,6 +486,29 @@ class OfficerController extends Controller
     {
         $data = DB::table('status_credit')->get();
         return view('officer/admin/admin_creditconsider', compact('data'));
+    }
+
+    public function data_creditconsider()
+    {
+        $data = DB::table('credit_consider')
+            ->join('status_credit', 'credit_consider.status_id', '=', 'status_credit.status_id')
+            ->join('credit_type', 'credit_consider.loan_id', '=', 'credit_type.credit_id')
+            ->join('branch_name', 'credit_consider.branch_id', '=', 'branch_name.branch_id')
+            ->get();
+        return view('officer/admin/data_creditconsider', compact('data'));
+    }
+
+    public function delete_creditconsider($credit_consider_id)
+    {
+        $file = DB::table('credit_consider')->where('credit_consider_id', $credit_consider_id)->first();
+        if (unlink($file->file_name . $file->file_name)) {
+            DB::table('credit_consider')->wheres('credit_consider_id', $credit_consider_id)->delete();
+            DB::table('credit_consider_process')->wheres('credit_consider_id', $credit_consider_id)->delete();
+            return redirect()->back()->with('success', 'ลบแล้ว');
+        } else {
+            return redirect()->back()->with('error', 'ลบไม่ได้');
+        }
+
     }
 
     public function status_form_add()

@@ -22,8 +22,7 @@
                     วันเกิด : {{ thaidate('j F Y', $data_member->DMY_BIRTH) }}
                 </div>
                 <div class="col-md-6 my-2">
-                    เพศ : @if ($data_member->SEX == '1' ? 'ชาย' : 'หญิง')
-                    @endif
+                    เพศ :  {{ $data_member->SEX == '1' ? 'ชาย' : 'หญิง' }}
                 </div>
                 <div class="col-md-6 my-2">
                     ชื่อบิดา : {{ $data_member->FATHER }}
@@ -35,8 +34,7 @@
                     สถานะ : {{ $data_member->MARRIAGE_STATUS }}
                 </div>
                 <div class="col-md-6 my-2">
-                    กรุ๊ปเลือด : @if ($data_member->BLO_GROUP != null ? $data_member->BLO_GROUP : ' -')
-                    @endif
+                    กรุ๊ปเลือด : {{ $data_member->BLO_GROUP != null ? $data_member->BLO_GROUP : '-' }}
                 </div>
                 <div class="col-md-6 my-2">
                     เลขที่บ้าน : {{ $data_member->ADDRESS }}
@@ -48,18 +46,15 @@
                     ตำบล : {{ $data_member->TUMBOL }}
                 </div>
                 <div class="col-md-6 my-2">
-                    LINE ID : @if ($data_member->LINE_ID != null ? $data_member->LINE_ID : ' -')
-                    @endif
+                    LINE ID : {{ $data_member->LINE_ID != null ? $data_member->LINE_ID : ' -' }}
                 </div>
                 <div class="col-md-6 my-2">
-                    EMAIL : @if ($data_member->EMAIL != null ? $data_member->EMAIL : ' -')
-                    @endif
+                    EMAIL :{{ $data_member->EMAIL != null ? $data_member->EMAIL : ' -' }}
                 </div>
                 <div class="col-md-6 my-2">
                     โทรศัพท์ : {{ $data_member->MOBILE_TEL }}
                 </div>
             </div>
-
         </div>
     </div>
     <div class="card m-1">
@@ -82,8 +77,8 @@
                                 <td>{{ $item->ACCOUNT_NO }}</td>
                                 <td>{{ $item->ACCOUNT_NAME }} </td>
                                 <td>{{ number_format($item->BALANCE, 2) }} </td>
-                                <td><a href=" {{ url('account_details/' . $item->ACCOUNT_NO) }}"
-                                        class="btn btn-info"><i class="fas fa-file-alt"></i></a></td>
+                                <td><a href=" {{ url('account_details/' . $item->ACCOUNT_NO) }}" class="btn btn-info"><i
+                                            class="fas fa-file-alt"></i></a></td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -225,7 +220,7 @@
     <div class="card m-1">
         <div class="card-body">
             <div class="card-title">เงินปันผล</div>
-            @if (!empty($dividend) )
+            @if (!empty($dividend))
                 <table class="table table-bordered">
                     <tr class="text-center">
                         <td>ปี</td>
@@ -253,13 +248,13 @@
         $(document).ready(function() {
             $('#datatable').DataTable();
         });
-		$(document).ready(function() {
+        $(document).ready(function() {
             $('#datatable1').DataTable();
         });
-		$(document).ready(function() {
+        $(document).ready(function() {
             $('#datatable2').DataTable();
         });
-		$(document).ready(function() {
+        $(document).ready(function() {
             $('#datatable3').DataTable();
         });
     </script>

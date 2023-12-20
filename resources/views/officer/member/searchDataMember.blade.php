@@ -5,7 +5,8 @@
     <div class="card m-3">
         <div class="card-body">
             @if (count($data) > 0)
-                <b class="h1 card-title">รายชื่อสมาชิกที่ค้นหา</b><hr>
+                <b class="h1 card-title">รายชื่อสมาชิกที่ค้นหา</b>
+                <hr>
                 <table id="datatable" class="table">
                     <thead class="text-center">
                         <tr>
@@ -23,14 +24,14 @@
                                 <td>{{ $item->FNAME }}</td>
                                 <td>{{ $item->LNAME }}</td>
                                 <td>{{ $item->BR_NAME }}</td>
-                                <td><a href="{{ url('data_member/' . $item->MEM_ID . '/' . $item->BR_NO) }}"
-                                        class="btn btn-info"><i class="fas fa-file-alt"></i></a></td>
+                                <td><a href="/data_member/{{ $item->MEM_ID / $item->BR_NO }}" class="btn btn-info"><i
+                                            class="fas fa-file-alt"></i></a></td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             @else
-                <b class="card-title">ไม่มีข้อมูล</b>
+                <p class="text-center">ไม่มีข้อมูลที่ค้นหา</p>
             @endif
         </div>
     </div>

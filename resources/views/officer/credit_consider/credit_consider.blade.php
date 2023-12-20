@@ -26,7 +26,7 @@
                         @foreach ($data as $item)
                             <tr>
                                 <td>{{ $item->mem_id }}</td>
-                                <td>{{ $item->fname . ' ' . $item->lname }}</td>
+                                <td>{{ $item->firstname . ' ' . $item->lastname }}</td>
                                 <td>
                                     <p class="fw-normal mb-1">{{ $item->lnumber_id }}</p>
                                     {{-- <p class="text-muted mb-1">{{ $item->name_branch }}</p> --}}

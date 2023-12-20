@@ -8,6 +8,11 @@
             <hr>
             <form action="/postcredit_consider" method="post" enctype="multipart/form-data">
                 @csrf
+                @error('error')
+                <div class="my-2">
+                    <span class="text-danger">{{ $error }}</span>
+                </div>
+            @enderror
                 <div class="mb-3">
                     <label for="mem_id" class="form-label">เลขสมาชิก</label>
                     <input type="text" class="form-control" id="mem_id" name="mem_id" maxlength="5">
@@ -29,16 +34,16 @@
                 <div class="row">
                     <div class="col">
                         <div class="mb-3">
-                            <label for="loanID" class="form-label">ประเภทสินเชื่อ</label>
-                            <select class="form-select" id="loanID" name="loanID">
+                            <label for="loantype" class="form-label">ประเภทสินเชื่อ</label>
+                            <select class="form-select" id="loantype" name="loantype">
                                 <option value="" disabled selected>Select Loan ID</option>
-                                <option value="ฉุกเฉิน">ฉุกเฉิน</option>
-                                <option value="สามัญฉุกเฉิน">สามัญฉุกเฉิน</option>
-                                <option value="สามัญ">สามัญ</option>
-                                <option value="พิเศษ">พิเศษ</option>
-                                <option value="พิเศษโครงการ">พิเศษโครงการ</option>
-                                <option value="โครงการสินทรัพย์">โครงการสินทรัพย์</option>
-                                <option value="สวัสดิการเจ้าหน้าที่">สวัสดิการเจ้าหน้าที่</option>
+                                <option value="1">ฉุกเฉิน</option>
+                                <option value="2">สามัญฉุกเฉิน</option>
+                                <option value="3">สามัญ</option>
+                                <option value="4">พิเศษ</option>
+                                <option value="5">พิเศษโครงการ</option>
+                                <option value="6">โครงการสินทรัพย์</option>
+                                <option value="7">สวัสดิการเจ้าหน้าที่</option>
                             </select>
                         </div>
                     </div>

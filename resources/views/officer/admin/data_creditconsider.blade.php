@@ -4,12 +4,7 @@
 @section('content')
     <div class="card m-3">
         <div class="card-body">
-            <div class="h-100 d-flex justify-content-center align-items-center">
-                <h3 class="me-auto">Admin พิจารณาสินเชื่อ</h3>
-                <a href="/data_creditconsider" class="btn btn-success me-2"><i
-                        class="fas fa-address-card me-2"></i>สินเชื่อ</a>
-                <a href="/status_form_add" class="btn btn-success me-2"><i class="fas fa-plus me-2"></i>เพิ่ม Status</a>
-            </div>
+            <div class="card-title h1">ข้อมูลสินเชื่อ</div>
             <hr>
             @if (count($data) > 0)
                 <table id="datatable">

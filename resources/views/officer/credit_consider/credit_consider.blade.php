@@ -10,27 +10,27 @@
             </div>
             <hr>
             @if (count($data) > 0)
-                <table id="datatable">
+                <table id="datatable" class="align-middle">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                             <th>รหัสสมาชิก</th>
                             <th>ชื่อ - สกุล</th>
                             <th>เลขสินเชื่อ</th>
                             <th>วันที่</th>
-                            <th class="text-center">สถานะ</th>
-                            <th class="text-center">ติดตามสถานะ</th>
-                            <th class="text-center text-danger">หมายเหตุ*</th>
+                            <th>สถานะ</th>
+                            <th>ติดตามสถานะ</th>
+                            <th class="text-danger">หมายเหตุ*</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $item)
                             <tr>
-                                <td>{{ $item->mem_id }}</td>
-                                <td>{{ $item->firstname . ' ' . $item->lastname }}</td>
+                                <td class="text-center">{{ $item->mem_id }}</td>
+                                <td class="text-center">{{ $item->firstname . ' ' . $item->lastname }}</td>
                                 <td>
                                     <p class="fw-normal mb-1">{{ $item->lnumber_id }}</p>
-                                    {{-- <p class="text-muted mb-1">{{ $item->name_branch }}</p> --}}
-                                    {{-- <p class="text-muted mb-1">{{ $item->credit_name }}</p> --}}
+                                    <p class="fw-normal mb-1">{{ $item->branch_name }}</p>
+                                    <p class="fw-normal mb-1">{{ $item->loan_type }}</p>
                                     <p class="fw-normal mb-0">{{ $item->loan_year }}</p>
                                 </td>
                                 <td>
@@ -38,7 +38,7 @@
                                     <p>{{ thaidate('H:i', strtotime($item->date)) }}</p>
                                 </td>
                                 <td class="text-center"><span
-                                        class="badge badge-success rounded-pill d-inline">{{ $item->status_id }}</span>
+                                        class="badge badge-success rounded-pill d-inline">{{ $item->status_name }}</span>
                                 </td>
                                 <td class="text-center">
                                     <a class="btn btn-outline-success"

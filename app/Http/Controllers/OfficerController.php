@@ -206,7 +206,7 @@ class OfficerController extends Controller
         ]);
         $uploadedFile = $request->file('uploadFile');
         $path = 'file/inside_publish/';
-        $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . '.' . $uploadedFile->getClientOriginalExtension();
+        $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . time() . '.' . $uploadedFile->getClientOriginalExtension();
         if ($uploadedFile->move(public_path($path), $hashedFileName)) {
             DB::table('internal_announcement')->insert([
                 'title' => $request->title,
@@ -332,14 +332,7 @@ class OfficerController extends Controller
 
     public function credit_consider()
     {
-        $data = DB::table('credit_consider')
-        // ->where('credit_consider.username', session('username'))
-        // ->join('status_credit', 'credit_consider.status_id', '=', 'status_credit.status_id')
-        // ->join('credit_type', 'credit_consider.loan_id', '=', 'credit_type.credit_id')
-        // ->join('branch_name', 'credit_consider.branch_id', '=', 'branch_name.branch_id')
-        // ->orderBy('credit_consider.date', 'desc')
-            ->get();
-        // dd($data);
+        $data = DB::table('credit_consider')->where('credit_consider.username', session('username'))->join('status_credit', 'credit_consider.status_id', '=', 'status_credit.status_id')->get();
         return view('officer/credit_consider/credit_consider', compact('data'));
     }
 
@@ -386,8 +379,8 @@ class OfficerController extends Controller
                 break;
         }
         $data = DB::table('credit_consider')->where('credit_consider_id', $credit_consider_id)
-            // ->join('branch_name', 'branch_name.branch_id', '=', 'credit_consider.branch_id')
-            // ->join('credit_type', 'credit_type.credit_id', '=', 'credit_consider.loan_id')
+        // ->join('branch_name', 'branch_name.branch_id', '=', 'credit_consider.branch_id')
+        // ->join('credit_type', 'credit_type.credit_id', '=', 'credit_consider.loan_id')
             ->first();
         return view('officer/credit_consider/creditconsider_detail', compact('data', 'accept', 'reject'));
     }
@@ -564,7 +557,7 @@ class OfficerController extends Controller
             $data = DB::table('news')->where('news_number', $news_number)->first();
         } while ($data != null);
         foreach ($request->file('uploadedFiles') as $file) {
-            $hashedFileName = sha1($file->getClientOriginalName()) . '.' . $file->getClientOriginalExtension();
+            $hashedFileName = sha1($file->getClientOriginalName()) . time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads/'), $hashedFileName);
             DB::table('picture')->insert([
                 'news_number' => $news_number,
@@ -579,7 +572,7 @@ class OfficerController extends Controller
             'dateupload' => $request->date,
             'description' => $request->description,
             'path' => 'uploads/',
-            'picture_name' => sha1($request->coverImage->getClientOriginalName()) . '.' . $request->coverImage->getClientOriginalExtension(),
+            'picture_name' => sha1($request->coverImage->getClientOriginalName()) . time() . '.' . $request->coverImage->getClientOriginalExtension(),
         ]);
 
         return redirect('/news_upload')->with('success', 'News uploaded successfully.');

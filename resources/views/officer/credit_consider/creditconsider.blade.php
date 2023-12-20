@@ -7,7 +7,7 @@
             <h3 class="card-title"><b>รับเอกสารสินเชื่อสาขา</b></h3>
             <hr>
             @if (count($data) > 0)
-                <table id="datatable">
+                <table id="datatable" class="align-middle">
                     <thead>
                         <tr>
                             <th class="text-center">รหัสสมาชิก</th>

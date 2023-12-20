@@ -6,7 +6,7 @@
         <div class="card-body">
             <b class="h3">รายงานผลการติดตามยื่นขอสินเชื่อ</b>
             <hr>
-            <table id="datatable" class="table">
+            <table id="datatable" class="table align-middle">
                 <thead class="text-center">
                     <tr>
                         <th>รหัสสมาชิก</th>

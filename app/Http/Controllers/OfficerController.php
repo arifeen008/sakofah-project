@@ -338,7 +338,8 @@ class OfficerController extends Controller
             ->join('branch_name', 'credit_consider.branch_id', '=', 'branch_name.branch_id')
             ->orderBy('credit_consider.date', 'desc')
             ->get();
-        return view('officer/credit_consider/credit_consider', compact('data'));
+        dd($data);
+        // return view('officer/credit_consider/credit_consider', compact('data'));
     }
 
     public function creditconsider()
@@ -424,7 +425,7 @@ class OfficerController extends Controller
             'fileInput' => 'required|file|mimes:pdf',
         ]);
         $uploadedFile = $request->file('fileInput');
-        $path = 'file/credit_consider/' . $request->loanYear . '/' . $request->branch . '/' . $request->loanID;
+        $path = 'file/credit_consider/' . $request->loanYear . '/' . $request->branch . '/' . $request->loanID . '/';
         $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . '.' . $uploadedFile->getClientOriginalExtension();
         if ($uploadedFile->move(public_path($path), $hashedFileName)) {
             $data = [

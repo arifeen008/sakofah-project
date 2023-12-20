@@ -57,7 +57,7 @@
             @if (session('level_code') == 'E' || session('level_code') == 'P')
                 <li>
                     <a href="/credit_consider" class="nav-link link-dark">
-                        <i class="fas fa-credit-card me-3"></i>
+                        <i class="fab fa-airbnb me-3"></i>
                         ฝ่ายสินเชื่อสาขา
                     </a>
                 </li>
@@ -65,7 +65,7 @@
             @if (session('level_code') == 'CC' || session('level_code') == 'P')
                 <li>
                     <a href="/creditconsider" class="nav-link link-dark">
-                        <i class="fas fa-credit-card me-3"></i>
+                        <i class="fas fa-anchor me-3"></i>
                         รับเอกสารสินเชื่อสาขา
                     </a>
                 </li>
@@ -73,7 +73,7 @@
             @if (session('level_code') == 'CRM' || session('level_code') == 'P')
                 <li>
                     <a href="/creditconsider" class="nav-link link-dark">
-                        <i class="fas fa-credit-card me-3"></i>
+                        <i class="fas fa-at me-3"></i>
                         ฝ่ายวิเคราะห์
                     </a>
                 </li>
@@ -81,14 +81,14 @@
             @if (session('level_code') == 'M' || session('level_code') == 'P')
                 <li>
                     <a href="/creditconsider" class="nav-link link-dark">
-                        <i class="fas fa-credit-card me-3"></i>
+                        <i class="fas fa-arrows-rotate me-3"></i>
                         ผู้จัดการใหญ่
                     </a>
                 </li>
             @endif
             <li>
                 <a href="/report_creditconsider" class="nav-link link-dark">
-                    <i class="fas fa-credit-card me-3"></i>
+                    <i class="fas fa-atom me-3"></i>
                     รายงานผลการติดตามสินเชื่อ
                 </a>
             </li>
@@ -96,49 +96,49 @@
                 <span class="text-center fs-4">ADMIN</span>
                 <li>
                     <a href="/admin_creditconsider" class="nav-link link-dark">
-                        <i class="fas fa-credit-card me-3"></i>
+                        <i class="fas fa-baby me-3"></i>
                         พิจารณาสินเชื่อ
                     </a>
                 </li>
                 <li>
                     <a href="#" class="nav-link link-dark">
-                        <i class="fas fa-credit-card me-3"></i>
+                        <i class="fas fa-bars-progress me-3"></i>
                         สินเชื่อ
                     </a>
                 </li>
                 <li>
                     <a href="#" class="nav-link link-dark">
-                        <i class="fas fa-credit-card me-3"></i>
+                        <i class="fab fa-battle-net me-3"></i>
                         ประวัติการล็อกอิน
                     </a>
                 </li>
                 <li>
                     <a href="#" class="nav-link link-dark">
-                        <i class="fas fa-credit-card me-3"></i>
+                        <i class="fas fa-bicycle me-3"></i>
                         อัพโหลดสินทรัพย์
                     </a>
                 </li>
                 <li>
                     <a href="/news_upload" class="nav-link link-dark">
-                        <i class="fas fa-credit-card me-3"></i>
+                        <i class="fas fa-box me-3"></i>
                         อัพโหลดข่าวสาร
                     </a>
                 </li>
                 <li>
                     <a href="#" class="nav-link link-dark">
-                        <i class="fas fa-credit-card me-3"></i>
+                        <i class="fab fa-buromobelexperte me-3"></i>
                         อัพโหลดผลการดำเนินงาน
                     </a>
                 </li>
                 <li>
                     <a href="/upload_publish" class="nav-link link-dark">
-                        <i class="fas fa-credit-card me-3"></i>
+                        <i class="fas fa-calendar-minus me-3"></i>
                         อัพโหลดประกาศ
                     </a>
                 </li>
                 <li>
                     <a href="/edit_publish" class="nav-link link-dark">
-                        <i class="fas fa-credit-card me-3"></i>
+                        <i class="fas fa-cake-candles me-3"></i>
                         แก้ไขประกาศ
                     </a>
                 </li>

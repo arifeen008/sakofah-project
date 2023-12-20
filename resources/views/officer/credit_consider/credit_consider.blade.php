@@ -29,8 +29,8 @@
                                 <td>{{ $item->fname . ' ' . $item->lname }}</td>
                                 <td>
                                     <p class="fw-normal mb-1">{{ $item->lnumber_id }}</p>
-                                    <p class="text-muted mb-1">{{ $item->name_branch }}</p>
-                                    <p class="text-muted mb-1">{{ $item->credit_name }}</p>
+                                    {{-- <p class="text-muted mb-1">{{ $item->name_branch }}</p> --}}
+                                    {{-- <p class="text-muted mb-1">{{ $item->credit_name }}</p> --}}
                                     <p class="fw-normal mb-0">{{ $item->loan_year }}</p>
                                 </td>
                                 <td>
@@ -38,7 +38,7 @@
                                     <p>{{ thaidate('H:i', strtotime($item->date)) }}</p>
                                 </td>
                                 <td class="text-center"><span
-                                        class="badge badge-success rounded-pill d-inline">{{ $item->status_name }}</span>
+                                        class="badge badge-success rounded-pill d-inline">{{ $item->status_id }}</span>
                                 </td>
                                 <td class="text-center">
                                     <a class="btn btn-outline-success"

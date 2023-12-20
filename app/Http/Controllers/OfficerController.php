@@ -332,14 +332,14 @@ class OfficerController extends Controller
     public function credit_consider()
     {
         $data = DB::table('credit_consider')
-            ->where('credit_consider.username', session('username'))
-            ->join('status_credit', 'credit_consider.status_id', '=', 'status_credit.status_id')
-            ->join('credit_type', 'credit_consider.loan_id', '=', 'credit_type.credit_id')
-            ->join('branch_name', 'credit_consider.branch_id', '=', 'branch_name.branch_id')
-            ->orderBy('credit_consider.date', 'desc')
+        // ->where('credit_consider.username', session('username'))
+        // ->join('status_credit', 'credit_consider.status_id', '=', 'status_credit.status_id')
+        // ->join('credit_type', 'credit_consider.loan_id', '=', 'credit_type.credit_id')
+        // ->join('branch_name', 'credit_consider.branch_id', '=', 'branch_name.branch_id')
+        // ->orderBy('credit_consider.date', 'desc')
             ->get();
-        dd($data);
-        // return view('officer/credit_consider/credit_consider', compact('data'));
+        // dd($data);
+        return view('officer/credit_consider/credit_consider', compact('data'));
     }
 
     public function creditconsider()
@@ -417,27 +417,25 @@ class OfficerController extends Controller
         date_default_timezone_set('Asia/Bangkok');
         $request->validate([
             'memberID' => 'required|max:5',
-            'firstName' => 'required',
-            'lastName' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
             'loanID' => 'required',
-            'loanYear' => 'required',
+            'loan_year' => 'required',
             'branch' => 'required',
             'fileInput' => 'required|file|mimes:pdf',
         ]);
         $uploadedFile = $request->file('fileInput');
-        $path = 'file/credit_consider/' . $request->loanYear . '/' . $request->branch . '/' . $request->loanID . '/';
         $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . '.' . $uploadedFile->getClientOriginalExtension();
-        if ($uploadedFile->move(public_path($path), $hashedFileName)) {
+        if ($uploadedFile->move(public_path('file/credit_consider/'), $hashedFileName)) {
             $data = [
                 'username' => session('username'),
                 'mem_id' => $request->memberID,
-                'fname' => $request->firstName,
-                'lname' => $request->lastName,
-                'loan_year' => $request->loanYear,
+                'firstname' => $request->firstname,
+                'lastname' => $request->lastname,
+                'loan_year' => $request->loan_year,
                 'branch_id' => $request->branch,
                 'lnumber_id' => null,
                 'loan_id' => $request->loanID,
-                'path' => $path,
                 'file_name' => $hashedFileName,
                 'status_id' => '1',
                 'date' => date('Y-m-d H:i:s'),
@@ -503,7 +501,7 @@ class OfficerController extends Controller
     {
         $file = DB::table('credit_consider')->where('credit_consider_id', $credit_consider_id)->select('path', 'file_name')->first();
         // dd($file);
-        if (unlink($file->path . '/' . $file->file_name)) {
+        if (unlink($file->path . $file->file_name)) {
             DB::table('credit_consider')->where('credit_consider_id', $credit_consider_id)->delete();
             DB::table('credit_consider_process')->where('credit_consider_id', $credit_consider_id)->delete();
             return redirect()->back()->with('success', 'ลบแล้ว');

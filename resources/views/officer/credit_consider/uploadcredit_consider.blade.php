@@ -15,14 +15,14 @@
                 <div class="row">
                     <div class="col">
                         <div class="mb-3">
-                            <label for="firstName" class="form-label">ชื่อ</label>
-                            <input type="text" class="form-control" id="firstName" name="firstName">
+                            <label for="firstname" class="form-label">ชื่อ</label>
+                            <input type="text" class="form-control" id="firstname" name="firstname">
                         </div>
                     </div>
                     <div class="col">
                         <div class="mb-3">
-                            <label for="lastName" class="form-label">นามสกุล</label>
-                            <input type="text" class="form-control" id="lastName" name="lastName">
+                            <label for="lastname" class="form-label">นามสกุล</label>
+                            <input type="text" class="form-control" id="lastname" name="lastname">
                         </div>
                     </div>
                 </div>
@@ -32,13 +32,13 @@
                             <label for="loanID" class="form-label">ประเภทสินเชื่อ</label>
                             <select class="form-select" id="loanID" name="loanID">
                                 <option value="" disabled selected>Select Loan ID</option>
-                                <option value="1">ฉุกเฉิน</option>
-                                <option value="2">สามัญฉุกเฉิน</option>
-                                <option value="3">สามัญ</option>
-                                <option value="4">พิเศษ</option>
-                                <option value="5">พิเศษโครงการ</option>
-                                <option value="6">โครงการสินทรัพย์</option>
-                                <option value="7">สวัสดิการเจ้าหน้าที่</option>
+                                <option value="ฉุกเฉิน">ฉุกเฉิน</option>
+                                <option value="สามัญฉุกเฉิน">สามัญฉุกเฉิน</option>
+                                <option value="สามัญ">สามัญ</option>
+                                <option value="พิเศษ">พิเศษ</option>
+                                <option value="พิเศษโครงการ">พิเศษโครงการ</option>
+                                <option value="โครงการสินทรัพย์">โครงการสินทรัพย์</option>
+                                <option value="สวัสดิการเจ้าหน้าที่">สวัสดิการเจ้าหน้าที่</option>
                             </select>
                         </div>
                     </div>
@@ -60,16 +60,16 @@
                     <label for="branch" class="form-label">สาขา</label>
                     <select class="form-select" id="branch" name="branch">
                         <option value="" disabled selected>Select Branch</option>
-                        <option value="000">สำนักงานใหญ่</option>
-                        <option value="001">กระบี่</option>
-                        <option value="002">คลองยาง</option>
-                        <option value="003">อ่าวลึก</option>
-                        <option value="004">กาญจนดิษฐ์</option>
-                        <option value="005">คลองท่อม</option>
-                        <option value="006">อ่าวนาง</option>
-                        <option value="007">ห้วยลึก</option>
-                        <option value="008">เกาะลันตา</option>
-                        <option value="009">สาขาเหนือคลอง</option>
+                        <option value="สำนักงานใหญ่">สำนักงานใหญ่</option>
+                        <option value="กระบี่">กระบี่</option>
+                        <option value="คลองยาง">คลองยาง</option>
+                        <option value="อ่าวลึก">อ่าวลึก</option>
+                        <option value="กาญจนดิษฐ์">กาญจนดิษฐ์</option>
+                        <option value="คลองท่อม">คลองท่อม</option>
+                        <option value="อ่าวนาง">อ่าวนาง</option>
+                        <option value="ห้วยลึก">ห้วยลึก</option>
+                        <option value="เกาะลันตา">เกาะลันตา</option>
+                        <option value="สาขาเหนือคลอง">สาขาเหนือคลอง</option>
                     </select>
                 </div>
                 <div class="mb-3">

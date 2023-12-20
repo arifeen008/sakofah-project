@@ -24,7 +24,7 @@
                                 <td>{{ $item->FNAME }}</td>
                                 <td>{{ $item->LNAME }}</td>
                                 <td>{{ $item->BR_NAME }}</td>
-                                <td><a href="/data_member/{{ $item->MEM_ID / $item->BR_NO }}" class="btn btn-info"><i
+                                <td><a href="{{ url('data_member/' . $item->MEM_ID / $item->BR_NO) }}" class="btn btn-info"><i
                                             class="fas fa-file-alt"></i></a></td>
                             </tr>
                         @endforeach

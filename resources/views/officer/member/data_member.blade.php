@@ -22,7 +22,7 @@
                     วันเกิด : {{ thaidate('j F Y', $data_member->DMY_BIRTH) }}
                 </div>
                 <div class="col-md-6 my-2">
-                    เพศ :  {{ $data_member->SEX == '1' ? 'ชาย' : 'หญิง' }}
+                    เพศ : {{ $data_member->SEX == '1' ? 'ชาย' : 'หญิง' }}
                 </div>
                 <div class="col-md-6 my-2">
                     ชื่อบิดา : {{ $data_member->FATHER }}
@@ -77,8 +77,11 @@
                                 <td>{{ $item->ACCOUNT_NO }}</td>
                                 <td>{{ $item->ACCOUNT_NAME }} </td>
                                 <td>{{ number_format($item->BALANCE, 2) }} </td>
-                                <td><a href=" {{ url('account_details/' . $item->ACCOUNT_NO) }}" class="btn btn-info"><i
-                                            class="fas fa-file-alt"></i></a></td>
+                                <td>
+                                    <a href=" {{ url('account_details/' . $item->ACCOUNT_NO) }}" class="btn btn-info">
+                                        <i class="fas fa-file-alt"></i>
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

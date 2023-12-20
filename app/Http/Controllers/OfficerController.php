@@ -73,9 +73,9 @@ class OfficerController extends Controller
                 ['MEM_H_MEMBER.FNAME', 'like', '%' . $request->firstName . '%'],
                 ['MEM_H_MEMBER.LNAME', 'like', '%' . $request->lastName . '%'],
             ])->join('BK_M_BRANCH', 'BK_M_BRANCH.BR_NO', '=', 'MEM_H_MEMBER.BR_NO')
+            ->select('MEM_H_MEMBER.MEM_ID', 'MEM_H_MEMBER.BR_NO', 'BK_M_BRANCH.BR_NAME', 'MEM_H_MEMBER.FNAME', 'MEM_H_MEMBER.LNAME')
             ->get();
         return view('officer/member/searchDataMember', compact('data'));
-
     }
 
     public function data_member($mem_id, $br_no)

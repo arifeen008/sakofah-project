@@ -5,35 +5,34 @@
     <div class="card m-3">
         <div class="card-body">
             <div class="card-text">
-                <h2 class="mb-4">ค้นหาข้อมูลสมาชิก</h2><hr>
-                <!-- Form -->
+                <h2 class="mb-4">ค้นหาข้อมูลสมาชิก</h2>
+                <hr>
                 <form action="/searchMember" method="POST">
                     @csrf
-                    <!-- ID Card Number -->
                     <div class="mb-3">
                         <label for="idCardNumber" class="form-label">เลขบัตรประชาชน</label>
-                        <input type="text" class="form-control" id="idCardNumber" name="idCardNumber" maxlength="13" minlength="13">
+                        <input type="text" class="form-control" id="idCardNumber" name="idCardNumber" maxlength="13"
+                            minlength="13">
                     </div>
-
-                    <!-- Member Number -->
                     <div class="mb-3">
                         <label for="memberNumber" class="form-label">เลขสมาชิก</label>
                         <input type="text" class="form-control" id="memberNumber" name="memberNumber">
                     </div>
 
-                    <!-- First Name -->
-                    <div class="mb-3">
-                        <label for="firstName" class="form-label">ชื่อ</label>
-                        <input type="text" class="form-control" id="firstName" name="firstName">
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="firstName" class="form-label">ชื่อ</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="lastName" class="form-label">นามสกุล</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName">
+                            </div>
+                        </div>
                     </div>
-
-                    <!-- Last Name -->
-                    <div class="mb-3">
-                        <label for="lastName" class="form-label">นามสกุล</label>
-                        <input type="text" class="form-control" id="lastName" name="lastName">
-                    </div>
-
-                    <!-- Branch -->
                     <div class="mb-3">
                         <label for="branch" class="form-label">สาขา</label>
                         <select class="form-select" id="branch" name="branch" required>
@@ -50,10 +49,14 @@
                             <option value="009">สาขาเหนือคลอง</option>
                         </select>
                     </div>
-
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn btn-primary">ค้นหา</button>
-                    <button type="reset" class="btn btn-warning">ล้างข้อมูล</button>
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary">ค้นหา</button>
+                        </div>
+                        <div class="col">
+                            <button type="reset" class="btn btn-warning">ล้างข้อมูล</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

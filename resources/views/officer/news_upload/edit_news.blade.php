@@ -9,41 +9,27 @@
             <form action="/update_news" method="POST">
                 @csrf
                 <div class="mb-3">
-					<input type="hidden" name="news_number" value="{{ $news->news_number }}">
+					<input type="hidden" name="news_number" value="{{ $news->news_number }}" required>
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="title" name="title" value="{{ $news->title }}">
+                    <input type="text" class="form-control" id="title" name="title" value="{{ $news->title }}" required>
                 </div>
-
                 <div class="mb-3">
                     <label for="date" class="form-label">Date</label>
-                    <input type="date" class="form-control" id="date" name="date" value="{{ $news->dateupload }}">
+                    <input type="date" class="form-control" id="date" name="date" value="{{ $news->dateupload }}" required>
                 </div>
-
                 <div class="mb-3">
                     <label for="news_type" class="form-label">ประเภทข่าว</label>
-                    <select class="form-select" id="news_type" name="news_type">
+                    <select class="form-select" id="news_type" name="news_type" required>
                         <option value="1">ประชาสัมพันธ์</option>
                         <option value="2">สวัสดิการ</option>
                         <option value="3">สินเชื่อฮาลาล</option>
                         <option value="4">มูลนิธิษะกอฟะฮ</option>
                     </select>
                 </div>
-
                 <div class="mb-3">
                     <label for="description" class="form-label">รายละเอียด :</label>
-                    <textarea id="description" class="form-control" id="description" name="description" rows="4">{{ $news->description }}</textarea>
+                    <textarea id="description" class="form-control" id="description" name="description" rows="4" required>{{ $news->description }}</textarea>
                 </div>
-
-                {{-- <div class="mb-3">
-                    <label for="coverImage" class="form-label">ภาพหน้าปก</label>
-                    <input type="file" class="form-control" id="coverImage" name="coverImage" accept="image/*">
-                </div>
-
-                <div class="mb-3">
-                    <label for="uploadedFiles" class="form-label">ภาพข่าว</label>
-                    <input type="file" class="form-control" id="uploadedFiles" name="uploadedFiles[]" accept="image/*" multiple>
-                </div> --}}
-
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

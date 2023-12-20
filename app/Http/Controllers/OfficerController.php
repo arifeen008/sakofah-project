@@ -416,7 +416,7 @@ class OfficerController extends Controller
     {
         date_default_timezone_set('Asia/Bangkok');
         $request->validate([
-            'memberID' => 'required|max:5',
+            'mem_id' => 'required|max:5',
             'firstname' => 'required',
             'lastname' => 'required',
             'loanID' => 'required',
@@ -429,7 +429,7 @@ class OfficerController extends Controller
         if ($uploadedFile->move(public_path('file/credit_consider/'), $hashedFileName)) {
             $data = [
                 'username' => session('username'),
-                'mem_id' => $request->memberID,
+                'mem_id' => $request->mem_id,
                 'firstname' => $request->firstname,
                 'lastname' => $request->lastname,
                 'loan_year' => $request->loan_year,
@@ -444,12 +444,11 @@ class OfficerController extends Controller
             $return_id = DB::table('credit_consider')->insertGetId($data);
             $code_loan = array('', 'ฉ.', 'สฉ.', 'ส.', 'พ.', 'พค.', 'คส.', 'จท.');
             DB::table('credit_consider')->where('credit_consider_id', $return_id)->update(['lnumber_id' => $code_loan[$request->loanID] . str_pad($return_id, 7, '0', STR_PAD_LEFT) . '/' . $request->loanYear]);
-            $data_process = [
+            DB::table('credit_consider_process')->insert([
                 'credit_consider_id' => $return_id,
                 'date' => date('Y-m-d H:i:s'),
                 'status_id' => '1',
-            ];
-            DB::table('credit_consider_process')->insert($data_process);
+            ]);
             return redirect('/credit_consider')->with('success', 'อัพโหลดไฟล์สำเร็จ');
         } else {
             return redirect()->back()->with('error', 'อัพโหลดไฟล์ไม่สำเร็จ');

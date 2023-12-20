@@ -9,8 +9,8 @@
             <form action="/postcredit_consider" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                    <label for="memberID" class="form-label">เลขสมาชิก</label>
-                    <input type="text" class="form-control" id="memberID" name="memberID" maxlength="5">
+                    <label for="mem_id" class="form-label">เลขสมาชิก</label>
+                    <input type="text" class="form-control" id="mem_id" name="mem_id" maxlength="5">
                 </div>
                 <div class="row">
                     <div class="col">

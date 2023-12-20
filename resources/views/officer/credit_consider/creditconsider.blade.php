@@ -22,11 +22,11 @@
                         @foreach ($data as $item)
                             <tr>
                                 <td class="text-center">{{ $item->mem_id }}</td>
-                                <td class="text-center">{{ $item->fname . ' ' . $item->lname }}</td>
+                                <td class="text-center">{{ $item->firstname . ' ' . $item->lastname }}</td>
                                 <td>
                                     <p class="fw-normal mb-1">{{ $item->lnumber_id }}</p>
-                                    <p class="fw-normal mb-1">{{ $item->name_branch }}</p>
-                                    <p class="fw-normal mb-1">{{ $item->credit_name }}</p>
+                                    <p class="fw-normal mb-1">{{ $item->branch_name }}</p>
+                                    <p class="fw-normal mb-1">{{ $item->loan_type }}</p>
                                     <p class="fw-normal mb-0">{{ $item->loan_year }}</p>
                                 </td>
                                 <td>

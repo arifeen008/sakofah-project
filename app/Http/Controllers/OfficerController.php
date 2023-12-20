@@ -286,6 +286,7 @@ class OfficerController extends Controller
 
     public function postcredit(Request $request)
     {
+        date_default_timezone_set('Asia/Bangkok');
         $request->validate([
             'memberID' => 'required',
             'firstName' => 'required',
@@ -359,8 +360,6 @@ class OfficerController extends Controller
                 break;
         }
         $data = DB::table('credit_consider')->where('credit_consider.status_id', $status_id)
-            ->join('branch_name', 'branch_name.branch_id', '=', 'credit_consider.branch_id')
-            ->join('credit_type', 'credit_type.credit_id', '=', 'credit_consider.loan_id')
             ->join('status_credit', 'status_credit.status_id', '=', 'credit_consider.status_id')
             ->orderByDesc('credit_consider.date')->get();
         return view('officer/credit_consider/creditconsider', compact('data'));
@@ -387,14 +386,15 @@ class OfficerController extends Controller
                 break;
         }
         $data = DB::table('credit_consider')->where('credit_consider_id', $credit_consider_id)
-            ->join('branch_name', 'branch_name.branch_id', '=', 'credit_consider.branch_id')
-            ->join('credit_type', 'credit_type.credit_id', '=', 'credit_consider.loan_id')
+            // ->join('branch_name', 'branch_name.branch_id', '=', 'credit_consider.branch_id')
+            // ->join('credit_type', 'credit_type.credit_id', '=', 'credit_consider.loan_id')
             ->first();
         return view('officer/credit_consider/creditconsider_detail', compact('data', 'accept', 'reject'));
     }
 
     public function result_creditconsider(Request $request)
     {
+        date_default_timezone_set('Asia/Bangkok');
         DB::table('credit_consider')->where('credit_consider_id', $request->credit_consider_id)->update([
             'status_id' => $request->result,
         ]);
@@ -425,11 +425,11 @@ class OfficerController extends Controller
         //     'fileInput' => 'required|file|mimes:pdf',
         // ]);
         $uploadedFile = $request->file('fileInput');
-        $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . '.' . $uploadedFile->getClientOriginalExtension();
+        $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . time() . '.' . $uploadedFile->getClientOriginalExtension();
         $name_loan = array('', 'ฉุกเฉิน', 'สามัญฉุกเฉิน', 'สามัญ', 'พิเศษ', 'พิเศษโครงการ', 'โครงการสินทรัพย์', 'สวัสดิการเจ้าหน้าที่');
         $code_loan = array('', 'ฉ.', 'สฉ.', 'ส.', 'พ.', 'พค.', 'คส.', 'จท.');
         if ($uploadedFile->move(public_path('file/credit_consider/'), $hashedFileName)) {
-            $data = [
+            $return_id = DB::table('credit_consider')->insertGetId([
                 'username' => session('username'),
                 'mem_id' => $request->mem_id,
                 'firstname' => $request->firstname,
@@ -442,9 +442,7 @@ class OfficerController extends Controller
                 'status_id' => '1',
                 'date' => date('Y-m-d H:i:s'),
                 'note' => null,
-            ];
-            $return_id = DB::table('credit_consider')->insertGetId($data);
-
+            ]);
             DB::table('credit_consider')->where('credit_consider_id', $return_id)->update(['lnumber_id' => $code_loan[$request->loantype] . str_pad($return_id, 7, '0', STR_PAD_LEFT) . '/' . $request->loan_year]);
             $data_process = [
                 'credit_consider_id' => $return_id,
@@ -461,8 +459,6 @@ class OfficerController extends Controller
     public function report_creditconsider()
     {
         $data = DB::table('credit_consider')
-            ->join('branch_name', 'branch_name.branch_id', '=', 'credit_consider.branch_id')
-            ->join('credit_type', 'credit_type.credit_id', '=', 'credit_consider.loan_id')
             ->join('status_credit', 'status_credit.status_id', '=', 'credit_consider.status_id')
             ->get();
         return view('officer/credit_consider/report_creditconsider', compact('data'));

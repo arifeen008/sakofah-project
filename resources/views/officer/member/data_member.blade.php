@@ -167,59 +167,60 @@
             </div>
         </div>
     @endif
-
-    <div class="card m-1">
-        <div class="card-body">
-            <div class="card-title">
-                <b class="h2">หุ้น</b>
-                <hr>
-                <table class="table text-center">
+    @if ($stock_select != null)
+        <div class="card m-1">
+            <div class="card-body">
+                <div class="card-title">
+                    <b class="h2">หุ้น</b>
+                    <hr>
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <td>เลขที่สมาชิก</td>
+                                <td>สาขาที่สังกัด</td>
+                                <td>เงินคงเหลือ</td>
+                                <td>อายุการเป็นสมาชิก</td>
+                                <td>คะแนนสะสมคงเหลือ</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ $stock_select->MEM_ID }}</td>
+                                <td>{{ $stock_select->BR_NAME }}</td>
+                                <td>{{ number_format($stock_select->SHR_SUM_BTH, 2) }}</td>
+                                <td>{{ $stock_select->MEM_AGE_OLD + $stock_age->total . ' เดือน' }}</td>
+                                <td>{{ number_format($stock_select->POINT_SHR, 2) }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <table id="datatable3" class="table text-center">
                     <thead>
                         <tr>
-                            <td>เลขที่สมาชิก</td>
-                            <td>สาขาที่สังกัด</td>
-                            <td>เงินคงเหลือ</td>
-                            <td>อายุการเป็นสมาชิก</td>
-                            <td>คะแนนสะสมคงเหลือ</td>
+                            <th>เลขที่ใบเสร็จ</th>
+                            <th>ประเภทหุ้น</th>
+                            <th>จำนวนหุ้น</th>
+                            <th>จำนวนเงิน</th>
+                            <th>วันที่ทำรายการ</th>
+                            <th>จำนวนเงินคงเหลือ</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>{{ $stock_select->MEM_ID }}</td>
-                            <td>{{ $stock_select->BR_NAME }}</td>
-                            <td>{{ number_format($stock_select->SHR_SUM_BTH, 2) }}</td>
-                            <td>{{ $stock_select->MEM_AGE_OLD + $stock_age->total . ' เดือน' }}</td>
-                            <td>{{ number_format($stock_select->POINT_SHR, 2) }}</td>
-                        </tr>
+                        @foreach ($stock_details as $item)
+                            <tr>
+                                <td>{{ $item->SLIP_NO }}</td>
+                                <td>{{ $item->SHR_NA }}</td>
+                                <td>{{ $item->TMP_SHARE_QTY }}</td>
+                                <td>{{ number_format($item->TMP_SHARE_BHT, 2) }}</td>
+                                <td>{{ thaidate('j M Y ', $item->TMP_DATE_TODAY) }}</td>
+                                <td>{{ number_format($item->SHR_SUM_BTH, 2) }}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
-            {{-- <table id="datatable3" class="table text-center">
-                <thead>
-                    <tr>
-                        <th>เลขที่ใบเสร็จ</th>
-                        <th>ประเภทหุ้น</th>
-                        <th>จำนวนหุ้น</th>
-                        <th>จำนวนเงิน</th>
-                        <th>วันที่ทำรายการ</th>
-                        <th>จำนวนเงินคงเหลือ</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($stock_details as $item)
-                        <tr>
-                            <td>{{ $item->SLIP_NO }}</td>
-                            <td>{{ $item->SHR_NA }}</td>
-                            <td>{{ $item->TMP_SHARE_QTY }}</td>
-                            <td>{{ number_format($item->TMP_SHARE_BHT, 2) }}</td>
-                            <td>{{ thaidate('j M Y ', $item->TMP_DATE_TODAY) }}</td>
-                            <td>{{ number_format($item->SHR_SUM_BTH, 2) }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table> --}}
         </div>
-    </div>
+    @endif
     <div class="card m-1">
         <div class="card-body">
             <div class="card-title">เงินปันผล</div>

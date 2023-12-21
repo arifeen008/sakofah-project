@@ -9,7 +9,11 @@ class IndexController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $information = DB::table('news')->orderByDesc('dateupload')->where('news_typeid', 1)->limit(8)->get();
+        $welfare = DB::table('news')->orderByDesc('dateupload')->where('news_typeid', 2)->limit(8)->get();
+        $credit = DB::table('news')->orderByDesc('dateupload')->where('news_typeid', 3)->limit(8)->get();
+        $foundation = DB::table('news')->orderByDesc('dateupload')->where('news_typeid', 4)->limit(8)->get();
+        return view('index', compact('information','welfare','credit','foundation'));
     }
 
     public function history()

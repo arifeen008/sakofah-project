@@ -131,7 +131,7 @@
             </div>
         </div>
     </div>
-    <div class="container mt-3">
+    <div class="container mt-4">
         <div class="row">
             <div class="col-sm-8">
                 <div class="row h-100 d-flex justify-content-center align-items-center">
@@ -169,87 +169,258 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="card mt-2">
-                        <p class="text-dark border-bottom border-info mx-2 mt-2"
-                            style="font-family: 'Sarabun';font-size: 20px;"><b>วารสารออนไลน์</b></p>
-                        <iframe class="mb-3 mx-2" style="width: auto;height: 500px;"
-                            src="https://anyflip.com/bookcase/wueoy/" seamless="seamless" scrolling="no" frameborder="0"
-                            allowtransparency="true" allowfullscreen></iframe>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col">
+                        <div class="card mt-2">
+                            <div class="card-body">
+                                <h5 class="card-title text-dark">ข่าวประชาสัมพันธ์</h5>
+                                <hr>
+                                <div id="information" class="carousel slide carousel-fade" data-mdb-ride="carousel"
+                                    data-mdb-carousel-init>
+                                    <div class="carousel-indicators">
+                                        @foreach ($information as $index => $item)
+                                            <button type="button" data-mdb-target="#information"
+                                                data-mdb-slide-to="{{ $index }}"
+                                                @if ($index === 0) class="active" aria-current="true" @endif
+                                                aria-label="Slide {{ $index + 1 }}">
+                                            </button>
+                                        @endforeach
+                                    </div>
+                                    <div class="carousel-inner">
+                                        @foreach ($information as $index => $item)
+                                            <div class="carousel-item @if ($index === 0) active @endif">
+                                                <img src="{{ url('uploads/' . $item->picture_name) }}"
+                                                    class="d-block w-100" height="250" alt="{{ $item->title }}" />
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <p>{!! Str::limit($item->description, 60) !!}</p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-mdb-target="#information"
+                                        data-mdb-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-mdb-target="#information"
+                                        data-mdb-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mt-2">
+                            <div class="card-body">
+                                <h5 class="card-title text-dark">ข่าวสวัสดิการ</h5>
+                                <hr>
+                                <div id="welfare" class="carousel slide carousel-fade" data-mdb-ride="carousel"
+                                    data-mdb-carousel-init>
+                                    <div class="carousel-indicators">
+                                        @foreach ($welfare as $index => $item)
+                                            <button type="button" data-mdb-target="#welfare"
+                                                data-mdb-slide-to="{{ $index }}"
+                                                @if ($index === 0) class="active" aria-current="true" @endif
+                                                aria-label="Slide {{ $index + 1 }}">
+                                            </button>
+                                        @endforeach
+                                    </div>
+                                    <div class="carousel-inner">
+                                        @foreach ($welfare as $index => $item)
+                                            <div class="carousel-item @if ($index === 0) active @endif">
+                                                <img src="{{ url('uploads/' . $item->picture_name) }}" height="250"
+                                                    class="d-block w-100" alt="{{ $item->title }}" />
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <p>{!! Str::limit($item->description, 60) !!}</p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-mdb-target="#welfare"
+                                        data-mdb-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-mdb-target="#welfare"
+                                        data-mdb-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <h3 class="text-center text-dark mt-2" style="font-family: 'Kanit';">เวลาละหมาด</h3>
-                    <div class="text-center">
-                        <iframe width="133px" height="196px" src="https://shorturl.asia/gvwxq" frameborder=0
-                            scrolling=no></iframe>
-                        <iframe width="133px" height="196px" src="https://shorturl.asia/oTkP5" frameborder=0
-                            scrolling=no></iframe>
-                        <iframe width="133px" height="196px" src="https://shorturl.asia/QDtN6" frameborder=0
-                            scrolling=no></iframe>
-                        <iframe width="133px" height="196px" src="https://shorturl.asia/NqJSA" frameborder=0
-                            scrolling=no></iframe>
+                <div class="row">
+                    <div class="col">
+                        <div class="card mt-2">
+                            <div class="card-body">
+                                <h5 class="card-title text-dark">ข่าวสินเชื่อ</h5>
+                                <hr>
+                                <div id="credit" class="carousel slide carousel-fade" data-mdb-ride="carousel"
+                                    data-mdb-carousel-init>
+                                    <div class="carousel-indicators">
+                                        @foreach ($credit as $index => $item)
+                                            <button type="button" data-mdb-target="#credit"
+                                                data-mdb-slide-to="{{ $index }}"
+                                                @if ($index === 0) class="active" aria-current="true" @endif
+                                                aria-label="Slide {{ $index + 1 }}">
+                                            </button>
+                                        @endforeach
+                                    </div>
+                                    <div class="carousel-inner">
+                                        @foreach ($credit as $index => $item)
+                                            <div class="carousel-item @if ($index === 0) active @endif">
+                                                <img src="{{ url('uploads/' . $item->picture_name) }}" height="250"
+                                                    class="d-block w-100" alt="{{ $item->title }}" />
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <p>{!! Str::limit($item->description, 60) !!}</p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-mdb-target="#credit"
+                                        data-mdb-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-mdb-target="#credit"
+                                        data-mdb-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ratio ratio-16x9 my-3">
-                        <iframe src="https://www.youtube.com/embed/m0o5aStUkYg" title="YouTube video"
-                            allowfullscreen></iframe>
+                    <div class="col">
+                        <div class="card mt-2">
+                            <div class="card-body">
+                                <h5 class="card-title text-dark">มูลนิธิษะกอฟะฮ</h5>
+                                <hr>
+                                <div id="foundation" class="carousel slide carousel-fade" data-mdb-ride="carousel"
+                                    data-mdb-carousel-init>
+                                    <div class="carousel-indicators">
+                                        @foreach ($foundation as $index => $item)
+                                            <button type="button" data-mdb-target="#foundation"
+                                                data-mdb-slide-to="{{ $index }}"
+                                                @if ($index === 0) class="active" aria-current="true" @endif
+                                                aria-label="Slide {{ $index + 1 }}">
+                                            </button>
+                                        @endforeach
+                                    </div>
+                                    <div class="carousel-inner">
+                                        @foreach ($foundation as $index => $item)
+                                            <div class="carousel-item @if ($index === 0) active @endif">
+                                                <img src="{{ url('uploads/' . $item->picture_name) }}" height="250"
+                                                    class="d-block w-100" alt="{{ $item->title }}" />
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <p>{!! Str::limit($item->description, 60) !!}</p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-mdb-target="#foundation"
+                                        data-mdb-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-mdb-target="#foundation"
+                                        data-mdb-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ratio ratio-16x9 my-3">
-                        <iframe src="https://www.youtube.com/embed/zzvuyxuuHPs" title="YouTube video"
-                            allowfullscreen></iframe>
+                </div>
+                <div class="card mt-2">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">วารสารออนไลน์</h5>
+                        <hr>
+                        <iframe style="width: 800px;height: 500px;" src="https://anyflip.com/bookcase/wueoy/"
+                            seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen>
+                        </iframe>
                     </div>
-                    <div class="ratio ratio-16x9 my-3">
-                        <iframe src="https://www.youtube.com/embed/SV7IdDXAX0A" title="YouTube video"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="card mb-2">
-                        <a target="_blank" class="hover-shadow" href="https://shorturl.asia/IKm8k">
-                            <img class="rounded mx-auto d-block" width="120" height="120"
-                                src="{{ url('picture/ตรากรมที่ดิน.png') }}">
-                            <p class="text-center text-primary">กรมที่ดิน</p>
-                        </a>
-                    </div>
-                    <div class="card mb-2">
-                        <a target="_blank" class="hover-shadow" href="https://shorturl.asia/VpM47">
-                            <img class="rounded mx-auto d-block" width="120" height="120"
-                                src="{{ url('picture/กระทรวงเกษตรและสหกรณ์.png') }}">
-                            <p class="text-center text-primary">กระทรวงเกษตรและสหกรณ์</p>
-                        </a>
-                    </div>
-                    <div class="card mb-2">
-                        <a target="_blank" class="hover-shadow" href="https://shorturl.asia/PRMAt">
-                            <img class="rounded mx-auto d-block" width="120" height="120"
-                                src="{{ url('picture/img_fd06b99e276ab69db92a5bae61228dc2.png') }}">
-                            <p class="text-center text-primary">กรมตรวจบัญชีสหกรณ์กระบี่</p>
-                        </a>
-                    </div>
-                    <div class="card mb-2">
-                        <a target="_blank" class="hover-shadow" href="https://shorturl.asia/SCMmA">
-                            <img class="rounded mx-auto d-block" width="120" height="120"
-                                src="{{ url('picture/ตราสำนักงานสหกรณ์จังหวัดกระบี่.jpg') }}">
-                            <p class="text-center text-primary">สำนักงานสหกรณ์จังหวัดกระบี่</p>
-                        </a>
-                    </div>
-                    <div class="card mb-2">
-                        <a target="_blank" class="hover-shadow" href="https://shorturl.asia/g56qA">
-                            <img class="rounded mx-auto d-block" width="120" height="120"
-                                src="{{ url('picture/img_12b077835cddf4f35d3a3c285545a815.jpg') }}">
-                            <p class="text-center text-primary">กระทรวงแรงงาน</p>
-                        </a>
-                    </div>
-                    <div class="card mb-2">
-                        <a target="_blank" class="hover-shadow" href="https://shorturl.asia/uE52O">
-                            <img class="rounded mx-auto d-block" width="120" height="120"
-                                src="{{ url('picture/กรมส่งเสริมสหกรณ์.png') }}">
-                            <p class="text-center text-primary">กรมส่งเสริมสหกรณ์</p>
-                        </a>
-                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                {{-- <h3 class="text-center text-dark mt-2" style="font-family: 'Kanit';">เวลาละหมาด</h3>
+                        <div class="text-center">
+                            <iframe width="133px" height="196px" src="https://shorturl.asia/gvwxq" frameborder=0
+                                scrolling=no></iframe>
+                            <iframe width="133px" height="196px" src="https://shorturl.asia/oTkP5" frameborder=0
+                                scrolling=no></iframe>
+                            <iframe width="133px" height="196px" src="https://shorturl.asia/QDtN6" frameborder=0
+                                scrolling=no></iframe>
+                            <iframe width="133px" height="196px" src="https://shorturl.asia/NqJSA" frameborder=0
+                                scrolling=no></iframe>
+                        </div> --}}
+                <div class="ratio ratio-16x9 my-3">
+                    <iframe src="https://www.youtube.com/embed/m0o5aStUkYg" title="YouTube video"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="ratio ratio-16x9 my-3">
+                    <iframe src="https://www.youtube.com/embed/zzvuyxuuHPs" title="YouTube video"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="ratio ratio-16x9 my-3">
+                    <iframe src="https://www.youtube.com/embed/SV7IdDXAX0A" title="YouTube video"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="card mb-2">
+                    <a target="_blank" class="hover-shadow" href="https://shorturl.asia/IKm8k">
+                        <img class="rounded mx-auto d-block" width="120" height="120"
+                            src="{{ url('picture/ตรากรมที่ดิน.png') }}">
+                        <p class="text-center text-primary">กรมที่ดิน</p>
+                    </a>
+                </div>
+                <div class="card mb-2">
+                    <a target="_blank" class="hover-shadow" href="https://shorturl.asia/VpM47">
+                        <img class="rounded mx-auto d-block" width="120" height="120"
+                            src="{{ url('picture/กระทรวงเกษตรและสหกรณ์.png') }}">
+                        <p class="text-center text-primary">กระทรวงเกษตรและสหกรณ์</p>
+                    </a>
+                </div>
+                <div class="card mb-2">
+                    <a target="_blank" class="hover-shadow" href="https://shorturl.asia/PRMAt">
+                        <img class="rounded mx-auto d-block" width="120" height="120"
+                            src="{{ url('picture/img_fd06b99e276ab69db92a5bae61228dc2.png') }}">
+                        <p class="text-center text-primary">กรมตรวจบัญชีสหกรณ์กระบี่</p>
+                    </a>
+                </div>
+                <div class="card mb-2">
+                    <a target="_blank" class="hover-shadow" href="https://shorturl.asia/SCMmA">
+                        <img class="rounded mx-auto d-block" width="120" height="120"
+                            src="{{ url('picture/ตราสำนักงานสหกรณ์จังหวัดกระบี่.jpg') }}">
+                        <p class="text-center text-primary">สำนักงานสหกรณ์จังหวัดกระบี่</p>
+                    </a>
+                </div>
+                <div class="card mb-2">
+                    <a target="_blank" class="hover-shadow" href="https://shorturl.asia/g56qA">
+                        <img class="rounded mx-auto d-block" width="120" height="120"
+                            src="{{ url('picture/img_12b077835cddf4f35d3a3c285545a815.jpg') }}">
+                        <p class="text-center text-primary">กระทรวงแรงงาน</p>
+                    </a>
+                </div>
+                <div class="card mb-2">
+                    <a target="_blank" class="hover-shadow" href="https://shorturl.asia/uE52O">
+                        <img class="rounded mx-auto d-block" width="120" height="120"
+                            src="{{ url('picture/กรมส่งเสริมสหกรณ์.png') }}">
+                        <p class="text-center text-primary">กรมส่งเสริมสหกรณ์</p>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="row my-3">
         <div class="col-sm">
             <a target="_blank" href="https://shorturl.asia/rk6qs">

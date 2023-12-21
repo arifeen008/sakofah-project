@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'คอนโด|สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'คอนโด |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
 @section('content')
     <div class="container m-3">
         <div class="row align-items-center">

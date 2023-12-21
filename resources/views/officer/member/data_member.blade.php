@@ -194,7 +194,7 @@
                     </tbody>
                 </table>
             </div>
-            <table id="datatable3" class="table text-center">
+            {{-- <table id="datatable3" class="table text-center">
                 <thead>
                     <tr>
                         <th>เลขที่ใบเสร็จ</th>
@@ -217,7 +217,7 @@
                         </tr>
                     @endforeach
                 </tbody>
-            </table>
+            </table> --}}
         </div>
     </div>
     <div class="card m-1">

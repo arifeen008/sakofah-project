@@ -11,8 +11,7 @@
                     @csrf
                     <div class="mb-3">
                         <label for="idCardNumber" class="form-label">เลขบัตรประชาชน</label>
-                        <input type="text" class="form-control" id="idCardNumber" name="idCardNumber" maxlength="13"
-                            minlength="13">
+                        <input type="text" class="form-control" id="idCardNumber" name="idCardNumber" maxlength="13" minlength="13">
                     </div>
                     <div class="mb-3">
                         <label for="memberNumber" class="form-label">เลขสมาชิก</label>

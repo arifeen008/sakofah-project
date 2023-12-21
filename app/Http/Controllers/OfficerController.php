@@ -288,7 +288,7 @@ class OfficerController extends Controller
     {
         date_default_timezone_set('Asia/Bangkok');
         $request->validate([
-            'memberID' => 'required',
+            'memberID' => 'required|max:5',
             'firstName' => 'required',
             'lastName' => 'required',
             'contractNumber' => 'required',
@@ -299,7 +299,7 @@ class OfficerController extends Controller
         ]);
         $uploadedFile = $request->file('file');
         $path = 'file/credit_folder/' . $request->contractYear . '/' . $request->branch . '/' . $request->contractType;
-        $hashedFileName = md5($uploadedFile->getClientOriginalName()) . '.' . $uploadedFile->getClientOriginalExtension();
+        $hashedFileName = md5($uploadedFile->getClientOriginalName()) . time() . '.' . $uploadedFile->getClientOriginalExtension();
         if ($uploadedFile->move(public_path($path), $hashedFileName)) {
             $data = [
                 'mem_id' => $request->memberID,

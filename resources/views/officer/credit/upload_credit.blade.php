@@ -8,9 +8,16 @@
             <hr>
             <form action="/postcredit" method="post" enctype="multipart/form-data">
                 @csrf
+                @if ($errors->any())
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li> <span class="text-danger">{{ $error }}</span></li>
+                        @endforeach
+                    </ul>
+                @endif
                 <div class="mb-3">
                     <label for="memberID" class="form-label">เลขที่สมาชิก</label>
-                    <input type="text" class="form-control" id="memberID" name="memberID">
+                    <input type="text" class="form-control" id="memberID" name="memberID" maxlength="5">
                 </div>
                 <div class="mb-3">
                     <label for="firstName" class="form-label">ชื่อ</label>

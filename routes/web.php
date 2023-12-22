@@ -45,7 +45,7 @@ Route::get('/withus', [IndexController::class, 'withus']);
 //Officer
 Route::get('/login', [OfficerController::class, 'login']);
 Route::post('/login', [OfficerController::class, 'loginPost']);
-Route::get('/logout', [OfficerController::class, 'logout']);
+Route::post('/logout', [OfficerController::class, 'logout']);
 Route::get('/member', [OfficerController::class, 'member']);
 Route::post('/searchMember', [OfficerController::class, 'searchMember']);
 Route::get('/data_member/{mem_id}/{br_no}', [OfficerController::class, 'data_member']);

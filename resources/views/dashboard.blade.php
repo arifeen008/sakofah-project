@@ -32,8 +32,11 @@
                             ยินดีต้อนรับ {{ session('username') }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
-
+                            <form action="/logout" method="post">
+                                @csrf
+                                <li><button class="dropdown-item" href="#" type="submit">Logout</button></li>
+                            </form>
+                            
                         </ul>
                     </div>
                 </ul>

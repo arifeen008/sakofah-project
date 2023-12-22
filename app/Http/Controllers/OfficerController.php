@@ -17,44 +17,61 @@ class OfficerController extends Controller
     }
     public function loginPost(Request $request)
     {
-        date_default_timezone_set('Asia/Bangkok');
-        $request->validate([
-            'user_id' => 'required',
-            'password' => 'required',
-        ], [
-            'user_id.required' => 'ใส่ username',
-            'password.required' => 'ใส่ password',
-        ]);
-        $data = DB::connection('mysql_second')->table('bk_h_teller_control')->where('user_id', $request->user_id)->where('password', $request->password)->first();
+        // date_default_timezone_set('Asia/Bangkok');
+        // $request->validate([
+        //     'user_id' => 'required',
+        //     'password' => 'required',
+        // ], [
+        //     'user_id.required' => 'ใส่ username',
+        //     'password.required' => 'ใส่ password',
+        // ]);
+        // $data = DB::connection('mysql_second')->table('bk_h_teller_control')->where('user_id', $request->user_id)->where('password', $request->password)->first();
 
-        if (!empty($data)) {
-            $request->session()->put('user_id', $data->USER_ID);
-            $request->session()->put('username', $data->USER_NAME);
-            $request->session()->put('br_no', $data->BR_NO);
-            $request->session()->put('level_code', $data->LEVEL_CODE);
-            $userAgent = $request->header('User-Agent');
-            $agent = new \Jenssegers\Agent\Agent();
-            $agent->setUserAgent($userAgent);
-            DB::table('signin_history')->insert([
-                'user_id' => $data->USER_ID,
-                'branch_id' => $data->BR_NO,
-                'user_name' => $data->USER_NAME,
-                'login_time' => date('Y-m-d H:i:s'),
-                'ip_address' => $request->ip(),
-                'browser' => $agent->browser(),
-                'version' => $agent->version($agent->browser()),
-                'platform' => $agent->platform(),
-            ]);
-            return view('officer/member/searchMember');
-        }
+        // if (!empty($data)) {
+        //     $request->session()->put('user_id', $data->USER_ID);
+        //     $request->session()->put('username', $data->USER_NAME);
+        //     $request->session()->put('br_no', $data->BR_NO);
+        //     $request->session()->put('level_code', $data->LEVEL_CODE);
+        //     $userAgent = $request->header('User-Agent');
+        //     $agent = new \Jenssegers\Agent\Agent();
+        //     $agent->setUserAgent($userAgent);
+        //     DB::table('signin_history')->insert([
+        //         'user_id' => $data->USER_ID,
+        //         'branch_id' => $data->BR_NO,
+        //         'user_name' => $data->USER_NAME,
+        //         'login_time' => date('Y-m-d H:i:s'),
+        //         'ip_address' => $request->ip(),
+        //         'browser' => $agent->browser(),
+        //         'version' => $agent->version($agent->browser()),
+        //         'platform' => $agent->platform(),
+        //     ]);
+        //     return view('officer/member/searchMember');
+        // }
+        // return redirect()->back()->withErrors(['user_id' => 'Invalid credentials']);
+        $credentials = $request->only('user_id', 'password');
+        dd($credentials);
+        // if (Auth::attempt($credentials)) {
 
-        return redirect()->back()->withErrors(['user_id' => 'Invalid credentials']);
+        //     $user = DB::connection('mysql_second')->table('bk_h_teller_control')->where('user_id', $request->user_id)->where('password', $request->password)->first();
 
+        //     // Store user data in the session
+        //     $request->session()->put('user_id', $user->USER_ID);
+        //     $request->session()->put('username', $user->USER_NAME);
+        //     $request->session()->put('br_no', $user->BR_NO);
+        //     $request->session()->put('level_code', $user->LEVEL_CODE);
+        //     return redirect('officer/member/searchMember'); // Redirect to the dashboard or any other page
+        // }
     }
 
     public function logout(Request $request)
     {
-        Auth::logout();
+        Auth::logout(); // This will log the user out
+
+        $request->session()->invalidate(); // This will invalidate the session
+
+        $request->session()->regenerateToken(); // Regenerate the CSRF token
+
+        // Optionally, you can flash a message to the session or perform other cleanup tasks
         return redirect('/');
     }
 

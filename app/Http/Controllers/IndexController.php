@@ -13,7 +13,7 @@ class IndexController extends Controller
         $welfare = DB::table('news')->orderByDesc('dateupload')->where('news_typeid', 2)->limit(8)->get();
         $credit = DB::table('news')->orderByDesc('dateupload')->where('news_typeid', 3)->limit(8)->get();
         $foundation = DB::table('news')->orderByDesc('dateupload')->where('news_typeid', 4)->limit(8)->get();
-        return view('index', compact('information','welfare','credit','foundation'));
+        return view('index', compact('information', 'welfare', 'credit', 'foundation'));
     }
 
     public function history()
@@ -48,7 +48,7 @@ class IndexController extends Controller
         return view('main/service/deposit');
     }
 
-    public function credit()
+    public function credit_service()
     {
         return view('main/service/credit');
     }

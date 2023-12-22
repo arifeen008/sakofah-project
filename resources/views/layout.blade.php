@@ -177,13 +177,12 @@
             </div>
         </div>
     </nav>
-
     @yield('content')
     <footer class="text-lg-start py-2" style="background-color: #25d321;">
         <div class="container">
             <div class="d-flex justify-content-between">
                 <div></div>
-                {{-- <a href="/login" class="btn btn-success me-3"><i class="fas fa-key me-3"></i>เข้าสู่ระบบ</a> --}}
+                <a href="/login" class="btn btn-success me-3"><i class="fas fa-key me-3"></i>เข้าสู่ระบบ</a>
             </div>
         </div>
     </footer>
@@ -191,4 +190,3 @@
 </body>
 
 </html>
-

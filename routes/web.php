@@ -23,7 +23,7 @@ Route::get('/office', [IndexController::class, 'office']);
 Route::get('/structure', [IndexController::class, 'structure']);
 Route::get('/register', [IndexController::class, 'register']);
 Route::get('/deposit', [IndexController::class, 'deposit']);
-Route::get('/credit', [IndexController::class, 'credit']);
+Route::get('/credit_service', [IndexController::class, 'credit_service']);
 Route::get('/marry', [IndexController::class, 'marry']);
 Route::get('/maternity', [IndexController::class, 'maternity']);
 Route::get('/oldage', [IndexController::class, 'oldage']);

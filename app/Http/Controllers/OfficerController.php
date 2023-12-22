@@ -284,6 +284,32 @@ class OfficerController extends Controller
         return view('officer/performance/performance', compact('data'));
     }
 
+    public function add_performance()
+    {
+        return view('officer/performance/add_performance');
+    }
+
+    public function postPerformance(Request $request)
+    {
+        date_default_timezone_set('Asia/Bangkok');
+        $request->validate([
+            'document_name' => 'required',
+            'documentFile' => 'required',
+        ]);
+        $uploadedFile = $request->file('documentFile');
+        $hashedFileName = md5($uploadedFile->getClientOriginalName()) . time() . '.' . $uploadedFile->getClientOriginalExtension();
+        if ($uploadedFile->move(public_path('file/performance/'), $hashedFileName)) {
+            DB::table('credit_upload')->insert([
+                'document_name' => $request->document_name,
+                'path' => 'file/perfomance/',
+                'file_name' => $hashedFileName,
+                'date' => date('Y-m-d'),
+            ]);
+            return redirect()->back()->with('success', 'เพิ่มผลการดำเนินงานแล้ว');
+        } else {
+            return redirect()->back()->with('error', 'Error');
+        }
+    }
     public function postcredit(Request $request)
     {
         date_default_timezone_set('Asia/Bangkok');

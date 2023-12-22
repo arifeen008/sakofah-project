@@ -125,7 +125,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link link-dark">
+                    <a href="/add_performance" class="nav-link link-dark">
                         <i class="fab fa-buromobelexperte me-3"></i>
                         อัพโหลดผลการดำเนินงาน
                     </a>

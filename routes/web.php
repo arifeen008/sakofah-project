@@ -64,6 +64,10 @@ Route::get('/rules', [OfficerController::class, 'rules']);
 Route::get('/order', [OfficerController::class, 'order']);
 Route::get('/form', [OfficerController::class, 'form']);
 Route::get('/performance', [OfficerController::class, 'performance']);
+
+// Admin
+
+// Credit consider status
 Route::get('/credit_consider', [OfficerController::class, 'credit_consider']);
 Route::get('/creditconsider', [OfficerController::class, 'creditconsider']);
 Route::get('/creditconsider_detail/{credit_consider_id}', [OfficerController::class, 'creditconsider_detail']);
@@ -72,17 +76,16 @@ Route::get('/uploadcredit_consider', [OfficerController::class, 'uploadcredit_co
 Route::post('/postcredit_consider', [OfficerController::class, 'postcredit_consider']);
 Route::get('/creditconsider_process/{credit_consider_id}', [OfficerController::class, 'creditconsider_process']);
 Route::get('/report_creditconsider', [OfficerController::class, 'report_creditconsider']);
-// Admin
-
-// Credit consider status
 Route::get('/admin_creditconsider', [OfficerController::class, 'admin_creditconsider']);
-Route::get('/data_creditconsider', [OfficerController::class,'data_creditconsider']);
-Route::get('/delete_creditconsider/{credit_consider_id}', [OfficerController::class,'delete_creditconsider']);
+Route::get('/data_creditconsider', [OfficerController::class, 'data_creditconsider']);
+Route::get('/delete_creditconsider/{credit_consider_id}', [OfficerController::class, 'delete_creditconsider']);
 Route::get('/status_form_add', [OfficerController::class, 'status_form_add']);
 Route::post('/add_status', [OfficerController::class, 'add_status']);
 Route::get('/status_form_edit/{status_id}', [OfficerController::class, 'status_form_edit']);
 Route::post('/update_status', [OfficerController::class, 'update_status']);
-Route::post('status_form_delete/{status_id}', [OfficerController::class, 'status_form_delete']);
+Route::post('/status_form_delete/{status_id}', [OfficerController::class, 'status_form_delete']);
+Route::get('/add_performance', [OfficerController::class, 'add_performance']);
+Route::post('/postPerformance', [OfficerController::class,'postPerformance']);
 
 // News
 Route::get('/news_upload', [OfficerController::class, 'news_upload']);

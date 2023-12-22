@@ -294,7 +294,7 @@ class OfficerController extends Controller
         date_default_timezone_set('Asia/Bangkok');
         $request->validate([
             'document_name' => 'required',
-            'documentFile' => 'required',
+            'documentFile' => 'required|mimes:xls,xlsx',
         ]);
         $uploadedFile = $request->file('documentFile');
         $hashedFileName = md5($uploadedFile->getClientOriginalName()) . time() . '.' . $uploadedFile->getClientOriginalExtension();

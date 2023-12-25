@@ -10,6 +10,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -34,7 +35,7 @@
     <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #25d321;">
         <div class="container">
             <a class="navbar-brand me-2" href="/">
-                <img src="{{ url('picture/sakofag-logo.png') }}" height="25" alt="MDB Logo" loading="lazy"
+                <img src="{{ url('picture/sakofag-logo.png') }}" height="25" alt="sakofah" loading="lazy"
                     style="margin-top: -1px;" />
             </a>
             <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarButtonsExample"
@@ -186,7 +187,9 @@
             </div>
         </div>
     </footer>
+    @yield('script')
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
+    
 </body>
 
 </html>

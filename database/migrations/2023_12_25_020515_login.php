@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('officers', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('bk_h_teller_control', function (Blueprint $table) {
+            $table->string('username')->unique()->after('email');
         });
     }
 
@@ -22,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('officers');
+        Schema::table('bk_h_teller_control', function (Blueprint $table) {
+            //
+        });
     }
 };

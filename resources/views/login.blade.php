@@ -17,8 +17,8 @@
                             </div>
                         @enderror
                         <div data-mdb-input-init class="form-outline mb-4">
-                            <input type="text" id="form1Example1" name="user_id" class="form-control" />
-                            <label class="form-label" for="form1Example1">username</label>
+                            <input type="text" id="user_id" name="user_id" class="form-control" />
+                            <label class="form-label" for="user_id">username</label>
                         </div>
                         @error('password')
                             <div class="my-2">
@@ -26,17 +26,31 @@
                             </div>
                         @enderror
                         <div data-mdb-input-init class="form-outline mb-4">
-                            <input type="password" id="form1Example2" name="password" class="form-control" />
-                            <label class="form-label" for="form1Example2">Password</label>
+                            <input type="password" id="password" name="password" class="form-control" />
+                            <label class="form-label" for="password">Password</label>
                         </div>
                         <div class="d-flex justify-content-around align-items-center mb-4">
-                            <a href="/">หน้าหลัก</a>
-                            <a href="/"></a>
+                            <div class="form-check">
+                                <input class="form-check-input success" type="checkbox" value="password" id="Remember" checked />
+                                <label class="form-check-label" for="Remember">จดจำฉัน</label>
+                            </div>
+                            <a href="/">ลืมรหัสผ่าน</a>
                         </div>
-                        <button type="submit" class="btn btn-success btn-lg btn-block">login</button>
+                        <button type="submit" class="btn btn-success btn-lg btn-block">เข้าสู่ระบบ</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+@endsection
+@section('script')
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                title: "Error!",
+                text: "{{ session('error') }}",
+                icon: "error"
+            });
+        </script>
+    @endif
 @endsection

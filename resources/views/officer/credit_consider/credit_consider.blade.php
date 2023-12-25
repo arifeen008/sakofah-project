@@ -48,10 +48,9 @@
                                 </td>
                                 <td class="text-center">
                                     @if (!empty($item->note))
-                                        <button type="button" class="btn btn-lg btn-outline-danger"
-                                            data-mdb-toggle="popover" title="หมายเหตุ*"
-                                            data-mdb-content="{{ $item->note }}">
-                                            <i class="fas fa-align-justify"></i>
+                                        <button type="button" class="btn btn-lg btn-danger" data-mdb-popover-init
+                                            data-mdb-ripple-init title="หมายเหตุ" data-mdb-content="{{ $item->note }}">
+                                            <i class="far fa-eye"></i>
                                         </button>
                                     @else
                                         <h1>-</h1>

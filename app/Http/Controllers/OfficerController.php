@@ -48,8 +48,6 @@ class OfficerController extends Controller
         //     return view('officer/member/searchMember');
         // }
         // return redirect()->back()->withErrors(['user_id' => 'Invalid credentials']);
-        $credentials = $request->only('user_id', 'password');
-        dd($credentials);
         // if (Auth::attempt($credentials)) {
 
         //     $user = DB::connection('mysql_second')->table('bk_h_teller_control')->where('user_id', $request->user_id)->where('password', $request->password)->first();
@@ -425,7 +423,7 @@ class OfficerController extends Controller
         return view('officer/credit_consider/creditconsider_detail', compact('data', 'accept', 'reject'));
     }
 
-    public function result_creditconsider(Request $request)
+    public function accept_creditconsider(Request $request)
     {
         date_default_timezone_set('Asia/Bangkok');
         DB::table('credit_consider')->where('credit_consider_id', $request->credit_consider_id)->update([
@@ -436,13 +434,22 @@ class OfficerController extends Controller
             'date' => date('Y-m-d H:i:s'),
             'status_id' => $request->result,
         ]);
-        if ($request->result == '2' || $request->result == '4' || $request->result == '6') {
-            $message = 'อนุมัติสำเร็จ';
-        } else {
-            $message = 'ปฏิเสธสำเร็จ';
-        }
-        return redirect('/creditconsider')->with('success', $message);
+        return redirect('/creditconsider')->with('success', 'อนุมัติสำเร็จ');
+    }
 
+    public function reject_creditconsider(Request $request)
+    {
+        date_default_timezone_set('Asia/Bangkok');
+        DB::table('credit_consider')->where('credit_consider_id', $request->credit_consider_id)->update([
+            'status_id' => $request->result,
+            'note' =>$request->note
+        ]);
+        DB::table('credit_consider_process')->insert([
+            'credit_consider_id' => $request->credit_consider_id,
+            'date' => date('Y-m-d H:i:s'),
+            'status_id' => $request->result,
+        ]);
+        return redirect('/creditconsider')->with('success', 'อนุมัติสำเร็จ');
     }
 
     public function uploadcredit_consider()

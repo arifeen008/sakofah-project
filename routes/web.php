@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\OfficerController;
 use Illuminate\Support\Facades\Route;
@@ -43,9 +44,9 @@ Route::get('/report', [IndexController::class, 'report']);
 Route::get('/withus', [IndexController::class, 'withus']);
 
 //Officer
-Route::get('/login', [OfficerController::class, 'login']);
-Route::post('/login', [OfficerController::class, 'loginPost']);
-Route::post('/logout', [OfficerController::class, 'logout']);
+Route::get('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'loginPost']);
+Route::post('/logout', [AuthController::class, 'logout']);
 Route::get('/member', [OfficerController::class, 'member']);
 Route::post('/searchMember', [OfficerController::class, 'searchMember']);
 Route::get('/data_member/{mem_id}/{br_no}', [OfficerController::class, 'data_member']);
@@ -71,7 +72,8 @@ Route::get('/performance', [OfficerController::class, 'performance']);
 Route::get('/credit_consider', [OfficerController::class, 'credit_consider']);
 Route::get('/creditconsider', [OfficerController::class, 'creditconsider']);
 Route::get('/creditconsider_detail/{credit_consider_id}', [OfficerController::class, 'creditconsider_detail']);
-Route::post('/result_creditconsider', [OfficerController::class, 'result_creditconsider']);
+Route::post('/accept_creditconsider', [OfficerController::class, 'accept_creditconsider']);
+Route::post('/reject_creditconsider', [OfficerController::class, 'reject_creditconsider']);
 Route::get('/uploadcredit_consider', [OfficerController::class, 'uploadcredit_consider']);
 Route::post('/postcredit_consider', [OfficerController::class, 'postcredit_consider']);
 Route::get('/creditconsider_process/{credit_consider_id}', [OfficerController::class, 'creditconsider_process']);

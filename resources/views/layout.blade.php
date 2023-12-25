@@ -38,11 +38,11 @@
                 <img src="{{ url('picture/sakofag-logo.png') }}" height="25" alt="sakofah" loading="lazy"
                     style="margin-top: -1px;" />
             </a>
-            <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarButtonsExample"
-                aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
+            <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navBarButton"
+                aria-controls="navBarButton" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <div class="collapse navbar-collapse" id="navBarButton">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="/">หน้าหลัก</a>

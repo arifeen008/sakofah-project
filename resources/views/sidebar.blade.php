@@ -1,11 +1,6 @@
 @section('sidebar')
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-        <a href="/member" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <i class="fas fa-building fa-5x me-3"></i>
-            <span class="fs-4">เจ้าหน้าที่</span>
-        </a>
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
+    <div class="d-flex flex-column flex-shrink-0">
+        <ul class="nav nav-pills flex-column">
             <li class="nav-item">
                 <a href="/member" class="nav-link link-dark" aria-current="page">
                     <i class="fas fa-fingerprint me-3"></i>
@@ -101,13 +96,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link link-dark">
+                    <a href="/admin_credit" class="nav-link link-dark">
                         <i class="fas fa-bars-progress me-3"></i>
                         สินเชื่อ
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link link-dark">
+                    <a href="/login_history" class="nav-link link-dark">
                         <i class="fab fa-battle-net me-3"></i>
                         ประวัติการล็อกอิน
                     </a>

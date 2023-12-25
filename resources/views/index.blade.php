@@ -1,13 +1,13 @@
 @extends('layout')
 @section('title', 'สหกรณ์อิสลามษะกอฟะฮ จำกัด')
 @section('content')
-    <div id="carouselExampleCrossfade" class="carousel slide carousel-fade" data-mdb-ride="carousel" data-mdb-carousel-init>
+    <div id="mainCarousel" class="carousel slide carousel-fade" data-mdb-ride="carousel" data-mdb-carousel-init>
         <div class="carousel-indicators">
-            <button type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide-to="0" class="active"
+            <button type="button" data-mdb-target="#mainCarousel" data-mdb-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide-to="1"
+            <button type="button" data-mdb-target="#mainCarousel" data-mdb-slide-to="1"
                 aria-label="Slide 2"></button>
-            <button type="button" data-mdb-target="#carouselExampleCrossfade" data-mdb-slide-to="2"
+            <button type="button" data-mdb-target="#mainCarousel" data-mdb-slide-to="2"
                 aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
@@ -21,12 +21,12 @@
                 <img src="{{ url('picture/ค่านิยมเว็บ.jpg') }}" class="d-block w-100" />
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCrossfade"
+        <button class="carousel-control-prev" type="button" data-mdb-target="#mainCarousel"
             data-mdb-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleCrossfade"
+        <button class="carousel-control-next" type="button" data-mdb-target="#mainCarousel"
             data-mdb-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
@@ -34,23 +34,23 @@
     </div>
 
     <div class="container mt-4">
-        <div id="carouselBanner" class="carousel slide carousel-dark" data-mdb-ride="carouselBanner">
+        <div id="secondCarouselBanner" class="carousel slide carousel-dark" data-mdb-ride="secondCarouselBanner">
             <div class="carousel-indicators">
-                <button type="button" data-mdb-target="#carouselBanner" data-mdb-slide-to="0" class="active"
+                <button type="button" data-mdb-target="#secondCarouselBanner" data-mdb-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-mdb-target="#carouselBanner" data-mdb-slide-to="1"
+                <button type="button" data-mdb-target="#secondCarouselBanner" data-mdb-slide-to="1"
                     aria-label="Slide 2"></button>
-                <button type="button" data-mdb-target="#carouselBanner" data-mdb-slide-to="2"
+                <button type="button" data-mdb-target="#secondCarouselBanner" data-mdb-slide-to="2"
                     aria-label="Slide 3"></button>
-                <button type="button" data-mdb-target="#carouselBanner" data-mdb-slide-to="3"
+                <button type="button" data-mdb-target="#secondCarouselBanner" data-mdb-slide-to="3"
                     aria-label="Slide 4"></button>
-                <button type="button" data-mdb-target="#carouselBanner" data-mdb-slide-to="4"
+                <button type="button" data-mdb-target="#secondCarouselBanner" data-mdb-slide-to="4"
                     aria-label="Slide 5"></button>
-                <button type="button" data-mdb-target="#carouselBanner" data-mdb-slide-to="5"
+                <button type="button" data-mdb-target="#secondCarouselBanner" data-mdb-slide-to="5"
                     aria-label="Slide 6"></button>
-                <button type="button" data-mdb-target="#carouselBanner" data-mdb-slide-to="6"
+                <button type="button" data-mdb-target="#secondCarouselBanner" data-mdb-slide-to="6"
                     aria-label="Slide 7"></button>
-                <button type="button" data-mdb-target="#carouselBanner" data-mdb-slide-to="7"
+                <button type="button" data-mdb-target="#secondCarouselBanner" data-mdb-slide-to="7"
                     aria-label="Slide 8"></button>
             </div>
             <div class="carousel-inner">
@@ -86,12 +86,12 @@
                 </div>
 
             </div>
-            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBanner"
+            <button class="carousel-control-prev" type="button" data-mdb-target="#secondCarouselBanner"
                 data-mdb-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="false"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-mdb-target="#carouselBanner"
+            <button class="carousel-control-next" type="button" data-mdb-target="#secondCarouselBanner"
                 data-mdb-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="false"></span>
                 <span class="visually-hidden">Next</span>

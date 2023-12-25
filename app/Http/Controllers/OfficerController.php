@@ -4,74 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class OfficerController extends Controller
 {
     protected $connection = 'mysql_second';
-
-    public function login()
-    {
-        return view('login');
-    }
-    public function loginPost(Request $request)
-    {
-        // date_default_timezone_set('Asia/Bangkok');
-        // $request->validate([
-        //     'user_id' => 'required',
-        //     'password' => 'required',
-        // ], [
-        //     'user_id.required' => 'ใส่ username',
-        //     'password.required' => 'ใส่ password',
-        // ]);
-        // $data = DB::connection('mysql_second')->table('bk_h_teller_control')->where('user_id', $request->user_id)->where('password', $request->password)->first();
-
-        // if (!empty($data)) {
-        //     $request->session()->put('user_id', $data->USER_ID);
-        //     $request->session()->put('username', $data->USER_NAME);
-        //     $request->session()->put('br_no', $data->BR_NO);
-        //     $request->session()->put('level_code', $data->LEVEL_CODE);
-        //     $userAgent = $request->header('User-Agent');
-        //     $agent = new \Jenssegers\Agent\Agent();
-        //     $agent->setUserAgent($userAgent);
-        //     DB::table('signin_history')->insert([
-        //         'user_id' => $data->USER_ID,
-        //         'branch_id' => $data->BR_NO,
-        //         'user_name' => $data->USER_NAME,
-        //         'login_time' => date('Y-m-d H:i:s'),
-        //         'ip_address' => $request->ip(),
-        //         'browser' => $agent->browser(),
-        //         'version' => $agent->version($agent->browser()),
-        //         'platform' => $agent->platform(),
-        //     ]);
-        //     return view('officer/member/searchMember');
-        // }
-        // return redirect()->back()->withErrors(['user_id' => 'Invalid credentials']);
-        // if (Auth::attempt($credentials)) {
-
-        //     $user = DB::connection('mysql_second')->table('bk_h_teller_control')->where('user_id', $request->user_id)->where('password', $request->password)->first();
-
-        //     // Store user data in the session
-        //     $request->session()->put('user_id', $user->USER_ID);
-        //     $request->session()->put('username', $user->USER_NAME);
-        //     $request->session()->put('br_no', $user->BR_NO);
-        //     $request->session()->put('level_code', $user->LEVEL_CODE);
-        //     return redirect('officer/member/searchMember'); // Redirect to the dashboard or any other page
-        // }
-    }
-
-    public function logout(Request $request)
-    {
-        Auth::logout(); // This will log the user out
-
-        $request->session()->invalidate(); // This will invalidate the session
-
-        $request->session()->regenerateToken(); // Regenerate the CSRF token
-
-        // Optionally, you can flash a message to the session or perform other cleanup tasks
-        return redirect('/');
-    }
 
     public function member()
     {
@@ -658,4 +595,44 @@ class OfficerController extends Controller
         return redirect()->back()->with('success', 'Delete Success');
     }
 
+    public function admin_credit()
+    {
+        $data = DB::table('credit_upload')
+            ->join('credit_type', 'credit_type.credit_id', '=', 'credit_upload.credit_id')
+            ->join('branch_name', 'branch_name.branch_id', '=', 'credit_upload.branch_id')
+            ->get();
+        return view('officer/admin/admin_credit', compact('data'));
+    }
+
+    public function admin_delete_credit($id_credit)
+    {
+        $data = DB::table('credit_upload')->where('id_credit', $id_credit)->select('path', 'file_name')->first();
+        unlink($data->path . '/' . $data->file_name);
+        DB::table('credit_upload')->where('id_credit', $id_credit)->delete();
+        return redirect()->back()->with('success', 'Delete Success');
+    }
+
+    public function login_history()
+    {
+        $data = DB::table('signin_history')->orderByDesc('login_time')
+            ->join('branch_name', 'branch_name.branch_id', '=', 'signin_history.branch_id')
+            ->select('signin_history.user_id', 'signin_history.branch_id', 'branch_name.name_branch', 'signin_history.user_name', 'signin_history.login_time', 'signin_history.ip_address')
+            ->get();
+        return view('officer/admin/login_history', compact('data'));
+    }
+
+    public function login_history_person($user_id, $br_no)
+    {
+        $officer = DB::table('signin_history')->where('user_id', $user_id)->where('branch_id', $br_no)->select('user_name')->first();
+        $data = DB::table('signin_history')->orderByDesc('login_time')->where('user_id', $user_id)->where('branch_id', $br_no)->get();
+        return view('officer/admin/login_history_person', compact('data', 'officer'));
+    }
+
+    public function all_officer()
+    {
+        $data = DB::connection('mysql_second')->table('BK_H_TELLER_CONTROL')
+            ->join('BK_M_BRANCH', 'BK_M_BRANCH.BR_NO', '=', 'BK_H_TELLER_CONTROL.BR_NO')
+            ->select('BK_H_TELLER_CONTROL.USER_ID', 'BK_H_TELLER_CONTROL.BR_NO', 'BK_M_BRANCH.BR_NAME', 'BK_H_TELLER_CONTROL.USER_NAME')->get();
+        return view('officer/admin/all_officer', compact('data'));
+    }
 }

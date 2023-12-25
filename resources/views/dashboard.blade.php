@@ -20,9 +20,9 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
         <div class="container">
-            <a class="navbar-brand me-2" href="/">
-                <img src="{{ url('picture/sakofag-logo.png') }}" height="25"
-                    alt="MDB Logo" loading="lazy" style="margin-top: -1px;" />
+            <a class="navbar-brand me-2" href="#">
+                <img src="{{ url('picture/sakofag-logo.png') }}" height="25" alt="MDB Logo" loading="lazy"
+                    style="margin-top: -1px;" />
             </a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -36,7 +36,7 @@
                                 @csrf
                                 <li><button class="dropdown-item" href="#" type="submit">Logout</button></li>
                             </form>
-                            
+
                         </ul>
                     </div>
                 </ul>

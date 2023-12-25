@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+//  Main page
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/history', [IndexController::class, 'history']);
 Route::get('/vision', [IndexController::class, 'vision']);
@@ -43,10 +44,12 @@ Route::get('/document', [IndexController::class, 'document']);
 Route::get('/report', [IndexController::class, 'report']);
 Route::get('/withus', [IndexController::class, 'withus']);
 
-//Officer
+// Login 
 Route::get('/login', [AuthController::class, 'login']);
 Route::post('/login', [AuthController::class, 'loginPost']);
 Route::post('/logout', [AuthController::class, 'logout']);
+
+//Officer
 Route::get('/member', [OfficerController::class, 'member']);
 Route::post('/searchMember', [OfficerController::class, 'searchMember']);
 Route::get('/data_member/{mem_id}/{br_no}', [OfficerController::class, 'data_member']);
@@ -67,7 +70,6 @@ Route::get('/form', [OfficerController::class, 'form']);
 Route::get('/performance', [OfficerController::class, 'performance']);
 
 // Admin
-
 // Credit consider status
 Route::get('/credit_consider', [OfficerController::class, 'credit_consider']);
 Route::get('/creditconsider', [OfficerController::class, 'creditconsider']);
@@ -86,8 +88,14 @@ Route::post('/add_status', [OfficerController::class, 'add_status']);
 Route::get('/status_form_edit/{status_id}', [OfficerController::class, 'status_form_edit']);
 Route::post('/update_status', [OfficerController::class, 'update_status']);
 Route::post('/status_form_delete/{status_id}', [OfficerController::class, 'status_form_delete']);
+
+// Perfomance
 Route::get('/add_performance', [OfficerController::class, 'add_performance']);
-Route::post('/postPerformance', [OfficerController::class,'postPerformance']);
+Route::post('/postPerformance', [OfficerController::class, 'postPerformance']);
+
+// Credit
+Route::get('/admin_credit', [OfficerController::class, 'admin_credit']);
+Route::get('/admin_delete_credit/{id_credit}', [OfficerController::class, 'admin_delete_credit']);
 
 // News
 Route::get('/news_upload', [OfficerController::class, 'news_upload']);
@@ -96,7 +104,8 @@ Route::post('/upload_news', [OfficerController::class, 'upload_news']);
 Route::get('/edit_news/{news_number}', [OfficerController::class, 'edit_news']);
 Route::post('/update_news', [OfficerController::class, 'update_news']);
 Route::get('/delete_news/{news_number}', [OfficerController::class, 'delete_news']);
-// Route::prefix('officer')->group(function () {
-// });
 
-// Auth::routes();
+// Login history
+Route::get('/login_history', [OfficerController::class, 'login_history']);
+Route::get('/login_history_person/{user_id}/{br_no}', [OfficerController::class, 'login_history_person']);
+Route::get('/all_officer', [OfficerController::class,'all_officer']);

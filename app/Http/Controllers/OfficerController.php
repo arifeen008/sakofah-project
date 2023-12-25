@@ -442,14 +442,14 @@ class OfficerController extends Controller
         date_default_timezone_set('Asia/Bangkok');
         DB::table('credit_consider')->where('credit_consider_id', $request->credit_consider_id)->update([
             'status_id' => $request->result,
-            'note' =>$request->note
+            'note' => $request->note,
         ]);
         DB::table('credit_consider_process')->insert([
             'credit_consider_id' => $request->credit_consider_id,
             'date' => date('Y-m-d H:i:s'),
             'status_id' => $request->result,
         ]);
-        return redirect('/creditconsider')->with('success', 'อนุมัติสำเร็จ');
+        return redirect('/creditconsider')->with('success', 'ปฏิเสธสำเร็จ');
     }
 
     public function uploadcredit_consider()

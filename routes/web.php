@@ -113,4 +113,5 @@ Route::get('/all_officer', [OfficerController::class, 'all_officer']);
 // Asset
 Route::get('/asset_list', [OfficerController::class, 'asset_list']);
 Route::get('/add_asset', [OfficerController::class, 'add_asset']);
-Route::post('/uploadAsset', [OfficerController::class,'uploadAsset']);
+Route::post('/uploadAsset', [OfficerController::class, 'uploadAsset']);
+Route::get('/delete_asset/{asset_number}', [OfficerController::class, 'delete_asset']);

@@ -16,6 +16,7 @@
                         <th>ชื่อ</th>
                         <th>รายละเอียด</th>
                         <th>วันที่</th>
+                        <th>ลบ</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,6 +26,7 @@
                             <td>{{ $item->title }}</td>
                             <td>{{ Str::limit($item->description1, 50) }}</td>
                             <td>{{ thaidate('j M Y ', $item->date) }}</td>
+                            <td><a href="{{ url('delete_asset/' . $item->asset_number) }}" class="btn btn-danger">ลบ</a></td>
                         </tr>
                     @endforeach
                 </tbody>

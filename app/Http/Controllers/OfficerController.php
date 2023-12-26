@@ -661,7 +661,7 @@ class OfficerController extends Controller
         ]);
 
         $uploadedFile = $request->file('coverImage');
-        $hashedFileName = md5($uploadedFile->getClientOriginalName()) . time() . '.' . $uploadedFile->getClientOriginalExtension();
+        $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . time() . '.' . $uploadedFile->getClientOriginalExtension();
         $asset_id = DB::table('asset')->insertGetId([
             'title' => $request->title,
             'description1' => $request->description1,
@@ -680,5 +680,15 @@ class OfficerController extends Controller
             ]);
         }
         return redirect('/asset_list')->with('success','เพิ่มสำเร็จ');
+    }
+
+    public function delete_asset($asset_number){
+        $picture_name = DB::table('asset_picture')->where('asset_number', $asset_number)->select('picture_name')->get();
+        foreach ($picture_name as $item) {
+            unlink('asset/' . $item->picture_name);
+        }
+        DB::table('asset')->where('asset_number', $asset_number)->delete();
+        DB::table('asset_picture')->where('asset_number', $asset_number)->delete();
+        return redirect()->back()->with('success', 'Delete Success');
     }
 }

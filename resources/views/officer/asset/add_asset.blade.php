@@ -7,6 +7,7 @@
             <h3 class="me-auto">Admin อัพโหลดสินทรัพย์</h3>
             <hr>
             <form action="/uploadAsset" method="post" enctype="multipart/form-data">
+                @csrf
                 <div class="form-outline mb-4" data-mdb-input-init>
                     <input type="text" id="title" class="form-control" name="title" required />
                     <label class="form-label" for="title">หัวข้อ</label>

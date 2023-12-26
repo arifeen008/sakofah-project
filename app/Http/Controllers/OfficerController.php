@@ -679,10 +679,11 @@ class OfficerController extends Controller
                 'picture_name' => $hashedFileName,
             ]);
         }
-        return redirect('/asset_list')->with('success','เพิ่มสำเร็จ');
+        return redirect('/asset_list')->with('success', 'เพิ่มสำเร็จ');
     }
 
-    public function delete_asset($asset_number){
+    public function delete_asset($asset_number)
+    {
         $picture_name = DB::table('asset_picture')->where('asset_number', $asset_number)->select('picture_name')->get();
         foreach ($picture_name as $item) {
             unlink('asset/' . $item->picture_name);

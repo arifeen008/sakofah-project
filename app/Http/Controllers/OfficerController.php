@@ -635,4 +635,50 @@ class OfficerController extends Controller
             ->select('BK_H_TELLER_CONTROL.USER_ID', 'BK_H_TELLER_CONTROL.BR_NO', 'BK_M_BRANCH.BR_NAME', 'BK_H_TELLER_CONTROL.USER_NAME')->get();
         return view('officer/admin/all_officer', compact('data'));
     }
+
+    public function asset_list()
+    {
+        $data = DB::table('asset')->join('asset_type', 'asset.asset_type', '=', 'asset_type.asset_type')->get();
+        return view('officer/asset/asset', compact('data'));
+    }
+
+    public function add_asset()
+    {
+        return view('officer/asset/add_asset');
+    }
+
+    public function uploadAsset(Request $request)
+    {
+        date_default_timezone_set('Asia/Bangkok');
+        $request->validate([
+            'title' => 'required',
+            'description1' => 'required',
+            'description2' => 'required',
+            'contact' => 'required',
+            'asset_type' => 'required',
+            'coverImage' => 'required',
+            'Images' => 'required',
+        ]);
+
+        $uploadedFile = $request->file('coverImage');
+        $hashedFileName = md5($uploadedFile->getClientOriginalName()) . time() . '.' . $uploadedFile->getClientOriginalExtension();
+        $asset_id = DB::table('asset')->insertGetId([
+            'title' => $request->title,
+            'description1' => $request->description1,
+            'description2' => $request->description2,
+            'contact' => $request->contact,
+            'asset_type' => $request->asset_type,
+            'picture_name' => $hashedFileName,
+            'date' => date('Y-m-d'),
+        ]);
+        foreach ($request->file('Images') as $file) {
+            $hashedFileName = sha1($file->getClientOriginalName()) . time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('asset/'), $hashedFileName);
+            DB::table('asset_picture')->insert([
+                'asset_number' => $asset_id,
+                'picture_name' => $hashedFileName,
+            ]);
+        }
+        return redirect('/asset_list')->with('success','เพิ่มสำเร็จ');
+    }
 }

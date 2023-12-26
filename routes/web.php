@@ -44,7 +44,7 @@ Route::get('/document', [IndexController::class, 'document']);
 Route::get('/report', [IndexController::class, 'report']);
 Route::get('/withus', [IndexController::class, 'withus']);
 
-// Login 
+// Login
 Route::get('/login', [AuthController::class, 'login']);
 Route::post('/login', [AuthController::class, 'loginPost']);
 Route::post('/logout', [AuthController::class, 'logout']);
@@ -108,4 +108,9 @@ Route::get('/delete_news/{news_number}', [OfficerController::class, 'delete_news
 // Login history
 Route::get('/login_history', [OfficerController::class, 'login_history']);
 Route::get('/login_history_person/{user_id}/{br_no}', [OfficerController::class, 'login_history_person']);
-Route::get('/all_officer', [OfficerController::class,'all_officer']);
+Route::get('/all_officer', [OfficerController::class, 'all_officer']);
+
+// Asset
+Route::get('/asset_list', [OfficerController::class, 'asset_list']);
+Route::get('/add_asset', [OfficerController::class, 'add_asset']);
+Route::post('/uploadAsset', [OfficerController::class,'uploadAsset']);

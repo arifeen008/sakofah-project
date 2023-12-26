@@ -108,7 +108,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link link-dark">
+                    <a href="/asset_list" class="nav-link link-dark">
                         <i class="fas fa-bicycle me-3"></i>
                         อัพโหลดสินทรัพย์
                     </a>

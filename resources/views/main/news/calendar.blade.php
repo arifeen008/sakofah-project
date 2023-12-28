@@ -1,98 +1,107 @@
 @extends('layout')
 @section('title', 'ปฏิทินสหกรณ์ | สหกรณ์อิสลามษะกอฟะฮ จำกัด')
 @section('content')
-    <img src="{{ url('picture/cover.jpg') }}" class="mb-2" style="width: 100%;">
+    <img src="{{ url('picture/cover.jpg') }}" class="img-fluid w-100" class="mb-2">
     <div class="container my-2">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-3">
                 <div class="nav flex-column nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link {{ date('m') == '1' ? 'active' : '' }}" data-mdb-toggle="pill" href="#v-pills-1"
-                        role="tab" aria-controls="1">
-                        มกราคม</a>
-                    <a class="nav-link {{ date('m') == '2' ? 'active' : '' }}" data-mdb-toggle="pill" href="#v-pills-2"
-                        role="tab" aria-controls="2">
-                        กุมภาพันธ์</a>
-                    <a class="nav-link {{ date('m') == '3' ? 'active' : '' }}" data-mdb-toggle="pill" href="#v-pills-3"
-                        role="tab" aria-controls="3">
-                        มีนาคม </a>
-                    <a class="nav-link {{ date('m') == '4' ? 'active' : '' }}" data-mdb-toggle="pill" href="#v-pills-4"
-                        role="tab" aria-controls="4">
-                        เมษายน</a>
-                    <a class="nav-link {{ date('m') == '5' ? 'active' : '' }}" data-mdb-toggle="pill" href="#v-pills-5"
-                        role="tab" aria-controls="5">
-                        พฤษภาคม</a>
-                    <a class="nav-link {{ date('m') == '6' ? 'active' : '' }}" data-mdb-toggle="pill" href="#v-pills-6"
-                        role="tab" aria-controls="6">
-                        มิถุนายน</a>
-                    <a class="nav-link {{ date('m') == '7' ? 'active' : '' }}" data-mdb-toggle="pill" href="#v-pills-7"
-                        role="tab" aria-controls="7">
-                        กรกฎาคม</a>
-                    <a class="nav-link {{ date('m') == '8' ? 'active' : '' }}" data-mdb-toggle="pill" href="#v-pills-8"
-                        role="tab" aria-controls="8">
-                        สิงหาคม</a>
-                    <a class="nav-link {{ date('m') == '9' ? 'active' : '' }}" data-mdb-toggle="pill" href="#v-pills-9"
-                        role="tab" aria-controls="9">
-                        กันยายน</a>
-                    <a class="nav-link {{ date('m') == '10' ? 'active' : '' }}" data-mdb-toggle="pill" href="#v-pills-10"
-                        role="tab" aria-controls="10">
-                        ตุลาคม</a>
-                    <a class="nav-link {{ date('m') == '11' ? 'active' : '' }}" data-mdb-toggle="pill" href="#v-pills-11"
-                        role="tab" aria-controls="11">
-                        พฤศจิกายน</a>
-                    <a class="nav-link {{ date('m') == '12' ? 'active' : '' }}" data-mdb-toggle="pill" href="#v-pills-12"
-                        role="tab" aria-controls="12">
-                        ธันวาคม</a>
+                    <a data-mdb-pill-init class="nav-link" id="v-pills-month0-tab" href="#v-pills-month0" role="tab"
+                        aria-controls="v-pills-month0" aria-selected="false">
+                        มกราคม
+                    </a>
+                    <a data-mdb-pill-init class="nav-link" id="v-pills-month1-tab" href="#v-pills-month1" role="tab"
+                        aria-controls="v-pills-month1" aria-selected="false">
+                        กุมภาพันธ์
+                    </a>
+                    <a data-mdb-pill-init class="nav-link" id="v-pills-month2-tab" href="#v-pills-month2" role="tab"
+                        aria-controls="v-pills-month2" aria-selected="false">
+                        มีนาคม
+                    </a>
+                    <a data-mdb-pill-init class="nav-link" id="v-pills-month3-tab" href="#v-pills-month3" role="tab"
+                        aria-controls="v-pills-month3" aria-selected="false">
+                        เมษายน
+                    </a>
+                    <a data-mdb-pill-init class="nav-link" id="v-pills-month4-tab" href="#v-pills-month4" role="tab"
+                        aria-controls="v-pills-month4" aria-selected="false">
+                        พฤษภาคม
+                    </a>
+                    <a data-mdb-pill-init class="nav-link" id="v-pills-month5-tab" href="#v-pills-month5" role="tab"
+                        aria-controls="v-pills-month5" aria-selected="false">
+                        มิถุนายน
+                    </a>
+                    <a data-mdb-pill-init class="nav-link" id="v-pills-month6-tab" href="#v-pills-month6" role="tab"
+                        aria-controls="v-pills-month6" aria-selected="false">
+                        กรกฎาคม
+                    </a>
+                    <a data-mdb-pill-init class="nav-link" id="v-pills-month7-tab" href="#v-pills-month7" role="tab"
+                        aria-controls="v-pills-month7" aria-selected="false">
+                        สิงหาคม
+                    </a>
+                    <a data-mdb-pill-init class="nav-link" id="v-pills-month8-tab" href="#v-pills-month8" role="tab"
+                        aria-controls="v-pills-month8" aria-selected="false">
+                        กันยายน
+                    </a>
+                    <a data-mdb-pill-init class="nav-link" id="v-pills-month9-tab" href="#v-pills-month9" role="tab"
+                        aria-controls="v-pills-month9" aria-selected="false">
+                        ตุลาคม
+                    </a>
+                    <a data-mdb-pill-init class="nav-link" id="v-pills-month10-tab" href="#v-pills-month10" role="tab"
+                        aria-controls="v-pills-month10" aria-selected="false">
+                        พฤศจิกายน
+                    </a>
+                    <a data-mdb-pill-init class="nav-link active" id="v-pills-month11-tab" href="#v-pills-month11"
+                        role="tab" aria-controls="v-pills-month11" aria-selected="false">
+                        ธันวาคม
+                    </a>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-9">
                 <div class="tab-content" id="v-pills-tabContent">
-                    <div class="tab-pane fade {{ date('m') == '1' ? 'show active' : '' }}" id="v-pills-1" role="tabpanel"
-                        aria-labelledby="1">
-                        <img src="{{ url('picture/cal_m01.jpg') }}" class="mb-2" style="width: 100%;">
+                    <div class="tab-pane fade " id="v-pills-month0" role="tabpanel" aria-labelledby="v-pills-month0-tab">
+                        <img src="{{ url('calendar/cal_m1.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade {{ date('m') == '2' ? 'show active' : '' }}" id="v-pills-2" role="tabpanel"
-                        aria-labelledby="2">
-                        <img src="{{ url('picture/cal_m02.jpg') }}" class="mb-2" style="width: 100%;">
+                    <div class="tab-pane fade " id="v-pills-month1" role="tabpanel" aria-labelledby="v-pills-month1-tab">
+                        <img src="{{ url('calendar/cal_m2.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade {{ date('m') == '3' ? 'show active' : '' }}" id="v-pills-3" role="tabpanel"
-                        aria-labelledby="3">
-                        <img src="{{ url('picture/cal_m03.jpg') }}" class="mb-2" style="width: 100%;">
+                    <div class="tab-pane fade " id="v-pills-month2" role="tabpanel" aria-labelledby="v-pills-month2-tab">
+                        <img src="{{ url('calendar/cal_m3.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade {{ date('m') == '4' ? 'show active' : '' }}" id="v-pills-4" role="tabpanel"
-                        aria-labelledby="4">
-                        <img src="{{ url('picture/cal_m04.jpg') }}" class="mb-2" style="width: 100%;">
+                    <div class="tab-pane fade " id="v-pills-month3" role="tabpanel"
+                        aria-labelledby="v-pills-month3-tab">
+                        <img src="{{ url('calendar/cal_m4.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade {{ date('m') == '5' ? 'show active' : '' }}" id="v-pills-5"
-                        role="tabpanel" aria-labelledby="5">
-                        <img src="{{ url('picture/cal_m05.jpg') }}" class="mb-2" style="width: 100%;">
+                    <div class="tab-pane fade " id="v-pills-month4" role="tabpanel"
+                        aria-labelledby="v-pills-month4-tab">
+                        <img src="{{ url('calendar/cal_m5.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade {{ date('m') == '6' ? 'show active' : '' }}" id="v-pills-6"
-                        role="tabpanel" aria-labelledby="6">
-                        <img src="{{ url('picture/cal_m06.jpg') }}" class="mb-2" style="width: 100%;">
+                    <div class="tab-pane fade " id="v-pills-month5" role="tabpanel"
+                        aria-labelledby="v-pills-month5-tab">
+                        <img src="{{ url('calendar/cal_m6.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade {{ date('m') == '7' ? 'show active' : '' }}" id="v-pills-7"
-                        role="tabpanel" aria-labelledby="7">
-                        <img src="{{ url('picture/cal_m07.jpg') }}" class="mb-2" style="width: 100%;">
+                    <div class="tab-pane fade " id="v-pills-month6" role="tabpanel"
+                        aria-labelledby="v-pills-month6-tab">
+                        <img src="{{ url('calendar/cal_m7.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade {{ date('m') == '8' ? 'show active' : '' }}" id="v-pills-8"
-                        role="tabpanel" aria-labelledby="8">
-                        <img src="{{ url('picture/cal_m08.jpg') }}" class="mb-2" style="width: 100%;">
+                    <div class="tab-pane fade " id="v-pills-month7" role="tabpanel"
+                        aria-labelledby="v-pills-month7-tab">
+                        <img src="{{ url('calendar/cal_m8.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade {{ date('m') == '9' ? 'show active' : '' }}" id="v-pills-9"
-                        role="tabpanel" aria-labelledby="9">
-                        <img src="{{ url('picture/cal_m09.jpg') }}" class="mb-2" style="width: 100%;">
+                    <div class="tab-pane fade " id="v-pills-month8" role="tabpanel"
+                        aria-labelledby="v-pills-month8-tab">
+                        <img src="{{ url('calendar/cal_m9.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade {{ date('m') == '10' ? 'show active' : '' }}" id="v-pills-10"
-                        role="tabpanel" aria-labelledby="10">
-                        <img src="{{ url('picture/cal_m10.jpg') }}" class="mb-2" style="width: 100%;">
+                    <div class="tab-pane fade " id="v-pills-month9" role="tabpanel"
+                        aria-labelledby="v-pills-month9-tab">
+                        <img src="{{ url('calendar/cal_m10.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade {{ date('m') == '11' ? 'show active' : '' }}" id="v-pills-11"
-                        role="tabpanel" aria-labelledby="11">
-                        <img src="{{ url('picture/cal_m11.jpg') }}" class="mb-2" style="width: 100%;">
+                    <div class="tab-pane fade " id="v-pills-month10" role="tabpanel"
+                        aria-labelledby="v-pills-month10-tab">
+                        <img src="{{ url('calendar/cal_m11.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade {{ date('m') == '12' ? 'show active' : '' }}" id="v-pills-12"
-                        role="tabpanel" aria-labelledby="12">
-                        <img src="{{ url('picture/cal_m12.jpg') }}" class="mb-2" style="width: 100%;">
+                    <div class="tab-pane fade show active" id="v-pills-month11" role="tabpanel"
+                        aria-labelledby="v-pills-month11-tab">
+                        <img src="{{ url('calendar/cal_m12.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
                 </div>
             </div>

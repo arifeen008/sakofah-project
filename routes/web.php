@@ -33,7 +33,7 @@ Route::get('/medical', [IndexController::class, 'medical']);
 Route::get('/dead', [IndexController::class, 'dead']);
 Route::get('/activity', [IndexController::class, 'activity']);
 Route::get('/news/{id}', [IndexController::class, 'news']);
-Route::get('/calendar', [IndexController::class, 'calendar']);
+Route::get('/calen', [IndexController::class, 'calen']);
 Route::get('/homeList', [IndexController::class, 'homeList']);
 Route::get('/vacantList', [IndexController::class, 'vacantList']);
 Route::get('/condoList', [IndexController::class, 'condoList']);

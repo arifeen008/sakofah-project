@@ -25,6 +25,11 @@
         gtag('config', 'G-Y7M3HX122N');
     </script>
 </head>
+<style>
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+</style>
 
 <body>
     <div class="container-fluid">
@@ -118,7 +123,7 @@
                                 <a class="dropdown-item" href="/activity">ข่าวสาร/กิจกรรมความเคลื่อนไหว</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="/calendar">ปฏิทินสหกรณ์</a>
+                                <a class="dropdown-item" href="/calen">ปฏิทินสหกรณ์</a>
                             </li>
                         </ul>
                     </li>
@@ -168,11 +173,11 @@
                         </ul>
                     </li>
                 </ul>
-                <div class="d-flex align-items-center">
+                {{-- <div class="d-flex align-items-center">
                     <a data-mdb-ripple-init href="/login" class="btn btn-link px-3 me-2">
                         เข้าสู่ระบบ
                     </a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </nav>

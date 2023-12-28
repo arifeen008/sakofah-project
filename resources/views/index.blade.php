@@ -33,8 +33,8 @@
         <div id="carouselTwo" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{ url('picture/banner_calendar67.jpg') }}" class="d-block w-100" data-mdb-ripple-init data-mdb-modal-init
-                    data-mdb-target="#Modal4"/>
+                    <img src="{{ url('picture/banner_calendar67.jpg') }}" class="d-block w-100" data-mdb-ripple-init
+                        data-mdb-modal-init data-mdb-target="#Modal4" />
                 </div>
                 <div class="carousel-item">
                     <img src="{{ url('picture/548-1.jpg') }}" class="d-block w-100" data-mdb-ripple-init data-mdb-modal-init
@@ -57,8 +57,8 @@
                         data-mdb-target="#Modal0" />
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ url('picture/345-1.jpg') }}" class="d-block w-100" data-mdb-ripple-init data-mdb-modal-init
-                        data-mdb-target="#Modal1" />
+                    <img src="{{ url('picture/345-1.jpg') }}" class="d-block w-100" data-mdb-ripple-init
+                        data-mdb-modal-init data-mdb-target="#Modal1" />
                 </div>
                 <div class="carousel-item">
                     <img src="{{ url('picture/520-1.jpg') }}" class="d-block w-100" data-mdb-ripple-init
@@ -160,16 +160,9 @@
     </div>
     <div class="container mt-4">
         <div class="row">
-            <div class="col-9">
-                <h5 class="text-dark mt-2">วารสารออนไลน์</h5>
-                <hr>
-                <div class="ratio ratio-4x3">
-                    <iframe src="https://anyflip.com/bookcase/wueoy/" seamless="seamless" scrolling="no" frameborder="0"
-                        allowtransparency="true" allowfullscreen>
-                    </iframe>
-                </div>
+            <div class="col-9 col-sm-9">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-6 col-sm-6">
                         <div class="card mt-2">
                             <div class="card-body">
                                 <h5 class="card-title text-dark">ข่าวประชาสัมพันธ์</h5>
@@ -187,17 +180,18 @@
                                     </div>
                                     <div class="carousel-inner">
                                         @foreach ($information as $index => $item)
-                                            <a href="/news/{{ $item->news_number }}" target="_blank"
-                                                rel="noopener noreferrer">
-                                                <div class="carousel-item @if ($index === 0) active @endif">
-                                                    <img src="{{ url('uploads/' . $item->picture_name) }}"
-                                                        class="d-block w-100" height="250"
-                                                        alt="{{ $item->title }}" />
-                                                    <div class="carousel-caption d-none d-md-block">
-                                                        <p>{!! Str::limit($item->description, 60) !!}</p>
+                                            <div class="carousel-item @if ($index === 0) active @endif">
+                                                <a href="/news/{{ $item->news_number }}" target="_blank"
+                                                    rel="noopener noreferrer">
+                                                    <div class="card">
+                                                        <img src="{{ url('uploads/' . $item->picture_name) }}"
+                                                            class="card-img-top" height="200" />
+                                                        <div class="card-body">
+                                                            <p class="card-title">{!! Str::limit($item->title, 50) !!}</p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </a>
+                                                </a>
+                                            </div>
                                         @endforeach
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-mdb-target="#information"
@@ -214,7 +208,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-6 col-sm-6">
                         <div class="card mt-2">
                             <div class="card-body">
                                 <h5 class="card-title text-dark">ข่าวสวัสดิการ</h5>
@@ -232,15 +226,18 @@
                                     </div>
                                     <div class="carousel-inner">
                                         @foreach ($welfare as $index => $item)
-                                            <a href="/news/{{ $item->news_number }}" target="_blank">
-                                                <div class="carousel-item @if ($index === 0) active @endif">
-                                                    <img src="{{ url('uploads/' . $item->picture_name) }}" height="250"
-                                                        class="d-block w-100" alt="{{ $item->title }}" />
-                                                    <div class="carousel-caption d-none d-md-block">
-                                                        <p>{!! Str::limit($item->description, 60) !!}</p>
+                                            <div class="carousel-item @if ($index === 0) active @endif">
+                                                <a href="/news/{{ $item->news_number }}" target="_blank"
+                                                    rel="noopener noreferrer">
+                                                    <div class="card">
+                                                        <img src="{{ url('uploads/' . $item->picture_name) }}"
+                                                            class="card-img-top" height="200" />
+                                                        <div class="card-body">
+                                                            <p class="card-title">{!! Str::limit($item->title, 50) !!}</p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </a>
+                                                </a>
+                                            </div>
                                         @endforeach
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-mdb-target="#welfare"
@@ -257,7 +254,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-6 col-sm-6">
                         <div class="card mt-2">
                             <div class="card-body">
                                 <h5 class="card-title text-dark">มูลนิธิษะกอฟะฮ</h5>
@@ -275,15 +272,18 @@
                                     </div>
                                     <div class="carousel-inner">
                                         @foreach ($foundation as $index => $item)
-                                            <a href="/news/{{ $item->news_number }}" target="_blank">
-                                                <div class="carousel-item @if ($index === 0) active @endif">
-                                                    <img src="{{ url('uploads/' . $item->picture_name) }}" height="250"
-                                                        class="d-block w-100" alt="{{ $item->title }}" />
-                                                    <div class="carousel-caption d-none d-md-block">
-                                                        <p>{!! Str::limit($item->description, 60) !!}</p>
+                                            <div class="carousel-item @if ($index === 0) active @endif">
+                                                <a href="/news/{{ $item->news_number }}" target="_blank"
+                                                    rel="noopener noreferrer">
+                                                    <div class="card">
+                                                        <img src="{{ url('uploads/' . $item->picture_name) }}"
+                                                            class="card-img-top" height="200" />
+                                                        <div class="card-body">
+                                                            <p class="card-title">{!! Str::limit($item->title, 50) !!}</p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </a>
+                                                </a>
+                                            </div>
                                         @endforeach
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-mdb-target="#foundation"
@@ -300,7 +300,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-6 col-sm-6">
                         <div class="card mt-2">
                             <div class="card-body">
                                 <h5 class="card-title text-dark">ข่าวสินเชื่อ</h5>
@@ -318,15 +318,18 @@
                                     </div>
                                     <div class="carousel-inner">
                                         @foreach ($credit as $index => $item)
-                                            <a href="/news/{{ $item->news_number }}" target="_blank">
-                                                <div class="carousel-item @if ($index === 0) active @endif">
-                                                    <img src="{{ url('uploads/' . $item->picture_name) }}" height="250"
-                                                        class="d-block w-100" alt="{{ $item->title }}" />
-                                                    <div class="carousel-caption d-none d-md-block">
-                                                        <p>{!! Str::limit($item->description, 60) !!}</p>
+                                            <div class="carousel-item @if ($index === 0) active @endif">
+                                                <a href="/news/{{ $item->news_number }}" target="_blank"
+                                                    rel="noopener noreferrer">
+                                                    <div class="card">
+                                                        <img src="{{ url('uploads/' . $item->picture_name) }}"
+                                                            class="card-img-top" height="200" />
+                                                        <div class="card-body">
+                                                            <p class="card-title">{!! Str::limit($item->title, 50) !!}</p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </a>
+                                                </a>
+                                            </div>
                                         @endforeach
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-mdb-target="#credit"
@@ -344,9 +347,16 @@
                         </div>
                     </div>
                 </div>
+                <h5 class="text-dark mt-2">วารสารออนไลน์</h5>
+                <hr>
+                <div class="ratio ratio-4x3">
+                    <iframe src="https://anyflip.com/bookcase/wueoy/" seamless="seamless" scrolling="no" frameborder="0"
+                        allowtransparency="true" allowfullscreen>
+                    </iframe>
+                </div>
             </div>
-            <div class="col-3">
-                <h3 class="text-center text-dark mt-2">เวลาละหมาด</h3>
+            <div class="col-3 col-sm-3">
+                {{-- <h3 class="text-center text-dark mt-2">เวลาละหมาด</h3>
                 <iframe width="133px" height="196px" src="https://shorturl.asia/gvwxq" frameborder=0
                     scrolling=no></iframe>
                 <iframe width="133px" height="196px" src="https://shorturl.asia/oTkP5" frameborder=0
@@ -364,7 +374,7 @@
                 </div>
                 <div class="ratio ratio-16x9 my-3">
                     <iframe src="https://www.youtube.com/embed/SV7IdDXAX0A" allowfullscreen></iframe>
-                </div>
+                </div> --}}
                 <div class="card mb-2">
                     <a target="_blank" rel="noopener noreferrer" class="hover-shadow"
                         href="https://shorturl.asia/IKm8k">

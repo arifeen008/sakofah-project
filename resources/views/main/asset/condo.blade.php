@@ -1,5 +1,11 @@
 @extends('layout')
 @section('title', 'คอนโด |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('library')
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+@endsection
 @section('content')
     <div class="container m-3">
         <div class="row align-items-center">
@@ -7,7 +13,10 @@
                 <div class="row">
                     @foreach ($image as $item)
                         <div class="col-md-6 mb-4">
-                            <img class="shadow-4 rounded-5 w-100" src="/uploads/{{ $item->picture_name }}"height="300" />
+                            <a data-fancybox="gallery" href="{{ url('asset/' . $item->picture_name) }}">
+                                <img class="shadow-4 rounded-5 w-100" src="/asset/{{ $item->picture_name }}"
+                                    height="300" />
+                            </a>
                         </div>
                     @endforeach
                 </div>
@@ -26,4 +35,11 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function() {
+            $("[data-fancybox]").fancybox({});
+        });
+    </script>
 @endsection

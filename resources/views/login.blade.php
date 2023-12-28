@@ -18,7 +18,7 @@
                         @enderror
                         <div data-mdb-input-init class="form-outline mb-4">
                             <input type="text" id="user_id" name="user_id" class="form-control" />
-                            <label class="form-label" for="user_id">username</label>
+                            <label class="form-label" for="user_id">ชื่อผู้ใช้</label>
                         </div>
                         @error('password')
                             <div class="my-2">
@@ -27,11 +27,12 @@
                         @enderror
                         <div data-mdb-input-init class="form-outline mb-4">
                             <input type="password" id="password" name="password" class="form-control" />
-                            <label class="form-label" for="password">Password</label>
+                            <label class="form-label" for="password">รหัสผ่าน</label>
                         </div>
                         <div class="d-flex justify-content-around align-items-center mb-4">
                             <div class="form-check">
-                                <input class="form-check-input success" type="checkbox" value="password" id="Remember" checked />
+                                <input class="form-check-input success" type="checkbox" value="password" id="Remember"
+                                    checked />
                                 <label class="form-check-label" for="Remember">จดจำฉัน</label>
                             </div>
                             <a href="/">ลืมรหัสผ่าน</a>
@@ -47,7 +48,7 @@
     @if (session('error'))
         <script>
             Swal.fire({
-                title: "Error!",
+                title: "ผิดพลาด !",
                 text: "{{ session('error') }}",
                 icon: "error"
             });

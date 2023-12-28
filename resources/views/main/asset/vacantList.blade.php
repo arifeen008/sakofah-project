@@ -8,7 +8,7 @@
                 @foreach ($asset as $item)
                     <div class="col-md-3 mb-2">
                         <a href="/vacant/{{ $item->asset_number }}" class="card hover-shadow my-2">
-                            <img src="uploads/{{ $item->picture_name }}" width="auto" height="200px"class="card-img-top" />
+                            <img src="asset/{{ $item->picture_name }}" width="auto" height="200px"class="card-img-top" />
                             <div class="card-body">
                                 <h5 class="card-title text-dark transaction">{{ $item->title }}
                                 </h5>

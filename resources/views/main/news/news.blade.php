@@ -2,6 +2,12 @@
 @section('title')
     {{ $news->title }} |สหกรณ์อิสลามษะกอฟะฮ จำกัด
 @endsection
+@section('library')
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+@endsection
 @section('content')
     <div class="container my-3">
         <div class="row">
@@ -12,8 +18,10 @@
                         <div class="row">
                             @foreach ($image_news as $item)
                                 <div class="col-lg-4">
-                                    <img src="{{ url('uploads/' . $item->picture_name) }}" height="250px"
-                                        class="w-100 shadow-1-strong rounded mb-2" />
+                                    <a data-fancybox="gallery" href="{{ url('uploads/' . $item->picture_name) }}">
+                                        <img src="{{ url('uploads/' . $item->picture_name) }}" height="250px"
+                                            class="w-100 shadow-1-strong rounded mb-2" />
+                                    </a>
                                 </div>
                             @endforeach
                         </div>
@@ -37,4 +45,14 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function() {
+            $("[data-fancybox]").fancybox({
+                // ตัวเลือก Fancybox ตามต้องการ
+                // ดูตัวอย่างเพิ่มเติมได้ที่: https://fancyapps.com/docs/3.5/
+            });
+        });
+    </script>
 @endsection

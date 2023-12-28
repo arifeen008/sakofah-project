@@ -158,7 +158,7 @@
             </div>
         </div>
     </div>
-    <div class="container mt-4">
+    <div class="container mt-4" style="font-family: 'Sarabun', sans-serif;">
         <div class="row">
             <div class="col-9 col-sm-9">
                 <div class="row">

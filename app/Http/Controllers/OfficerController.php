@@ -588,7 +588,9 @@ class OfficerController extends Controller
     {
         $picture_name = DB::table('picture')->where('news_number', $news_number)->select('picture_name')->get();
         foreach ($picture_name as $item) {
-            unlink('uploads/' . $item->picture_name);
+            if (file_exists(public_path('uploads/' . $item->picture_name))) {
+                unlink('uploads/' . $item->picture_name);
+            }
         }
         DB::table('news')->where('news_number', $news_number)->delete();
         DB::table('picture')->where('news_number', $news_number)->delete();

@@ -9,7 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 @endsection
 @section('content')
-    <div class="container my-3">
+    <div class="container my-3" style="font-family: 'Sarabun', sans-serif;">
         <div class="row">
             <div class="col-md-9">
                 <div class="card">

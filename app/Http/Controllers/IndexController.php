@@ -92,9 +92,9 @@ class IndexController extends Controller
         return view('main/news/news', compact('image_news', 'news', 'side_news'));
     }
 
-    public function calen()
+    public function calender()
     {
-        return view('main/news/calendar');
+        return view('main/news/calender');
     }
 
     public function homeList()

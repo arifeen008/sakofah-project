@@ -10,6 +10,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @yield('library')
     <!-- Google tag (gtag.js) -->
@@ -123,7 +126,7 @@
                                 <a class="dropdown-item" href="/activity">ข่าวสาร/กิจกรรมความเคลื่อนไหว</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="/calen">ปฏิทินสหกรณ์</a>
+                                <a class="dropdown-item" href="/calender">ปฏิทินสหกรณ์</a>
                             </li>
                         </ul>
                     </li>

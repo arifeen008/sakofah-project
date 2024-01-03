@@ -30,62 +30,72 @@ class OfficerController extends Controller
         return view('officer/member/searchDataMember', compact('data'));
     }
 
-    public function data_member($mem_id, $br_no)
+    public function data_member(Request $request)
     {
+        // ข้อมูลสมาชิก
         $data_member = DB::connection('mysql_second')->table('MEM_H_MEMBER')
             ->select('FNAME', 'LNAME', 'ID_CARD', 'DMY_BIRTH', 'SEX', 'FATHER', 'MOTHER', 'MARRIAGE_STATUS', 'BLO_GROUP', 'ADDRESS', 'MOO_ADDR', 'TUMBOL', 'LINE_ID', 'EMAIL', 'MOBILE_TEL')
-            ->where('MEM_ID', $mem_id)
-            ->where('BR_NO', $br_no)
+            ->where('MEM_ID', $request->mem_id)
+            ->where('BR_NO', $request->br_no)
             ->first();
+        // ข้อมูลบัญชีเงินฝาก
         $deposit_member = DB::connection('mysql_second')->table('BK_H_SAVINGACCOUNT')->where([
-            ['MEM_ID', '=', $mem_id],
-            ['BR_NO', '=', $br_no],
+            ['MEM_ID', '=', $request->mem_id],
+            ['BR_NO', '=', $request->br_no],
         ])->get();
+        // ข้อมูลสินเชื่อที่เปิด
         $opened_credit_member = DB::connection('mysql_second')->table('LOAN_M_CONTACT')->where([
-            ['LOAN_M_CONTACT.MEM_ID', '=', $mem_id],
-            ['LOAN_M_CONTACT.BR_NO', '=', $br_no],
+            ['LOAN_M_CONTACT.MEM_ID', '=', $request->mem_id],
+            ['LOAN_M_CONTACT.BR_NO', '=', $request->br_no],
             ['LOAN_M_CONTACT.LCONT_STATUS_FLAG', '=', '1'],
         ])
-            ->join('LOAN_M_REGISTER', 'LOAN_M_REGISTER.CODE', '=', 'LOAN_M_CONTACT.CODE')
+            ->join('LOAN_M_REGISTER', function ($join) {
+                $join->on('LOAN_M_REGISTER.CODE', '=', 'LOAN_M_CONTACT.CODE');
+                $join->on('LOAN_M_REGISTER.BR_NO', '=', 'LOAN_M_CONTACT.BR_NO');
+            })
             ->join('LOAN_M_SUB_NAME', function ($join) {
                 $join->on('LOAN_M_SUB_NAME.L_TYPE_CODE', '=', 'LOAN_M_CONTACT.L_TYPE_CODE');
                 $join->on('LOAN_M_SUB_NAME.LSUB_CODE', '=', 'LOAN_M_CONTACT.LSUB_CODE');
             })->get();
+        // ข้อมูลสินเชื่อที่ปิด
         $closed_credit_member = DB::connection('mysql_second')->table('LOAN_M_CONTACT')->where([
-            ['LOAN_M_CONTACT.MEM_ID', '=', $mem_id],
-            ['LOAN_M_CONTACT.BR_NO', '=', $br_no],
+            ['LOAN_M_CONTACT.MEM_ID', '=', $request->mem_id],
+            ['LOAN_M_CONTACT.BR_NO', '=', $request->br_no],
             ['LOAN_M_CONTACT.LCONT_STATUS_FLAG', '=', '4'],
         ])
-            ->join('LOAN_M_REGISTER', 'LOAN_M_REGISTER.CODE', '=', 'LOAN_M_CONTACT.CODE')
+            ->join('LOAN_M_REGISTER', function ($join) {
+                $join->on('LOAN_M_REGISTER.CODE', '=', 'LOAN_M_CONTACT.CODE');
+                $join->on('LOAN_M_REGISTER.BR_NO', '=', 'LOAN_M_CONTACT.BR_NO');
+            })
             ->join('LOAN_M_SUB_NAME', function ($join) {
                 $join->on('LOAN_M_SUB_NAME.L_TYPE_CODE', '=', 'LOAN_M_CONTACT.L_TYPE_CODE');
                 $join->on('LOAN_M_SUB_NAME.LSUB_CODE', '=', 'LOAN_M_CONTACT.LSUB_CODE');
-            })->get();
+            })
+            ->get();
+        // ข้อมูลหุ้น
         $stock_select = DB::connection('mysql_second')->table('SHR_MEM')->where([
-            ['SHR_MEM.MEM_ID', '=', $mem_id],
-            ['SHR_MEM.BR_NO', '=', $br_no],
+            ['SHR_MEM.MEM_ID', '=', $request->mem_id],
+            ['SHR_MEM.BR_NO', '=', $request->br_no],
         ])
             ->join('BK_M_BRANCH', 'BK_M_BRANCH.BR_NO', '=', 'SHR_MEM.BR_NO')
             ->join('WEL_H_MEMBER', function ($join) {
                 $join->on('WEL_H_MEMBER.MEM_ID', '=', 'SHR_MEM.MEM_ID');
                 $join->on('WEL_H_MEMBER.BR_NO', '=', 'SHR_MEM.BR_NO');
             })->first();
-        $stock_age = DB::connection('mysql_second')->table('SHR_T_SHARE')
-            ->select(DB::raw('SUM(SHR_ADV_COUNT) as total'))
-            ->where('MEM_ID', $mem_id)
-            ->where('BR_NO', $br_no)
-            ->where('TMP_DATE_REC', '>=', '2019-07-01')
-            ->first();
+        // ข้อมูลอายุหุ้น
+        $stock_age = DB::connection('mysql_second')->table('SHR_T_SHARE')->select(DB::raw('SUM(SHR_ADV_COUNT) as total'))->where('MEM_ID', $request->mem_id)->where('BR_NO', $request->br_no)->where('TMP_DATE_REC', '>=', '2019-07-01')->first();
+        // ข้อมูลการฝากหุ้น
         $stock_details = DB::connection('mysql_second')->table('SHR_T_SHARE')
             ->select('SHR_T_SHARE.SLIP_NO', 'SHR_TBL.SHR_NA', 'SHR_T_SHARE.TMP_SHARE_QTY', 'SHR_T_SHARE.TMP_SHARE_BHT', 'SHR_T_SHARE.TMP_DATE_TODAY', 'SHR_T_SHARE.SHR_SUM_BTH')
-            ->where('SHR_T_SHARE.MEM_ID', $mem_id)
-            ->where('SHR_T_SHARE.BR_NO', $br_no)
+            ->where('SHR_T_SHARE.MEM_ID', $request->mem_id)
+            ->where('SHR_T_SHARE.BR_NO', $request->br_no)
             ->join('SHR_TBL', 'SHR_T_SHARE.SHR_NO', '=', 'SHR_TBL.SHR_NO')
             ->orderBy('TMP_DATE_TODAY', 'DESC')
             ->get();
+        // ข้อมูลเงินปันผล
         $dividend = DB::connection('mysql_second')->table('SHR_PAY_DIVIDEND')->where([
-            ['SHR_PAY_DIVIDEND.MEM_ID', '=', $mem_id],
-            ['SHR_PAY_DIVIDEND.BR_NO', '=', $br_no],
+            ['SHR_PAY_DIVIDEND.MEM_ID', '=', $request->mem_id],
+            ['SHR_PAY_DIVIDEND.BR_NO', '=', $request->br_no],
             ['SHR_PAY_DIVIDEND.SHR_YEAR', '=', '2021'],
         ])
             ->join('BK_M_BRANCH', 'BK_M_BRANCH.BR_NO', '=', 'SHR_PAY_DIVIDEND.BR_NO')

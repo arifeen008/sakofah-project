@@ -25,9 +25,13 @@
                                 <td>{{ $item->LNAME }}</td>
                                 <td>{{ $item->BR_NAME }}</td>
                                 <td>
-                                    <a href="{{ url('data_member/' . $item->MEM_ID . '/' . $item->BR_NO) }}"
-                                        class="btn btn-info"><i class="fas fa-file-alt"></i>
-                                    </a>
+                                    <form action="/data_member" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="mem_id" value="{{ $item->MEM_ID }}">
+                                        <input type="hidden" name="br_no" value="{{ $item->BR_NO }}">
+                                        <button type="submit" class="btn btn-primary"><i
+                                                class="fas fa-file-alt"></i></button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

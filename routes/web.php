@@ -52,7 +52,7 @@ Route::post('/logout', [AuthController::class, 'logout']);
 //Officer
 Route::get('/member', [OfficerController::class, 'member']);
 Route::post('/searchMember', [OfficerController::class, 'searchMember']);
-Route::get('/data_member/{mem_id}/{br_no}', [OfficerController::class, 'data_member']);
+Route::post('/data_member', [OfficerController::class, 'data_member']);
 Route::get('/account_details/{account_no}/', [OfficerController::class, 'account_details']);
 Route::get('/loan_details/{code}/{br_no}', [OfficerController::class, 'loan_details']);
 Route::get('/credit', [OfficerController::class, 'credit']);

@@ -57,38 +57,40 @@
             </div>
         </div>
     </div>
-    <div class="card m-1">
-        <div class="card-body">
-            <div class="card-title">
-                <b class="h2">เงินฝากในบัญชี</b>
-                <hr>
-                <table id="datatable" class="table text-center">
-                    <thead>
-                        <tr>
-                            <th>เลขบัญชี</th>
-                            <th>ชื่อบัญชี</th>
-                            <th>ยอดคงเหลือ</th>
-                            <th>รายละเอียด</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($deposit_member as $item)
+    @if (count($deposit_member) > 0)
+        <div class="card m-1">
+            <div class="card-body">
+                <div class="card-title">
+                    <b class="h2">เงินฝากในบัญชี</b>
+                    <hr>
+                    <table id="datatable" class="table text-center">
+                        <thead>
                             <tr>
-                                <td>{{ $item->ACCOUNT_NO }}</td>
-                                <td>{{ $item->ACCOUNT_NAME }} </td>
-                                <td>{{ number_format($item->BALANCE, 2) }} </td>
-                                <td>
-                                    <a href=" {{ url('account_details/' . $item->ACCOUNT_NO) }}" class="btn btn-info">
-                                        <i class="fas fa-file-alt"></i>
-                                    </a>
-                                </td>
+                                <th>เลขบัญชี</th>
+                                <th>ชื่อบัญชี</th>
+                                <th>ยอดคงเหลือ</th>
+                                <th>รายละเอียด</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach ($deposit_member as $item)
+                                <tr>
+                                    <td>{{ $item->ACCOUNT_NO }}</td>
+                                    <td>{{ $item->ACCOUNT_NAME }} </td>
+                                    <td>{{ number_format($item->BALANCE, 2) }} </td>
+                                    <td>
+                                        <a href=" {{ url('account_details/' . $item->ACCOUNT_NO) }}" class="btn btn-info">
+                                            <i class="fas fa-file-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
+    @endif
     @if (count($opened_credit_member) > 0)
         <div class="card m-1">
             <div class="card-body">
@@ -212,7 +214,8 @@
                                 <td>{{ $item->SHR_NA }}</td>
                                 <td>{{ $item->TMP_SHARE_QTY }}</td>
                                 <td>{{ number_format($item->TMP_SHARE_BHT, 2) }}</td>
-                                <td>{{ thaidate('j M Y ', $item->TMP_DATE_TODAY) }}</td>
+                                <td>{{ $item->TMP_DATE_TODAY == null ? 'แสดงไม่ได้' : thaidate('j M Y ', $item->TMP_DATE_TODAY) }}
+                                </td>
                                 <td>{{ number_format($item->SHR_SUM_BTH, 2) }}</td>
                             </tr>
                         @endforeach

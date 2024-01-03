@@ -96,7 +96,6 @@ class IndexController extends Controller
     {
         return view('main/news/calender');
     }
-
     public function homeList()
     {
         $asset = DB::table('asset')->where('asset.asset_type', '1')->paginate(10);
@@ -146,5 +145,4 @@ class IndexController extends Controller
     {
         return view('main/contact/withus');
     }
-
 }

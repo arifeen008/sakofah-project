@@ -127,22 +127,22 @@
         <div class="row">
             <div class="col-sm-8">
                 <div class="row h-100 d-flex justify-content-center align-items-center">
-                    <div class="col-md-6">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
                         <a href="/register" target="_blank" rel="noopener noreferrer" class="card hover-shadow">
                             <img src="{{ url('picture/433.png') }}" class="w-100">
                         </a>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
                         <a href="/deposit" target="_blank" rel="noopener noreferrer" class="card hover-shadow">
                             <img src="{{ url('picture/433-1.png') }}" class="w-100">
                         </a>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
                         <a href="/credit_service" target="_blank" rel="noopener noreferrer" class="card hover-shadow">
                             <img src="{{ url('picture/433-2.png') }}" class="w-100">
                         </a>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
                         <a href="/document" target="_blank" rel="noopener noreferrer" class="card hover-shadow">
                             <img src="{{ url('picture/433-3.png') }}" class="w-100">
                         </a>
@@ -185,9 +185,9 @@
                                                     rel="noopener noreferrer">
                                                     <div class="card">
                                                         <img src="{{ url('uploads/' . $item->picture_name) }}"
-                                                            class="card-img-top" height="200" />
+                                                            class="card-img-top w-100" height="200" />
                                                         <div class="card-body">
-                                                            <p class="card-title">{!! Str::limit($item->title, 50) !!}</p>
+                                                            <p class="card-title text-truncate">{{$item->title}}</p>
                                                         </div>
                                                     </div>
                                                 </a>
@@ -231,9 +231,9 @@
                                                     rel="noopener noreferrer">
                                                     <div class="card">
                                                         <img src="{{ url('uploads/' . $item->picture_name) }}"
-                                                            class="card-img-top" height="200" />
+                                                            class="card-img-top"w-100 height="200" />
                                                         <div class="card-body">
-                                                            <p class="card-title">{!! Str::limit($item->title, 50) !!}</p>
+                                                            <p class="card-title text-truncate">{{$item->title}}</p>
                                                         </div>
                                                     </div>
                                                 </a>
@@ -277,9 +277,9 @@
                                                     rel="noopener noreferrer">
                                                     <div class="card">
                                                         <img src="{{ url('uploads/' . $item->picture_name) }}"
-                                                            class="card-img-top" height="200" />
+                                                            class="card-img-top"w-100 height="200" />
                                                         <div class="card-body">
-                                                            <p class="card-title">{!! Str::limit($item->title, 50) !!}</p>
+                                                            <p class="card-title text-truncate">{{$item->title}}</p>
                                                         </div>
                                                     </div>
                                                 </a>
@@ -323,9 +323,9 @@
                                                     rel="noopener noreferrer">
                                                     <div class="card">
                                                         <img src="{{ url('uploads/' . $item->picture_name) }}"
-                                                            class="card-img-top" height="200" />
+                                                            class="card-img-top"w-100 height="200" />
                                                         <div class="card-body">
-                                                            <p class="card-title">{!! Str::limit($item->title, 50) !!}</p>
+                                                            <p class="card-title text-truncate">{{$item->title}}</p>
                                                         </div>
                                                     </div>
                                                 </a>
@@ -356,7 +356,7 @@
                 </div>
             </div>
             <div class="col-3 col-sm-3">
-                {{-- <h3 class="text-center text-dark mt-2">เวลาละหมาด</h3>
+                <h3 class="text-center text-dark mt-2">เวลาละหมาด</h3>
                 <iframe width="133px" height="196px" src="https://shorturl.asia/gvwxq" frameborder=0
                     scrolling=no></iframe>
                 <iframe width="133px" height="196px" src="https://shorturl.asia/oTkP5" frameborder=0
@@ -374,11 +374,11 @@
                 </div>
                 <div class="ratio ratio-16x9 my-3">
                     <iframe src="https://www.youtube.com/embed/SV7IdDXAX0A" allowfullscreen></iframe>
-                </div> --}}
+                </div>
                 <div class="card mb-2">
                     <a target="_blank" rel="noopener noreferrer" class="hover-shadow"
                         href="https://shorturl.asia/IKm8k">
-                        <img class="rounded mx-auto d-block" width="120" height="120"
+                        <img class="rounded mx-auto d-block" style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                             src="{{ url('picture/ตรากรมที่ดิน.png') }}">
                         <p class="text-center text-primary">กรมที่ดิน</p>
                     </a>
@@ -386,7 +386,7 @@
                 <div class="card mb-2">
                     <a target="_blank" rel="noopener noreferrer" class="hover-shadow"
                         href="https://shorturl.asia/VpM47">
-                        <img class="rounded mx-auto d-block" width="120" height="120"
+                        <img class="rounded mx-auto d-block" style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                             src="{{ url('picture/กระทรวงเกษตรและสหกรณ์.png') }}">
                         <p class="text-center text-primary">กระทรวงเกษตรและสหกรณ์</p>
                     </a>
@@ -394,7 +394,7 @@
                 <div class="card mb-2">
                     <a target="_blank" rel="noopener noreferrer" class="hover-shadow"
                         href="https://shorturl.asia/PRMAt">
-                        <img class="rounded mx-auto d-block" width="120" height="120"
+                        <img class="rounded mx-auto d-block" style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                             src="{{ url('picture/img_fd06b99e276ab69db92a5bae61228dc2.png') }}">
                         <p class="text-center text-primary">กรมตรวจบัญชีสหกรณ์กระบี่</p>
                     </a>
@@ -402,7 +402,7 @@
                 <div class="card mb-2">
                     <a target="_blank" rel="noopener noreferrer" class="hover-shadow"
                         href="https://shorturl.asia/SCMmA">
-                        <img class="rounded mx-auto d-block" width="120" height="120"
+                        <img class="rounded mx-auto d-block" style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                             src="{{ url('picture/ตราสำนักงานสหกรณ์จังหวัดกระบี่.jpg') }}">
                         <p class="text-center text-primary">สำนักงานสหกรณ์จังหวัดกระบี่</p>
                     </a>
@@ -410,7 +410,7 @@
                 <div class="card mb-2">
                     <a target="_blank" rel="noopener noreferrer" class="hover-shadow"
                         href="https://shorturl.asia/g56qA">
-                        <img class="rounded mx-auto d-block" width="120" height="120"
+                        <img class="rounded mx-auto d-block" style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                             src="{{ url('picture/img_12b077835cddf4f35d3a3c285545a815.jpg') }}">
                         <p class="text-center text-primary">กระทรวงแรงงาน</p>
                     </a>
@@ -418,7 +418,7 @@
                 <div class="card mb-2">
                     <a target="_blank" rel="noopener noreferrer" class="hover-shadow"
                         href="https://shorturl.asia/uE52O">
-                        <img class="rounded mx-auto d-block" width="120" height="120"
+                        <img class="rounded mx-auto d-block" style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                             src="{{ url('picture/กรมส่งเสริมสหกรณ์.png') }}">
                         <p class="text-center text-primary">กรมส่งเสริมสหกรณ์</p>
                     </a>
@@ -429,49 +429,49 @@
     <div class="row my-3">
         <div class="col-sm">
             <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/rk6qs">
-                <img class="rounded mx-auto d-block hover-shadow" width="120" height="120"
+                <img class="rounded mx-auto d-block hover-shadow" style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/crop-1588051633262.jpg') }}">
             </a>
         </div>
         <div class="col-sm">
             <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/TIf9w">
-                <img class="rounded mx-auto d-block hover-shadow" width="120" height="120"
+                <img class="rounded mx-auto d-block hover-shadow" style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/crop-1588051648982.jpg') }}">
             </a>
         </div>
         <div class="col-sm">
             <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/h73Cv">
-                <img class="rounded mx-auto d-block hover-shadow" width="120" height="120"
+                <img class="rounded mx-auto d-block hover-shadow" style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/crop-1588051777775.jpg') }}">
             </a>
         </div>
         <div class="col-sm">
             <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/DJtdT">
-                <img class="rounded mx-auto d-block hover-shadow" width="120" height="120"
+                <img class="rounded mx-auto d-block hover-shadow" style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/shellKrabi.jpg') }}">
             </a>
         </div>
         <div class="col-sm">
             <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/CIcU8">
-                <img class="rounded mx-auto d-block hover-shadow" width="120" height="120"
+                <img class="rounded mx-auto d-block hover-shadow" style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/crop-1588051728377.jpg') }}">
             </a>
         </div>
         <div class="col-sm">
             <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/v69Mm">
-                <img class="rounded mx-auto d-block hover-shadow" width="120" height="120"
+                <img class="rounded mx-auto d-block hover-shadow" style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/crop-1588051745671.jpg') }}">
             </a>
         </div>
         <div class="col-sm">
             <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/ofe7y">
-                <img class="rounded mx-auto d-block hover-shadow" width="120" height="120"
+                <img class="rounded mx-auto d-block hover-shadow" style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/logo-ummah-channel.png') }}">
             </a>
         </div>
         <div class="col-sm">
             <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/lh6Ek">
-                <img class="rounded mx-auto d-block hover-shadow" width="120" height="120"
+                <img class="rounded mx-auto d-block hover-shadow" style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/SOUTHERN-COFFEE-LOGO.png') }}">
             </a>
         </div>

@@ -56,7 +56,9 @@ class OfficerController extends Controller
             ->join('LOAN_M_SUB_NAME', function ($join) {
                 $join->on('LOAN_M_SUB_NAME.L_TYPE_CODE', '=', 'LOAN_M_CONTACT.L_TYPE_CODE');
                 $join->on('LOAN_M_SUB_NAME.LSUB_CODE', '=', 'LOAN_M_CONTACT.LSUB_CODE');
-            })->get();
+            })
+            ->orderByDesc('LOAN_M_CONTACT.LCONT_DATE')
+            ->get();
         // ข้อมูลสินเชื่อที่ปิด
         $closed_credit_member = DB::connection('mysql_second')->table('LOAN_M_CONTACT')->where([
             ['LOAN_M_CONTACT.MEM_ID', '=', $request->mem_id],
@@ -71,6 +73,7 @@ class OfficerController extends Controller
                 $join->on('LOAN_M_SUB_NAME.L_TYPE_CODE', '=', 'LOAN_M_CONTACT.L_TYPE_CODE');
                 $join->on('LOAN_M_SUB_NAME.LSUB_CODE', '=', 'LOAN_M_CONTACT.LSUB_CODE');
             })
+            ->orderByDesc('LOAN_M_CONTACT.LCONT_DATE')
             ->get();
         // ข้อมูลหุ้น
         $stock_select = DB::connection('mysql_second')->table('SHR_MEM')->where([
@@ -530,7 +533,7 @@ class OfficerController extends Controller
     public function news_upload()
     {
         $data = DB::table('news')->join('news_type', 'news.news_typeid', '=', 'news_type.news_typeid')
-            ->select('title', 'news_typename', 'dateupload', 'news_number', 'news_number')
+            ->select('title', 'news_typename', 'dateupload', 'news_number', 'news_number')->orderByDesc('dateupload')
             ->get();
         return view('officer/news_upload/news', compact('data'));
     }

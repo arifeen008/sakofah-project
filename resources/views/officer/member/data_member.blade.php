@@ -1,7 +1,7 @@
 @extends('dashboard')
 @extends('sidebar')
 @section('title')
-    {{ $data_member->FNAME . ' ' . $data_member->LNAME }}
+    {{ $data_member->FNAME . ' ' . $data_member->LNAME . ' | สหกรณ์อิสลามษะกอฟะฮ จำกัด' }}
 @endsection
 @section('content')
     <div class="card m-1">
@@ -244,7 +244,7 @@
                 </table>
             @else
                 <div class="h-100 d-flex justify-content-center align-items-center">
-                    <b class="text-dark">ยังไม่ได้รับเงินปันผล</ิ>
+                    <b class="text-dark">ยังไม่ได้รับเงินปันผล</b>
                 </div>
             @endif
         </div>
@@ -256,10 +256,14 @@
             $('#datatable').DataTable();
         });
         $(document).ready(function() {
-            $('#datatable1').DataTable();
+            $('#datatable1').DataTable({
+                "ordering": false
+            });
         });
         $(document).ready(function() {
-            $('#datatable2').DataTable();
+            $('#datatable2').DataTable({
+                "ordering": false
+            });
         });
         $(document).ready(function() {
             $('#datatable3').DataTable();

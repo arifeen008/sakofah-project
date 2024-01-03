@@ -10,13 +10,13 @@
             </div>
             <hr>
             <table id="datatable">
-                <thead class="text-center">
+                <thead>
                     <tr>
-                        <th class="text-center">หัวข้อ</th>
-                        <th class="text-center">ประเภทข่าว</th>
-                        <th class="text-center">เวลาอัพโหลด</th>
-                        <th class="text-center">แก้ไข</th>
-                        <th class="text-center">ลบ</th>
+                        <th>หัวข้อ</th>
+                        <th>ประเภทข่าว</th>
+                        <th>เวลาอัพโหลด</th>
+                        <th>แก้ไข</th>
+                        <th>ลบ</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +40,9 @@
 @section('script')
     <script>
         $(document).ready(function() {
-            $('#datatable').DataTable();
+            $('#datatable').DataTable({
+                "ordering": false
+            });
         });
     </script>
     @if (session('success'))

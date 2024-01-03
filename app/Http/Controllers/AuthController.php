@@ -23,7 +23,7 @@ class AuthController extends Controller
             'password.required' => 'กรุณาใส่ password',
         ]);
 
-        $data = DB::connection('mysql_second')->table('bk_h_teller_control')
+        $data = DB::connection('mysql_second')->table('BK_H_TELLER_CONTROL')
             ->where([
                 'user_id' => $request->user_id,
                 'password' => $request->password,

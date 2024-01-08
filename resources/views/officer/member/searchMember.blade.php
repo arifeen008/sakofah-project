@@ -1,6 +1,6 @@
 @extends('dashboard')
 @extends('sidebar')
-@section('title', 'Dashboard')
+@section('title', 'ค้นหาข้อมูลสมาชิก')
 @section('content')
     <div class="card m-3">
         <div class="card-body">
@@ -17,7 +17,6 @@
                         <label for="memberNumber" class="form-label">เลขสมาชิก</label>
                         <input type="text" class="form-control" id="memberNumber" name="memberNumber">
                     </div>
-
                     <div class="row">
                         <div class="col">
                             <div class="mb-3">

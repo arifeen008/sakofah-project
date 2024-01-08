@@ -7,8 +7,8 @@
                 <img src="{{ url('picture/register_member.jpg') }}" style="width: 100%;">
             </div>
             <div class="col">
-                <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/TY-o6-CDB3Q" height="180" title="YouTube video"></iframe>
+                <div class="ratio ratio-16x9 m-4">
+                    <iframe src="https://www.youtube.com/embed/TY-o6-CDB3Q"></iframe>
                 </div>
             </div>
         </div>

@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7M3HX122N"></script>
-    {{-- <script>
+    <script>
         window.dataLayer = window.dataLayer || [];
 
         function gtag() {
@@ -25,7 +25,7 @@
         gtag('js', new Date());
 
         gtag('config', 'G-Y7M3HX122N');
-    </script> --}}
+    </script>
 </head>
 
 <body>

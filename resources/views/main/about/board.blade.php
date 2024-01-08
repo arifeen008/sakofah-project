@@ -1,6 +1,11 @@
 @extends('layout')
 @section('title', 'คณะกรรมการและผู้บริหาร |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
 @section('content')
+    <style>
+        .nav-pills .nav-link.active {
+            background-color: #25d321;
+        }
+    </style>
     <div class="container my-3">
         <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
             <li class="nav-item" role="presentation">

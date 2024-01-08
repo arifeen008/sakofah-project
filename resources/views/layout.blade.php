@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@100&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @yield('library')
-    {{-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7M3HX122N"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7M3HX122N"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -25,7 +25,7 @@
         gtag('js', new Date());
 
         gtag('config', 'G-Y7M3HX122N');
-    </script> --}}
+    </script>
 </head>
 <style>
     .dropdown:hover .dropdown-menu {
@@ -88,7 +88,7 @@
                                 <a class="dropdown-item" href="/deposit">บริการเงินฝาก</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="/credit">บริการสินเชื่อ</a>
+                                <a class="dropdown-item" href="/credit_service">บริการสินเชื่อ</a>
                             </li>
                         </ul>
                     </li>

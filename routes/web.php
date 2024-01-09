@@ -58,7 +58,7 @@ Route::get('/loan_details/{code}/{br_no}', [OfficerController::class, 'loan_deta
 Route::get('/credit', [OfficerController::class, 'credit']);
 Route::post('/searchcredit', [OfficerController::class, 'searchcredit']);
 Route::get('/uploadcredit', [OfficerController::class, 'uploadcredit']);
-Route::post('/CreditDownload',[OfficerController::class, 'CreditDownload']);
+// Route::post('/CreditDownload',[OfficerController::class, 'CreditDownload']);
 Route::post('/postcredit', [OfficerController::class, 'postcredit']);
 Route::get('/publish', [OfficerController::class, 'publish']);
 Route::get('/upload_publish', [OfficerController::class, 'upload_publish']);

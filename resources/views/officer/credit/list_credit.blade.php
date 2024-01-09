@@ -29,21 +29,11 @@
                                 <td>{{ $item->fname . '  ' . $item->lname }}</td>
                                 <td>{{ $item->name_upload }}</td>
                                 <td>{{ thaidate('j M Y ', $item->date_upload) }}</td>
-                                {{-- <td class="text-center">
+                                <td class="text-center">
                                     <a href="{{ url($item->path . '/' . $item->file_name) }}" class="btn btn-primary"
                                         target="_blank"><i class="fas fa-file-download"></i></a>
-                                </td> --}}
-                                <td>
-                                    <form action="/CreditDownload" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="id_credit" value="{{ $item->id_credit }}">
-                                        <input type="hidden" name="fullcont_id" value="{{ $item->fullcont_id }}">
-                                        <input type="hidden" name="path" value="{{ $item->path }}">
-                                        <input type="hidden" name="file_name" value="{{ $item->file_name }}">
-                                        <button type="submit" class="btn btn-primary"><i
-                                                class="fas fa-arrow-down"></i></button>
-                                    </form>
                                 </td>
+                                
                             </tr>
                         @endforeach
                     </tbody>

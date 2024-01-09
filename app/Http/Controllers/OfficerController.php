@@ -99,13 +99,13 @@ class OfficerController extends Controller
         $dividend = DB::connection('mysql_second')->table('SHR_PAY_DIVIDEND')->where([
             ['SHR_PAY_DIVIDEND.MEM_ID', '=', $request->mem_id],
             ['SHR_PAY_DIVIDEND.BR_NO', '=', $request->br_no],
-            ['SHR_PAY_DIVIDEND.SHR_YEAR', '=', date('Y')],
+            ['SHR_PAY_DIVIDEND.SHR_YEAR', '=', '2023'],
         ])
-            ->join('BK_M_BRANCH', 'BK_M_BRANCH.BR_NO', '=', 'SHR_PAY_DIVIDEND.BR_NO')
-            ->join('SHR_MEM_PROCESS', function ($join) {
-                $join->on('SHR_MEM_PROCESS.MEM_ID', '=', 'SHR_PAY_DIVIDEND.MEM_ID');
-                $join->on('SHR_MEM_PROCESS.BR_NO', '=', 'SHR_PAY_DIVIDEND.BR_NO');
-            })
+            ->join('BK_M_BRANCH', 'BK_M_BRANCH.BR_NO', '=', 'SHR_PAY_DIVIDEND.BR_NO_PAY')
+            // ->join('SHR_MEM_PROCESS', function ($join) {
+            //     $join->on('SHR_MEM_PROCESS.MEM_ID', '=', 'SHR_PAY_DIVIDEND.MEM_ID');
+            //     $join->on('SHR_MEM_PROCESS.BR_NO', '=', 'SHR_PAY_DIVIDEND.BR_NO');
+            // })
             ->first();
         return view('officer/member/data_member', compact('data_member', 'deposit_member', 'opened_credit_member', 'closed_credit_member', 'stock_select', 'stock_age', 'stock_details', 'dividend'));
     }
@@ -471,18 +471,19 @@ class OfficerController extends Controller
         return view('officer/credit/list_credit', compact('data'));
     }
 
-    public function CreditDownload(Request $request)
-    {
-        $filename = $request->fullcont_id;
-        $file = $request->file_name;
-        $path = $request->path;
-        $fileUrl = asset($path . '/' . $file);
-        if (file_exists($path . '/' . $file)) {
-            return response()->download($fileUrl);
-        } else {
-            return redirect()->back()->with('error', 'ไม่เจอไฟล์สินเชื่อ');
-        }
-    }
+    // public function CreditDownload(Request $request)
+    // {
+    //     $filename = $request->fullcont_id;
+    //     $file = $request->file_name;
+    //     $path = $request->path;
+    //     if (file_exists($path . '/' . $file)) {
+    //         $fileUrl = asset($path . '/' . $file);
+    //         return redirect( $fileUrl);
+    //     }
+    //     else{
+    //         return redirect()->back()->with('error','ไฟล์มีปัญหา');
+    //     }
+    // }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

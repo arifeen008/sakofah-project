@@ -214,7 +214,7 @@
                                 <td>{{ $item->SHR_NA }}</td>
                                 <td>{{ $item->TMP_SHARE_QTY }}</td>
                                 <td>{{ number_format($item->TMP_SHARE_BHT, 2) }}</td>
-                                <td>{{ $item->TMP_DATE_TODAY == null ? 'แสดงไม่ได้' : thaidate('j M Y ', $item->TMP_DATE_TODAY) }}
+                                <td>{{ $item->TMP_DATE_TODAY == null ? '-' : thaidate('j M Y ', $item->TMP_DATE_TODAY) }}
                                 </td>
                                 <td>{{ number_format($item->SHR_SUM_BTH, 2) }}</td>
                             </tr>
@@ -226,7 +226,8 @@
     @endif
     <div class="card m-1">
         <div class="card-body">
-            <div class="card-title">เงินปันผล</div>
+            <h2 class="card-title">เงินปันผล</h2>
+            <hr>
             @if (!empty($dividend))
                 <table class="table table-bordered">
                     <tr class="text-center">

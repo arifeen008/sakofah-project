@@ -21,7 +21,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">สาขา</label>
-                    <select class="form-select" name="branch_id">
+                    <select class="form-select" name="branch_id" required>
                         <option value="" disabled selected>เลือกสาขา</option>
                         <option value="000">สำนักงานใหญ่</option>
                         <option value="001">กระบี่</option>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">ประเภทสัญญา</label>
-                    <select class="form-select" name="credit_id">
+                    <select class="form-select" name="credit_id" required>
                         <option value="" disabled selected>เลือกประเภทสัญญา</option>
                         <option value="1">ฉุกเฉิน</option>
                         <option value="2">สามัญฉุกเฉิน</option>

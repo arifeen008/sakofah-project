@@ -99,7 +99,7 @@ class OfficerController extends Controller
         $dividend = DB::connection('mysql_second')->table('SHR_PAY_DIVIDEND')->where([
             ['SHR_PAY_DIVIDEND.MEM_ID', '=', $request->mem_id],
             ['SHR_PAY_DIVIDEND.BR_NO', '=', $request->br_no],
-            ['SHR_PAY_DIVIDEND.SHR_YEAR', '=', '2021'],
+            ['SHR_PAY_DIVIDEND.SHR_YEAR', '=', date('Y')],
         ])
             ->join('BK_M_BRANCH', 'BK_M_BRANCH.BR_NO', '=', 'SHR_PAY_DIVIDEND.BR_NO')
             ->join('SHR_MEM_PROCESS', function ($join) {
@@ -459,7 +459,8 @@ class OfficerController extends Controller
 
     public function searchcredit(Request $request)
     {
-        $data = DB::table('credit_upload')->select('credit_upload.id_credit', 'credit_upload.mem_id', 'credit_upload.fname', 'credit_upload.lname', 'credit_upload.fullcont_id', 'credit_upload.path', 'credit_upload.name_upload', 'credit_upload.date_upload', 'credit_upload.year', 'branch_name.name_branch', 'credit_type.credit_name')
+        $data = DB::table('credit_upload')
+            ->select('credit_upload.id_credit', 'credit_upload.mem_id', 'credit_upload.fname', 'credit_upload.lname', 'credit_upload.fullcont_id', 'credit_upload.path', 'credit_upload.file_name', 'credit_upload.name_upload', 'credit_upload.date_upload', 'credit_upload.year', 'branch_name.name_branch', 'credit_type.credit_name')
             ->where('credit_upload.year', $request->year)
             ->where('credit_upload.branch_id', $request->branch_id)
             ->where('credit_upload.credit_id', $request->credit_id)
@@ -468,6 +469,19 @@ class OfficerController extends Controller
             ->orderBy('credit_upload.date_upload', 'desc')
             ->get();
         return view('officer/credit/list_credit', compact('data'));
+    }
+
+    public function CreditDownload(Request $request)
+    {
+        $filename = $request->fullcont_id;
+        $file = $request->file_name;
+        $path = $request->path;
+        $fileUrl = asset($path . '/' . $file);
+        if (file_exists($path . '/' . $file)) {
+            return response()->download($fileUrl);
+        } else {
+            return redirect()->back()->with('error', 'ไม่เจอไฟล์สินเชื่อ');
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

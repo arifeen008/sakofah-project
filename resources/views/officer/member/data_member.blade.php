@@ -79,9 +79,13 @@
                                     <td>{{ $item->ACCOUNT_NAME }} </td>
                                     <td>{{ number_format($item->BALANCE, 2) }} </td>
                                     <td>
-                                        <a href=" {{ url('account_details/' . $item->ACCOUNT_NO) }}" class="btn btn-info">
-                                            <i class="fas fa-file-alt"></i>
-                                        </a>
+                                        <form action="/account_details" method="POST">
+                                            @csrf
+                                            <input type="hidden" class="form-control" name="account_number"
+                                                value="{{ $item->ACCOUNT_NO }}" />
+                                            <button type="submit" class="btn btn-info"><i
+                                                    class="fas fa-file-alt"></i></button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -120,8 +124,16 @@
                                     <td>{{ number_format($item->LCONT_APPROVE_SAL, 2) }} </td>
                                     <td>{{ $item->LCONT_AMOUNT_INST }}</td>
                                     <td>{{ number_format($item->LCONT_AMOUNT_SAL, 2) }}</td>
-                                    <td><a href="{{ url('loan_details/' . $item->CODE . '/' . $item->BR_NO) }}"
-                                            class="btn btn-success"><i class="far fa-file-alt"></i></a></td>
+                                    <td>
+                                        <form action="/loan_details" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="code" value="{{ $item->CODE }}" />
+                                            <input type="hidden" name="br_no" value="{{ $item->BR_NO }}" />
+                                            <button type="submit" class="btn btn-info">
+                                                <i class="fas fa-file-alt"></i>
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -159,8 +171,16 @@
                                     <td>{{ number_format($item->LCONT_APPROVE_SAL, 2) }} </td>
                                     <td>{{ $item->LCONT_AMOUNT_INST }}</td>
                                     <td>{{ number_format($item->LCONT_AMOUNT_SAL, 2) }}</td>
-                                    <td><a href="{{ url('loan_details/' . $item->CODE . '/' . $item->BR_NO) }}"
-                                            class="btn btn-success"><i class="far fa-file-alt"></i></a></td>
+                                    <td>
+                                        <form action="/loan_details" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="code" value="{{ $item->CODE }}" />
+                                            <input type="hidden" name="br_no" value="{{ $item->BR_NO }}" />
+                                            <button type="submit" class="btn btn-info">
+                                                <i class="fas fa-file-alt"></i>
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -254,20 +274,55 @@
 @section('script')
     <script>
         $(document).ready(function() {
-            $('#datatable').DataTable();
+            $('#datatable').DataTable({
+                "language": {
+                    "lengthMenu": "แสดง _MENU_ รายการต่อหน้า",
+                    "zeroRecords": "ไม่พบข้อมูล",
+                    "info": "หน้า _PAGE_ จาก _PAGES_",
+                    "infoEmpty": "ไม่มีข้อมูลที่แสดง",
+                    "infoFiltered": "(กรองจาก _MAX_ รายการทั้งหมด)",
+                    "search": "ค้นหา:"
+                }
+            });
         });
         $(document).ready(function() {
             $('#datatable1').DataTable({
-                "ordering": false
+                "ordering": false,
+                "language": {
+                    "lengthMenu": "แสดง _MENU_ รายการต่อหน้า",
+                    "zeroRecords": "ไม่พบข้อมูล",
+                    "info": "หน้า _PAGE_ จาก _PAGES_",
+                    "infoEmpty": "ไม่มีข้อมูลที่แสดง",
+                    "infoFiltered": "(กรองจาก _MAX_ รายการทั้งหมด)",
+                    "search": "ค้นหา:"
+                }
             });
         });
         $(document).ready(function() {
             $('#datatable2').DataTable({
-                "ordering": false
+                "ordering": false,
+                "language": {
+                    "lengthMenu": "แสดง _MENU_ รายการต่อหน้า",
+                    "zeroRecords": "ไม่พบข้อมูล",
+                    "info": "หน้า _PAGE_ จาก _PAGES_",
+                    "infoEmpty": "ไม่มีข้อมูลที่แสดง",
+                    "infoFiltered": "(กรองจาก _MAX_ รายการทั้งหมด)",
+                    "search": "ค้นหา:"
+                }
             });
         });
         $(document).ready(function() {
-            $('#datatable3').DataTable();
+            $('#datatable3').DataTable({
+                "ordering": false,
+                "language": {
+                    "lengthMenu": "แสดง _MENU_ รายการต่อหน้า",
+                    "zeroRecords": "ไม่พบข้อมูล",
+                    "info": "หน้า _PAGE_ จาก _PAGES_",
+                    "infoEmpty": "ไม่มีข้อมูลที่แสดง",
+                    "infoFiltered": "(กรองจาก _MAX_ รายการทั้งหมด)",
+                    "search": "ค้นหา:"
+                }
+            });
         });
     </script>
 @endsection

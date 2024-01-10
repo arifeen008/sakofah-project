@@ -1,12 +1,13 @@
 @extends('dashboard')
 @extends('sidebar')
-@section('title','รายละเอียดบัญชี')
+@section('title', 'รายละเอียดบัญชี')
 @section('content')
     <div class="card m-3">
         <div class="card-body text-dark">
-            <b class="card-title h2">ยอดเงินในบัญชี</b><hr>
-            <table id="datatable" class="table text-center">
-                <thead>
+            <b class="card-title h2">ยอดเงินในบัญชี</b>
+            <hr>
+            <table id="datatable" class="table table-bordered">
+                <thead class="text-center">
                     <tr>
                         <th>วันที่</th>
                         <th>เงินฝาก</th>
@@ -14,7 +15,7 @@
                         <th>ยอดเงินคงเหลือ</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-center">
                     @foreach ($account as $item)
                         <tr>
                             <td>
@@ -36,7 +37,19 @@
 @section('script')
     <script>
         $(document).ready(function() {
-            $('#datatable').DataTable();
+            $('#datatable').DataTable({
+                "ordering": false,
+                "searching": false,
+                "lengthChange": false,
+                "language": {
+                    "lengthMenu": "แสดง _MENU_ รายการต่อหน้า",
+                    "zeroRecords": "ไม่พบข้อมูล",
+                    "info": "หน้า _PAGE_ จาก _PAGES_",
+                    "infoEmpty": "ไม่มีข้อมูลที่แสดง",
+                    "infoFiltered": "(กรองจาก _MAX_ รายการทั้งหมด)",
+                    "search": "ค้นหา:"
+                }
+            });
         });
     </script>
 @endsection

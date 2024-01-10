@@ -6,36 +6,34 @@
         <div class="card-body">
             <b class="card-title h2">รายละเอียดสินเชื่อ {{ $loan_select->LCONT_ID }}</b>
             <table class="table table-borderless">
-                <tbody>
-                    <tr>
-                        <td>เลขที่สัญญา</td>
-                        <td>{{ $loan_select->LCONT_ID }}</td>
-                    </tr>
-                    <tr>
-                        <td>ชื่อสัญญา</td>
-                        <td>{{ $loan_select->LSUB_NAME }}</td>
-                    </tr>
-                    <tr>
-                        <td>วันที่ทำสัญญา</td>
-                        <td>{{ thaidate('j M Y ', $loan_select->LCONT_DATE) }}</td>
-                    </tr>
-                    <tr>
-                        <td>วันที่หมดสัญญา</td>
-                        <td>{{thaidate('j M Y ', $loan_select->END_PAYDEPT)}}</td>
-                    </tr>
-                    <tr>
-                        <td>ยอดอนุมัติสินเชื่อ</td>
-                        <td> {{number_format($loan_select->LCONT_APPROVE_SAL, 2)}}</td>
-                    </tr>
-                    <tr>
-                        <td>จำนวนงวดคงเหลือ</td>
-                        <td> {{$loan_select->LCONT_AMOUNT_INST}}</td>
-                    </tr>
-                    <tr>
-                        <td>จำนวนเงินคงเหลือ</td>
-                        <td>{{number_format($loan_select->LCONT_AMOUNT_SAL, 2) . ' บาท'}}</td>
-                    </tr>
-                </tbody>
+                <tr>
+                    <td>เลขที่สัญญา</td>
+                    <td>{{ $loan_select->LCONT_ID }}</td>
+                </tr>
+                <tr>
+                    <td>ชื่อสัญญา</td>
+                    <td>{{ $loan_select->LSUB_NAME }}</td>
+                </tr>
+                <tr>
+                    <td>วันที่ทำสัญญา</td>
+                    <td>{{ thaidate('j M Y ', $loan_select->LCONT_DATE) }}</td>
+                </tr>
+                <tr>
+                    <td>วันที่หมดสัญญา</td>
+                    <td>{{ thaidate('j M Y ', $loan_select->END_PAYDEPT) }}</td>
+                </tr>
+                <tr>
+                    <td>ยอดอนุมัติสินเชื่อ</td>
+                    <td> {{ number_format($loan_select->LCONT_APPROVE_SAL, 2) }}</td>
+                </tr>
+                <tr>
+                    <td>จำนวนงวดคงเหลือ</td>
+                    <td> {{ $loan_select->LCONT_AMOUNT_INST }}</td>
+                </tr>
+                <tr>
+                    <td>จำนวนเงินคงเหลือ</td>
+                    <td>{{ number_format($loan_select->LCONT_AMOUNT_SAL, 2) . ' บาท' }}</td>
+                </tr>
             </table>
 
             <table id="datatable" class="table text-center">
@@ -64,7 +62,19 @@
 @section('script')
     <script>
         $(document).ready(function() {
-            $('#datatable').DataTable();
+            $('#datatable').DataTable({
+                "ordering": false,
+                "searching": false,
+                "lengthChange": false,
+                "language": {
+                    "lengthMenu": "แสดง _MENU_ รายการต่อหน้า",
+                    "zeroRecords": "ไม่พบข้อมูล",
+                    "info": "หน้า _PAGE_ จาก _PAGES_",
+                    "infoEmpty": "ไม่มีข้อมูลที่แสดง",
+                    "infoFiltered": "(กรองจาก _MAX_ รายการทั้งหมด)",
+                    "search": "ค้นหา:"
+                }
+            });
         });
     </script>
 @endsection

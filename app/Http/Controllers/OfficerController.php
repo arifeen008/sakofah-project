@@ -34,15 +34,17 @@ class OfficerController extends Controller
     {
         // ข้อมูลสมาชิก
         $data_member = DB::connection('mysql_second')->table('MEM_H_MEMBER')
-            ->select('FNAME', 'LNAME', 'ID_CARD', 'DMY_BIRTH', 'SEX', 'FATHER', 'MOTHER', 'MARRIAGE_STATUS', 'BLO_GROUP', 'ADDRESS', 'MOO_ADDR', 'TUMBOL', 'LINE_ID', 'EMAIL', 'MOBILE_TEL')
             ->where('MEM_ID', $request->mem_id)
             ->where('BR_NO', $request->br_no)
+            ->select('FNAME', 'LNAME', 'ID_CARD', 'DMY_BIRTH', 'SEX', 'FATHER', 'MOTHER', 'MARRIAGE_STATUS', 'BLO_GROUP', 'ADDRESS', 'MOO_ADDR', 'TUMBOL', 'LINE_ID', 'EMAIL', 'MOBILE_TEL')
             ->first();
         // ข้อมูลบัญชีเงินฝาก
         $deposit_member = DB::connection('mysql_second')->table('BK_H_SAVINGACCOUNT')->where([
             ['MEM_ID', '=', $request->mem_id],
             ['BR_NO', '=', $request->br_no],
-        ])->get();
+        ])
+            ->select('ACCOUNT_NO', 'ACCOUNT_NAME', 'BALANCE', 'ACCOUNT_NO')
+            ->get();
         // ข้อมูลสินเชื่อที่เปิด
         $opened_credit_member = DB::connection('mysql_second')->table('LOAN_M_CONTACT')->where([
             ['LOAN_M_CONTACT.MEM_ID', '=', $request->mem_id],
@@ -57,6 +59,7 @@ class OfficerController extends Controller
                 $join->on('LOAN_M_SUB_NAME.L_TYPE_CODE', '=', 'LOAN_M_CONTACT.L_TYPE_CODE');
                 $join->on('LOAN_M_SUB_NAME.LSUB_CODE', '=', 'LOAN_M_CONTACT.LSUB_CODE');
             })
+            ->select('LOAN_M_CONTACT.LCONT_ID', 'LOAN_M_SUB_NAME.LSUB_NAME', 'LOAN_M_CONTACT.LCONT_DATE', 'LOAN_M_REGISTER.END_PAYDEPT', 'LOAN_M_CONTACT.LCONT_APPROVE_SAL', 'LOAN_M_CONTACT.LCONT_AMOUNT_INST', 'LOAN_M_CONTACT.LCONT_AMOUNT_SAL', 'LOAN_M_CONTACT.CODE', 'LOAN_M_CONTACT.BR_NO')
             ->orderByDesc('LOAN_M_CONTACT.LCONT_DATE')
             ->get();
         // ข้อมูลสินเชื่อที่ปิด
@@ -73,6 +76,7 @@ class OfficerController extends Controller
                 $join->on('LOAN_M_SUB_NAME.L_TYPE_CODE', '=', 'LOAN_M_CONTACT.L_TYPE_CODE');
                 $join->on('LOAN_M_SUB_NAME.LSUB_CODE', '=', 'LOAN_M_CONTACT.LSUB_CODE');
             })
+            ->select('LOAN_M_CONTACT.LCONT_ID', 'LOAN_M_SUB_NAME.LSUB_NAME', 'LOAN_M_CONTACT.LCONT_DATE', 'LOAN_M_REGISTER.END_PAYDEPT', 'LOAN_M_CONTACT.LCONT_APPROVE_SAL', 'LOAN_M_CONTACT.LCONT_AMOUNT_INST', 'LOAN_M_CONTACT.LCONT_AMOUNT_SAL', 'LOAN_M_CONTACT.CODE', 'LOAN_M_CONTACT.BR_NO')
             ->orderByDesc('LOAN_M_CONTACT.LCONT_DATE')
             ->get();
         // ข้อมูลหุ้น
@@ -84,7 +88,9 @@ class OfficerController extends Controller
             ->join('WEL_H_MEMBER', function ($join) {
                 $join->on('WEL_H_MEMBER.MEM_ID', '=', 'SHR_MEM.MEM_ID');
                 $join->on('WEL_H_MEMBER.BR_NO', '=', 'SHR_MEM.BR_NO');
-            })->first();
+            })
+            ->select('SHR_MEM.MEM_ID', 'BK_M_BRANCH.BR_NAME', 'SHR_MEM.SHR_SUM_BTH', 'WEL_H_MEMBER.MEM_AGE_OLD', 'SHR_MEM.POINT_SHR')
+            ->first();
         // ข้อมูลอายุหุ้น
         $stock_age = DB::connection('mysql_second')->table('SHR_T_SHARE')->select(DB::raw('SUM(SHR_ADV_COUNT) as total'))->where('MEM_ID', $request->mem_id)->where('BR_NO', $request->br_no)->where('TMP_DATE_REC', '>=', '2019-07-01')->first();
         // ข้อมูลการฝากหุ้น
@@ -93,6 +99,7 @@ class OfficerController extends Controller
             ->where('SHR_T_SHARE.MEM_ID', $request->mem_id)
             ->where('SHR_T_SHARE.BR_NO', $request->br_no)
             ->join('SHR_TBL', 'SHR_T_SHARE.SHR_NO', '=', 'SHR_TBL.SHR_NO')
+            ->select('SHR_T_SHARE.SLIP_NO', 'SHR_TBL.SHR_NA', 'SHR_T_SHARE.TMP_SHARE_QTY', 'SHR_T_SHARE.TMP_SHARE_BHT', 'SHR_T_SHARE.TMP_DATE_TODAY', 'SHR_T_SHARE.SHR_SUM_BTH')
             ->orderBy('TMP_DATE_TODAY', 'DESC')
             ->get();
         // ข้อมูลเงินปันผล
@@ -102,26 +109,23 @@ class OfficerController extends Controller
             ['SHR_PAY_DIVIDEND.SHR_YEAR', '=', '2023'],
         ])
             ->join('BK_M_BRANCH', 'BK_M_BRANCH.BR_NO', '=', 'SHR_PAY_DIVIDEND.BR_NO_PAY')
-            // ->join('SHR_MEM_PROCESS', function ($join) {
-            //     $join->on('SHR_MEM_PROCESS.MEM_ID', '=', 'SHR_PAY_DIVIDEND.MEM_ID');
-            //     $join->on('SHR_MEM_PROCESS.BR_NO', '=', 'SHR_PAY_DIVIDEND.BR_NO');
-            // })
+            ->select('SHR_PAY_DIVIDEND.SHR_YEAR', 'SHR_PAY_DIVIDEND.SHR_OUT_DATE', 'SHR_PAY_DIVIDEND.SHR_SUMUP_DIV', 'BK_M_BRANCH.BR_NAME')
             ->first();
         return view('officer/member/data_member', compact('data_member', 'deposit_member', 'opened_credit_member', 'closed_credit_member', 'stock_select', 'stock_age', 'stock_details', 'dividend'));
     }
 
-    public function account_details($account_number)
+    public function account_details(Request $request)
     {
-        $account = DB::connection('mysql_second')->table('BK_T_FINANCE')->where('F_FROM_ACC', $account_number)->orderByDesc('F_TIME')->get();
+        $account = DB::connection('mysql_second')->table('BK_T_FINANCE')->where('F_FROM_ACC', $request->account_number)->orderByDesc('F_TIME')->get();
         return view('officer/member/account_details', compact('account'));
     }
 
-    public function loan_details($code, $br_no)
+    public function loan_details(Request $request)
     {
         $loan_select = DB::connection('mysql_second')->table('LOAN_M_CONTACT')
             ->select('LOAN_M_CONTACT.LCONT_ID', 'LOAN_M_CONTACT.L_TYPE_CODE', 'LOAN_M_CONTACT.LSUB_CODE', 'LOAN_M_CONTACT.LCONT_DATE', 'LOAN_M_CONTACT.LCONT_APPROVE_SAL', 'LOAN_M_CONTACT.LCONT_AMOUNT_INST', 'LOAN_M_CONTACT.LCONT_AMOUNT_SAL', 'LOAN_M_REGISTER.END_PAYDEPT', 'LOAN_M_SUB_NAME.LSUB_NAME')
-            ->where('LOAN_M_CONTACT.BR_NO', $br_no)
-            ->where('LOAN_M_CONTACT.CODE', $code)
+            ->where('LOAN_M_CONTACT.BR_NO', $request->br_no)
+            ->where('LOAN_M_CONTACT.CODE', $request->code)
             ->join('LOAN_M_REGISTER', 'LOAN_M_REGISTER.CODE', '=', 'LOAN_M_CONTACT.CODE')
             ->join('LOAN_M_SUB_NAME', function ($join) {
                 $join->on('LOAN_M_SUB_NAME.L_TYPE_CODE', '=', 'LOAN_M_CONTACT.L_TYPE_CODE')
@@ -129,10 +133,10 @@ class OfficerController extends Controller
             })
             ->first();
         $loan_detail = DB::connection('mysql_second')->table('LOAN_M_PAYDEPT')->where([
-            ['CODE', '=', $code],
-            ['BR_NO', '=', $br_no],
+            ['CODE', '=', $request->code],
+            ['BR_NO', '=', $request->br_no],
             ['LPD_NUM_INST', '>', '0'],
-        ])->orderBy('LPD_DATE', 'asc')->select('LPD_DATE', 'SUM_SAL', 'LCONT_BAL_AMOUNT', 'LPD_NUM_INST')->get();
+        ])->orderByDesc('LPD_DATE')->select('LPD_DATE', 'SUM_SAL', 'LCONT_BAL_AMOUNT', 'LPD_NUM_INST')->get();
         return view('officer/member/loan_details', compact('loan_detail', 'loan_select'));
     }
 

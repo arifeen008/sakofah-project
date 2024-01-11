@@ -586,6 +586,9 @@ class OfficerController extends Controller
             ]);
         }
 
+        $coverImage = $request->file('coverImage');
+        $hashedcoverImage = sha1($coverImage->getClientOriginalName()) . time() . '.' . $coverImage->getClientOriginalExtension();
+        $coverImage->move(public_path('uploads/'), $hashedcoverImage);
         DB::table('news')->insert([
             'news_number' => $news_number,
             'title' => $request->title,

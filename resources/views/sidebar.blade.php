@@ -138,8 +138,8 @@
                         แก้ไขประกาศ
                     </a>
                 </li>
+                <hr>
             @endif
         </ul>
-        <hr>
     </div>
 @endsection

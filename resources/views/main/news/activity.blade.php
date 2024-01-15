@@ -12,11 +12,10 @@
                         <div class="card-body">
                             <div class="card-title">
                                 <div class="text-dark">
-                                    {{ Str::limit($item->title, 50) }}
+                                    <p class="text-truncate text-dark">{{ $item->title }}</p>
                                 </div>
-                            </div><hr>
-                            <small>{{ thaidate('j F Y', $item->dateupload) }}
-                            </small>
+                            </div>
+                            <small>{{ thaidate('j F Y', $item->dateupload) }}</small>
                         </div>
                     </a>
                 </div>

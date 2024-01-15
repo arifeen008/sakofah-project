@@ -596,7 +596,7 @@ class OfficerController extends Controller
             'dateupload' => $request->date,
             'description' => $request->description,
             'path' => 'uploads/',
-            'picture_name' => sha1($request->coverImage->getClientOriginalName()) . time() . '.' . $request->coverImage->getClientOriginalExtension(),
+            'picture_name' => $hashedcoverImage
         ]);
 
         return redirect('/news_upload')->with('success', 'News uploaded successfully.');

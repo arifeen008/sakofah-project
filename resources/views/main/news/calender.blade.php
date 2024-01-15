@@ -50,7 +50,7 @@
                         aria-controls="v-pills-month10" aria-selected="false">
                         พฤศจิกายน
                     </a>
-                    <a data-mdb-pill-init class="nav-link active" id="v-pills-month11-tab" href="#v-pills-month11"
+                    <a data-mdb-pill-init class="nav-link" id="v-pills-month11-tab" href="#v-pills-month11"
                         role="tab" aria-controls="v-pills-month11" aria-selected="false">
                         ธันวาคม
                     </a>

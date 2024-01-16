@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'ข่าวสาร/กิจกรรมความเคลื่อนไหว |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'ข่าวสาร/กิจกรรมความเคลื่อนไหว | สหกรณ์อิสลามษะกอฟะฮ จำกัด')
 @section('content')
     <div class="container my-2" style="font-family: 'Sarabun', sans-serif;">
         <div class="row">

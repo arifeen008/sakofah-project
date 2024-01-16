@@ -31,26 +31,12 @@
 
     <div class="container mt-4">
         <div id="carouselTwo" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init>
-            <div class="carousel-inner">
+            <div class="carousel-inner">        
                 <div class="carousel-item active">
-                    <img src="{{ url('picture/banner_calendar67.jpg') }}" class="d-block w-100" data-mdb-ripple-init
-                        data-mdb-modal-init data-mdb-target="#Modal4" />
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ url('picture/548-1.jpg') }}" class="d-block w-100" data-mdb-ripple-init data-mdb-modal-init
-                        data-mdb-target="#Modal2" />
-                </div>
-                <div class="carousel-item">
                     <img src="{{ url('picture/521-2.jpg') }}" class="d-block w-100" />
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ url('picture/512-3.jpg') }}" class="d-block w-100" />
                 </div>
                 <div class="carousel-item ">
                     <img src="{{ url('picture/515-1.jpg') }}" class="d-block w-100" />
-                </div>
-                <div class="carousel-item ">
-                    <img src="{{ url('picture/466.jpg') }}" class="d-block w-100" />
                 </div>
                 <div class="carousel-item ">
                     <img src="{{ url('picture/450.jpg') }}" class="d-block w-100" data-mdb-ripple-init data-mdb-modal-init
@@ -93,16 +79,6 @@
             </div>
         </div>
 
-        <div class="modal fade modal-lg" id="Modal2" tabindex="-1" aria-labelledby="Modal2" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <img src="{{ url('picture/548.jpg') }}" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="modal fade modal-lg" id="Modal3" tabindex="-1" aria-labelledby="Modal3" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -113,15 +89,6 @@
             </div>
         </div>
 
-        <div class="modal fade modal-lg" id="Modal4" tabindex="-1" aria-labelledby="Modal4" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <img src="{{ url('picture/detail_banner_calendar67.jpg') }}" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="container mt-4">
         <div class="row">
@@ -151,7 +118,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="d-flex flex-row-reverse">
-                    <iframe src="https://shorturl.asia/TVGHU" width="340" height="500"
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/Sakofah.Islam.Savings&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="500"
                         style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"
                         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                 </div>
@@ -356,16 +323,6 @@
                 </div>
             </div>
             <div class="col-3 col-sm-3">
-                <h3 class="text-center text-dark mt-2">เวลาละหมาด</h3>
-                <iframe width="133px" height="196px" src="https://shorturl.asia/gvwxq" frameborder=0
-                    scrolling=no></iframe>
-                <iframe width="133px" height="196px" src="https://shorturl.asia/oTkP5" frameborder=0
-                    scrolling=no></iframe>
-                <iframe width="133px" height="196px" src="https://shorturl.asia/QDtN6" frameborder=0
-                    scrolling=no></iframe>
-                <iframe width="133px" height="196px" src="https://shorturl.asia/NqJSA" frameborder=0
-                    scrolling=no></iframe>
-                <a href="https://sakofahislamic.com/index/credit" target="_blank" rel="noopener noreferrer"></a>
                 <div class="ratio ratio-16x9 my-3">
                     <iframe src="https://www.youtube.com/embed/m0o5aStUkYg" allowfullscreen></iframe>
                 </div>

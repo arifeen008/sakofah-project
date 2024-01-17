@@ -29,7 +29,7 @@ class AuthController extends Controller
                 'password' => $request->password,
             ])->select('USER_ID', 'BR_NO', 'USER_NAME', 'LEVEL_CODE')->first();
         if (!empty($data)) {
-            $request->session()->put('user_id', $data->USER_ID);
+            $request->session()->put('user_id', $data->USER_ID,);
             $request->session()->put('username', $data->USER_NAME);
             $request->session()->put('br_no', $data->BR_NO);
             $request->session()->put('level_code', $data->LEVEL_CODE);

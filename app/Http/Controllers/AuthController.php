@@ -15,6 +15,9 @@ class AuthController extends Controller
     public function loginPost(Request $request)
     {
         date_default_timezone_set('Asia/Bangkok');
+        $userAgent = $request->header('User-Agent');
+        $agent = new \Jenssegers\Agent\Agent();
+        $agent->setUserAgent($userAgent);
         $request->validate([
             'user_id' => 'required',
             'password' => 'required',
@@ -29,13 +32,10 @@ class AuthController extends Controller
                 'password' => $request->password,
             ])->select('USER_ID', 'BR_NO', 'USER_NAME', 'LEVEL_CODE')->first();
         if (!empty($data)) {
-            $request->session()->put('user_id', $data->USER_ID,);
+            $request->session()->put('user_id', $data->USER_ID, );
             $request->session()->put('username', $data->USER_NAME);
             $request->session()->put('br_no', $data->BR_NO);
             $request->session()->put('level_code', $data->LEVEL_CODE);
-            $userAgent = $request->header('User-Agent');
-            $agent = new \Jenssegers\Agent\Agent();
-            $agent->setUserAgent($userAgent);
             DB::table('signin_history')->insert([
                 'user_id' => $data->USER_ID,
                 'branch_id' => $data->BR_NO,

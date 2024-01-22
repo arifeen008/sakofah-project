@@ -30,8 +30,12 @@
 
     <div class="container mt-4">
         <div id="carouselTwo" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init>
-            <div class="carousel-inner">        
+            <div class="carousel-inner"> 
                 <div class="carousel-item active">
+                    <img src="{{ url('banner/banner.jpg') }}" class="d-block w-100"  data-mdb-ripple-init data-mdb-modal-init
+                    data-mdb-target="#Modal2"/>
+                </div>       
+                <div class="carousel-item">
                     <img src="{{ url('picture/521-2.jpg') }}" class="d-block w-100" />
                 </div>
                 <div class="carousel-item ">
@@ -73,6 +77,16 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <img src="{{ url('picture/345.jpg') }}" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade modal-lg" id="Modal2" tabindex="-1" aria-labelledby="Modal2" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <img src="{{ url('banner/bannerdetail.jpg') }}" class="img-fluid">
                     </div>
                 </div>
             </div>

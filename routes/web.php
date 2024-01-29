@@ -117,4 +117,8 @@ Route::group(['middleware' => 'checksession'], function () {
     Route::get('/add_asset', [OfficerController::class, 'add_asset']);
     Route::post('/uploadAsset', [OfficerController::class, 'uploadAsset']);
     Route::get('/delete_asset/{asset_number}', [OfficerController::class, 'delete_asset']);
+
+// Report
+    Route::get('/report', [OfficerController::class, 'report']);
+    Route::post('/summaryReport', [OfficerController::class, 'summaryReport']);
 });

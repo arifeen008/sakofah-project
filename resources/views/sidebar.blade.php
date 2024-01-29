@@ -87,6 +87,12 @@
                     รายงานผลการติดตามสินเชื่อ
                 </a>
             </li>
+            <li>
+                <a href="/report" class="nav-link link-dark">
+                    <i class="fas fa-atom me-3"></i>
+                    รายงาน
+                </a>
+            </li>
             <hr>
             @if (session('level_code') == 'P')
                 <span class="text-center fs-4">ADMIN</span>

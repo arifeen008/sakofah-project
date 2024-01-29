@@ -95,7 +95,6 @@ class OfficerController extends Controller
         $stock_age = DB::connection('mysql_second')->table('SHR_T_SHARE')->select(DB::raw('SUM(SHR_ADV_COUNT) as total'))->where('MEM_ID', $request->mem_id)->where('BR_NO', $request->br_no)->where('TMP_DATE_REC', '>=', '2019-07-01')->first();
         // ข้อมูลการฝากหุ้น
         $stock_details = DB::connection('mysql_second')->table('SHR_T_SHARE')
-            ->select('SHR_T_SHARE.SLIP_NO', 'SHR_TBL.SHR_NA', 'SHR_T_SHARE.TMP_SHARE_QTY', 'SHR_T_SHARE.TMP_SHARE_BHT', 'SHR_T_SHARE.TMP_DATE_TODAY', 'SHR_T_SHARE.SHR_SUM_BTH')
             ->where('SHR_T_SHARE.MEM_ID', $request->mem_id)
             ->where('SHR_T_SHARE.BR_NO', $request->br_no)
             ->join('SHR_TBL', 'SHR_T_SHARE.SHR_NO', '=', 'SHR_TBL.SHR_NO')
@@ -596,7 +595,7 @@ class OfficerController extends Controller
             'dateupload' => $request->date,
             'description' => $request->description,
             'path' => 'uploads/',
-            'picture_name' => $hashedcoverImage
+            'picture_name' => $hashedcoverImage,
         ]);
 
         return redirect('/news_upload')->with('success', 'News uploaded successfully.');
@@ -728,5 +727,23 @@ class OfficerController extends Controller
         DB::table('asset')->where('asset_number', $asset_number)->delete();
         DB::table('asset_picture')->where('asset_number', $asset_number)->delete();
         return redirect()->back()->with('success', 'Delete Success');
+    }
+
+    public function report($data = null)
+    {
+        return view('officer/report/report', compact('data'));
+    }
+
+    public function summaryReport(Request $request)
+    {
+        $request->validate([
+            'month' => 'required',
+            'year' => 'required',
+        ]);
+        $data = DB::connection('mysql_second')->table('MEM_H_MEMBER')
+            ->whereYear('MEM_DATE', $request->year)
+            ->whereMonth('MEM_DATE', $request->month)
+            ->count();
+        return view('officer/report/report', compact('data'));
     }
 }

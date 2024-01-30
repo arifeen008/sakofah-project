@@ -11,7 +11,7 @@
             <hr>
             <table id="datatable">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>หัวข้อ</th>
                         <th>ประเภทข่าว</th>
                         <th>เวลาอัพโหลด</th>
@@ -22,14 +22,14 @@
                 <tbody>
                     @foreach ($data as $item)
                         <tr>
-                            <td>{{ Str::limit($item->title, 70) }}</td>
+                            <td class="text-truncate" style="max-width: 500px">{{ $item->title }}</td>
                             <td class="text-center">{{ $item->news_typename }}</td>
                             <td class="text-center">{{ thaidate('j M Y ', $item->dateupload) }} </td>
-                            <td class="text-center"><a href="/edit_news/{{ $item->news_number }}"
-                                    class="btn btn-warning me-3"><i class="fas fa-pen"></i></a></td>
                             <td class="text-center">
-                                <a href="/delete_news/{{ $item->news_number }}" class="delete btn btn-danger me-3"><i
-                                        class="far fa-trash-alt"></i></a>
+                                <a href="/edit_news/{{ $item->news_number }}" class="btn btn-warning me-3"><i class="fas fa-pen"></i></a>
+                            </td>
+                            <td class="text-center">
+                                <a href="/delete_news/{{ $item->news_number }}" class="delete btn btn-danger me-3"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     @endforeach

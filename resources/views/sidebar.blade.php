@@ -1,151 +1,36 @@
 @section('sidebar')
-    <div class="d-flex flex-column flex-shrink-0">
-        <ul class="nav nav-pills flex-column">
-            <li class="nav-item">
-                <a href="/member" class="nav-link link-dark" aria-current="page">
-                    <i class="fas fa-fingerprint me-3"></i>
-                    ค้นหาสมาชิก
-                </a>
-            </li>
-            <li>
-                <a href="/credit" class="nav-link link-dark">
-                    <i class="fas fa-credit-card me-3"></i>
-                    สินเชื่อ
-                </a>
-            </li>
-            <li>
-                <a href="/publish" class="nav-link link-dark">
-                    <i class="fas fa-bullhorn me-3"></i>
-                    ประกาศภายใน
-                </a>
-            </li>
-            <li>
-                <a href="/rules" class="nav-link link-dark">
-                    <i class="fab fa-leanpub me-3"></i>
-                    ข้อบังคับสหกรณ์
-                </a>
-            </li>
-            <li>
-                <a href="/order" class="nav-link link-dark">
-                    <i class="fas fa-book-open-reader me-3"></i></i>
-                    ระเบียบเจ้าหน้าที่
-                </a>
-            </li>
-            <li>
-                <a href="/form" class="nav-link link-dark">
-                    <i class="far fa-clipboard me-3"></i>
-                    แบบฟอร์มเจ้าหน้าที่
-                </a>
-            </li>
-            <li>
-                <a href="/performance" class="nav-link link-dark">
-                    <i class="fas fa-network-wired me-3"></i>
-                    ผลการดำเนินงาน
-                </a>
-            </li>
-            <li>
-                <a href="/uploadcredit" class="nav-link link-dark">
-                    <i class="fas fa-square-poll-horizontal me-3"></i>
-                    อัพโหลดสินเชื่อ
-                </a>
-            </li>
-            @if (session('level_code') == 'E' || session('level_code') == 'P')
-                <li>
-                    <a href="/credit_consider" class="nav-link link-dark">
-                        <i class="fab fa-airbnb me-3"></i>
-                        ฝ่ายสินเชื่อสาขา
-                    </a>
-                </li>
-            @endif
-            @if (session('level_code') == 'CC' || session('level_code') == 'P')
-                <li>
-                    <a href="/creditconsider" class="nav-link link-dark">
-                        <i class="fas fa-anchor me-3"></i>
-                        รับเอกสารสินเชื่อสาขา
-                    </a>
-                </li>
-            @endif
-            @if (session('level_code') == 'CRM' || session('level_code') == 'P')
-                <li>
-                    <a href="/creditconsider" class="nav-link link-dark">
-                        <i class="fas fa-at me-3"></i>
-                        ฝ่ายวิเคราะห์
-                    </a>
-                </li>
-            @endif
-            @if (session('level_code') == 'M' || session('level_code') == 'P')
-                <li>
-                    <a href="/creditconsider" class="nav-link link-dark">
-                        <i class="fas fa-arrows-rotate me-3"></i>
-                        ผู้จัดการใหญ่
-                    </a>
-                </li>
-            @endif
-            <li>
-                <a href="/report_creditconsider" class="nav-link link-dark">
-                    <i class="fas fa-atom me-3"></i>
-                    รายงานผลการติดตามสินเชื่อ
-                </a>
-            </li>
-            <li>
-                <a href="/report" class="nav-link link-dark">
-                    <i class="fas fa-atom me-3"></i>
-                    รายงาน
-                </a>
-            </li>
-            <hr>
-            @if (session('level_code') == 'P')
-                <span class="text-center fs-4">ADMIN</span>
-                <li>
-                    <a href="/admin_creditconsider" class="nav-link link-dark">
-                        <i class="fas fa-baby me-3"></i>
-                        พิจารณาสินเชื่อ
-                    </a>
-                </li>
-                <li>
-                    <a href="/admin_credit" class="nav-link link-dark">
-                        <i class="fas fa-bars-progress me-3"></i>
-                        สินเชื่อ
-                    </a>
-                </li>
-                <li>
-                    <a href="/login_history" class="nav-link link-dark">
-                        <i class="fab fa-battle-net me-3"></i>
-                        ประวัติการล็อกอิน
-                    </a>
-                </li>
-                <li>
-                    <a href="/asset_list" class="nav-link link-dark">
-                        <i class="fas fa-bicycle me-3"></i>
-                        อัพโหลดสินทรัพย์
-                    </a>
-                </li>
-                <li>
-                    <a href="/news_upload" class="nav-link link-dark">
-                        <i class="fas fa-box me-3"></i>
-                        อัพโหลดข่าวสาร
-                    </a>
-                </li>
-                <li>
-                    <a href="/add_performance" class="nav-link link-dark">
-                        <i class="fab fa-buromobelexperte me-3"></i>
-                        อัพโหลดผลการดำเนินงาน
-                    </a>
-                </li>
-                <li>
-                    <a href="/upload_publish" class="nav-link link-dark">
-                        <i class="fas fa-calendar-minus me-3"></i>
-                        อัพโหลดประกาศ
-                    </a>
-                </li>
-                <li>
-                    <a href="/edit_publish" class="nav-link link-dark">
-                        <i class="fas fa-cake-candles me-3"></i>
-                        แก้ไขประกาศ
-                    </a>
-                </li>
-                <hr>
-            @endif
-        </ul>
-    </div>
+    <ul class="list-group list-group-light">
+        <a href="/member" class="list-group-item list-group-item-action"><i class="fas fa-fingerprint ms-1 me-3"></i>ค้นหาสมาชิก</a>
+        <a href="/credit" class="list-group-item list-group-item-action"><i class="fas fa-credit-card ms-1 me-3"></i>สินเชื่อ</a>
+        <a href="/publish" class="list-group-item list-group-item-action"><i class="fas fa-bullhorn ms-1 me-3"></i>ประกาศภายใน</a>
+        <a href="/rules" class="list-group-item list-group-item-action"><i class="fab fa-leanpub ms-1 me-3"></i>ข้อบังคับสหกรณ์</a>
+        <a href="/order" class="list-group-item list-group-item-action"><i class="fas fa-book-open-reader ms-1 me-3"></i></i>ระเบียบเจ้าหน้าที่</a>
+        <a href="/form" class="list-group-item list-group-item-action"><i class="far fa-clipboard ms-1 me-3"></i>แบบฟอร์มเจ้าหน้าที่</a>
+        <a href="/performance" class="list-group-item list-group-item-action"><i class="fas fa-network-wired ms-1 me-3"></i>ผลการดำเนินงาน</a>
+        <a href="/uploadcredit" class="list-group-item list-group-item-action"><i class="fas fa-square-poll-horizontal ms-1 me-3"></i>อัพโหลดสินเชื่อ</a>
+        @if (session('level_code') == 'E' || session('level_code') == 'P')
+            <a href="/credit_consider" class="list-group-item list-group-item-action"><i class="fab fa-airbnb ms-1 me-3"></i>ฝ่ายสินเชื่อสาขา</a>
+        @endif
+        @if (session('level_code') == 'CC' || session('level_code') == 'P')
+            <a href="/creditconsider" class="list-group-item list-group-item-action"><i class="fas fa-anchor ms-1 me-3"></i>รับเอกสารสินเชื่อสาขา</a>
+        @endif
+        @if (session('level_code') == 'CRM' || session('level_code') == 'P')
+            <a href="/creditconsider" class="list-group-item list-group-item-action"> <i class="fas fa-at ms-1 me-3"></i>ฝ่ายวิเคราะห์</a>
+        @endif
+        @if (session('level_code') == 'M' || session('level_code') == 'P')
+            <a href="/creditconsider" class="list-group-item list-group-item-action"> <i class="fas fa-arrows-rotate ms-1 me-3"></i>ผู้จัดการใหญ่</a>
+        @endif
+        <a href="/report_creditconsider" class="list-group-item list-group-item-action"><i class="fas fa-atom ms-1 me-3"></i>รายงานผลการติดตามสินเชื่อ</a>
+        <a href="/report" class="list-group-item list-group-item-action"><i class="fab fa-bandcamp ms-1 me-3"></i>รายงาน</a>
+        @if (session('level_code') == 'P')
+            <a href="/admin_creditconsider" class="list-group-item list-group-item-action"><i class="fas fa-baby ms-1 me-3"></i>พิจารณาสินเชื่อ</a>
+            <a href="/admin_credit" class="list-group-item list-group-item-action"><i class="fas fa-bars-progress ms-1 me-3"></i>สินเชื่อ</a>
+            <a href="/login_history" class="list-group-item list-group-item-action"><i class="fab fa-battle-net ms-1 me-3"></i>ประวัติการล็อกอิน</a>
+            <a href="/asset_list" class="list-group-item list-group-item-action"><i class="fas fa-bicycle ms-1 me-3"></i>อัพโหลดสินทรัพย์</a>
+            <a href="/news_upload" class="list-group-item list-group-item-action"><i class="fas fa-box ms-1 me-3"></i>อัพโหลดข่าวสาร</a>
+            <a href="/add_performance" class="list-group-item list-group-item-action"><i class="fab fa-buromobelexperte ms-1 me-3"></i>อัพโหลดผลการดำเนินงาน</a>
+            <a href="upload_publish/" class="list-group-item list-group-item-action"><i class="fas fa-calendar-minus ms-1 me-3"></i>อัพโหลดประกาศ</a>
+            <a href="/edit_publish" class="list-group-item list-group-item-action"><i class="fas fa-cake-candles ms-1 me-3"></i>แก้ไขประกาศ</a>
+        @endif
+    </ul>
 @endsection

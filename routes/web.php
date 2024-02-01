@@ -41,7 +41,7 @@ Route::get('/home/{asset_number}', [IndexController::class, 'home']);
 Route::get('/vacant/{asset_number}', [IndexController::class, 'vacant']);
 Route::get('/condo/{asset_number}', [IndexController::class, 'condo']);
 Route::get('/document', [IndexController::class, 'document']);
-Route::get('/report', [IndexController::class, 'report']);
+Route::get('/businessreport', [IndexController::class, 'businessreport']);
 Route::get('/withus', [IndexController::class, 'withus']);
 
 // Login

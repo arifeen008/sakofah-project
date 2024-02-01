@@ -136,9 +136,9 @@ class IndexController extends Controller
     {
         return view('main/download/document');
     }
-    public function report()
+    public function businessreport()
     {
-        return view('main/download/report');
+        return view('main/download/businessreport');
     }
 
     public function withus()

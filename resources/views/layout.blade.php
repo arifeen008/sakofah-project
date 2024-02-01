@@ -156,7 +156,7 @@
                                 <a class="dropdown-item" href="/document">เอกสารสำหรับสมาชิก</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="/report">รายงานกิจการ</a>
+                                <a class="dropdown-item" href="/businessreport">รายงานกิจการ</a>
                             </li>
                         </ul>
                     </li>

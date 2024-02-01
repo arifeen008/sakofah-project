@@ -27,24 +27,23 @@
                     <div class="col-5">
                         <select class="form-select" aria-label="yearSelect" name="year">
                             <option selected>ประจำปีบัญชี</option>
-                            <option value="2024">2568</option>
-                            <option value="2023">2567</option>
-                            <option value="2022">2566</option>
-                            <option value="2021">2565</option>
-                            <option value="2020">2564</option>
+                            <option value="2024">2567</option>
+                            <option value="2023">2566</option>
+                            <option value="2022">2565</option>
+                            <option value="2021">2564</option>
                         </select>
                     </div>
                     <div class="d-grid col-2 mx-auto">
-                        <button type="submit" class="btn btn-success active" data-mdb-ripple-init>ดึงข้อมูล</button>
+                        <button type="submit" class="btn btn-success active" in-mdb-ripple-init>ดึงข้อมูล</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-    @if ($data != null)
+    @if ($common_out != null)
         <div class="card mt-3">
             <div class="card-body">
-                <p class="text-dark text-center">ผลการดำเนินงานสมากชิกเข้าใหม่ - ลาออก</p>
+                <p class="text-dark text-center">ผลการดำเนินงานสมาชิกเข้าใหม่ - ลาออก</p>
                 <table class="table table-bordered border-dark text-center">
                     <tr>
                         <td>ประเภท</td>
@@ -58,23 +57,33 @@
                     </tr>
                     <tr>
                         <td>สามัญ</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
+                        <td>0</td>
+                        <td>{{ $common_in }}</td>
+                        <td>{{ $common_out }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>สมทบ</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
+                        <td>0</td>
+                        <td>{{ $associated_in }}</td>
+                        <td>{{ $associated_out }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>รวม</td>
+                        <td>0</td>
+                        <td>{{ $common_in + $associated_in }}</td>
+                        <td>{{ $common_out + $associated_out }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>
                 </table>
             </div>
@@ -96,107 +105,107 @@
                     </tr>
                     <tr>
                         <td>บัญชีทุนเรือนหุ้น</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>บัญชีมูฏอรอบะฮ</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>บัญชีวาดีอะฮ</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>บัญชีกองทุนฮัจย์</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>บัญชีเพื่อการศึกษา</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>บัญชีอิสติกอมะฮ 3</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>บัญชีอิสติกอมะฮ 6</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>บัญชีอิสติกอมะฮ 12</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>บัญชีอิสติกอมะฮ 24</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>บัญชียุวษะกอฟะฮ</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>บัญชีกรุบาน</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>บัญชีวาดีอะห์ ATM</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>
                     <tr>
                         <td>รวมสุทธิ</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
-                        <td>{{ $data }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                     </tr>
                 </table>
             </div>

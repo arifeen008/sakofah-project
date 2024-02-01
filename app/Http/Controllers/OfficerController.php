@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -736,14 +737,19 @@ class OfficerController extends Controller
 
     public function summaryReport(Request $request)
     {
-        $request->validate([
-            'month' => 'required',
-            'year' => 'required',
-        ]);
-        $data = DB::connection('mysql_second')->table('MEM_H_MEMBER')
-            ->whereYear('MEM_DATE', $request->year)
-            ->whereMonth('MEM_DATE', $request->month)
-            ->count();
-        return view('officer/report/report', compact('data'));
+        $request->validate(['month' => 'required', 'year' => 'required']);
+        $month = $request->month;
+        $year = $request->year;
+        $date = Carbon::create($year, $month, 1, 0, 0, 0);
+        if ($date->month >= 7) {
+            $date->addYear();
+            $month = $date->month;
+            $year = $date->year;
+        }
+        $common_in = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('MEM_DATE', $month)->whereYear('MEM_DATE', $year)->where('MEMTYPE_ID', '1')->count();
+        $common_out = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('TRIED_DATE', $month)->whereYear('TRIED_DATE', $year)->where('MEMTYPE_ID', '1')->count();
+        $associated_in = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('MEM_DATE', $month)->whereYear('MEM_DATE', $year)->where('MEMTYPE_ID', '2')->count();
+        $associated_out = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('TRIED_DATE', $month)->whereYear('TRIED_DATE', $year)->where('MEMTYPE_ID', '2')->count();
+        return view('officer/report/report', compact('common_in', 'common_out', 'associated_in', 'associated_out'));
     }
 }

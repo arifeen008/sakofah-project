@@ -31,19 +31,19 @@
         </ul>
         <div class="tab-content" id="content">
             <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="tab-1">
-                <img src="{{ url('picture\บอร์ดก่อตั้ง.jpg') }}" style="width: 100%;">
+                <img src="{{ url('board/บอร์ดก่อตั้ง.jpg') }}" style="width: 100%;">
             </div>
             <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="tab-2">
-                <img src="{{ url('picture\กรรมการชุดที่ 25.jpg') }}" style="width: 100%;">
+                <img src="{{ url('board/คณะกรรมการ.jpg') }}" style="width: 100%;">
             </div>
             <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="tab-3">
-                <img src="{{ url('picture\344-A4.jpg') }}" style="width: 100%;">
+                <img src="{{ url('board/ผู้บริหาร.jpg') }}" style="width: 100%;">
             </div>
             <div class="tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="tab-4">
-                <img src="{{ url('picture\บอร์ดที่ปรึกษา1.jpg') }}" style="width: 100%;">
+                <img src="{{ url('board/คณะที่ปรึกษา.jpg') }}" style="width: 100%;">
             </div>
             <div class="tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="tab-5">
-                <img src="{{ url('picture\ทำเนียบสหกรณ์.jpg') }}" style="width: 100%;">
+                <img src="{{ url('board/ทำเนียบสหกรณ์.jpg') }}" style="width: 100%;">
             </div>
         </div>
     </div>

@@ -18,7 +18,7 @@
                     <i class="fas fa-download"></i>
                 </div>
             </a>
-            <p><b class="h3 card-title text-dark mt-3 "> ระเบียบสหกรณ์</b></p><hr>
+            <p class="mt-3"><b class="h3 card-title text-dark mt-3 "> ระเบียบสหกรณ์</b></p><hr>
             <iframe style="width: auto;height: 500px;" src="https://anyflip.com/haqcj/sfqo/"
                 seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe>
 

@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/history', [IndexController::class, 'history']);
 Route::get('/vision', [IndexController::class, 'vision']);
-Route::get('/board', [IndexController::class, 'board']);
+Route::get('/manager', [IndexController::class, 'manager']);
 Route::get('/office', [IndexController::class, 'office']);
 Route::get('/structure', [IndexController::class, 'structure']);
 Route::get('/register', [IndexController::class, 'register']);

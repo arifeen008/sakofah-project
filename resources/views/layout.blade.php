@@ -65,7 +65,7 @@
                                 <a class="dropdown-item" href="/vision">วิสัยทัศน์ พันธกิจ วัตถุประสงค์</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="/board">คณะกรรมการและผู้บริหาร</a>
+                                <a class="dropdown-item" href="/manager">คณะกรรมการและผู้บริหาร</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="/office">สำนักงาน</a>

@@ -24,9 +24,9 @@ class IndexController extends Controller
     {
         return view('main/about/vision');
     }
-    public function board()
+    public function manager()
     {
-        return view('main/about/board');
+        return view('main/about/manager');
     }
     public function office()
     {

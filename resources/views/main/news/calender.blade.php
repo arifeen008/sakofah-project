@@ -1,16 +1,16 @@
 @extends('layout')
 @section('title', 'ปฏิทินสหกรณ์ | สหกรณ์อิสลามษะกอฟะฮ จำกัด')
 @section('content')
-    <img src="{{ url('picture/cover.jpg') }}" class="img-fluid w-100" class="mb-2">
+    <img src="{{ url('calendar/ปกโปสเตอร์.jpg') }}" class="img-fluid w-100" class="mb-2">
     <div class="container my-2">
         <div class="row">
             <div class="col-3">
                 <div class="nav flex-column nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a data-mdb-pill-init class="nav-link active" id="v-pills-month0-tab" href="#v-pills-month0" role="tab"
+                    <a data-mdb-pill-init class="nav-link" id="v-pills-month0-tab" href="#v-pills-month0" role="tab"
                         aria-controls="v-pills-month0" aria-selected="false">
                         มกราคม
                     </a>
-                    <a data-mdb-pill-init class="nav-link" id="v-pills-month1-tab" href="#v-pills-month1" role="tab"
+                    <a data-mdb-pill-init class="nav-link active" id="v-pills-month1-tab" href="#v-pills-month1" role="tab"
                         aria-controls="v-pills-month1" aria-selected="false">
                         กุมภาพันธ์
                     </a>
@@ -58,50 +58,50 @@
             </div>
             <div class="col-9">
                 <div class="tab-content" id="v-pills-tabContent">
-                    <div class="tab-pane fade show active" id="v-pills-month0" role="tabpanel" aria-labelledby="v-pills-month0-tab">
-                        <img src="{{ url('calendar/cal_m1.jpg') }}" class="img-thumbnail" width="auto">
+                    <div class="tab-pane fade" id="v-pills-month0" role="tabpanel" aria-labelledby="v-pills-month0-tab">
+                        <img src="{{ url('calendar/01.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade" id="v-pills-month1" role="tabpanel" aria-labelledby="v-pills-month1-tab">
-                        <img src="{{ url('calendar/cal_m2.jpg') }}" class="img-thumbnail" width="auto">
+                    <div class="tab-pane fade show active" id="v-pills-month1" role="tabpanel" aria-labelledby="v-pills-month1-tab">
+                        <img src="{{ url('calendar/02.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
                     <div class="tab-pane fade" id="v-pills-month2" role="tabpanel" aria-labelledby="v-pills-month2-tab">
-                        <img src="{{ url('calendar/cal_m3.jpg') }}" class="img-thumbnail" width="auto">
+                        <img src="{{ url('calendar/03.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
                     <div class="tab-pane fade" id="v-pills-month3" role="tabpanel"
                         aria-labelledby="v-pills-month3-tab">
-                        <img src="{{ url('calendar/cal_m4.jpg') }}" class="img-thumbnail" width="auto">
+                        <img src="{{ url('calendar/04.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
                     <div class="tab-pane fade" id="v-pills-month4" role="tabpanel"
                         aria-labelledby="v-pills-month4-tab">
-                        <img src="{{ url('calendar/cal_m5.jpg') }}" class="img-thumbnail" width="auto">
+                        <img src="{{ url('calendar/05.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
                     <div class="tab-pane fade" id="v-pills-month5" role="tabpanel"
                         aria-labelledby="v-pills-month5-tab">
-                        <img src="{{ url('calendar/cal_m6.jpg') }}" class="img-thumbnail" width="auto">
+                        <img src="{{ url('calendar/06.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
                     <div class="tab-pane fade" id="v-pills-month6" role="tabpanel"
                         aria-labelledby="v-pills-month6-tab">
-                        <img src="{{ url('calendar/cal_m7.jpg') }}" class="img-thumbnail" width="auto">
+                        <img src="{{ url('calendar/07.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
                     <div class="tab-pane fade" id="v-pills-month7" role="tabpanel"
                         aria-labelledby="v-pills-month7-tab">
-                        <img src="{{ url('calendar/cal_m8.jpg') }}" class="img-thumbnail" width="auto">
+                        <img src="{{ url('calendar/08.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
                     <div class="tab-pane fade" id="v-pills-month8" role="tabpanel"
                         aria-labelledby="v-pills-month8-tab">
-                        <img src="{{ url('calendar/cal_m9.jpg') }}" class="img-thumbnail" width="auto">
+                        <img src="{{ url('calendar/09.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
                     <div class="tab-pane fade" id="v-pills-month9" role="tabpanel"
                         aria-labelledby="v-pills-month9-tab">
-                        <img src="{{ url('calendar/cal_m10.jpg') }}" class="img-thumbnail" width="auto">
+                        <img src="{{ url('calendar/10.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
                     <div class="tab-pane fade" id="v-pills-month10" role="tabpanel"
                         aria-labelledby="v-pills-month10-tab">
-                        <img src="{{ url('calendar/cal_m11.jpg') }}" class="img-thumbnail" width="auto">
+                        <img src="{{ url('calendar/11.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
                     <div class="tab-pane fade" id="v-pills-month11" role="tabpanel"
                         aria-labelledby="v-pills-month11-tab">
-                        <img src="{{ url('calendar/cal_m12.jpg') }}" class="img-thumbnail" width="auto">
+                        <img src="{{ url('calendar/12.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
                 </div>
             </div>

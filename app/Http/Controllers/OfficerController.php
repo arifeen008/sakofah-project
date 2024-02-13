@@ -746,10 +746,10 @@ class OfficerController extends Controller
             $month = $date->month;
             $year = $date->year;
         }
-        $common_in = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('MEM_DATE', $month)->whereYear('MEM_DATE', $year)->where('MEMTYPE_ID', '1')->count();
+        $data = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('MEM_DATE', $month)->whereYear('MEM_DATE', $year)->where('MEMTYPE_ID', '1')->count();
         $common_out = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('TRIED_DATE', $month)->whereYear('TRIED_DATE', $year)->where('MEMTYPE_ID', '1')->count();
         $associated_in = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('MEM_DATE', $month)->whereYear('MEM_DATE', $year)->where('MEMTYPE_ID', '2')->count();
         $associated_out = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('TRIED_DATE', $month)->whereYear('TRIED_DATE', $year)->where('MEMTYPE_ID', '2')->count();
-        return view('officer/report/report', compact('common_in', 'common_out', 'associated_in', 'associated_out'));
+        return view('officer/report/report', compact('data', 'common_out', 'associated_in', 'associated_out'));
     }
 }

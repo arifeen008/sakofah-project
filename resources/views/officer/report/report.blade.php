@@ -1,6 +1,6 @@
 @extends('dashboard')
 @extends('sidebar')
-@section('title', 'Report')
+@section('title', 'รายงาน')
 @section('content')
     <div class="card sticky-top m-3">
         <div class="card-body">
@@ -40,7 +40,7 @@
             </form>
         </div>
     </div>
-    @if ($common_out != null)
+    @if ($data != null)
         <div class="card mt-3">
             <div class="card-body">
                 <p class="text-dark text-center">ผลการดำเนินงานสมาชิกเข้าใหม่ - ลาออก</p>
@@ -58,7 +58,7 @@
                     <tr>
                         <td>สามัญ</td>
                         <td>0</td>
-                        <td>{{ $common_in }}</td>
+                        <td>{{ $data }}</td>
                         <td>{{ $common_out }}</td>
                         <td>0</td>
                         <td>0</td>
@@ -78,7 +78,7 @@
                     <tr>
                         <td>รวม</td>
                         <td>0</td>
-                        <td>{{ $common_in + $associated_in }}</td>
+                        <td>{{ $data + $associated_in }}</td>
                         <td>{{ $common_out + $associated_out }}</td>
                         <td>0</td>
                         <td>0</td>

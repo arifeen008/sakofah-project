@@ -21,8 +21,8 @@
             <a href="/creditconsider" class="list-group-item list-group-item-action"> <i class="fas fa-arrows-rotate ms-1 me-3"></i>ผู้จัดการใหญ่</a>
         @endif
         <a href="/report_creditconsider" class="list-group-item list-group-item-action"><i class="fas fa-atom ms-1 me-3"></i>รายงานผลการติดตามสินเชื่อ</a>
-        <a href="/report" class="list-group-item list-group-item-action"><i class="fab fa-bandcamp ms-1 me-3"></i>รายงาน</a>
         @if (session('level_code') == 'P')
+            <a href="/report" class="list-group-item list-group-item-action"><i class="fab fa-bandcamp ms-1 me-3"></i>รายงาน</a>
             <a href="/admin_creditconsider" class="list-group-item list-group-item-action"><i class="fas fa-baby ms-1 me-3"></i>พิจารณาสินเชื่อ</a>
             <a href="/admin_credit" class="list-group-item list-group-item-action"><i class="fas fa-bars-progress ms-1 me-3"></i>สินเชื่อ</a>
             <a href="/login_history" class="list-group-item list-group-item-action"><i class="fab fa-battle-net ms-1 me-3"></i>ประวัติการล็อกอิน</a>

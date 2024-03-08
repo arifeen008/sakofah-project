@@ -104,7 +104,7 @@
     </div>
     <div class="container mt-4">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-8 col-md-8 col-lg-8">
                 <div class="row h-100 d-flex justify-content-center align-items-center">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <a href="/register" target="_blank" rel="noopener noreferrer" class="card hover-shadow">
@@ -128,7 +128,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 col-md-4 col-lg-4">
                 <div class="d-flex flex-row-reverse">
                     <iframe
                         src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/Sakofah.Islam.Savings&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"

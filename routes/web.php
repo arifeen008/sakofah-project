@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 //  Main page
 Route::get('/', [IndexController::class, 'index']);
+// Route::get('/', [IndexController::class, 'firstpage']);
 Route::get('/history', [IndexController::class, 'history']);
 Route::get('/vision', [IndexController::class, 'vision']);
 Route::get('/manager', [IndexController::class, 'manager']);

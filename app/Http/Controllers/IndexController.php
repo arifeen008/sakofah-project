@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
+    public function firstpage()
+    {
+        return view('firstpage');
+    }
     public function index()
     {
         $information = DB::table('news')->orderByDesc('dateupload')->where('news_typeid', 1)->limit(8)->get();

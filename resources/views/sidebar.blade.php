@@ -4,7 +4,7 @@
         <a href="/credit" class="list-group-item list-group-item-action"><i class="fas fa-credit-card ms-1 me-3"></i>สินเชื่อ</a>
         <a href="/publish" class="list-group-item list-group-item-action"><i class="fas fa-bullhorn ms-1 me-3"></i>ประกาศภายใน</a>
         <a href="/rules" class="list-group-item list-group-item-action"><i class="fab fa-leanpub ms-1 me-3"></i>ข้อบังคับสหกรณ์</a>
-        <a href="/order" class="list-group-item list-group-item-action"><i class="fas fa-book-open-reader ms-1 me-3"></i></i>ระเบียบเจ้าหน้าที่</a>
+        <a href="/order" class="list-group-item list-group-item-action"><i class="fas fa-book-open-reader ms-1 me-3"></i></i>ระเบียบสหกรณ์</a>
         <a href="/form" class="list-group-item list-group-item-action"><i class="far fa-clipboard ms-1 me-3"></i>แบบฟอร์มเจ้าหน้าที่</a>
         <a href="/performance" class="list-group-item list-group-item-action"><i class="fas fa-network-wired ms-1 me-3"></i>ผลการดำเนินงาน</a>
         <a href="/uploadcredit" class="list-group-item list-group-item-action"><i class="fas fa-square-poll-horizontal ms-1 me-3"></i>อัพโหลดสินเชื่อ</a>

@@ -35,7 +35,9 @@
 @section('script')
     <script>
         $(document).ready(function() {
-            $('#datatable').DataTable();
+            $('#datatable').DataTable({
+                "ordering": false
+            });
         });
     </script>
 @endsection

@@ -25,6 +25,21 @@
         gtag('js', new Date());
 
         gtag('config', 'G-Y7M3HX122N');
+        /* สไตล์สำหรับหน้าจอขนาดเล็ก (มือถือ) */
+        @media only screen and(max - width: 768 px) {
+            /* เพิ่มสไตล์ CSS ที่ต้องการปรับเปลี่ยนสำหรับหน้าจอขนาดเล็กที่นี่ */
+            body {
+                font - size: 14 px;
+            }
+        }
+
+        /* สไตล์สำหรับหน้าจอขนาดใหญ่ (PC) */
+        @media only screen and(min - width: 768 px) {
+            /* เพิ่มสไตล์ CSS ที่ต้องการปรับเปลี่ยนสำหรับหน้าจอขนาดใหญ่ที่นี่ */
+            body {
+                font - size: 16 px;
+            }
+        }
     </script>
 </head>
 <style>

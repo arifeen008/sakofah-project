@@ -18,7 +18,7 @@
                         <tr>
                             <td> {{ $item->title }} </td>
                             <td class="text-center">{{ thaidate('j M Y ', $item->date) }}</td>
-                            <td class="text-center"><a href="{{ url('file/inside_publish/' . $item->uploadfile) }}"target="_blank" class="btn btn-outline-success" data-mdb-ripple-color="success"><i class="fas fa-download"></i></td>
+                            <td class="text-center"><a href="{{ url('file/inside_publish/' . $item->uploadfile) }}" target="_blank" class="btn btn-outline-success" data-mdb-ripple-color="success"><i class="fas fa-download"></i></td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -29,7 +29,9 @@
 @section('script')
     <script>
         $(document).ready(function() {
-            $('#datatable').DataTable();
+            $('#datatable').DataTable({
+                "ordering": false
+            });
         });
     </script>
 @endsection

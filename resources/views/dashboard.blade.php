@@ -29,7 +29,7 @@
                 <ul class="navbar-nav ms-auto">
                     <div class="dropdown">
                         <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-dropdown-init
-                            data-mdb-ripple-init aria-expanded="false">
+                            data-mdb-ripple-init data-mdb-display="static" aria-expanded="false">
                             ยินดีต้อนรับ {{ session('username') }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">

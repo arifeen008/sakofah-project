@@ -23,31 +23,9 @@
             dataLayer.push(arguments);
         }
         gtag('js', new Date());
-
         gtag('config', 'G-Y7M3HX122N');
-        /* สไตล์สำหรับหน้าจอขนาดเล็ก (มือถือ) */
-        @media only screen and(max - width: 768 px) {
-            /* เพิ่มสไตล์ CSS ที่ต้องการปรับเปลี่ยนสำหรับหน้าจอขนาดเล็กที่นี่ */
-            body {
-                font - size: 14 px;
-            }
-        }
-
-        /* สไตล์สำหรับหน้าจอขนาดใหญ่ (PC) */
-        @media only screen and(min - width: 768 px) {
-            /* เพิ่มสไตล์ CSS ที่ต้องการปรับเปลี่ยนสำหรับหน้าจอขนาดใหญ่ที่นี่ */
-            body {
-                font - size: 16 px;
-            }
-        }
     </script>
 </head>
-<style>
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
-</style>
-
 <body>
     <div class="container-fluid">
         <a href="/"><img src="{{ url('picture/logo-web1.jpg') }}" class="img-fluid"></a>
@@ -68,8 +46,7 @@
                         <a class="nav-link" href="/">หน้าหลัก</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a data-mdb-dropdown-init class="nav-link dropdown-toggle" href="#"
-                            id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" aria-expanded="false">
                             เกี่ยวกับเรา
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -91,7 +68,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a data-mdb-dropdown-init class="nav-link dropdown-toggle" href="#"
+                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static" class="nav-link dropdown-toggle" href="#"
                             id="navbarDropdownMenuLink" role="button" aria-expanded="false">
                             บริการสหกรณ์
                         </a>
@@ -108,7 +85,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a data-mdb-dropdown-init class="nav-link dropdown-toggle" href="#"
+                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static" class="nav-link dropdown-toggle" href="#"
                             id="navbarDropdownMenuLink" role="button" aria-expanded="false">
                             สวัสดิการสมาชิก
                         </a>
@@ -131,7 +108,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a data-mdb-dropdown-init class="nav-link dropdown-toggle" href="#"
+                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static" class="nav-link dropdown-toggle" href="#"
                             id="navbarDropdownMenuLink" role="button" aria-expanded="false">
                             ข่าวสาร
                         </a>
@@ -145,7 +122,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a data-mdb-dropdown-init class="nav-link dropdown-toggle" href="#"
+                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static" class="nav-link dropdown-toggle" href="#"
                             id="navbarDropdownMenuLink" role="button" aria-expanded="false">
                             บริการสินทรัพย์
                         </a>
@@ -162,7 +139,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a data-mdb-dropdown-init class="nav-link dropdown-toggle" href="#"
+                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static" class="nav-link dropdown-toggle" href="#"
                             id="navbarDropdownMenuLink" role="button" aria-expanded="false">
                             ดาวน์โหลด
                         </a>
@@ -176,7 +153,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a data-mdb-dropdown-init class="nav-link dropdown-toggle" href="#"
+                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static" class="nav-link dropdown-toggle" href="#"
                             id="navbarDropdownMenuLink" role="button" aria-expanded="false">
                             ติดต่อ
                         </a>
@@ -190,26 +167,21 @@
                         </ul>
                     </li>
                 </ul>
-                {{-- <div class="d-flex align-items-center">
-                    <a data-mdb-ripple-init href="/login" class="btn btn-link px-3 me-2">
-                        เข้าสู่ระบบ
-                    </a>
-                </div> --}}
             </div>
         </div>
     </nav>
     @yield('content')
-    <footer class="text-lg-start py-2" style="background-color: #25d321;">
+    <footer class="text-lg-start p-2" style="background-color: #25d321;">
         <div class="container">
             <div class="d-flex justify-content-between">
                 <div></div>
-                <a href="/login" class="btn btn-success me-3"><i class="fas fa-key me-3"></i>เข้าสู่ระบบ</a>
+                <a href="/login" type="button" class="btn btn-success btn-rounded" data-mdb-ripple-init><i
+                        class="fas fa-key me-3"></i>เข้าสู่ระบบ</a>
             </div>
         </div>
     </footer>
     @yield('script')
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
-
 </body>
 
 </html>

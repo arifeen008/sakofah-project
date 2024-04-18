@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-md-12 mb-2">
                         <div class="card">
-                            <a href="{{ url('file\form\แบบฟอร์มคำขอ_รับสวัสดิการ.pdf') }}" target="_blank"
+                            <a href="{{ url('file\form\คำขอรับสวัสดิการสมาชิก.pdf') }}" target="_blank"
                                 class="btn  btn-block btn-lg">
                                 <div class="d-flex justify-content-between">
                                     <b class="text-dark">แบบฟอร์มคำขอรับสวัสดิการ</b>

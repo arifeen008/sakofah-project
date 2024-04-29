@@ -166,7 +166,7 @@
                                                     rel="noopener noreferrer">
                                                     <div class="card">
                                                         <img src="{{ url('uploads/' . $item->picture_name) }}"
-                                                            class="card-img-top w-100" height="200" />
+                                                            class="card-img-top w-100" height="250" />
                                                         <div class="card-body">
                                                             <p class="card-title text-truncate">{{ $item->title }}</p>
                                                         </div>
@@ -212,7 +212,7 @@
                                                     rel="noopener noreferrer">
                                                     <div class="card">
                                                         <img src="{{ url('uploads/' . $item->picture_name) }}"
-                                                            class="card-img-top"w-100 height="200" />
+                                                            class="card-img-top"w-100 height="250" />
                                                         <div class="card-body">
                                                             <p class="card-title text-truncate">{{ $item->title }}</p>
                                                         </div>
@@ -258,7 +258,7 @@
                                                     rel="noopener noreferrer">
                                                     <div class="card">
                                                         <img src="{{ url('uploads/' . $item->picture_name) }}"
-                                                            class="card-img-top"w-100 height="200" />
+                                                            class="card-img-top"w-100 height="250" />
                                                         <div class="card-body">
                                                             <p class="card-title text-truncate">{{ $item->title }}</p>
                                                         </div>
@@ -304,7 +304,7 @@
                                                     rel="noopener noreferrer">
                                                     <div class="card">
                                                         <img src="{{ url('uploads/' . $item->picture_name) }}"
-                                                            class="card-img-top"w-100 height="200" />
+                                                            class="card-img-top"w-100 height="250" />
                                                         <div class="card-body">
                                                             <p class="card-title text-truncate">{{ $item->title }}</p>
                                                         </div>

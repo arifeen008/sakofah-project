@@ -14,7 +14,6 @@
                                     <b class="text-dark">แบบฟอร์มคำขอรับสมาชิกและเงินฝาก</b>
                                     <i class="fas fa-download text-dark ms-1"></i>
                                 </div>
-
                             </a>
                         </div>
                     </div>

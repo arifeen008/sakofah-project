@@ -4,7 +4,7 @@
 @section('content')
     <div class="card m-3">
         <div class="card-body">
-            <b class="h3">ค้นหาสินเชื่อ</b>
+            <b class="h3 text-dark">ค้นหาสินเชื่อ</b>
             <hr>
             <form action="/searchcredit" method="post">
                 @csrf

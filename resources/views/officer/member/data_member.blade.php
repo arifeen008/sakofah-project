@@ -4,7 +4,7 @@
     {{ $data_member->FNAME . ' ' . $data_member->LNAME . ' | สหกรณ์อิสลามษะกอฟะฮ จำกัด' }}
 @endsection
 @section('content')
-    <div class="card m-1">
+    <div class="card text-dark m-1">
         <div class="card-body">
             <div class="card-title"><b class="h2"> {{ $data_member->FNAME . ' ' . $data_member->LNAME }}</b></div>
             <hr>
@@ -34,7 +34,7 @@
                     สถานะ : {{ $data_member->MARRIAGE_STATUS }}
                 </div>
                 <div class="col-md-6 my-2">
-                    กรุ๊ปเลือด : {{ $data_member->BLO_GROUP != null ? $data_member->BLO_GROUP : '-' }}
+                    กรุ๊ปเลือด : {{ $data_member->BLO_GROUP != null ? $data_member->BLO_GROUP : ' -' }}
                 </div>
                 <div class="col-md-6 my-2">
                     เลขที่บ้าน : {{ $data_member->ADDRESS }}

@@ -10,29 +10,29 @@
                 <form action="/searchMember" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <label for="idCardNumber" class="form-label">เลขบัตรประชาชน</label>
+                        <label for="idCardNumber" class="form-label text-dark ">เลขบัตรประชาชน :</label>
                         <input type="text" class="form-control" id="idCardNumber" name="idCardNumber" maxlength="13" minlength="13">
                     </div>
                     <div class="mb-3">
-                        <label for="memberNumber" class="form-label">เลขสมาชิก</label>
+                        <label for="memberNumber" class="form-label text-dark ">เลขสมาชิก :</label>
                         <input type="text" class="form-control" id="memberNumber" name="memberNumber">
                     </div>
                     <div class="row">
                         <div class="col">
                             <div class="mb-3">
-                                <label for="firstName" class="form-label">ชื่อ</label>
+                                <label for="firstName" class="form-label text-dark ">ชื่อ :</label>
                                 <input type="text" class="form-control" id="firstName" name="firstName">
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
-                                <label for="lastName" class="form-label">นามสกุล</label>
+                                <label for="lastName" class="form-label text-dark ">นามสกุล :</label>
                                 <input type="text" class="form-control" id="lastName" name="lastName">
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="branch" class="form-label">สาขา</label>
+                        <label for="branch" class="form-label text-dark ">สาขา :</label>
                         <select class="form-select" id="branch" name="branch" required>
                             <option value="" disabled selected>Select Branch</option>
                             <option value="000">สาขาสำนักงานใหญ่</option>

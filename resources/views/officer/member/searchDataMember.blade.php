@@ -5,7 +5,7 @@
     <div class="card m-3">
         <div class="card-body">
             @if (count($data) > 0)
-                <b class="h1 card-title">รายชื่อสมาชิกที่ค้นหา</b>
+                <b class="h1 card-title text-dark">รายชื่อสมาชิกที่ค้นหา</b>
                 <hr>
                 <table id="datatable" class="table">
                     <thead class="text-center">
@@ -29,8 +29,7 @@
                                         @csrf
                                         <input type="hidden" name="mem_id" value="{{ $item->MEM_ID }}">
                                         <input type="hidden" name="br_no" value="{{ $item->BR_NO }}">
-                                        <button type="submit" class="btn btn-primary"><i
-                                                class="fas fa-file-alt"></i></button>
+                                        <button type="submit" class="btn btn-primary"><i class="fas fa-file-alt"></i></button>
                                     </form>
                                 </td>
                             </tr>

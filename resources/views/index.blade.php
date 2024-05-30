@@ -25,6 +25,9 @@
         </button>
     </div>
     <div class="container mt-4">
+        <img src="{{url('banner/group_umrah.jpg')}}" class="d-block w-100" alt="group_umrah">
+    </div>
+    <div class="container mt-4">
         <div id="carouselTwo" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init>
             <div class="carousel-inner">
                 <div class="carousel-item active">

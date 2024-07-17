@@ -25,7 +25,29 @@
         gtag('js', new Date());
         gtag('config', 'G-Y7M3HX122N');
     </script>
+    <style>
+        .dropdown-menu li {
+            position: relative;
+        }
+
+        .dropdown-menu .dropdown-submenu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: -7px;
+        }
+
+        .dropdown-menu .dropdown-submenu-left {
+            right: 100%;
+            left: auto;
+        }
+
+        .dropdown-menu>li:hover>.dropdown-submenu {
+            display: block;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <a href="/"><img src="{{ url('picture/logo-web1.jpg') }}" class="img-fluid"></a>
@@ -46,7 +68,9 @@
                         <a class="nav-link" href="/">หน้าหลัก</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static"
+                            class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            aria-expanded="false">
                             เกี่ยวกับเรา
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -68,8 +92,9 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static" class="nav-link dropdown-toggle" href="#"
-                            id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static"
+                            class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            aria-expanded="false">
                             บริการสหกรณ์
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -85,8 +110,9 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static" class="nav-link dropdown-toggle" href="#"
-                            id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static"
+                            class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            aria-expanded="false">
                             สวัสดิการสมาชิก
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -108,8 +134,9 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static" class="nav-link dropdown-toggle" href="#"
-                            id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static"
+                            class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                            role="button" aria-expanded="false">
                             ข่าวสาร
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -122,8 +149,9 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static" class="nav-link dropdown-toggle" href="#"
-                            id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static"
+                            class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                            role="button" aria-expanded="false">
                             บริการสินทรัพย์
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -139,8 +167,9 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static" class="nav-link dropdown-toggle" href="#"
-                            id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static"
+                            class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                            role="button" aria-expanded="false">
                             ดาวน์โหลด
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -153,8 +182,9 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static" class="nav-link dropdown-toggle" href="#"
-                            id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static"
+                            class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                            role="button" aria-expanded="false">
                             ติดต่อ
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -163,6 +193,29 @@
                             </li>
                             <li>
                                 <a class="dropdown-item" href="/withus">ร่วมงานกับเรา</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a data-mdb-dropdown-init data-mdb-ripple-init data-mdb-display="static"
+                            class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                            role="button" aria-expanded="false">
+                            พาทเนอร์สหกรณ์
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li>
+                                <a class="dropdown-item" href="#"><img
+                                        src="{{ url('picture/takaful_logo.jpg') }}" height="25"
+                                        style="margin-top: -1px;" class="me-2">ทิพยตะกาฟุล &raquo;
+                                </a>
+                                <ul class="dropdown-menu dropdown-submenu">
+                                    <li>
+                                        <a class="dropdown-item" href="https://www.tiptakaful.com/th/insurance">ผลิตภัณฑ์ทิพยตะกาฟุล</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="https://affinity.tipinsure.com/product/affinity/takaful_branch?branch=TKF_SKF">ซื้อประกันกับทิพยตะกาฟุล</a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </li>

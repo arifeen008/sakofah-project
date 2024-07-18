@@ -8,10 +8,10 @@
                 <div class="row">
                     <div class="col-md-12 mb-2">
                         <div class="card">
-                            <a href="{{ url('file\form\แบบฟอร์มคำขอสมัครสมาชิกและเงินฝาก.pdf') }}" target="_blank"
+                            <a href="{{ url('file\form\ใบคำขอสมัครสมาชิก(เพิ่มเติม).docx') }}" target="_blank"
                                 class="btn  btn-block btn-lg">
                                 <div class="d-flex justify-content-between">
-                                    <b class="text-dark">แบบฟอร์มคำขอรับสมาชิกและเงินฝาก</b>
+                                    <b class="text-dark">ใบคำขอสมัครสมาชิก</b>
                                     <i class="fas fa-download text-dark ms-1"></i>
                                 </div>
                             </a>

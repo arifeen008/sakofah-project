@@ -34,6 +34,9 @@
 @endsection
 
 @section('script')
+    <script>
+        document.getElementById('date').valueAsDate = new Date();
+    </script>
     @if (session('success'))
         <script>
             Swal.fire({
@@ -43,4 +46,5 @@
             });
         </script>
     @endif
+
 @endsection

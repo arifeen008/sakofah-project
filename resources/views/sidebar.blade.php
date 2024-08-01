@@ -25,6 +25,10 @@
         <h6 class="bg-body-tertiary p-2 border-top border-bottom">ผู้จัดการใหญ่</h6>
             <a href="/creditconsider" class="list-group-item list-group-item-action"> <i class="fas fa-arrows-rotate ms-1 me-3"></i>ผู้จัดการใหญ่</a>
         @endif
+        @if (session('level_code') == 'HR')
+        <h6 class="bg-body-tertiary p-2 border-top border-bottom">Human Resource</h6>
+            <a href="upload_publish/" class="list-group-item list-group-item-action"><i class="fas fa-calendar-minus ms-1 me-3"></i>อัพโหลดประกาศ</a>
+        @endif
         @if (session('level_code') == 'P')
         <h6 class="bg-body-tertiary p-2 border-top border-bottom">Admin</h6>
             <a href="/report" class="list-group-item list-group-item-action"><i class="fab fa-bandcamp ms-1 me-3"></i>รายงาน</a>

@@ -31,9 +31,6 @@
         <div id="carouselTwo" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{ url('banner/romadonbanner.jpg') }}" class="d-block w-100" />
-                </div>
-                <div class="carousel-item">
                     <img src="{{ url('banner/banner.jpg') }}" class="d-block w-100" data-mdb-ripple-init data-mdb-modal-init
                         data-mdb-target="#Modal2" />
                 </div>

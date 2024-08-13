@@ -65,7 +65,7 @@
             </div>
         </div>
 
-        <div class="card card-success">
+        <div class="card card-warning">
             <div class="card-header">
                 <h3 class="card-title">เงินฝากในบัญชี</h3>
                 <div class="card-tools">
@@ -105,7 +105,7 @@
             </div>
         </div>
 
-        <div class="card card-success">
+        <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">สินเชื่อ</h3>
                 <div class="card-tools">
@@ -155,7 +155,7 @@
             </div>
         </div>
 
-        <div class="card card-success">
+        <div class="card card-info">
             <div class="card-header">
                 <h3 class="card-title">สินเชื่อที่ปิดแล้ว</h3>
                 <div class="card-tools">
@@ -205,7 +205,7 @@
             </div>
         </div>
 
-        <div class="card card-success">
+        <div class="card card-danger">
             <div class="card-header">
                 <h3 class="card-title">หุ้น</h3>
                 <div class="card-tools">
@@ -263,7 +263,7 @@
             </div>
         </div>
 
-        <div class="card card-success">
+        <div class="card card-purple">
             <div class="card-header">
                 <h3 class="card-title">เงินปันผล</h3>
                 <div class="card-tools">

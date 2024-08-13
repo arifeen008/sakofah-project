@@ -4,46 +4,68 @@
 @section('content')
     <div class="card m-3">
         <div class="card-body">
-            <h3 class="card-title"><b>รายการข่าวสาร</b></h3>
+            <h3 class="me-auto"><b>รายการข่าวสาร</b></h3>
             <hr>
             <form action="/upload_news" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="mb-3">
-                    <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="title" name="title" required>
+                <div class="form-group">
+                    <label for="title">Title :</label>
+                    <input type="text" class="form-control form-control-border" id="title" name="title"
+                        placeholder="Title" required>
                 </div>
-                <div class="mb-3">
-                    <label for="date" class="form-label">Date</label>
-                    <input type="date" class="form-control" id="date" name="date" required>
+                <div class="form-group">
+                    <label for="date">หัวข้อ :</label>
+                    <input type="date" class="form-control form-control-border" id="date" name="date"
+                        placeholder="หัวข้อ" required>
                 </div>
-                <div class="mb-3">
-                    <label for="news_type" class="form-label">ประเภทข่าว</label>
-                    <select class="form-select" id="news_type" name="news_type" required>
+                <div class="form-group">
+                    <label for="news_type">ประเภทข่าว :</label>
+                    <select class="custom-select form-control-border" id="news_type" name="news_type" required>
+                        <option value="" disabled selected>ประเภท</option>
                         <option value="1">ประชาสัมพันธ์</option>
                         <option value="2">สวัสดิการ</option>
                         <option value="3">สินเชื่อฮาลาล</option>
                         <option value="4">มูลนิธิษะกอฟะฮ</option>
                     </select>
                 </div>
-                <div class="mb-3">
-                    <label for="description" class="form-label">รายละเอียด :</label>
-                    <textarea id="description"  class="form-control" id="description" name="description" rows="4" required></textarea>
+                <div class="form-group">
+                    <label>รายละเอียด :</label>
+                    <textarea class="form-control" rows="4" id="description" name="description" required></textarea>
                 </div>
-                <div class="mb-3">
-                    <label for="coverImage" class="form-label">ภาพหน้าปก</label>
-                    <input type="file" class="form-control" id="coverImage" name="coverImage" accept="image/*" required>
+                <div class="form-group">
+                    <label for="coverImage">ภาพหน้าปก</label>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="coverImage" name="coverImage"
+                                accept="image/*" required>
+                            <label class="custom-file-label" for="coverImage">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text">ภาพหน้าปก</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="uploadedFiles" class="form-label">ภาพข่าว</label>
-                    <input type="file" class="form-control" id="uploadedFiles" name="uploadedFiles[]" accept="image/*" multiple required>
+                <div class="form-group">
+                    <label for="uploadedFiles">รูปภาพนำเข้า</label>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="uploadedFiles" name="uploadedFiles[]"
+                                accept="image/*" multiple required>
+                            <label class="custom-file-label" for="uploadedFiles">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text">รูปภาพนำเข้า</span>
+                        </div>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
 @endsection
+
 @section('script')
     <script>
-        CKEDITOR.replace('description');
+        document.getElementById('date').valueAsDate = new Date();
     </script>
 @endsection

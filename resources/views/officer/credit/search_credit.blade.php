@@ -2,15 +2,18 @@
 @extends('sidebar')
 @section('title', 'ค้นหาสินเชื่อ')
 @section('content')
-    <div class="card m-3">
-        <div class="card-body">
-            <b class="h3 text-dark">ค้นหาสินเชื่อ</b>
-            <hr>
-            <form action="/searchcredit" method="post">
+    <div class="card card-success m-3">
+        <form action="/searchcredit" method="post">
+            <div class="card-header">
+                <div class="card-title">
+                    ค้นหาสินเชื่อ
+                </div>
+            </div>
+            <div class="card-body">
                 @csrf
-                <div class="mb-3">
-                    <label for="year" class="form-label">ปี</label>
-                    <select class="form-select" id="year" name="year" required>
+                <div class="form-group">
+                    <label for="year">ปี :</label>
+                    <select class="custom-select form-control-border" id="year" name="year" required>
                         <option value="" disabled selected>เลือกปี</option>
                         <option value="2566">2566</option>
                         <option value="2567">2567</option>
@@ -19,10 +22,10 @@
                         <option value="2570">2570</option>
                     </select>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">สาขา</label>
-                    <select class="form-select" name="branch_id" required>
-                        <option value="" disabled selected>เลือกสาขา</option>
+                <div class="form-group">
+                    <label for="branch_id">สาขา :</label>
+                    <select class="custom-select form-control-border" id="branch_id" name="branch_id" required>
+                        <option value="" disabled selected>สาขา</option>
                         <option value="000">สำนักงานใหญ่</option>
                         <option value="001">กระบี่</option>
                         <option value="002">คลองยาง</option>
@@ -35,9 +38,9 @@
                         <option value="009">สาขาเหนือคลอง</option>
                     </select>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">ประเภทสัญญา</label>
-                    <select class="form-select" name="credit_id" required>
+                <div class="form-group">
+                    <label for="credit_id">ประเภทสัญญา :</label>
+                    <select class="custom-select form-control-border" id="credit_id" name="credit_id" required>
                         <option value="" disabled selected>เลือกประเภทสัญญา</option>
                         <option value="1">ฉุกเฉิน</option>
                         <option value="2">สามัญฉุกเฉิน</option>
@@ -47,8 +50,11 @@
                         <option value="6">โครงการสินทรัพย์</option>
                         <option value="7">สวัสดิการเจ้าหน้าที่</option>
                     </select>
-                <button type="submit" class="btn btn-primary mt-3">ค้นหา</button>
-            </form>
-        </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">ค้นหาสินเชื่อ</button>
+            </div>
+        </form>
     </div>
 @endsection

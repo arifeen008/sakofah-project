@@ -3,8 +3,10 @@
 @section('title', 'รายละเอียดสินเชื่อ')
 @section('content')
     <div class="card m-3">
-        <div class="card-body">
+        <div class="card-header">
             <b class="card-title h2">รายละเอียดสินเชื่อ {{ $loan_select->LCONT_ID }}</b>
+        </div>
+        <div class="card-body">
             <table class="table table-borderless">
                 <tr>
                     <td>เลขที่สัญญา</td>
@@ -35,8 +37,11 @@
                     <td>{{ number_format($loan_select->LCONT_AMOUNT_SAL, 2) . ' บาท' }}</td>
                 </tr>
             </table>
-
-            <table id="datatable" class="table text-center">
+        </div>
+    </div>
+    <div class="card m-3">
+        <div class="card-body">
+            <table id="datatable" class="table table-bordered text-center">
                 <thead>
                     <tr>
                         <th>วันที่</th>

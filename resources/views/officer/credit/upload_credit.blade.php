@@ -3,38 +3,35 @@
 @section('title', 'อัพโหลดไฟล์สินเชื่อ')
 @section('content')
     <div class="card m-3">
-        <div class="card-body">
-            <b class="h3 card-title">อัพโหลดไฟล์สินเชื่อ</b>
-            <hr>
-            <form action="/postcredit" method="post" enctype="multipart/form-data">
+        <form action="/postcredit" method="post" enctype="multipart/form-data">
+            <div class="card-header">
+                <h1 class="card-title">อัพโหลดไฟล์สินเชื่อ</h1>
+            </div>
+            <div class="card-body">
                 @csrf
-                @if ($errors->any())
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li> <span class="text-danger">{{ $error }}</span></li>
-                        @endforeach
-                    </ul>
-                @endif
-                <div class="mb-3">
-                    <label for="memberID" class="form-label">เลขที่สมาชิก</label>
-                    <input type="text" class="form-control" id="memberID" name="memberID" maxlength="5">
+                <div class="form-group">
+                    <label for="memberID">เลขที่สมาชิก :</label>
+                    <input type="text" class="form-control form-control-border" id="memberID" name="memberID"
+                        placeholder="เลขที่สมาชิก" required>
                 </div>
-                <div class="mb-3">
-                    <label for="firstName" class="form-label">ชื่อ</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName">
+                <div class="form-group">
+                    <label for="firstName">ชื่อ :</label>
+                    <input type="text" class="form-control form-control-border" id="firstName" name="firstName"
+                        placeholder="ชื่อ" required>
                 </div>
-                <div class="mb-3">
-                    <label for="lastName" class="form-label">นามสกุล</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName">
+                <div class="form-group">
+                    <label for="lastName">นามสกุล :</label>
+                    <input type="text" class="form-control form-control-border" id="lastName" name="lastName"
+                        placeholder="นามสกุล" required>
                 </div>
-                <div class="mb-3">
-                    <label for="contractNumber" class="form-label">เลขที่สัญญา</label>
-                    <input type="text" class="form-control" id="contractNumber" name="contractNumber"
-                        placeholder="ตัวอย่าง ฉ.0000001/2566">
+                <div class="form-group">
+                    <label for="contractNumber">เลขที่สัญญา :</label>
+                    <input type="text" class="form-control form-control-border" id="contractNumber"
+                        name="contractNumber" placeholder="ตัวอย่าง ฉ.0000001/2566" required>
                 </div>
-                <div class="mb-3">
-                    <label for="contractYear" class="form-label">ปีสัญญา</label>
-                    <select class="form-select" id="contractYear" name="contractYear">
+                <div class="form-group">
+                    <label for="contractYear">ปีสัญญา :</label>
+                    <select class="custom-select form-control-border border-width-2" id="contractYear" name="contractYear">
                         <option value="" disabled selected>เลือกปี</option>
                         <option value="2566">2566</option>
                         <option value="2567">2567</option>
@@ -43,9 +40,9 @@
                         <option value="2570">2570</option>
                     </select>
                 </div>
-                <div class="mb-3">
-                    <label for="branch" class="form-label">สาขา</label>
-                    <select class="form-select" id="branch" name="branch">
+                <div class="form-group">
+                    <label for="branch">สาขา :</label>
+                    <select class="custom-select form-control-border border-width-2" id="branch" name="branch">
                         <option value="" disabled selected>เลือกสาขา</option>
                         <option value="000">สำนักงานใหญ่</option>
                         <option value="001">กระบี่</option>
@@ -58,9 +55,9 @@
                         <option value="008">เกาะลันตา</option>
                     </select>
                 </div>
-                <div class="mb-3">
-                    <label for="contractType" class="form-label">ประเภทสัญญา</label>
-                    <select class="form-select" id="contractType" name="contractType">
+                <div class="form-group">
+                    <label for="contractType">ประเภทสัญญา :</label>
+                    <select class="custom-select form-control-border border-width-2" id="contractType" name="contractType">
                         <option value="" disabled selected>เลือกประเภทสัญญา</option>
                         <option value="1">ฉุกเฉิน</option>
                         <option value="2">สามัญฉุกเฉิน</option>
@@ -71,13 +68,17 @@
                         <option value="7">สวัสดิการเจ้าหน้าที่</option>
                     </select>
                 </div>
-                <div class="mb-3">
-                    <label for="fileUpload" class="form-label">File Upload</label>
-                    <input type="file" class="form-control" id="fileUpload" name="file">
+                <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="fileUpload" name="file">
+                        <label class="custom-file-label" for="fileUpload">เลือกไฟล์</label>
+                    </div>
                 </div>
+            </div>
+            <div class="card-footer">
                 <button type="submit" class="btn btn-primary">อัพโหลด</button>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 @endsection
 @section('script')

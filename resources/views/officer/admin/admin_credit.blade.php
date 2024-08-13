@@ -3,10 +3,11 @@
 @section('title', 'Admin พิจารณาสินเชื่อ')
 @section('content')
     <div class="card m-3">
+        <div class="card-header">
+            <div class="card-title">Admin สินเชื่อ</div>
+        </div>
         <div class="card-body">
-            <h3 class="me-auto">Admin สินเชื่อ</h3>
-            <hr>
-            <table id="datatable" class="text-center">
+            <table id="DataTable" class="text-center">
                 <thead>
                     <tr>
                         <th>รหัสสมาชิก</th>
@@ -45,8 +46,30 @@
 @endsection
 @section('script')
     <script>
-        $(document).ready(function() {
-            $('#datatable').DataTable();
+        $(function() {
+            $('#DataTable').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": false,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+                "language": {
+                    "lengthMenu": "แสดง _MENU_ รายการต่อหน้า",
+                    "zeroRecords": "ไม่พบข้อมูล",
+                    "info": "หน้า _PAGE_ จาก _PAGES_",
+                    "infoEmpty": "ไม่มีข้อมูลที่แสดง",
+                    "infoFiltered": "(กรองจาก _MAX_ รายการทั้งหมด)",
+                    "search": "ค้นหา:",
+                    paginate: {
+                        first: "หน้าแรก",
+                        last: "หน้าสุดท้าย",
+                        next: "ถัดไป",
+                        previous: "ก่อนหน้า"
+                    }
+                }
+            });
         });
     </script>
     @if (session('success'))

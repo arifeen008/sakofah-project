@@ -8,37 +8,63 @@
             <hr>
             <form action="/uploadAsset" method="post" enctype="multipart/form-data">
                 @csrf
-                <div class="form-outline mb-4" data-mdb-input-init>
-                    <input type="text" id="title" class="form-control" name="title" required />
-                    <label class="form-label" for="title">หัวข้อ</label>
+                <div class="form-group">
+                    <label for="title">หัวข้อ :</label>
+                    <input type="text" class="form-control form-control-border" id="title" name="title"
+                        placeholder="หัวข้อ" required>
                 </div>
-                <div class="form-outline mb-4" data-mdb-input-init>
-                    <input type="text" id="description1" class="form-control" name="description1" required />
-                    <label class="form-label" for="description1">รายละเอียด 1</label>
+                <div class="form-group">
+                    <label for="description1">รายละเอียด 1 :</label>
+                    <input type="text" class="form-control form-control-border" id="description1" name="description1"
+                        placeholder="รายละเอียด..." required>
                 </div>
-                <div class="form-outline mb-4" data-mdb-input-init>
-                    <input type="text" id="description2" class="form-control" name="description2" required />
-                    <label class="form-label" for="description2">รายละเอียด 2</label>
+                <div class="form-group">
+                    <label for="description2">รายละเอียด 2 :</label>
+                    <input type="text" class="form-control form-control-border" id="description2" name="description2"
+                        placeholder="รายละเอียด..." required>
                 </div>
-                <div class="form-outline mb-4" data-mdb-input-init>
-                    <input type="text" id="contact" class="form-control" name="contact" required />
-                    <label class="form-label" for="contact">ติดต่อ</label>
+                <div class="form-group">
+                    <label for="contact">ติดต่อ :</label>
+                    <input type="text" class="form-control form-control-border" id="contact" name="contact"
+                        placeholder="รายละเอียด..." required>
                 </div>
-                <select class="form-select mb-4" aria-label="ประเภท" name="asset_type">
-                    <option selected>ประเภท</option>
-                    <option value="1">บ้านพร้อมที่ดิน</option>
-                    <option value="2">ที่ดินเปล่า</option>
-                    <option value="3">คอนโด</option>
-                </select>
-
-                <label class="form-label" for="coverImage">ภาพหน้าปก</label>
-                <input type="file" class="form-control mb-4" id="coverImage" name="coverImage" />
-
-                <label class="form-label" for="Images">รูปภาพนำเข้า</label>
-                <input type="file" class="form-control mb-4" id="Images" name="Images[]" multiple />
+                <div class="form-group">
+                    <label for="asset_type">ประเภท :</label>
+                    <select class="custom-select form-control-border" id="asset_type" name="asset_type" required>
+                        <option value="" disabled selected>ประเภท</option>
+                        <option value="1">บ้านพร้อมที่ดิน</option>
+                        <option value="2">ที่ดินเปล่า</option>
+                        <option value="3">คอนโด</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="coverImage">ภาพหน้าปก</label>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="coverImage" name="coverImage">
+                            <label class="custom-file-label" for="coverImage">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text">Upload</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Images[]">รูปภาพนำเข้า</label>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="Images[]" name="Images[]" multiple>
+                            <label class="custom-file-label" for="Images[]">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text">Upload</span>
+                        </div>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-success">อัพโหลด</button>
-                <button type="reset" class="ms-2 btn btn-danger">ยกเลิก</button>
+                <button type="reset" class="btn btn-danger">ยกเลิก</button>
             </form>
         </div>
     </div>
 @endsection
+

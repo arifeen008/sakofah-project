@@ -5,57 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title')</title>
-    <link rel="icon" href="{{ url('picture/sakofag-logo.png') }}" type="image/gif" sizes="18x18">
+    <link rel="icon" href="{{ url('picture/sakofag-logo.png') }}" type="image/gif" sizes="20x20">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7M3HX122N"></script>
+    <title>@yield('title')</title>
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
-        <div class="container">
-            <a class="navbar-brand me-2" href="#">
-                <img src="{{ url('picture/sakofag-logo.png') }}" height="25" alt="sakofag Logo" loading="lazy"
-                    style="margin-top: -1px;" />
-            </a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <div class="dropdown">
-                        <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-dropdown-init
-                            data-mdb-ripple-init data-mdb-display="static" aria-expanded="false">
-                            ยินดีต้อนรับ {{ session('username') }}
+<body class="sidebar-mini" style="height: auto">
+    <div class="wrapper">
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link pushmenu" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <a data-mdb-dropdown-init class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                    role="button" aria-expanded="false">
+                    {{ session('username') }}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            โปรไฟล์
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <form action="/logout" method="post">
-                                @csrf
-                                <li><button class="dropdown-item" href="#" type="submit">Logout</button></li>
-                            </form>
-
-                        </ul>
-                    </div>
+                    </li>
+                    <li>
+                        <form method="POST" action="/logout">
+                            @csrf
+                            <button type="submit" class="dropdown-item">ออกจากระบบ</button>
+                        </form>
+                    </li>
                 </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-3">
-                @yield('sidebar')
-            </div>
-            <div class="col-9">
+            </ul>
+        </nav>
+
+        @yield('sidebar')
+        <div class="content-wrapper" style="min-height: 617px;background-color: white">
+            <div class="content">
                 @yield('content')
             </div>
         </div>
     </div>
+    <footer class="main-footer mt-2">
+        <div class="float-right d-none d-sm-inline">
+
+        </div>
+        <strong>Copyright © 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    </footer>
     @yield('script')
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
+
 </body>
 
 </html>

@@ -8,34 +8,38 @@
                 @csrf
                 <div class="row">
                     <div class="col-5">
-                        <select class="form-select" aria-label="montdSelect" name="month">
-                            <option selected>เลือกเดือน</option>
-                            <option value="01">มกราคม</option>
-                            <option value="02">กุมภาพันธ์</option>
-                            <option value="03">มีนาคม</option>
-                            <option value="04">เมษายน</option>
-                            <option value="05">พฤษภาคม</option>
-                            <option value="06">มิถุนายน</option>
-                            <option value="07">กรกฎาคม</option>
-                            <option value="08">สิงหาคม</option>
-                            <option value="09">กันยายน</option>
-                            <option value="10">ตุลาคม</option>
-                            <option value="11">พฤศจิกายน</option>
-                            <option value="12">ธันวาคม</option>
-                        </select>
+                        <div class="form-group">
+                            <label for="month">เลือกเดือน :</label>
+                            <select class="custom-select form-control-border" id="month" name="month" required>
+                                <option value="" disabled selected>เลือกเดือน</option>
+                                <option value="01">มกราคม</option>
+                                <option value="02">กุมภาพันธ์</option>
+                                <option value="03">มีนาคม</option>
+                                <option value="04">เมษายน</option>
+                                <option value="05">พฤษภาคม</option>
+                                <option value="06">มิถุนายน</option>
+                                <option value="07">กรกฎาคม</option>
+                                <option value="08">สิงหาคม</option>
+                                <option value="09">กันยายน</option>
+                                <option value="10">ตุลาคม</option>
+                                <option value="11">พฤศจิกายน</option>
+                                <option value="12">ธันวาคม</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="col-5">
-                        <select class="form-select" aria-label="yearSelect" name="year">
-                            <option selected>ประจำปีบัญชี</option>
-                            <option value="2024">2567</option>
-                            <option value="2023">2566</option>
-                            <option value="2022">2565</option>
-                            <option value="2021">2564</option>
-                        </select>
+                        <div class="form-group">
+                            <label for="year">เลือกเดือน :</label>
+                            <select class="custom-select form-control-border" id="year" name="year" required>
+                                <option value="" disabled selected>ประจำปีบัญชี</option>
+                                <option value="2024">2567</option>
+                                <option value="2023">2566</option>
+                                <option value="2022">2565</option>
+                                <option value="2021">2564</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="d-grid col-2 mx-auto">
-                        <button type="submit" class="btn btn-success active" in-mdb-ripple-init>ดึงข้อมูล</button>
-                    </div>
+                    <button type="submit" class="btn btn-success btn-lg">ดึงข้อมูล</button>
                 </div>
             </form>
         </div>

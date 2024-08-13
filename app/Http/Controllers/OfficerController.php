@@ -25,7 +25,8 @@ class OfficerController extends Controller
                 ['MEM_H_MEMBER.BR_NO', 'like', '%' . $request->branch . '%'],
                 ['MEM_H_MEMBER.FNAME', 'like', '%' . $request->firstName . '%'],
                 ['MEM_H_MEMBER.LNAME', 'like', '%' . $request->lastName . '%'],
-            ])->join('BK_M_BRANCH', 'BK_M_BRANCH.BR_NO', '=', 'MEM_H_MEMBER.BR_NO')
+            ])
+            ->join('BK_M_BRANCH', 'BK_M_BRANCH.BR_NO', '=', 'MEM_H_MEMBER.BR_NO')
             ->select('MEM_H_MEMBER.MEM_ID', 'MEM_H_MEMBER.BR_NO', 'BK_M_BRANCH.BR_NAME', 'MEM_H_MEMBER.FNAME', 'MEM_H_MEMBER.LNAME')
             ->get();
         return view('officer/member/searchDataMember', compact('data'));
@@ -730,8 +731,9 @@ class OfficerController extends Controller
         return redirect()->back()->with('success', 'Delete Success');
     }
 
-    public function report($data = null)
+    public function report()
     {
+        $data = session('data', []);
         return view('officer/report/report', compact('data'));
     }
 

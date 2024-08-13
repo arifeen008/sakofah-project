@@ -3,18 +3,23 @@
 @section('title', 'เพิ่มผลการดำเนินงานประจำปี')
 @section('content')
     <div class="card m-3">
+        <div class="card-header">
+            <div class="card-title">อัพโหลดเอกสาร</div>
+        </div>
         <div class="card-body">
-            <b class="h3 card-title">อัพโหลดเอกสาร</b>
-            <hr>
             <form action="/postPerformance" method="post" enctype="multipart/form-data">
                 @csrf
-                <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="text" id="document_name" class="form-control" name="document_name" />
-                    <label class="form-label" for="document_name">ชื่อเอกสาร</label>
+                <div class="form-group">
+                    <label for="document_name">ชื่อเอกสาร :</label>
+                    <input type="text" class="form-control form-control-border" id="document_name" name="document_name"
+                        placeholder="ชื่อเอกสาร" required>
                 </div>
-                <label class="form-label" for="documentFile">อัพโหลดไฟล์</label>
-                <input type="file" class="form-control" id="documentFile" name="documentFile"
-                    accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+                <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="fileUpload" name="documentFile"  accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                        <label class="custom-file-label" for="fileUpload">อัพโหลดไฟล์</label>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-primary mt-2">อัพโหลด</button>
             </form>
         </div>

@@ -3,9 +3,10 @@
 @section('title', 'ค้นหาสินเชื่อ')
 @section('content')
     <div class="card m-3">
+        <div class="card-header">
+            <h3 class="card-title">รายการสินเชื่อ</h3>
+        </div>
         <div class="card-body">
-            <b class="h3 card-title">รายการสินเชื่อ</b>
-            <hr>
             @if (count($data) > 0)
                 <table id="datatable" class="table align-middle">
                     <thead class="text-center">
@@ -31,9 +32,9 @@
                                 <td>{{ thaidate('j M Y ', $item->date_upload) }}</td>
                                 <td class="text-center">
                                     <a href="{{ url($item->path . '/' . $item->file_name) }}" class="btn btn-primary"
-                                        target="_blank"><i class="fas fa-file-download"></i></a>
+                                        target="_blank"><i class="fas fa-file-download"></i>
+                                    </a>
                                 </td>
-                                
                             </tr>
                         @endforeach
                     </tbody>
@@ -41,14 +42,35 @@
             @else
                 <div class="h-100 d-flex justify-content-center align-items-center">ไม่มีสินเชื่อที่ค้นหา</div>
             @endif
-
         </div>
     </div>
 @endsection
 @section('script')
     <script>
-        $(document).ready(function() {
-            $('#datatable').DataTable();
+        $(function() {
+            $('#DataTable').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": false,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+                "language": {
+                    "lengthMenu": "แสดง _MENU_ รายการต่อหน้า",
+                    "zeroRecords": "ไม่พบข้อมูล",
+                    "info": "หน้า _PAGE_ จาก _PAGES_",
+                    "infoEmpty": "ไม่มีข้อมูลที่แสดง",
+                    "infoFiltered": "(กรองจาก _MAX_ รายการทั้งหมด)",
+                    "search": "ค้นหา:",
+                    paginate: {
+                        first: "หน้าแรก",
+                        last: "หน้าสุดท้าย",
+                        next: "ถัดไป",
+                        previous: "ก่อนหน้า"
+                    }
+                }
+            });
         });
     </script>
     @if (session('error'))

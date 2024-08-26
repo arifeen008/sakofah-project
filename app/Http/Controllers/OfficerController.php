@@ -576,8 +576,7 @@ class OfficerController extends Controller
 
         do {
             $news_number = mt_rand(1, 10000);
-            $data = DB::table('news')->where('news_number', $news_number)->first();
-        } while ($data != null);
+        } while (DB::table('news')->where('news_number',$news_number)->exists());
         foreach ($request->file('uploadedFiles') as $file) {
             $hashedFileName = sha1($file->getClientOriginalName()) . time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads/'), $hashedFileName);

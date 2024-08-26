@@ -32,10 +32,24 @@
                 </div>
                 <div class="form-group">
                     <label>รายละเอียด :</label>
-                    <textarea class="form-control" rows="4" id="description" name="description" required>{{ $news->description }}</textarea>
+                    <textarea class="form-control" rows="4" id="summernote" name="description" required>{{ $news->description }}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
+@endsection
+
+@section('style')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.js"></script>
+@endsection
+@section('script')
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Write here...',
+            tabsize: 2,
+            height: 500
+        });
+    </script>
 @endsection

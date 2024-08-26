@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'เอกสารสำหรับสมาชิก |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'เอกสารสำหรับสมาชิก | สหกรณ์อิสลามษะกอฟะฮ จำกัด')
 @section('content')
     <div class="container my-2">
         <div class="card" style="font-family: 'Sarabun', sans-serif;">
@@ -63,10 +63,10 @@
                     </div>
                     <div class="col-md-12 mb-2">
                         <div class="card">
-                            <a href="{{ url('file\form\แบบฟอร์มคำขอชำระผ่านการหัก.pdf') }}" target="_blank"
+                            <a href="{{ url('file\form\ยินยอมหักผ่านบัญชี.pdf') }}" target="_blank"
                                 class="btn  btn-block btn-lg">
                                 <div class="d-flex justify-content-between">
-                                    <b class="text-dark">แบบฟอร์มคำขอชำระผ่านการหัก</b>
+                                    <b class="text-dark">แบบฟอร์มยินยอมหักผ่านบัญชี</b>
                                     <i class="fas fa-download text-dark ms-1"></i>
                                 </div>
                             </a>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="col-md-12 mb-2">
                         <div class="card">
-                            <a href="{{ url('file\form\แบบฟอร์มคำขอลาออกสมาชิก.pdf') }}" target="_blank"
+                            <a href="{{ url('file\form\คำขอลาออกสมาชิก.pdf') }}" target="_blank"
                                 class="btn  btn-block btn-lg">
                                 <div class="d-flex justify-content-between">
                                     <b class="text-dark">แบบฟอร์มคำขอลาออกสมาชิก

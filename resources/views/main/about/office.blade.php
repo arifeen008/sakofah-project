@@ -127,7 +127,7 @@
             <div class="col-md-4 my-2">
                 <div class="card hover-shadow" data-mdb-modal-init data-mdb-target="#Karnjanadid">
                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                        <img src="{{ url('picture/S__53215240.jpg') }}" class="img-fluid" />
+                        <img src="{{ url('picture/120590.jpg') }}" class="img-fluid" />
                         <div class="mask" style="background-color: rgba(0, 183, 74, 0.6);">
                             <div class="h-100 d-flex justify-content-center align-items-center">
                                 <h2 class="text-dark"><i class="fas fa-users me-2"></i>ทำเนียบบุคลากร</h2>
@@ -136,9 +136,9 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title h4">สำนักงาน สาขากาญจนดิษฐ์</h5>
-                        <p class="card-text">เลขที่ 329/29-30 หมู่ที่ 2 ตำบลท่าทองใหม่
-                            อำเภอกาญจนดิษฐ์ จังหวัดสุราษฏร์ธานี 84290</p>
-                        <p class="card-text">โทร. 077-227-403</p>
+                        <p class="card-text">เลขที่ 111/47 หมู่ที่ 2 ตำบลท่าทองใหม่ อำเภอกาญจนดิษฐ์ จังหวัดสุราษฏร์ธานี
+                            84290</p>
+                        <p class="card-text">โทร. 086-4759102</p>
                         <a target="_blank" href="https://goo.gl/maps/8twLNE6tSBevJGvy6"
                             class="btn btn-primary">ขอเส้นทาง</a>
                     </div>

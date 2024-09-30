@@ -2,7 +2,7 @@
 @section('title', 'ที่ดินเปล่า |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
 @section('content')
     @if (count($asset) > 0)
-        <div class="container my-2">
+    <div class="container py-5 h-100">
             <h3 class="text-dark mt-2">ที่ดินเปล่า</h3>
             <div class="row">
                 @foreach ($asset as $item)

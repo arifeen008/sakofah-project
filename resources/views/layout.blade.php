@@ -45,6 +45,15 @@
         .dropdown-menu>li:hover>.dropdown-submenu {
             display: block;
         }
+
+        .text-limit {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            /* แสดงไม่เกิน 3 บรรทัด */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     </style>
 </head>
 
@@ -210,10 +219,12 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-submenu">
                                     <li>
-                                        <a class="dropdown-item" href="https://www.tiptakaful.com/th/insurance">ผลิตภัณฑ์ทิพยตะกาฟุล</a>
+                                        <a class="dropdown-item"
+                                            href="https://www.tiptakaful.com/th/insurance">ผลิตภัณฑ์ทิพยตะกาฟุล</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="https://affinity.tipinsure.com/product/affinity/takaful_branch?branch=TKF_SKF">ซื้อประกันกับทิพยตะกาฟุล</a>
+                                        <a class="dropdown-item"
+                                            href="https://affinity.tipinsure.com/product/affinity/takaful_branch?branch=TKF_SKF">ซื้อประกันกับทิพยตะกาฟุล</a>
                                     </li>
                                 </ul>
                             </li>

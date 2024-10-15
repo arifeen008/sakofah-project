@@ -1,7 +1,7 @@
 @extends('layout')
 @section('title', 'ข่าวสาร/กิจกรรมความเคลื่อนไหว | สหกรณ์อิสลามษะกอฟะฮ จำกัด')
 @section('content')
-    <div class="container my-2" style="font-family: 'Sarabun', sans-serif;">
+    <div class="container my-2">
         <div class="row">
             <p class="text-dark mt-2 h2">ข่าวสาร/กิจกรรมความเคลื่อนไหว</p>
             @foreach ($news as $item)
@@ -12,7 +12,7 @@
                         <div class="card-body">
                             <div class="card-title">
                                 <div class="text-dark">
-                                    <p class="text-truncate text-dark">{{ $item->title }}</p>
+                                    <p class="text-limit">{{ $item->title }}</p>
                                 </div>
                             </div>
                             <small>{{ thaidate('j F Y', $item->dateupload) }}</small>

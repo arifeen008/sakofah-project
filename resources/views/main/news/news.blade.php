@@ -14,7 +14,7 @@
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-body">
-                        <p class="text-dark my-2 h4">{{ $news->title }}</p>
+                        <p class="h3 text-dark">{{ $news->title }}</p>
                         <div class="row">
                             @foreach ($image_news as $item)
                                 <div class="col-lg-4">

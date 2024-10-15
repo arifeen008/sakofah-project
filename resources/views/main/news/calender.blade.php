@@ -79,7 +79,7 @@
                         aria-labelledby="v-pills-month5-tab">
                         <img src="{{ url('calendar/06.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade show active" id="v-pills-month6" role="tabpanel"
+                    <div class="tab-pane fade show" id="v-pills-month6" role="tabpanel"
                         aria-labelledby="v-pills-month6-tab">
                         <img src="{{ url('calendar/07.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
@@ -95,7 +95,7 @@
                         aria-labelledby="v-pills-month9-tab">
                         <img src="{{ url('calendar/10.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade" id="v-pills-month10" role="tabpanel"
+                    <div class="tab-pane fade active" id="v-pills-month10" role="tabpanel"
                         aria-labelledby="v-pills-month10-tab">
                         <img src="{{ url('calendar/11.jpg') }}" class="img-thumbnail" width="auto">
                     </div>

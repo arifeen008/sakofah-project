@@ -140,128 +140,128 @@
         </div>
     </div>
     <div class="container mt-4">
-        <div class="row">
-            <div class="col-9 col-sm-9">
-                <ul class="nav nav-pills nav-justified mb-3" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a data-mdb-pill-init class="nav-link active" id="ex3-tab-1" href="#newspill1" role="tab"
-                            aria-controls="newspill1" aria-selected="true">ข่าวประชาสัมพันธ์</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a data-mdb-pill-init class="nav-link" id="ex3-tab-2" href="#newspill2" role="tab"
-                            aria-controls="newspill2" aria-selected="false">ข่าวสวัสดิการ</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a data-mdb-pill-init class="nav-link" id="ex3-tab-3" href="#newspill3" role="tab"
-                            aria-controls="newspill3" aria-selected="false">มูลนิธิษะกอฟะฮ</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a data-mdb-pill-init class="nav-link" id="ex3-tab-3" href="#newspill4" role="tab"
-                            aria-controls="newspill4" aria-selected="false">ข่าวสินเชื่อ</a>
-                    </li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane fade show active" id="newspill1" role="tabpanel" aria-labelledby="ex3-tab-1">
-                        <div class="row">
-                            @foreach ($information as $index => $item)
-                                <div class="col-3">
-                                    <div class="card m-1">
-                                        <div class="bg-image hover-overlay" data-mdb-ripple-init
-                                            data-mdb-ripple-color="light">
-                                            <img src="{{ url('uploads/' . $item->picture_name) }}" class="img-fluid w-100"
-                                                style="height: 200px;width:auto" />
-                                            <a href="/news/{{ $item->news_number }}">
-                                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
-                                                </div>
-                                            </a>
+        <ul class="nav nav-pills nav-justified mb-3" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a data-mdb-pill-init class="nav-link active" id="ex3-tab-1" href="#newspill1" role="tab"
+                    aria-controls="newspill1" aria-selected="true"><i
+                        class="fas fa-bullhorn fa-fw me-2"></i>ข่าวประชาสัมพันธ์</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a data-mdb-pill-init class="nav-link" id="ex3-tab-2" href="#newspill2" role="tab"
+                    aria-controls="newspill2" aria-selected="false"><i
+                        class="fas fa-user-group fa-fw me-2"></i>ข่าวสวัสดิการ</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a data-mdb-pill-init class="nav-link" id="ex3-tab-3" href="#newspill3" role="tab"
+                    aria-controls="newspill3" aria-selected="false"><i
+                        class="fas fa-hand-holding-medical fa-fw me-2"></i>มูลนิธิษะกอฟะฮ</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a data-mdb-pill-init class="nav-link" id="ex3-tab-3" href="#newspill4" role="tab"
+                    aria-controls="newspill4" aria-selected="false"><i
+                        class="fas fa-credit-card fa-fw me-2"></i>ข่าวสินเชื่อ</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="newspill1" role="tabpanel" aria-labelledby="ex3-tab-1">
+                <div class="row">
+                    @foreach ($information as $index => $item)
+                        <div class="col-3">
+                            <div class="card m-1">
+                                <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                                    <img src="{{ url('uploads/' . $item->picture_name) }}" class="img-fluid w-100"
+                                        style="height: 200px;width:auto" />
+                                    <a href="/news/{{ $item->news_number }}">
+                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
                                         </div>
-                                        <div class="card-body">
-                                            <p class="card-text text-dark text-limit">{{ $item->title }}</p>
-
-                                        </div>
-                                        <div class="card-footer text-muted">{{ thaidate('j F Y', $item->dateupload) }}
-                                        </div>
-                                    </div>
+                                    </a>
                                 </div>
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="newspill2" role="tabpanel" aria-labelledby="ex3-tab-2">
-                        <div class="row">
-                            @foreach ($welfare as $index => $item)
-                                <div class="col-3">
-                                    <div class="card m-1">
-                                        <div class="bg-image hover-overlay" data-mdb-ripple-init
-                                            data-mdb-ripple-color="light">
-                                            <img src="{{ url('uploads/' . $item->picture_name) }}" class="img-fluid w-100"
-                                                style="height: 200px;width:auto" />
-                                            <a href="/news/{{ $item->news_number }}">
-                                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="card-text text-dark text-limit">{{ $item->title }}</p>
+                                <div class="card-body">
+                                    <p class="card-text text-dark text-limit">{{ $item->title }}</p>
 
-                                        </div>
-                                        <div class="card-footer text-muted">{{ thaidate('j F Y', $item->dateupload) }}
-                                        </div>
-                                    </div>
                                 </div>
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="newspill3" role="tabpanel" aria-labelledby="ex3-tab-3">
-                        <div class="row">
-                            @foreach ($foundation as $index => $item)
-                                <div class="col-3">
-                                    <div class="card m-1">
-                                        <div class="bg-image hover-overlay" data-mdb-ripple-init
-                                            data-mdb-ripple-color="light">
-                                            <img src="{{ url('uploads/' . $item->picture_name) }}" class="img-fluid w-100"
-                                                style="height: 200px;width:auto" />
-                                            <a href="/news/{{ $item->news_number }}">
-                                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="card-text text-dark text-limit">{{ $item->title }}</p>
-
-                                        </div>
-                                        <div class="card-footer text-muted">{{ thaidate('j F Y', $item->dateupload) }}
-                                        </div>
-                                    </div>
+                                <div class="card-footer text-muted">{{ thaidate('j F Y', $item->dateupload) }}
                                 </div>
-                            @endforeach
+                            </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="newspill4" role="tabpanel" aria-labelledby="ex3-tab-3">
-                        <div class="row">
-                            @foreach ($credit as $index => $item)
-                                <div class="col-3">
-                                    <div class="card m-1">
-                                        <div class="bg-image hover-overlay" data-mdb-ripple-init
-                                            data-mdb-ripple-color="light">
-                                            <img src="{{ url('uploads/' . $item->picture_name) }}" class="img-fluid w-100"
-                                                style="height: 200px;width:auto" />
-                                            <a href="/news/{{ $item->news_number }}">
-                                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="card-text text-dark text-limit">{{ $item->title }}</p>
-
-                                        </div>
-                                        <div class="card-footer text-muted">{{ thaidate('j F Y', $item->dateupload) }}
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
+            </div>
+            <div class="tab-pane fade" id="newspill2" role="tabpanel" aria-labelledby="ex3-tab-2">
+                <div class="row">
+                    @foreach ($welfare as $index => $item)
+                        <div class="col-3">
+                            <div class="card m-1">
+                                <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                                    <img src="{{ url('uploads/' . $item->picture_name) }}" class="img-fluid w-100"
+                                        style="height: 200px;width:auto" />
+                                    <a href="/news/{{ $item->news_number }}">
+                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text text-dark text-limit">{{ $item->title }}</p>
+
+                                </div>
+                                <div class="card-footer text-muted">{{ thaidate('j F Y', $item->dateupload) }}
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="tab-pane fade" id="newspill3" role="tabpanel" aria-labelledby="ex3-tab-3">
+                <div class="row">
+                    @foreach ($foundation as $index => $item)
+                        <div class="col-3">
+                            <div class="card m-1">
+                                <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                                    <img src="{{ url('uploads/' . $item->picture_name) }}" class="img-fluid w-100"
+                                        style="height: 200px;width:auto" />
+                                    <a href="/news/{{ $item->news_number }}">
+                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text text-dark text-limit">{{ $item->title }}</p>
+
+                                </div>
+                                <div class="card-footer text-muted">{{ thaidate('j F Y', $item->dateupload) }}
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="tab-pane fade" id="newspill4" role="tabpanel" aria-labelledby="ex3-tab-3">
+                <div class="row">
+                    @foreach ($credit as $index => $item)
+                        <div class="col-3">
+                            <div class="card m-1">
+                                <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                                    <img src="{{ url('uploads/' . $item->picture_name) }}" class="img-fluid w-100"
+                                        style="height: 200px;width:auto" />
+                                    <a href="/news/{{ $item->news_number }}">
+                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text text-dark text-limit">{{ $item->title }}</p>
+
+                                </div>
+                                <div class="card-footer text-muted">{{ thaidate('j F Y', $item->dateupload) }}
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="card mb-2">
+            <div class="card-body">
                 <h5 class="text-dark mt-2">วารสารออนไลน์</h5>
                 <hr>
                 <div class="ratio ratio-4x3">
@@ -270,70 +270,72 @@
                     </iframe>
                 </div>
             </div>
-            <div class="col-3 col-sm-3">
-                <div class="ratio ratio-16x9 my-3">
-                    <iframe src="https://www.youtube.com/embed/m0o5aStUkYg" allowfullscreen></iframe>
+        </div>
+        <div class="card mb-2">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="ratio ratio-16x9 my-3">
+                            <iframe src="https://www.youtube.com/embed/m0o5aStUkYg" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="ratio ratio-16x9 my-3">
+                            <iframe src="https://www.youtube.com/embed/zzvuyxuuHPs" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="ratio ratio-16x9 my-3">
+                            <iframe src="https://www.youtube.com/embed/SV7IdDXAX0A" allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
-                <div class="ratio ratio-16x9 my-3">
-                    <iframe src="https://www.youtube.com/embed/zzvuyxuuHPs" allowfullscreen></iframe>
-                </div>
-                <div class="ratio ratio-16x9 my-3">
-                    <iframe src="https://www.youtube.com/embed/SV7IdDXAX0A" allowfullscreen></iframe>
-                </div>
-                <div class="card mb-2">
-                    <a target="_blank" rel="noopener noreferrer" class="hover-shadow"
-                        href="https://shorturl.asia/IKm8k">
-                        <img class="rounded mx-auto d-block"
-                            style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
-                            src="{{ url('picture/ตรากรมที่ดิน.png') }}">
-                        <p class="text-center text-primary">กรมที่ดิน</p>
-                    </a>
-                </div>
-                <div class="card mb-2">
-                    <a target="_blank" rel="noopener noreferrer" class="hover-shadow"
-                        href="https://shorturl.asia/VpM47">
-                        <img class="rounded mx-auto d-block"
-                            style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
-                            src="{{ url('picture/กระทรวงเกษตรและสหกรณ์.png') }}">
-                        <p class="text-center text-primary">กระทรวงเกษตรและสหกรณ์</p>
-                    </a>
-                </div>
-                <div class="card mb-2">
-                    <a target="_blank" rel="noopener noreferrer" class="hover-shadow"
-                        href="https://shorturl.asia/PRMAt">
-                        <img class="rounded mx-auto d-block"
-                            style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
-                            src="{{ url('picture/img_fd06b99e276ab69db92a5bae61228dc2.png') }}">
-                        <p class="text-center text-primary">กรมตรวจบัญชีสหกรณ์กระบี่</p>
-                    </a>
-                </div>
-                <div class="card mb-2">
-                    <a target="_blank" rel="noopener noreferrer" class="hover-shadow"
-                        href="https://shorturl.asia/SCMmA">
-                        <img class="rounded mx-auto d-block"
-                            style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
-                            src="{{ url('picture/ตราสำนักงานสหกรณ์จังหวัดกระบี่.jpg') }}">
-                        <p class="text-center text-primary">สำนักงานสหกรณ์จังหวัดกระบี่</p>
-                    </a>
-                </div>
-                <div class="card mb-2">
-                    <a target="_blank" rel="noopener noreferrer" class="hover-shadow"
-                        href="https://shorturl.asia/g56qA">
-                        <img class="rounded mx-auto d-block"
-                            style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
-                            src="{{ url('picture/img_12b077835cddf4f35d3a3c285545a815.jpg') }}">
-                        <p class="text-center text-primary">กระทรวงแรงงาน</p>
-                    </a>
-                </div>
-                <div class="card mb-2">
-                    <a target="_blank" rel="noopener noreferrer" class="hover-shadow"
-                        href="https://shorturl.asia/uE52O">
-                        <img class="rounded mx-auto d-block"
-                            style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
-                            src="{{ url('picture/กรมส่งเสริมสหกรณ์.png') }}">
-                        <p class="text-center text-primary">กรมส่งเสริมสหกรณ์</p>
-                    </a>
-                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-2">
+                <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/IKm8k">
+                    <img class="rounded mx-auto d-block"
+                        style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
+                        src="{{ url('picture/ตรากรมที่ดิน.png') }}">
+                </a>
+            </div>
+            <div class="col-2">
+                <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/VpM47">
+                    <img class="rounded mx-auto d-block"
+                        style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
+                        src="{{ url('picture/กระทรวงเกษตรและสหกรณ์.png') }}">
+                </a>
+            </div>
+            <div class="col-2">
+                <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/PRMAt">
+                    <img class="rounded mx-auto d-block"
+                        style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
+                        src="{{ url('picture/img_fd06b99e276ab69db92a5bae61228dc2.png') }}">
+                </a>
+            </div>
+            <div class="col-2">
+                <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/SCMmA">
+                    <img class="rounded mx-auto d-block"
+                        style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
+                        src="{{ url('picture/ตราสำนักงานสหกรณ์จังหวัดกระบี่.jpg') }}">
+                </a>
+            </div>
+            <div class="col-2">
+                <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/g56qA">
+                    <img class="rounded mx-auto d-block"
+                        style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
+                        src="{{ url('picture/img_12b077835cddf4f35d3a3c285545a815.jpg') }}">
+                </a>
+            </div>
+            <div class="col-2">
+                <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/uE52O">
+                    <img class="rounded mx-auto d-block"
+                        style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
+                        src="{{ url('picture/กรมส่งเสริมสหกรณ์.png') }}">
+                </a>
             </div>
         </div>
     </div>

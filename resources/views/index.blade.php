@@ -25,9 +25,6 @@
         </button>
     </div>
     <div class="container mt-4">
-        <img src="{{ url('banner/group_umrah.jpg') }}" class="d-block w-100" alt="group_umrah">
-    </div>
-    <div class="container mt-4">
         <div id="carouselTwo" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init>
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -48,10 +45,7 @@
                     <img src="{{ url('picture/345-1.jpg') }}" class="d-block w-100" data-mdb-ripple-init data-mdb-modal-init
                         data-mdb-target="#Modal1" />
                 </div>
-                <div class="carousel-item">
-                    <img src="{{ url('picture/520-1.jpg') }}" class="d-block w-100" data-mdb-ripple-init data-mdb-modal-init
-                        data-mdb-target="#Modal3" />
-                </div>
+                
             </div>
             <button class="carousel-control-prev" type="button" data-mdb-target="#carouselTwo" data-mdb-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -91,15 +85,7 @@
             </div>
         </div>
 
-        <div class="modal fade modal-lg" id="Modal3" tabindex="-1" aria-labelledby="Modal3" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <img src="{{ url('picture/520.jpg') }}" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
     </div>
     <div class="container mt-4">

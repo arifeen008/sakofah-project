@@ -30,7 +30,7 @@
                         aria-controls="v-pills-month5" aria-selected="false">
                         มิถุนายน
                     </a>
-                    <a data-mdb-pill-init class="nav-link active" id="v-pills-month6-tab" href="#v-pills-month6" role="tab"
+                    <a data-mdb-pill-init class="nav-link" id="v-pills-month6-tab" href="#v-pills-month6" role="tab"
                         aria-controls="v-pills-month6" aria-selected="false">
                         กรกฎาคม
                     </a>
@@ -42,7 +42,7 @@
                         aria-controls="v-pills-month8" aria-selected="false">
                         กันยายน
                     </a>
-                    <a data-mdb-pill-init class="nav-link" id="v-pills-month9-tab" href="#v-pills-month9" role="tab"
+                    <a data-mdb-pill-init class="nav-link active" id="v-pills-month9-tab" href="#v-pills-month9" role="tab"
                         aria-controls="v-pills-month9" aria-selected="false">
                         ตุลาคม
                     </a>
@@ -79,7 +79,7 @@
                         aria-labelledby="v-pills-month5-tab">
                         <img src="{{ url('calendar/06.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade show" id="v-pills-month6" role="tabpanel"
+                    <div class="tab-pane fade" id="v-pills-month6" role="tabpanel"
                         aria-labelledby="v-pills-month6-tab">
                         <img src="{{ url('calendar/07.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
@@ -91,11 +91,11 @@
                         aria-labelledby="v-pills-month8-tab">
                         <img src="{{ url('calendar/09.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade" id="v-pills-month9" role="tabpanel"
+                    <div class="tab-pane fade show" id="v-pills-month9" role="tabpanel"
                         aria-labelledby="v-pills-month9-tab">
                         <img src="{{ url('calendar/10.jpg') }}" class="img-thumbnail" width="auto">
                     </div>
-                    <div class="tab-pane fade active" id="v-pills-month10" role="tabpanel"
+                    <div class="tab-pane fade" id="v-pills-month10" role="tabpanel"
                         aria-labelledby="v-pills-month10-tab">
                         <img src="{{ url('calendar/11.jpg') }}" class="img-thumbnail" width="auto">
                     </div>

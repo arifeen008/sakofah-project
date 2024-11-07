@@ -3,8 +3,7 @@
     {{ $news->title }} |สหกรณ์อิสลามษะกอฟะฮ จำกัด
 @endsection
 @section('library')
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 @endsection
@@ -25,6 +24,7 @@
                                 </div>
                             @endforeach
                         </div>
+                        
                         <p style="color: black">{!! $news->description !!}</p>
                         <small class="text-mute">{{ thaidate('วันที่ j F Y', $news->dateupload) }}</small>
                     </div>

@@ -327,57 +327,57 @@
     </div>
     <div class="row my-3">
         <div class="col-sm">
-            <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/rk6qs">
-                <img class="rounded mx-auto d-block hover-shadow"
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Sakofah.Wittayaphat.School/?ref=bookmarks">
+                <img class="rounded mx-auto d-block"
                     style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/crop-1588051633262.jpg') }}">
             </a>
         </div>
         <div class="col-sm">
-            <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/TIf9w">
-                <img class="rounded mx-auto d-block hover-shadow"
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=100064546278455">
+                <img class="rounded mx-auto d-block"
                     style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/crop-1588051648982.jpg') }}">
             </a>
         </div>
         <div class="col-sm">
-            <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/h73Cv">
-                <img class="rounded mx-auto d-block hover-shadow"
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=100083121019673">
+                <img class="rounded mx-auto d-block"
                     style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/crop-1588051777775.jpg') }}">
             </a>
         </div>
         <div class="col-sm">
-            <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/DJtdT">
-                <img class="rounded mx-auto d-block hover-shadow"
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/ADODSKF">
+                <img class="rounded mx-auto d-block"
                     style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/shellKrabi.jpg') }}">
             </a>
         </div>
         <div class="col-sm">
-            <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/CIcU8">
-                <img class="rounded mx-auto d-block hover-shadow"
+            <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCffHrfpeGIw4dlLCs-IEGDg">
+                <img class="rounded mx-auto d-block"
                     style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/crop-1588051728377.jpg') }}">
             </a>
         </div>
         <div class="col-sm">
-            <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/v69Mm">
-                <img class="rounded mx-auto d-block hover-shadow"
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Sakofah.Islam.Savings/">
+                <img class="rounded mx-auto d-block"
                     style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/crop-1588051745671.jpg') }}">
             </a>
         </div>
         <div class="col-sm">
-            <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/ofe7y">
-                <img class="rounded mx-auto d-block hover-shadow"
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/watch/UmmahChannel.Fan/">
+                <img class="rounded mx-auto d-block"
                     style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/logo-ummah-channel.png') }}">
             </a>
         </div>
         <div class="col-sm">
-            <a target="_blank" rel="noopener noreferrer" href="https://shorturl.asia/lh6Ek">
-                <img class="rounded mx-auto d-block hover-shadow"
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=100057631292290">
+                <img class="rounded mx-auto d-block"
                     style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/SOUTHERN-COFFEE-LOGO.png') }}">
             </a>

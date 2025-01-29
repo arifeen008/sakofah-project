@@ -29,9 +29,7 @@
                             <td>{{ thaidate('j M Y', $item->login_time) }}</td>
                             <td>{{ thaidate('H:i', $item->login_time) }}</td>
                             <td>{{ $item->ip_address }}</td>
-                            <td><a href="{{ url('login_history_person/' . $item->user_id . '/' . $item->branch_id) }}"
-                                    class="btn btn-info"><i class="fas fa-chart-pie"></i></a>
-                            </td>
+                            <td><a href="{{ url('login_history_person/' . $item->user_id . '/' . $item->branch_id) }}" class="btn btn-info"><i class="fas fa-chart-pie"></i></a></td>
                         </tr>
                     @endforeach
                 </tbody>

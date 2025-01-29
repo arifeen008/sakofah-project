@@ -45,7 +45,7 @@
                     <img src="{{ url('picture/345-1.jpg') }}" class="d-block w-100" data-mdb-ripple-init data-mdb-modal-init
                         data-mdb-target="#Modal1" />
                 </div>
-                
+
             </div>
             <button class="carousel-control-prev" type="button" data-mdb-target="#carouselTwo" data-mdb-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -85,7 +85,7 @@
             </div>
         </div>
 
-        
+
 
     </div>
     <div class="container mt-4">
@@ -154,19 +154,18 @@
                     @foreach ($information as $index => $item)
                         <div class="col-3">
                             <div class="card m-1">
-                                <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                     <img src="{{ url('uploads/' . $item->picture_name) }}" class="img-fluid w-100"
-                                        style="height: 200px;width:auto" />
+                                        style="height: 200px;" />
                                     <a href="/news/{{ $item->news_number }}">
-                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
-                                        </div>
+                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <p class="card-text text-dark text-limit">{{ $item->title }}</p>
-
+                                    <p class="card-text text-limit">{{ $item->title }}</p>
                                 </div>
-                                <div class="card-footer text-muted">{{ thaidate('j F Y', $item->dateupload) }}
+                                <div class="card-footer">
+                                    <small>{{ thaidate('j F Y', $item->dateupload) }}</small>
                                 </div>
                             </div>
                         </div>
@@ -178,19 +177,18 @@
                     @foreach ($welfare as $index => $item)
                         <div class="col-3">
                             <div class="card m-1">
-                                <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                     <img src="{{ url('uploads/' . $item->picture_name) }}" class="img-fluid w-100"
-                                        style="height: 200px;width:auto" />
+                                        style="height: 200px;" />
                                     <a href="/news/{{ $item->news_number }}">
-                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
-                                        </div>
+                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <p class="card-text text-dark text-limit">{{ $item->title }}</p>
-
+                                    <p class="card-text text-limit">{{ $item->title }}</p>
                                 </div>
-                                <div class="card-footer text-muted">{{ thaidate('j F Y', $item->dateupload) }}
+                                <div class="card-footer">
+                                    <small>{{ thaidate('j F Y', $item->dateupload) }}</small>
                                 </div>
                             </div>
                         </div>
@@ -202,19 +200,18 @@
                     @foreach ($foundation as $index => $item)
                         <div class="col-3">
                             <div class="card m-1">
-                                <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                     <img src="{{ url('uploads/' . $item->picture_name) }}" class="img-fluid w-100"
-                                        style="height: 200px;width:auto" />
+                                        style="height: 200px;" />
                                     <a href="/news/{{ $item->news_number }}">
-                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
-                                        </div>
+                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <p class="card-text text-dark text-limit">{{ $item->title }}</p>
-
+                                    <p class="card-text text-limit">{{ $item->title }}</p>
                                 </div>
-                                <div class="card-footer text-muted">{{ thaidate('j F Y', $item->dateupload) }}
+                                <div class="card-footer">
+                                    <small>{{ thaidate('j F Y', $item->dateupload) }}</small>
                                 </div>
                             </div>
                         </div>
@@ -226,19 +223,18 @@
                     @foreach ($credit as $index => $item)
                         <div class="col-3">
                             <div class="card m-1">
-                                <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                                     <img src="{{ url('uploads/' . $item->picture_name) }}" class="img-fluid w-100"
-                                        style="height: 200px;width:auto" />
+                                        style="height: 200px;" />
                                     <a href="/news/{{ $item->news_number }}">
-                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
-                                        </div>
+                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <p class="card-text text-dark text-limit">{{ $item->title }}</p>
-
+                                    <p class="card-text text-limit">{{ $item->title }}</p>
                                 </div>
-                                <div class="card-footer text-muted">{{ thaidate('j F Y', $item->dateupload) }}
+                                <div class="card-footer">
+                                    <small>{{ thaidate('j F Y', $item->dateupload) }}</small>
                                 </div>
                             </div>
                         </div>
@@ -327,7 +323,8 @@
     </div>
     <div class="row my-3">
         <div class="col-sm">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Sakofah.Wittayaphat.School/?ref=bookmarks">
+            <a target="_blank" rel="noopener noreferrer"
+                href="https://www.facebook.com/Sakofah.Wittayaphat.School/?ref=bookmarks">
                 <img class="rounded mx-auto d-block"
                     style="width: 100vw;height:auto;max-width:50%;display:block;margin:auto"
                     src="{{ url('picture/crop-1588051633262.jpg') }}">

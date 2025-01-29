@@ -12,7 +12,7 @@
         <div class="col-md-3">
             <div class="nav flex-column nav-pills text-center shadow p-3 rounded bg-light" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 @foreach ($months as $index => $month)
-                    <a data-mdb-pill-init class="nav-link {{ $index === $currentMonth ? 'active' : '' }}" id="v-pills-{{ strtolower($month) }}-tab" data-mdb-toggle="pill" data-mdb-target="#v-pills-{{ strtolower($month) }}" role="tab" aria-controls="v-pills-{{ strtolower($month) }}" aria-selected="{{ $index === 0 ? 'true' : 'false' }}">
+                    <a data-mdb-pill-init class="nav-link {{ $index === $currentMonth ? 'active' : '' }}" id="v-pills-{{ strtolower($month) }}-tab" data-mdb-toggle="pill" data-mdb-target="#v-pills-{{ strtolower($month) }}" role="tab" aria-controls="v-pills-{{ strtolower($month) }}" aria-selected="{{ $index === $currentMonth ? 'true' : 'false' }}">
                         {{ $month }}
                     </a>
                 @endforeach

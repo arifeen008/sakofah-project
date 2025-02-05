@@ -1,6 +1,11 @@
 @extends('layout')
 @section('title', 'ปฏิทินสหกรณ์ | สหกรณ์อิสลามษะกอฟะฮ จำกัด')
 @section('content')
+@section('library')
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+@endsection
 @php
     $months = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
     $currentMonth = date('n') - 1; // ดึงเดือนปัจจุบัน (0-based index)
@@ -23,8 +28,10 @@
                 @foreach ($months as $index => $month)
                     <div class="tab-pane fade {{ $index === $currentMonth ? 'show active' : '' }}" id="v-pills-{{ strtolower($month) }}" role="tabpanel" aria-labelledby="v-pills-{{ strtolower($month) }}-tab">
                         <h4 class="text-center text-primary fw-bold">{{ $month }}</h4>
-                        <div class="row mt-3">                     
-                            <img src="{{ url('calendar/' . $month . '.jpg') }}" class="img-fluid rounded shadow-sm w-100" alt="{{ $month }} image">                             
+                        <div class="row mt-3">  
+                            <a data-fancybox="gallery" href="{{ url('calendar/' . $month . '.jpg') }}">                   
+                                <img src="{{ url('calendar/' . $month . '.jpg') }}" class="img-fluid rounded shadow-sm w-100" alt="{{ $month }} image">  
+                            </a>                           
                         </div>
                     </div>
                 @endforeach
@@ -32,4 +39,14 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function() {
+            $("[data-fancybox]").fancybox({
+                // ตัวเลือก Fancybox ตามต้องการ
+                // ดูตัวอย่างเพิ่มเติมได้ที่: https://fancyapps.com/docs/3.5/
+            });
+        });
+    </script>
 @endsection

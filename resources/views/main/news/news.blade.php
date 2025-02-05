@@ -3,47 +3,9 @@
     {{ $news->title }} |สหกรณ์อิสลามษะกอฟะฮ จำกัด
 @endsection
 @section('library')
-    {{-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script> --}}
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.css" />
-    <style>
-        .f-carousel__slide {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            min-height: 100px;
-            text-align: center;
-            color: #ff3520;
-            background: #f3f3f3;
-            font-size: 1.25rem;
-        }
-
-        .f-carousel__slide.is-nav-selected {
-            color: #fff;
-            background: #ff3520;
-        }
-
-        #myCarousel {
-            --f-carousel-slide-width: 100%;
-            --f-carousel-spacing: 10px;
-
-            margin-bottom: 1rem;
-        }
-
-        #myNavigation {
-            --f-carousel-slide-width: 100px;
-            --f-carousel-spacing: 5px;
-        }
-
-        @media (min-width: 768px) {
-            .f-carousel-slide {
-                width: calc(100% / 3);
-            }
-        }
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 @endsection
 @section('content')
     <div class="container my-5">

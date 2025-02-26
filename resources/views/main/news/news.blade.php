@@ -61,12 +61,5 @@
     </div>
 @endsection
 @section('script')
-    <script>
-        $(document).ready(function() {
-            $("[data-fancybox]").fancybox({
-                // ตัวเลือก Fancybox ตามต้องการ
-                // ดูตัวอย่างเพิ่มเติมได้ที่: https://fancyapps.com/docs/3.5/
-            });
-        });
-    </script>
+    <script>$(document).ready(function() {$("[data-fancybox]").fancybox({});});</script>
 @endsection

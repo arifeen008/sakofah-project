@@ -1,114 +1,37 @@
 @extends('layout')
 @section('title', 'เอกสารสำหรับสมาชิก | สหกรณ์อิสลามษะกอฟะฮ จำกัด')
 @section('content')
-    <div class="container my-2">
-        <div class="card" style="font-family: 'Sarabun', sans-serif;">
-            <p class="text-dark text-center h2 mt-3">เอกสารสำหรับสมาชิก</p>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12 mb-2">
-                        <div class="card">
-                            <a href="{{ url('file\form\ใบคำขอสมัครสมาชิก(เพิ่มเติม).docx') }}" target="_blank"
-                                class="btn  btn-block btn-lg">
-                                <div class="d-flex justify-content-between">
-                                    <b class="text-dark">ใบคำขอสมัครสมาชิก</b>
-                                    <i class="fas fa-download text-dark ms-1"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-12 mb-2">
-                        <div class="card">
-                            <a href="{{ url('file\form\คำขอรับสวัสดิการสมาชิก.pdf') }}" target="_blank"
-                                class="btn  btn-block btn-lg">
-                                <div class="d-flex justify-content-between">
-                                    <b class="text-dark">แบบฟอร์มคำขอรับสวัสดิการ</b>
-                                    <i class="fas fa-download text-dark ms-1"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-12 mb-2">
-                        <div class="card">
-                            <a href="{{ url('file\form\แบบฟอร์มคำร้องทั่วไป.pdf') }}" target="_blank"
-                                class="btn  btn-block btn-lg">
-                                <div class="d-flex justify-content-between">
-                                    <b class="text-dark">แบบฟอร์มคำร้องทั่วไป</b>
-                                    <i class="fas fa-download text-dark ms-1"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-12 mb-2">
-                        <div class="card">
-                            <a href="{{ url('file\form\แบบฟอร์มคำขอรับสวัสดิการ_เสียชีวิต.pdf') }}" target="_blank"
-                                class="btn  btn-block btn-lg">
-                                <div class="d-flex justify-content-between">
-                                    <b class="text-dark">แบบฟอร์มคำขอรับสวัสดิการเสียชีวิต</b>
-                                    <i class="fas fa-download text-dark ms-1"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-12 mb-2">
-                        <div class="card">
-                            <a href="{{ url('file\form\แบบฟอร์มคำขอลาออกสมาชิกเสียชีวิต.pdf') }}" target="_blank"
-                                class="btn  btn-block btn-lg">
-                                <div class="d-flex justify-content-between">
-                                    <b class="text-dark">แบบฟอร์มคำขอลาออกสมาชิกเสียชีวิต</b>
-                                    <i class="fas fa-download text-dark ms-1"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-12 mb-2">
-                        <div class="card">
-                            <a href="{{ url('file\form\ยินยอมหักผ่านบัญชี.pdf') }}" target="_blank"
-                                class="btn  btn-block btn-lg">
-                                <div class="d-flex justify-content-between">
-                                    <b class="text-dark">แบบฟอร์มยินยอมหักผ่านบัญชี</b>
-                                    <i class="fas fa-download text-dark ms-1"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-12 mb-2">
-                        <div class="card">
-                            <a href="{{ url('file\form\คำขอลาออกสมาชิก.pdf') }}" target="_blank"
-                                class="btn  btn-block btn-lg">
-                                <div class="d-flex justify-content-between">
-                                    <b class="text-dark">แบบฟอร์มคำขอลาออกสมาชิก
-                                    </b>
-                                    <i class="fas fa-download text-dark ms-1"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-12 mb-2">
-                        <div class="card">
-                            <a href="{{ url('file\form\ใบสมัครเข้าร่วมโครงการ.pdf') }}" target="_blank"
-                                class="btn  btn-block btn-lg">
-                                <div class="d-flex justify-content-between">
-                                    <b class="text-dark">ใบสมัครเข้าร่วมโครงการ</b>
-                                    <i class="fas fa-download text-dark ms-1"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-12 mb-2">
-                        <div class="card">
-                            <a href="{{ url('file\form\CHECK LIST.pdf') }}" target="_blank" class="btn  btn-block btn-lg"
-                            >
-                                <div class="d-flex justify-content-between">
-                                    <b class="text-dark">Check list
-                                        สินเชื่อฮาลาล</b>
-                                    <i class="fas fa-download text-dark ms-1"></i>
-                                </div>
-                            </a>
-                        </div>
+<div class="container my-4">
+    <div class="card shadow-lg border-0 rounded-3" style="font-family: 'Sarabun', sans-serif;">
+        <div class="card-header bg-success text-white text-center py-3 rounded-top">
+            <h2 class="mb-0">เอกสารสำหรับสมาชิก</h2>
+        </div>
+        <div class="card-body p-4">
+            <div class="row g-3">
+                @foreach ([
+                    ["name" => "ใบคำขอสมัครสมาชิก", "path" => "file/form/ใบคำขอสมัครสมาชิก(เพิ่มเติม).docx"],
+                    ["name" => "แบบฟอร์มคำขอรับสวัสดิการ", "path" => "file/form/คำขอรับสวัสดิการสมาชิก.pdf"],
+                    ["name" => "แบบฟอร์มคำร้องทั่วไป", "path" => "file/form/แบบฟอร์มคำร้องทั่วไป.pdf"],
+                    ["name" => "แบบฟอร์มคำขอรับสวัสดิการเสียชีวิต", "path" => "file/form/แบบฟอร์มคำขอรับสวัสดิการ_เสียชีวิต.pdf"],
+                    ["name" => "แบบฟอร์มคำขอลาออกสมาชิกเสียชีวิต", "path" => "file/form/แบบฟอร์มคำขอลาออกสมาชิกเสียชีวิต.pdf"],
+                    ["name" => "แบบฟอร์มยินยอมหักผ่านบัญชี", "path" => "file/form/แบบฟอร์มคำขอชำระผ่านการหัก.pdf"],
+                    ["name" => "แบบฟอร์มคำขอลาออกสมาชิก", "path" => "file/form/คำขอลาออกสมาชิก.pdf"],
+                    ["name" => "ใบสมัครเข้าร่วมโครงการ", "path" => "file/form/ใบสมัครเข้าร่วมโครงการ.pdf"],
+                    ["name" => "Check list สินเชื่อฮาลาล", "path" => "file/form/CHECK LIST.pdf"]
+                ] as $file)
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <a href="{{ url($file['path']) }}" target="_blank" class="btn btn-light btn-lg w-100 d-flex justify-content-between align-items-center p-3">
+                            <span class="fw-bold text-success">{{ $file['name'] }}</span>
+                            <i class="fas fa-download text-success"></i>
+                        </a>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
+</div>
+
+
 @endsection

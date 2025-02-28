@@ -1,49 +1,3 @@
-{{-- @section('sidebar')
-    <ul class="list-group list-group-light">
-        <a href="/member" class="list-group-item list-group-item-action"><i class="fas fa-fingerprint ms-1 me-3"></i>ค้นหาสมาชิก</a>
-        <a href="/credit" class="list-group-item list-group-item-action"><i class="fas fa-credit-card ms-1 me-3"></i>สินเชื่อ</a>
-        <a href="/publish" class="list-group-item list-group-item-action"><i class="fas fa-bullhorn ms-1 me-3"></i>ประกาศภายใน</a>
-        <a href="/rules" class="list-group-item list-group-item-action"><i class="fab fa-leanpub ms-1 me-3"></i>ข้อบังคับสหกรณ์</a>
-        <a href="/order" class="list-group-item list-group-item-action"><i class="fas fa-book-open-reader ms-1 me-3"></i></i>ระเบียบสหกรณ์</a>
-        <a href="/form" class="list-group-item list-group-item-action"><i class="far fa-clipboard ms-1 me-3"></i>แบบฟอร์มเจ้าหน้าที่</a>
-        <a href="/performance" class="list-group-item list-group-item-action"><i class="fas fa-network-wired ms-1 me-3"></i>ผลการดำเนินงาน</a>
-        <a href="/uploadcredit" class="list-group-item list-group-item-action"><i class="fas fa-square-poll-horizontal ms-1 me-3"></i>อัพโหลดสินเชื่อ</a>
-        <a href="/report_creditconsider" class="list-group-item list-group-item-action"><i class="fas fa-atom ms-1 me-3"></i>รายงานผลการติดตามสินเชื่อ</a>
-        @if (session('level_code') == 'E' || session('level_code') == 'P')
-        <h6 class="bg-body-tertiary p-2 border-top border-bottom">ฝ่ายสินเชื่อ</h6>
-            <a href="/credit_consider" class="list-group-item list-group-item-action"><i class="fab fa-airbnb ms-1 me-3"></i>ฝ่ายสินเชื่อสาขา</a>
-        @endif
-        @if (session('level_code') == 'CC' || session('level_code') == 'P')
-        <h6 class="bg-body-tertiary p-2 border-top border-bottom">รับเอกสารสินเชื่อ</h6>
-            <a href="/creditconsider" class="list-group-item list-group-item-action"><i class="fas fa-anchor ms-1 me-3"></i>รับเอกสารสินเชื่อสาขา</a>
-        @endif
-        @if (session('level_code') == 'CRM' || session('level_code') == 'P')
-        <h6 class="bg-body-tertiary p-2 border-top border-bottom">ฝ่ายวิเคราะห์</h6>
-            <a href="/creditconsider" class="list-group-item list-group-item-action"> <i class="fas fa-at ms-1 me-3"></i>ฝ่ายวิเคราะห์</a>
-        @endif
-        @if (session('level_code') == 'M' || session('level_code') == 'P')
-        <h6 class="bg-body-tertiary p-2 border-top border-bottom">ผู้จัดการใหญ่</h6>
-            <a href="/creditconsider" class="list-group-item list-group-item-action"> <i class="fas fa-arrows-rotate ms-1 me-3"></i>ผู้จัดการใหญ่</a>
-        @endif
-        @if (session('level_code') == 'HR')
-        <h6 class="bg-body-tertiary p-2 border-top border-bottom">Human Resource</h6>
-            <a href="upload_publish/" class="list-group-item list-group-item-action"><i class="fas fa-calendar-minus ms-1 me-3"></i>อัพโหลดประกาศ</a>
-        @endif
-        @if (session('level_code') == 'P')
-        <h6 class="bg-body-tertiary p-2 border-top border-bottom">Admin</h6>
-            <a href="/report" class="list-group-item list-group-item-action"><i class="fab fa-bandcamp ms-1 me-3"></i>รายงาน</a>
-            <a href="/admin_creditconsider" class="list-group-item list-group-item-action"><i class="fas fa-baby ms-1 me-3"></i>พิจารณาสินเชื่อ</a>
-            <a href="/admin_credit" class="list-group-item list-group-item-action"><i class="fas fa-bars-progress ms-1 me-3"></i>สินเชื่อ</a>
-            <a href="/login_history" class="list-group-item list-group-item-action"><i class="fab fa-battle-net ms-1 me-3"></i>ประวัติการล็อกอิน</a>
-            <a href="/asset_list" class="list-group-item list-group-item-action"><i class="fas fa-bicycle ms-1 me-3"></i>อัพโหลดสินทรัพย์</a>
-            <a href="/news_upload" class="list-group-item list-group-item-action"><i class="fas fa-box ms-1 me-3"></i>อัพโหลดข่าวสาร</a>
-            <a href="/add_performance" class="list-group-item list-group-item-action"><i class="fab fa-buromobelexperte ms-1 me-3"></i>อัพโหลดผลการดำเนินงาน</a>
-            <a href="upload_publish/" class="list-group-item list-group-item-action"><i class="fas fa-calendar-minus ms-1 me-3"></i>อัพโหลดประกาศ</a>
-            <a href="/edit_publish" class="list-group-item list-group-item-action"><i class="fas fa-cake-candles ms-1 me-3"></i>แก้ไขประกาศ</a>
-        @endif
-    </ul>
-@endsection --}}
-
 @section('sidebar')
     <aside class="main-sidebar sidebar-light-primary elevation-0">
 
@@ -64,7 +18,7 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                     <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
+                        <a href="#" class="nav-link active bg-primary">
                             <i class="nav-icon fas fa-book-open-reader"></i>
                             <p>
                                 สมาชิก
@@ -81,7 +35,7 @@
                         </ul>
                     </li>
                     <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
+                        <a href="#" class="nav-link active bg-success">
                             <i class="nav-icon fas fa-credit-card"></i>
                             <p>
                                 สินเชื่อ
@@ -98,7 +52,7 @@
                         </ul>
                     </li>
                     <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
+                        <a href="#" class="nav-link active bg-warning">
                             <i class="nav-icon fas fa-graduation-cap"></i>
                             <p>
                                 กฏระเบียบสหกรณ์
@@ -120,7 +74,7 @@
                     </li>
 
                     <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
+                        <a href="#" class="nav-link active bg-danger">
                             <i class="nav-icon fas fa-bullhorn"></i>
                             <p>
                                 ประกาศ
@@ -141,7 +95,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="/performance" class="nav-link active">
+                        <a href="/performance" class="nav-link active bg-info">
                             <i class="nav-icon fas fa-hand-holding-heart"></i>
                             <p>
                                 ผลการดำเนินงาน
@@ -149,7 +103,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/uploadcredit" class="nav-link active">
+                        <a href="/uploadcredit" class="nav-link active bg-secondary">
                             <i class="nav-icon fas fa-upload"></i>
                             <p>
                                 อัพโหลดสินเชื่อ
@@ -157,7 +111,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="https://lookerstudio.google.com/reporting/a3c8e557-198a-4a72-94cd-48c392ab7ec6" class="nav-link active" target="_blank">
+                        <a href="https://lookerstudio.google.com/reporting/a3c8e557-198a-4a72-94cd-48c392ab7ec6"
+                            class="nav-link active bg-light" target="_blank">
                             <i class="nav-icon fas fa-map"></i>
                             <p>
                                 ที่อยู่ของสมาชิก
@@ -167,7 +122,7 @@
                     @if (session('level_code') == 'E' || session('level_code') == 'P')
                         <h6 class="bg-body-tertiary p-2 border-top border-bottom">ฝ่ายสินเชื่อ</h6>
                         <li class="nav-item">
-                            <a href="/credit_consider" class="nav-link active">
+                            <a href="/credit_consider" class="nav-link active bg-primary">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
                                     ฝ่ายสินเชื่อสาขา
@@ -178,7 +133,7 @@
                     @if (session('level_code') == 'CC' || session('level_code') == 'P')
                         <h6 class="bg-body-tertiary p-2 border-top border-bottom">รับเอกสารสินเชื่อ</h6>
                         <li class="nav-item">
-                            <a href="/creditconsider" class="nav-link active">
+                            <a href="/creditconsider" class="nav-link active bg-success">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
                                     รับเอกสารสินเชื่อสาขา
@@ -189,7 +144,7 @@
                     @if (session('level_code') == 'CRM' || session('level_code') == 'P')
                         <h6 class="bg-body-tertiary p-2 border-top border-bottom">ฝ่ายวิเคราะห์</h6>
                         <li class="nav-item">
-                            <a href="/creditconsider" class="nav-link active">
+                            <a href="/creditconsider" class="nav-link active bg-warning">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
                                     ฝ่ายวิเคราะห์
@@ -201,7 +156,7 @@
                         <h6 class="bg-body-tertiary p-2 border-top border-bottom">ผู้จัดการใหญ่</h6>
 
                         <li class="nav-item">
-                            <a href="/creditconsider" class="nav-link active">
+                            <a href="/creditconsider" class="nav-link active bg-danger">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
                                     ผู้จัดการใหญ่
@@ -211,7 +166,7 @@
                     @endif
                     @if (session('level_code') == 'HR')
                         <li class="nav-item">
-                            <a href="/upload_publish" class="nav-link active">
+                            <a href="/upload_publish" class="nav-link active bg-info">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
                                     อัพโหลดประกาศ
@@ -221,7 +176,7 @@
                     @endif
                     @if (session('level_code') == 'P')
                         <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
+                            <a href="#" class="nav-link active bg-secondary">
                                 <i class="nav-icon fas fa-lock"></i>
                                 <p>
                                     Admin

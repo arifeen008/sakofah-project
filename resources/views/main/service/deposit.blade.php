@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'บริการเงินฝาก |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'บริการเงินฝาก | สหกรณ์อิสลามษะกอฟะฮ จำกัด')
 @section('content')
     <div class="container-fluid">
         <img src="{{ url('picture/410.jpg') }}" alt="บริการเงินฝาก" class="img-fluid">

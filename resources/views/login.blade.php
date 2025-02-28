@@ -16,18 +16,18 @@
                                 {{ $message }}
                             </div>
                         @enderror
-                        <div class="form-outline mb-4">
-                            <input type="text" id="user_id" name="user_id" class="form-control" />
-                            <label class="form-label" for="user_id">ชื่อผู้ใช้</label>
+                        <div class="form-floating mb-4">
+                            <input type="text" id="user_id" name="user_id" class="form-control" placeholder="ชื่อผู้ใช้" />
+                            <label for="user_id">ชื่อผู้ใช้</label>
                         </div>
                         @error('password')
                             <div class="alert alert-danger my-2">
                                 {{ $message }}
                             </div>
                         @enderror
-                        <div class="form-outline mb-4">
-                            <input type="password" id="password" name="password" class="form-control" />
-                            <label class="form-label" for="password">รหัสผ่าน</label>
+                        <div class="form-floating mb-4">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="รหัสผ่าน" />
+                            <label for="password">รหัสผ่าน</label>
                         </div>
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <div class="form-check">

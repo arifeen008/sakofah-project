@@ -19,51 +19,64 @@
 
 <body class="sidebar-mini" style="height: auto">
     <div class="wrapper">
+        <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link pushmenu" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
                 </li>
             </ul>
+
+            <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-                <a data-mdb-dropdown-init class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                    role="button" aria-expanded="false">
-                    {{ session('username') }}
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li>
-                        <a class="dropdown-item" href="#">
-                            โปรไฟล์
-                        </a>
-                    </li>
-                    <li>
-                        <form method="POST" action="/logout">
-                            @csrf
-                            <button type="submit" class="dropdown-item">ออกจากระบบ</button>
-                        </form>
-                    </li>
-                </ul>
+                <!-- User Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-expanded="false">
+                        {{ session('username') }}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">โปรไฟล์</a></li>
+                        <li>
+                            <form method="POST" action="/logout">
+                                @csrf
+                                <button type="submit" class="dropdown-item">ออกจากระบบ</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
+        <!-- /.navbar -->
 
+        <!-- Main Sidebar Container -->
         @yield('sidebar')
-        <div class="content-wrapper" style="min-height: 617px;background-color: white">
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="min-height: 617px; background-color: white">
+            <!-- Main content -->
             <div class="content">
                 @yield('content')
             </div>
+            <!-- /.content -->
         </div>
-    </div>
-    <footer class="main-footer mt-2">
-        <div class="float-right d-none d-sm-inline">
+        <!-- /.content-wrapper -->
 
-        </div>
-        <strong>Copyright © 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+        <!-- Main Footer -->
+        <footer class="main-footer mt-2">
+            <div class="float-right d-none d-sm-inline">
+                <!-- Additional footer content can go here -->
+            </div>
+            <strong>Copyright © 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+        </footer>
+    </div>
+    <!-- ./wrapper -->
+
     @yield('script')
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
-
 </body>
 
 </html>

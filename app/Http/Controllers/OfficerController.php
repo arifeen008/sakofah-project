@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
@@ -169,20 +168,20 @@ class OfficerController extends Controller
     public function add_publish(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'date' => 'required',
+            'title'             => 'required',
+            'date'              => 'required',
             'type_announcement' => 'required',
-            'uploadFile' => 'required',
+            'uploadFile'        => 'required',
         ]);
-        $uploadedFile = $request->file('uploadFile');
-        $path = 'file/inside_publish/';
+        $uploadedFile   = $request->file('uploadFile');
+        $path           = 'file/inside_publish/';
         $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . time() . '.' . $uploadedFile->getClientOriginalExtension();
         if ($uploadedFile->move(public_path($path), $hashedFileName)) {
             DB::table('internal_announcement')->insert([
-                'title' => $request->title,
-                'date' => $request->date,
+                'title'             => $request->title,
+                'date'              => $request->date,
                 'type_announcement' => $request->type_announcement,
-                'uploadfile' => $hashedFileName,
+                'uploadfile'        => $hashedFileName,
             ]);
         }
         return redirect()->back()->with('success', 'อัพโหลดประกาศเสร็จสิ้น');
@@ -264,16 +263,16 @@ class OfficerController extends Controller
         date_default_timezone_set('Asia/Bangkok');
         $request->validate([
             'document_name' => 'required',
-            'documentFile' => 'required|mimes:xls,xlsx',
+            'documentFile'  => 'required|mimes:xls,xlsx',
         ]);
-        $uploadedFile = $request->file('documentFile');
+        $uploadedFile   = $request->file('documentFile');
         $hashedFileName = md5($uploadedFile->getClientOriginalName()) . time() . '.' . $uploadedFile->getClientOriginalExtension();
         if ($uploadedFile->move(public_path('file/performance/'), $hashedFileName)) {
             DB::table('credit_upload')->insert([
                 'document_name' => $request->document_name,
-                'path' => 'file/perfomance/',
-                'file_name' => $hashedFileName,
-                'date' => date('Y-m-d'),
+                'path'          => 'file/perfomance/',
+                'file_name'     => $hashedFileName,
+                'date'          => date('Y-m-d'),
             ]);
             return redirect()->back()->with('success', 'เพิ่มผลการดำเนินงานแล้ว');
         } else {
@@ -284,29 +283,29 @@ class OfficerController extends Controller
     {
         date_default_timezone_set('Asia/Bangkok');
         $request->validate([
-            'memberID' => 'required|max:5',
-            'firstName' => 'required',
-            'lastName' => 'required',
+            'memberID'       => 'required|max:5',
+            'firstName'      => 'required',
+            'lastName'       => 'required',
             'contractNumber' => 'required',
-            'contractYear' => 'required',
-            'branch' => 'required',
-            'contractType' => 'required',
-            'file' => 'required|file|mimes:pdf,doc,docx',
+            'contractYear'   => 'required',
+            'branch'         => 'required',
+            'contractType'   => 'required',
+            'file'           => 'required|file|mimes:pdf,doc,docx',
         ]);
-        $uploadedFile = $request->file('file');
-        $path = 'file/credit_folder/' . $request->contractYear . '/' . $request->branch . '/' . $request->contractType;
+        $uploadedFile   = $request->file('file');
+        $path           = 'file/credit_folder/' . $request->contractYear . '/' . $request->branch . '/' . $request->contractType;
         $hashedFileName = md5($uploadedFile->getClientOriginalName()) . time() . '.' . $uploadedFile->getClientOriginalExtension();
         if ($uploadedFile->move(public_path($path), $hashedFileName)) {
             $data = [
-                'mem_id' => $request->memberID,
-                'fname' => $request->firstName,
-                'lname' => $request->lastName,
+                'mem_id'      => $request->memberID,
+                'fname'       => $request->firstName,
+                'lname'       => $request->lastName,
                 'fullcont_id' => $request->contractNumber,
-                'branch_id' => $request->branch,
-                'credit_id' => $request->contractType,
-                'year' => $request->contractYear,
-                'file_name' => $hashedFileName,
-                'path' => $path,
+                'branch_id'   => $request->branch,
+                'credit_id'   => $request->contractType,
+                'year'        => $request->contractYear,
+                'file_name'   => $hashedFileName,
+                'path'        => $path,
                 'name_upload' => session('username'),
                 'date_upload' => date('Y-m-d'),
             ];
@@ -386,8 +385,8 @@ class OfficerController extends Controller
         ]);
         DB::table('credit_consider_process')->insert([
             'credit_consider_id' => $request->credit_consider_id,
-            'date' => date('Y-m-d H:i:s'),
-            'status_id' => $request->result,
+            'date'               => date('Y-m-d H:i:s'),
+            'status_id'          => $request->result,
         ]);
         return redirect('/creditconsider')->with('success', 'อนุมัติสำเร็จ');
     }
@@ -397,12 +396,12 @@ class OfficerController extends Controller
         date_default_timezone_set('Asia/Bangkok');
         DB::table('credit_consider')->where('credit_consider_id', $request->credit_consider_id)->update([
             'status_id' => $request->result,
-            'note' => $request->note,
+            'note'      => $request->note,
         ]);
         DB::table('credit_consider_process')->insert([
             'credit_consider_id' => $request->credit_consider_id,
-            'date' => date('Y-m-d H:i:s'),
-            'status_id' => $request->result,
+            'date'               => date('Y-m-d H:i:s'),
+            'status_id'          => $request->result,
         ]);
         return redirect('/creditconsider')->with('success', 'ปฏิเสธสำเร็จ');
     }
@@ -416,38 +415,38 @@ class OfficerController extends Controller
     {
         date_default_timezone_set('Asia/Bangkok');
         $request->validate([
-            'mem_id' => 'required|max:5',
+            'mem_id'    => 'required|max:5',
             'firstname' => 'required',
-            'lastname' => 'required',
+            'lastname'  => 'required',
             'loan_type' => 'required',
             'loan_year' => 'required',
-            'branch' => 'required',
+            'branch'    => 'required',
             'fileInput' => 'required|file|mimes:pdf',
         ]);
-        $uploadedFile = $request->file('fileInput');
+        $uploadedFile   = $request->file('fileInput');
         $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . time() . '.' . $uploadedFile->getClientOriginalExtension();
-        $name_loan = array('', 'ฉุกเฉิน', 'สามัญฉุกเฉิน', 'สามัญ', 'พิเศษ', 'พิเศษโครงการ', 'โครงการสินทรัพย์', 'สวัสดิการเจ้าหน้าที่');
-        $code_loan = array('', 'ฉ.', 'สฉ.', 'ส.', 'พ.', 'พค.', 'คส.', 'จท.');
+        $name_loan      = ['', 'ฉุกเฉิน', 'สามัญฉุกเฉิน', 'สามัญ', 'พิเศษ', 'พิเศษโครงการ', 'โครงการสินทรัพย์', 'สวัสดิการเจ้าหน้าที่'];
+        $code_loan      = ['', 'ฉ.', 'สฉ.', 'ส.', 'พ.', 'พค.', 'คส.', 'จท.'];
         if ($uploadedFile->move(public_path('file/credit_consider/'), $hashedFileName)) {
             $return_id = DB::table('credit_consider')->insertGetId([
-                'username' => session('username'),
-                'mem_id' => $request->mem_id,
-                'firstname' => $request->firstname,
-                'lastname' => $request->lastname,
-                'loan_year' => $request->loan_year,
+                'username'    => session('username'),
+                'mem_id'      => $request->mem_id,
+                'firstname'   => $request->firstname,
+                'lastname'    => $request->lastname,
+                'loan_year'   => $request->loan_year,
                 'branch_name' => $request->branch,
-                'lnumber_id' => null,
-                'loan_type' => $name_loan[$request->loan_type],
-                'file_name' => $hashedFileName,
-                'status_id' => '1',
-                'date' => date('Y-m-d H:i:s'),
-                'note' => null,
+                'lnumber_id'  => null,
+                'loan_type'   => $name_loan[$request->loan_type],
+                'file_name'   => $hashedFileName,
+                'status_id'   => '1',
+                'date'        => date('Y-m-d H:i:s'),
+                'note'        => null,
             ]);
             DB::table('credit_consider')->where('credit_consider_id', $return_id)->update(['lnumber_id' => $code_loan[$request->loan_type] . str_pad($return_id, 7, '0', STR_PAD_LEFT) . '/' . $request->loan_year]);
             $data_process = [
                 'credit_consider_id' => $return_id,
-                'date' => date('Y-m-d H:i:s'),
-                'status_id' => '1',
+                'date'               => date('Y-m-d H:i:s'),
+                'status_id'          => '1',
             ];
             DB::table('credit_consider_process')->insert($data_process);
             return redirect('/credit_consider')->with('success', 'อัพโหลดไฟล์สำเร็จ');
@@ -566,38 +565,54 @@ class OfficerController extends Controller
     public function upload_news(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'news_type' => 'required',
-            'date' => 'required',
+            'title'       => 'required',
+            'news_type'   => 'required',
+            'date'        => 'required',
             'description' => 'required',
             'coverImage' => 'required|file|mimes:jpeg,png,jpg,gif',
-            'uploadedFiles.*' => 'required|file|mimes:jpeg,png,jpg,gif',
+            // 'uploadedFiles.*' => 'required|file|mimes:jpeg,png,jpg,gif',
         ]);
 
         do {
             $news_number = mt_rand(1, 10000);
-        } while (DB::table('news')->where('news_number',$news_number)->exists());
-        foreach ($request->file('uploadedFiles') as $file) {
-            $hashedFileName = sha1($file->getClientOriginalName()) . time() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads/'), $hashedFileName);
-            DB::table('picture')->insert([
-                'news_number' => $news_number,
-                'picture_name' => $hashedFileName,
+        } while (DB::table('news')->where('news_number', $news_number)->exists());
+        if ($request->coverImage == true && $request->uploadedFiles == true) {  
+            foreach ($request->file('uploadedFiles') as $file) {
+                $hashedFileName = sha1($file->getClientOriginalName()) . time() . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('uploads/'), $hashedFileName);
+                DB::table('picture')->insert([
+                    'news_number'  => $news_number,
+                    'picture_name' => $hashedFileName,
+                ]);
+            }
+
+            $coverImage       = $request->file('coverImage');
+            $hashedcoverImage = sha1($coverImage->getClientOriginalName()) . time() . '.' . $coverImage->getClientOriginalExtension();
+            $coverImage->move(public_path('uploads/'), $hashedcoverImage);
+            DB::table('news')->insert([
+                'news_number'  => $news_number,
+                'title'        => $request->title,
+                'news_typeid'  => $request->news_type,
+                'dateupload'   => $request->date,
+                'description'  => $request->description,
+                'path'         => 'uploads/',
+                'picture_name' => $hashedcoverImage,
             ]);
         }
-
-        $coverImage = $request->file('coverImage');
-        $hashedcoverImage = sha1($coverImage->getClientOriginalName()) . time() . '.' . $coverImage->getClientOriginalExtension();
-        $coverImage->move(public_path('uploads/'), $hashedcoverImage);
-        DB::table('news')->insert([
-            'news_number' => $news_number,
-            'title' => $request->title,
-            'news_typeid' => $request->news_type,
-            'dateupload' => $request->date,
-            'description' => $request->description,
-            'path' => 'uploads/',
-            'picture_name' => $hashedcoverImage,
-        ]);
+        else{
+            $coverImage       = $request->file('coverImage');
+            $hashedcoverImage = sha1($coverImage->getClientOriginalName()) . time() . '.' . $coverImage->getClientOriginalExtension();
+            $coverImage->move(public_path('uploads/'), $hashedcoverImage);
+            DB::table('news')->insert([
+                'news_number'  => $news_number,
+                'title'        => $request->title,
+                'news_typeid'  => $request->news_type,
+                'dateupload'   => $request->date,
+                'description'  => $request->description,
+                'path'         => 'uploads/',
+                'picture_name' => $hashedcoverImage,
+            ]);
+        }
 
         return redirect('/news_upload')->with('success', 'News uploaded successfully.');
     }
@@ -611,9 +626,9 @@ class OfficerController extends Controller
     public function update_news(Request $request)
     {
         DB::table('news')->where('news_number', $request->news_number)->update([
-            'title' => $request->title,
+            'title'       => $request->title,
             'news_typeid' => $request->news_type,
-            'dateupload' => $request->date,
+            'dateupload'  => $request->date,
             'description' => $request->description,
         ]);
         return redirect('/news_upload')->with('success', 'แก้ไขข่าวเสร๊จสิ้น.');
@@ -661,7 +676,7 @@ class OfficerController extends Controller
     public function login_history_person($user_id, $br_no)
     {
         $officer = DB::table('signin_history')->where('user_id', $user_id)->where('branch_id', $br_no)->select('user_name')->first();
-        $data = DB::table('signin_history')->orderByDesc('login_time')->where('user_id', $user_id)->where('branch_id', $br_no)->get();
+        $data    = DB::table('signin_history')->orderByDesc('login_time')->where('user_id', $user_id)->where('branch_id', $br_no)->get();
         return view('officer/admin/login_history_person', compact('data', 'officer'));
     }
 
@@ -688,25 +703,25 @@ class OfficerController extends Controller
     {
         date_default_timezone_set('Asia/Bangkok');
         $request->validate([
-            'title' => 'required',
+            'title'        => 'required',
             'description1' => 'required',
             'description2' => 'required',
-            'contact' => 'required',
-            'asset_type' => 'required',
-            'coverImage' => 'required',
-            'Images' => 'required',
+            'contact'      => 'required',
+            'asset_type'   => 'required',
+            'coverImage'   => 'required',
+            'Images'       => 'required',
         ]);
 
-        $uploadedFile = $request->file('coverImage');
+        $uploadedFile   = $request->file('coverImage');
         $hashedFileName = sha1($uploadedFile->getClientOriginalName()) . time() . '.' . $uploadedFile->getClientOriginalExtension();
-        $asset_id = DB::table('asset')->insertGetId([
-            'title' => $request->title,
+        $asset_id       = DB::table('asset')->insertGetId([
+            'title'        => $request->title,
             'description1' => $request->description1,
             'description2' => $request->description2,
-            'contact' => $request->contact,
-            'asset_type' => $request->asset_type,
+            'contact'      => $request->contact,
+            'asset_type'   => $request->asset_type,
             'picture_name' => $hashedFileName,
-            'date' => date('Y-m-d'),
+            'date'         => date('Y-m-d'),
         ]);
         foreach ($request->file('Images') as $file) {
             $hashedFileName = sha1($file->getClientOriginalName()) . time() . '.' . $file->getClientOriginalExtension();
@@ -740,16 +755,16 @@ class OfficerController extends Controller
     {
         $request->validate(['month' => 'required', 'year' => 'required']);
         $month = $request->month;
-        $year = $request->year;
-        $date = Carbon::create($year, $month, 1, 0, 0, 0);
+        $year  = $request->year;
+        $date  = Carbon::create($year, $month, 1, 0, 0, 0);
         if ($date->month >= 7) {
             $date->addYear();
             $month = $date->month;
-            $year = $date->year;
+            $year  = $date->year;
         }
-        $data = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('MEM_DATE', $month)->whereYear('MEM_DATE', $year)->where('MEMTYPE_ID', '1')->count();
-        $common_out = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('TRIED_DATE', $month)->whereYear('TRIED_DATE', $year)->where('MEMTYPE_ID', '1')->count();
-        $associated_in = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('MEM_DATE', $month)->whereYear('MEM_DATE', $year)->where('MEMTYPE_ID', '2')->count();
+        $data           = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('MEM_DATE', $month)->whereYear('MEM_DATE', $year)->where('MEMTYPE_ID', '1')->count();
+        $common_out     = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('TRIED_DATE', $month)->whereYear('TRIED_DATE', $year)->where('MEMTYPE_ID', '1')->count();
+        $associated_in  = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('MEM_DATE', $month)->whereYear('MEM_DATE', $year)->where('MEMTYPE_ID', '2')->count();
         $associated_out = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('TRIED_DATE', $month)->whereYear('TRIED_DATE', $year)->where('MEMTYPE_ID', '2')->count();
         return view('officer/report/report', compact('data', 'common_out', 'associated_in', 'associated_out'));
     }

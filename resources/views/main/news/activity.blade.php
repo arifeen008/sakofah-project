@@ -1,26 +1,31 @@
 @extends('layout')
 @section('title', 'ข่าวสาร/กิจกรรมความเคลื่อนไหว | สหกรณ์อิสลามษะกอฟะฮ จำกัด')
 @section('content')
-    <div class="container my-2">
+    <div class="container my-4">
         <div class="row">
-            <p class="text-dark mt-2 h2">ข่าวสาร/กิจกรรมความเคลื่อนไหว</p>
+            <div class="col-12">
+                <h2 class="text-dark mt-2">ข่าวสาร/กิจกรรมความเคลื่อนไหว</h2>
+            </div>
+        </div>
+        <div class="row">
             @foreach ($news as $item)
-                <div class="col-md-3 mb-2">
-                    <a href="/news/{{ $item->news_number }}" class="card hover-shadow my-2">
-                        <img src="{{ url('uploads/' . $item->picture_name) }}" width="auto" height="200px"
-                            class="card-img-top" />
-                        <div class="card-body">
-                            <div class="card-title">
-                                <div class="text-dark">
-                                    <p class="text-limit">{{ $item->title }}</p>
-                                </div>
-                            </div>
-                            <small>{{ thaidate('j F Y', $item->dateupload) }}</small>
+                <div class="col-12 col-md-6 col-lg-3 mb-4">
+                    <div class="card hover-shadow h-100">
+                        <a href="/news/{{ $item->news_number }}">
+                            <img src="{{ url('uploads/' . $item->picture_name) }}" class="card-img-top" alt="{{ $item->title }}" style="height: 200px; object-fit: cover;">
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-dark text-limit">{{ $item->title }}</h5>
+                            <small class="text-muted mt-auto">{{ thaidate('j F Y', $item->dateupload) }}</small>
                         </div>
-                    </a>
+                    </div>
                 </div>
             @endforeach
         </div>
-        {{ $news->links() }}
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                {{ $news->links() }}
+            </div>
+        </div>
     </div>
 @endsection

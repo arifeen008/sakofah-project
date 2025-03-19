@@ -55,6 +55,18 @@
             text-overflow: ellipsis;
         }
 
+        .fade-in {
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 
@@ -247,6 +259,36 @@
     </footer>
     @yield('script')
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
+    <script>
+        document.querySelectorAll('.nav-item.dropdown').forEach(function (dropdown) {
+            dropdown.addEventListener('mouseenter', function () {
+                let toggle = dropdown.querySelector('.dropdown-toggle');
+                let menu = dropdown.querySelector('.dropdown-menu');
+                toggle.classList.add('show');
+                menu.classList.add('show', 'fade-in');
+            });
+            dropdown.addEventListener('mouseleave', function () {
+                let toggle = dropdown.querySelector('.dropdown-toggle');
+                let menu = dropdown.querySelector('.dropdown-menu');
+                toggle.classList.remove('show');
+                menu.classList.remove('show', 'fade-in');
+            });
+        });
+    </script>
+    <style>
+        .fade-in {
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 </body>
 
 </html>

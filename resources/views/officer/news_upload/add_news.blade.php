@@ -39,7 +39,7 @@
                     <div class="input-group">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="coverImage" name="coverImage"
-                                accept="image/*" required>
+                                accept="image/*">
                             <label class="custom-file-label" for="coverImage">Choose file</label>
                         </div>
                         <div class="input-group-append">
@@ -52,7 +52,7 @@
                     <div class="input-group">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="uploadedFiles" name="uploadedFiles[]"
-                                accept="image/*" multiple required>
+                                accept="image/*" multiple>
                             <label class="custom-file-label" for="uploadedFiles">Choose file</label>
                         </div>
                         <div class="input-group-append">

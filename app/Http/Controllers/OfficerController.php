@@ -565,53 +565,46 @@ class OfficerController extends Controller
     public function upload_news(Request $request)
     {
         $request->validate([
-            'title'       => 'required',
-            'news_type'   => 'required',
-            'date'        => 'required',
-            'description' => 'required',
-            'coverImage' => 'required|file|mimes:jpeg,png,jpg,gif',
-            // 'uploadedFiles.*' => 'required|file|mimes:jpeg,png,jpg,gif',
+            'title'           => 'required',
+            'news_type'       => 'required',
+            'date'            => 'required|date',
+            'description'     => 'required',
+            'coverImage'      => 'required|file|mimes:jpeg,png,jpg,gif',
+            'uploadedFiles.*' => 'file|mimes:jpeg,png,jpg,gif',
         ]);
 
+        // ป้องกันการชนกันของ news_number โดยใช้ UUID หรือช่วงตัวเลขที่กว้างขึ้น
         do {
-            $news_number = mt_rand(1, 10000);
+            $news_number = mt_rand(10000, 99999);
         } while (DB::table('news')->where('news_number', $news_number)->exists());
-        if ($request->coverImage == true && $request->uploadedFiles == true) {  
+
+        // อัปโหลด coverImage
+        $coverImage       = $request->file('coverImage');
+        $hashedCoverImage = sha1($coverImage->getClientOriginalName()) . time() . '.' . $coverImage->getClientOriginalExtension();
+        $coverImage->move(public_path('uploads/'), $hashedCoverImage);
+
+        // บันทึกข้อมูลข่าว
+        DB::table('news')->insert([
+            'news_number'  => $news_number,
+            'title'        => $request->title,
+            'news_typeid'  => $request->news_type,
+            'dateupload'   => $request->date,
+            'description'  => $request->description,
+            'path'         => 'uploads/',
+            'picture_name' => $hashedCoverImage,
+        ]);
+
+        // อัปโหลดไฟล์เพิ่มเติม (ถ้ามี)
+        if ($request->hasFile('uploadedFiles')) {
             foreach ($request->file('uploadedFiles') as $file) {
                 $hashedFileName = sha1($file->getClientOriginalName()) . time() . '.' . $file->getClientOriginalExtension();
                 $file->move(public_path('uploads/'), $hashedFileName);
+
                 DB::table('picture')->insert([
                     'news_number'  => $news_number,
                     'picture_name' => $hashedFileName,
                 ]);
             }
-
-            $coverImage       = $request->file('coverImage');
-            $hashedcoverImage = sha1($coverImage->getClientOriginalName()) . time() . '.' . $coverImage->getClientOriginalExtension();
-            $coverImage->move(public_path('uploads/'), $hashedcoverImage);
-            DB::table('news')->insert([
-                'news_number'  => $news_number,
-                'title'        => $request->title,
-                'news_typeid'  => $request->news_type,
-                'dateupload'   => $request->date,
-                'description'  => $request->description,
-                'path'         => 'uploads/',
-                'picture_name' => $hashedcoverImage,
-            ]);
-        }
-        else{
-            $coverImage       = $request->file('coverImage');
-            $hashedcoverImage = sha1($coverImage->getClientOriginalName()) . time() . '.' . $coverImage->getClientOriginalExtension();
-            $coverImage->move(public_path('uploads/'), $hashedcoverImage);
-            DB::table('news')->insert([
-                'news_number'  => $news_number,
-                'title'        => $request->title,
-                'news_typeid'  => $request->news_type,
-                'dateupload'   => $request->date,
-                'description'  => $request->description,
-                'path'         => 'uploads/',
-                'picture_name' => $hashedcoverImage,
-            ]);
         }
 
         return redirect('/news_upload')->with('success', 'News uploaded successfully.');

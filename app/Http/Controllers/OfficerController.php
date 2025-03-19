@@ -569,8 +569,8 @@ class OfficerController extends Controller
             'news_type'       => 'required',
             'date'            => 'required|date',
             'description'     => 'required',
-            'coverImage'      => 'required|file|mimes:jpeg,png,jpg,gif',
-            'uploadedFiles.*' => 'file|mimes:jpeg,png,jpg,gif',
+            'coverImage'      => 'required|file|mimes:jpeg,png,jpg,gif|max:51200',
+            'uploadedFiles.*' => 'file|mimes:jpeg,png,jpg,gif|max:51200',
         ]);
 
         // ป้องกันการชนกันของ news_number โดยใช้ UUID หรือช่วงตัวเลขที่กว้างขึ้น

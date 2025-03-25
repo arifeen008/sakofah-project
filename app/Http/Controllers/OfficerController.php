@@ -632,18 +632,20 @@ class OfficerController extends Controller
 
     public function delete_news($news_number)
     {
-        $picture_name = DB::table('picture')->where('news_number', $news_number)->select('picture_name')->get();
-        $cover_picture = DB::table('news')->where('news_number', $news_number)->select('picture_name')->first();
-        if (file_exists(public_path('uploads/' . $cover_picture->picture_name))) {
-            unlink('uploads/' . $cover_picture->picture_name);
-        }
-        foreach ($picture_name as $item) {
-            if (file_exists(public_path('uploads/' . $item->picture_name))) {
-                unlink('uploads/' . $item->picture_name);
+        $pictures      = DB::table('picture')->where('news_number', $news_number)->pluck('picture_name')->toArray();
+        $cover_picture = DB::table('news')->where('news_number', $news_number)->value('picture_name');
+
+        $files = array_merge([$cover_picture], $pictures);
+        foreach ($files as $file) {
+            $path = public_path("uploads/$file");
+            if ($file && file_exists($path)) {
+                unlink($path);
             }
         }
+
         DB::table('news')->where('news_number', $news_number)->delete();
         DB::table('picture')->where('news_number', $news_number)->delete();
+
         return redirect()->back()->with('success', 'Delete Success');
     }
 

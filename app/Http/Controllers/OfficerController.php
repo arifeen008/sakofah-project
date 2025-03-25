@@ -598,7 +598,7 @@ class OfficerController extends Controller
         // อัปโหลดไฟล์เพิ่มเติม (ถ้ามี)
         foreach ($request->file('uploadedFiles') as $index => $file) {
             // กำหนดชื่อไฟล์โดยเพิ่มเลขลำดับ
-            $hashedFileName = $news_number . date('YmdHis') . ($index + 1) . $file->getClientOriginalExtension();
+            $hashedFileName = $news_number . date('YmdHis') . ($index + 1) . '.' . $file->getClientOriginalExtension();
 
             // ย้ายไฟล์ไปยังโฟลเดอร์ uploads
             $file->move(public_path('uploads/'), $hashedFileName);

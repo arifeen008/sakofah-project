@@ -596,21 +596,9 @@ class OfficerController extends Controller
         ]);
 
         // อัปโหลดไฟล์เพิ่มเติม (ถ้ามี)
-        // if ($request->hasFile('uploadedFiles')) {
-        //     foreach ($request->file('uploadedFiles') as $file ) {
-        //         // $hashedFileName = sha1($file->getClientOriginalName()) . time() . '.' . $file->getClientOriginalExtension();
-        //         $hashedFileName = $news_number . date('Ymd_His') . '.' . $file->getClientOriginalExtension();
-        //         $file->move(public_path('uploads/'), $hashedFileName);
-
-        //         DB::table('picture')->insert([
-        //             'news_number'  => $news_number,
-        //             'picture_name' => $hashedFileName,
-        //         ]);
-        //     }
-        // }
         foreach ($request->file('uploadedFiles') as $index => $file) {
             // กำหนดชื่อไฟล์โดยเพิ่มเลขลำดับ
-            $hashedFileName = $news_number . ($index + 1) . date('YmdHis') . '.' . $file->getClientOriginalExtension();
+            $hashedFileName = $news_number . date('YmdHis') . '.' . ($index + 1) . $file->getClientOriginalExtension();
 
             // ย้ายไฟล์ไปยังโฟลเดอร์ uploads
             $file->move(public_path('uploads/'), $hashedFileName);

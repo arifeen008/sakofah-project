@@ -749,7 +749,7 @@ class OfficerController extends Controller
     public function report()
     {
         $data = session('data', []);
-        return view('officer/report/report', compact('data'));
+        return view('officer.report.report', compact('data'));
     }
 
     public function summaryReport(Request $request)

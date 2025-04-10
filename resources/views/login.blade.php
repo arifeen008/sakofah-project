@@ -1,47 +1,78 @@
 @extends('layout')
 @section('title', 'เข้าสู่ระบบ ')
 @section('content')
-    <section class="vh-100">
-        <div class="container py-5 h-100">
-            <div class="row d-flex align-items-center justify-content-center h-100">
-                <div class="col-md-8 col-lg-7 col-xl-6">
-                    <img src="{{ url('picture/resize-1588050307116.png') }}" class="img-fluid" alt="Logo">
+<section class="vh-100 d-flex justify-content-center align-items-center" style="background-color: #f8f9fa;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5 col-xl-4">
+          <div class="card shadow-3-strong">
+            <div class="card-body p-5">
+  
+              <!-- โลโก้ -->
+              <div class="text-center mb-4">
+                <img src="{{ url('picture/sakofag-logo.png') }}" alt="Logo" class="img-fluid" style="max-height: 80px;">
+              </div>
+  
+              <h3 class="text-center mb-4">เข้าสู่ระบบ</h3>
+  
+              <form action="/login" method="post">
+                @csrf
+  
+                @error('user_id')
+                  <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                      const toastEl = document.getElementById('errorToast');
+                      const toast = new mdb.Toast(toastEl);
+                      toast.show();
+                    });
+                  </script>
+                @enderror
+  
+                <div class="form-floating mb-4">
+                  <input type="text" id="user_id" name="user_id" class="form-control" placeholder="ชื่อผู้ใช้" />
+                  <label for="user_id">ชื่อผู้ใช้</label>
                 </div>
-                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                    <form action="/login" method="post">
-                        @csrf
-                        <h1 class="text-dark text-center mb-4">เข้าสู่ระบบ</h1>
-                        @error('user_id')
-                            <div class="alert alert-danger my-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                        <div class="form-floating mb-4">
-                            <input type="text" id="user_id" name="user_id" class="form-control" placeholder="ชื่อผู้ใช้" />
-                            <label for="user_id">ชื่อผู้ใช้</label>
-                        </div>
-                        @error('password')
-                            <div class="alert alert-danger my-2">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                        <div class="form-floating mb-4">
-                            <input type="password" id="password" name="password" class="form-control" placeholder="รหัสผ่าน" />
-                            <label for="password">รหัสผ่าน</label>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="password" id="Remember" checked />
-                                <label class="form-check-label" for="Remember">จดจำฉัน</label>
-                            </div>
-                            <a href="/">ลืมรหัสผ่าน</a>
-                        </div>
-                        <button type="submit" class="btn btn-success btn-lg btn-block">เข้าสู่ระบบ</button>
-                    </form>
+  
+                <div class="form-floating mb-4">
+                  <input type="password" id="password" name="password" class="form-control" placeholder="รหัสผ่าน" />
+                  <label for="password">รหัสผ่าน</label>
                 </div>
+  
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="password" id="Remember" checked />
+                    <label class="form-check-label" for="Remember">จดจำฉัน</label>
+                  </div>
+                  <a href="/">ลืมรหัสผ่าน</a>
+                </div>
+  
+                <button type="submit" class="btn btn-success btn-lg w-100">เข้าสู่ระบบ</button>
+              </form>
+  
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  
+    <!-- Toast แจ้งเตือน -->
+    @error('user_id')
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="errorToast" class="toast fade text-white bg-danger" role="alert" data-mdb-autohide="false">
+          <div class="toast-header bg-danger text-white">
+            <strong class="me-auto">เกิดข้อผิดพลาด</strong>
+            <button type="button" class="btn-close btn-close-white ms-2 mb-1" data-mdb-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            {{ $message }}
+          </div>
+        </div>
+      </div>
+    @enderror
+  
+  </section>
+  
+
 @endsection
 @section('script')
     @if (session('error'))

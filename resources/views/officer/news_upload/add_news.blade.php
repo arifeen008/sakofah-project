@@ -32,8 +32,6 @@
                     <label>รายละเอียด :</label>
                     <textarea class="form-control" rows="4" id="summernote" name="description" required></textarea>
                 </div>
-
-
                 <div class="form-group">
                     <label for="coverImage">ภาพหน้าปก</label>
                     <div class="input-group">
@@ -80,5 +78,21 @@
 
     <script>
         document.getElementById('date').valueAsDate = new Date();
+    </script>
+    <script>
+        document.getElementById('coverImage').addEventListener('change', function(e) {
+            const fileName = this.files[0]?.name;
+            if (fileName) {
+                this.nextElementSibling.innerText = fileName;
+            }
+        });
+        document.getElementById('uploadedFiles').addEventListener('change', function(e) {
+            const count = this.files.length;
+            if (count === 1) {
+                this.nextElementSibling.innerText = this.files[0].name;
+            } else if (count > 1) {
+                this.nextElementSibling.innerText = `${count} ไฟล์ที่เลือกแล้ว`;
+            }
+        });
     </script>
 @endsection

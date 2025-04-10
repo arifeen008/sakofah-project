@@ -13,68 +13,57 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @yield('style')
+    @yield('style')    
     <title>@yield('title')</title>
 </head>
 
 <body class="sidebar-mini" style="height: auto">
     <div class="wrapper">
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <!-- Left navbar links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link pushmenu" data-widget="pushmenu" href="#" role="button"><i
-                            class="fas fa-bars"></i></a>
-                </li>
-            </ul>
-
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                <div class="dropdown">
-                    <a class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ session('username') }}
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">โปรไฟล์</a></li>
-                        <li>
-                            <form method="POST" action="/logout">
-                                @csrf
-                                <button type="submit" class="dropdown-item">ออกจากระบบ</button>
-                            </form>
-                        </li>
-                    </ul>
-                  </div>
-            </ul>
+        <nav class="main-header navbar navbar-expand-lg navbar-white navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" data-widget="pushmenu" role="button">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="gap: 8px;">
+                            <i class="fas fa-user-circle text-primary"></i>
+                            <span class="text-primary fw-bold">{{ session('username') }}</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="#">โปรไฟล์</a></li>
+                            <li>
+                                <form method="POST" action="/logout">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">ออกจากระบบ</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                
+            </div>
         </nav>
-        <!-- /.navbar -->
 
-        <!-- Main Sidebar Container -->
-        @yield('sidebar')
+        <!-- Sidebar (รวมเมนูด้านข้าง) -->
+        @include('sidebar')
 
-        <!-- Content Wrapper. Contains page content -->
+        <!-- Content Wrapper -->
         <div class="content-wrapper" style="min-height: 617px; background-color: white">
-            <!-- Main content -->
             <div class="content">
                 @yield('content')
             </div>
-            <!-- /.content -->
         </div>
-        <!-- /.content-wrapper -->
 
-        <!-- Main Footer -->
+        <!-- Footer -->
         <footer class="main-footer mt-2">
-            <div class="float-right d-none d-sm-inline">
-                <!-- Additional footer content can go here -->
-            </div>
-            <strong>Copyright © 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+            <strong>สหกรณ์อิสลามษะกอฟะฮ จำกัด</strong>
         </footer>
     </div>
-    <!-- ./wrapper -->
 
     @yield('script')
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
 </body>
 

@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'สวัสดิการเงินสมทบยามชรา |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'สวัสดิการเงินสมทบยามชรา ')
 @section('content')
     <div class="container mt-1">
         <img src="{{ url('picture/ชรา1.jpg') }}" class="w-100">

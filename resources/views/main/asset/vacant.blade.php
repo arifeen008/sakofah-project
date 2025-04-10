@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'ที่ดิน |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'ที่ดิน ')
 @section('library')
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />

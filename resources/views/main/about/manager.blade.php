@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'คณะกรรมการและผู้บริหาร |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'คณะกรรมการและผู้บริหาร ')
 @section('content')
     <style>
         .nav-pills .nav-link.active {

@@ -580,7 +580,6 @@ class OfficerController extends Controller
 
         // อัปโหลด coverImage
         $coverImage = $request->file('coverImage');
-        // $hashedCoverImage = sha1($coverImage->getClientOriginalName()) . time() . '.' . $coverImage->getClientOriginalExtension();
         $hashedCoverImage = 'cover' . $news_number . date('YmdHis') . '.' . $coverImage->getClientOriginalExtension();
         $coverImage->move(public_path('uploads/'), $hashedCoverImage);
 
@@ -627,7 +626,7 @@ class OfficerController extends Controller
             'dateupload'  => $request->date,
             'description' => $request->description,
         ]);
-        return redirect('/news_upload')->with('success', 'แก้ไขข่าวเสร๊จสิ้น.');
+        return redirect('/news_upload')->with('success', 'Edit news complete.');
     }
 
     public function delete_news($news_number)

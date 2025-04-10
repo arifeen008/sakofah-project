@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'เข้าสู่ระบบ | สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'เข้าสู่ระบบ ')
 @section('content')
     <section class="vh-100">
         <div class="container py-5 h-100">

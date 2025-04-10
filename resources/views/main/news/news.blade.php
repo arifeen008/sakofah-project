@@ -1,6 +1,6 @@
 @extends('layout')
 @section('title')
-    {{ $news->title }} | สหกรณ์อิสลามษะกอฟะฮ จำกัด
+    {{ $news->title }} 
 @endsection
 @section('library')
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />

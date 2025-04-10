@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'ประวัติความเป็นมา |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'ประวัติความเป็นมา ')
 @section('content')
     <style>
         .main-timeline {

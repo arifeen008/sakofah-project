@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'สำนักงาน | สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'สำนักงาน ')
 @section('content')
     <div class="container mt-3" style="font-family: 'Sarabun', sans-serif;">
         <p class="h1 text-dark text-center">ที่ตั้งสาขาและจุดบริการสหกรณ์</p>

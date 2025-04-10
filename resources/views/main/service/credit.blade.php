@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'บริการสินเชื่อ |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'บริการสินเชื่อ ')
 @section('content')
     <style>
         .nav-pills .nav-link.active {

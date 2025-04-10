@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'คอนโด |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'คอนโด ')
 @section('content')
     <div class="container my-2">
         @if (count($asset) > 0)

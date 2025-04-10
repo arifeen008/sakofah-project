@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'โครงสร้างสหกรณ์ | สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'โครงสร้างสหกรณ์ ')
 @section('content')
     <div class="container my-3">
         <div class="text-center">

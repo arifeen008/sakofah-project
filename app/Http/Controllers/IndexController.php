@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
@@ -10,9 +9,9 @@ class IndexController extends Controller
     public function index()
     {
         $information = DB::table('news')->orderByDesc('dateupload')->where('news_typeid', 1)->limit(8)->get();
-        $welfare = DB::table('news')->orderByDesc('dateupload')->where('news_typeid', 2)->limit(8)->get();
-        $credit = DB::table('news')->orderByDesc('dateupload')->where('news_typeid', 3)->limit(8)->get();
-        $foundation = DB::table('news')->orderByDesc('dateupload')->where('news_typeid', 4)->limit(8)->get();
+        $welfare     = DB::table('news')->orderByDesc('dateupload')->where('news_typeid', 2)->limit(8)->get();
+        $credit      = DB::table('news')->orderByDesc('dateupload')->where('news_typeid', 3)->limit(8)->get();
+        $foundation  = DB::table('news')->orderByDesc('dateupload')->where('news_typeid', 4)->limit(8)->get();
         return view('index', compact('information', 'welfare', 'credit', 'foundation'));
     }
 
@@ -87,8 +86,8 @@ class IndexController extends Controller
     public function news($id)
     {
         $image_news = DB::table('picture')->where('news_number', $id)->get();
-        $news = DB::table('news')->where('news_number', $id)->get()->first();
-        $side_news = DB::table('news')->orderByDesc('dateupload')->where('news_number', '!=', $id)->limit(5)->get();
+        $news       = DB::table('news')->where('news_number', $id)->get()->first();
+        $side_news  = DB::table('news')->orderByDesc('dateupload')->where('news_number', '!=', $id)->limit(5)->get();
         return view('main/news/news', compact('image_news', 'news', 'side_news'));
     }
 
@@ -114,21 +113,21 @@ class IndexController extends Controller
 
     public function home($asset_number)
     {
-        $image = DB::table('asset_picture')->where('asset_number', $asset_number)->get();
+        $image  = DB::table('asset_picture')->where('asset_number', $asset_number)->get();
         $detail = DB::table('asset')->where('asset_number', $asset_number)->first();
         return view('main/asset/home', compact('image', 'detail'));
     }
 
     public function vacant($asset_number)
     {
-        $image = DB::table('asset_picture')->where('asset_number', $asset_number)->get();
+        $image  = DB::table('asset_picture')->where('asset_number', $asset_number)->get();
         $detail = DB::table('asset')->where('asset_number', $asset_number)->first();
         return view('main/asset/vacant', compact('image', 'detail'));
     }
 
     public function condo($asset_number)
     {
-        $image = DB::table('asset_picture')->where('asset_number', $asset_number)->get();
+        $image  = DB::table('asset_picture')->where('asset_number', $asset_number)->get();
         $detail = DB::table('asset')->where('asset_number', $asset_number)->first();
         return view('main/asset/condo', compact('image', 'detail'));
     }

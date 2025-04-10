@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'ร่วมงานกับเรา |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'ร่วมงานกับเรา ')
 @section('content')
     <section>
         <div class="bg-image bg-fixed text-center"

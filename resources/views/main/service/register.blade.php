@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'สมัครสมาชิก |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'สมัครสมาชิก ')
 @section('content')
     <div class="container-fluid mx-2">
         <div class="row">

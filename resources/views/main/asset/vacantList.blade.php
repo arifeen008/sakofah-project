@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'ที่ดินเปล่า |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'ที่ดินเปล่า ')
 @section('content')
     @if (count($asset) > 0)
     <div class="container py-5 h-100">

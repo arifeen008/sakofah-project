@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'วิสัยทัศน์ พันธกิจ วัตถุประสงค์ |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'วิสัยทัศน์ พันธกิจ วัตถุประสงค์ ')
 @section('content')
     <div class="container my-3" data-mdb-toggle="animation" data-mdb-animation="zoom-in" data-mdb-animation-start="onLoad">
         <div class="text-center">

@@ -1,7 +1,7 @@
 @extends('dashboard')
 @extends('sidebar')
 @section('title')
-    {{ $data_member->FNAME . ' ' . $data_member->LNAME . ' | สหกรณ์อิสลามษะกอฟะฮ จำกัด' }}
+    {{ $data_member->FNAME . ' ' . $data_member->LNAME . ' ' }}
 @endsection
 @section('content')
     <div class="my-2">

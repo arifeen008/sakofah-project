@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'รายงานกิจการ |สหกรณ์อิสลามษะกอฟะฮ จำกัด')
+@section('title', 'รายงานกิจการ ')
 @section('content')
 <div class="container my-4">
     <div class="card shadow-lg border-0 rounded-3" style="font-family: 'Sarabun', sans-serif;">

@@ -14,7 +14,7 @@
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @yield('style')    
-    <title>@yield('title')</title>
+    <title>@yield('title') | สหกรณ์อิสลามษะกอฟะฮ</title>
 </head>
 
 <body class="sidebar-mini" style="height: auto">

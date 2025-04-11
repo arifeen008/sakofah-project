@@ -236,6 +236,7 @@
                         </tbody>
                     </table>
                 @endif
+                <p class="text-center bold">ถอนหุ้นหมดแล้ว</p>
                 <br>
                 <table id="datatable4" class="table text-center">
                     <thead>

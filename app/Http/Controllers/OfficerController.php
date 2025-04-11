@@ -347,9 +347,7 @@ class OfficerController extends Controller
                 $status_id = 1;
                 break;
         }
-        $data = DB::table('credit_consider')->where('credit_consider.status_id', $status_id)
-            ->join('status_credit', 'status_credit.status_id', '=', 'credit_consider.status_id')
-            ->orderByDesc('credit_consider.date')->get();
+        $data = DB::table('credit_consider')->where('credit_consider.status_id', $status_id)->join('status_credit', 'status_credit.status_id', '=', 'credit_consider.status_id')->orderByDesc('credit_consider.date')->get();
         return view('officer/credit_consider/creditconsider', compact('data'));
     }
 
@@ -579,8 +577,8 @@ class OfficerController extends Controller
         } while (DB::table('news')->where('news_number', $news_number)->exists());
 
         // อัปโหลด coverImage
-        $coverImage = $request->file('coverImage');
-        $hashedCoverImage = 'cover' . $news_number . date('YmdHis') . '.' . $coverImage->getClientOriginalExtension();
+        $coverImage       = $request->file('coverImage');
+        $hashedCoverImage = $news_number . date('YmdHis') . '.' . $coverImage->getClientOriginalExtension();
         $coverImage->move(public_path('uploads/'), $hashedCoverImage);
 
         // บันทึกข้อมูลข่าว
@@ -609,7 +607,7 @@ class OfficerController extends Controller
             ]);
         }
 
-        return redirect('/news_upload')->with('success', 'News uploaded successfully.');
+        return redirect('/news_upload')->with('success', 'News uploaded complete.');
     }
 
     public function edit_news($news_number)

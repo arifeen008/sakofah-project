@@ -214,26 +214,28 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table text-center">
-                    <thead>
-                        <tr>
-                            <td>เลขที่สมาชิก</td>
-                            <td>สาขาที่สังกัด</td>
-                            <td>เงินคงเหลือ</td>
-                            <td>อายุการเป็นสมาชิก</td>
-                            <td>คะแนนสะสมคงเหลือ</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{ $stock_select->MEM_ID }}</td>
-                            <td>{{ $stock_select->BR_NAME }}</td>
-                            <td>{{ number_format($stock_select->SHR_SUM_BTH, 2) }}</td>
-                            <td>{{ $stock_select->MEM_AGE_OLD + $stock_age->total . ' เดือน' }}</td>
-                            <td>{{ number_format($stock_select->POINT_SHR, 2) }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                @if ($stock_exists)
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <td>เลขที่สมาชิก</td>
+                                <td>สาขาที่สังกัด</td>
+                                <td>เงินคงเหลือ</td>
+                                <td>อายุการเป็นสมาชิก</td>
+                                <td>คะแนนสะสมคงเหลือ</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ $stock_select->MEM_ID }}</td>
+                                <td>{{ $stock_select->BR_NAME }}</td>
+                                <td>{{ number_format($stock_select->SHR_SUM_BTH, 2) }}</td>
+                                <td>{{ $stock_select->MEM_AGE_OLD + $stock_age->total . ' เดือน' }}</td>
+                                <td>{{ number_format($stock_select->POINT_SHR, 2) }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                @endif
                 <br>
                 <table id="datatable4" class="table text-center">
                     <thead>

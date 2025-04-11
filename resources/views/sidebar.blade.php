@@ -33,6 +33,13 @@
         margin: 0.5rem 0;
         font-weight: 600;
     }
+
+    /* ปรับให้ sidebar collapse */
+    .sidebar-mini.sidebar-collapse .nav-sidebar .nav-link {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+        justify-content: center;
+    }
 </style>
 
 

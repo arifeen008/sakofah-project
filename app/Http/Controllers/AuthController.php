@@ -29,7 +29,8 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        session()->flush();
+        $request->session()->forget(['user_id','username','br_no','level_code',]);
+        $request->session()->regenerateToken();
         return redirect('login');
     }
 }

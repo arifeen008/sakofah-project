@@ -70,3 +70,14 @@
         });
     </script>
 @endsection
+
+@if (session('error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'เกิดข้อผิดพลาด',
+            text: '{{ session('error') }}',
+            confirmButtonText: 'ตกลง'
+        });
+    </script>
+@endif

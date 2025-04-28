@@ -823,4 +823,9 @@ class OfficerController extends Controller
         $associated_out = DB::connection('mysql_second')->table('MEM_H_MEMBER')->whereMonth('TRIED_DATE', $month)->whereYear('TRIED_DATE', $year)->where('MEMTYPE_ID', '2')->count();
         return view('officer/report/report', compact('data', 'common_out', 'associated_in', 'associated_out'));
     }
+
+    public function looker()
+    {
+        return view('officer.looker');
+    }
 }

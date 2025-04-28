@@ -70,6 +70,7 @@ Route::group(['middleware' => 'checksession'], function () {
     Route::get('/order', [OfficerController::class, 'order']);
     Route::get('/form', [OfficerController::class, 'form']);
     Route::get('/performance', [OfficerController::class, 'performance']);
+    Route::get('/looker', [OfficerController::class, 'looker']);
 
 // Admin
 // Credit consider status

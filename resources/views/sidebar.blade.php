@@ -140,12 +140,17 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="/looker" class="nav-link active bg-success">
+                        <i class="nav-icon fas fa-user-alt"></i>
+                        <p>ข้อมูลสมาชิกปี 2568</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/performance" class="nav-link active bg-info">
                         <i class="nav-icon fas fa-chart-line"></i>
                         <p>ผลการดำเนินงาน</p>
                     </a>
                 </li>
-
                 <li class="nav-item">
                     <a href="/uploadcredit" class="nav-link active bg-secondary">
                         <i class="nav-icon fas fa-upload"></i>

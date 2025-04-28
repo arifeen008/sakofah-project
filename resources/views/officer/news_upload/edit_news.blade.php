@@ -1,5 +1,5 @@
 @extends('dashboard')
-@extends('sidebar')
+
 @section('title', 'Admin แก้ไขรายการข่าวสาร')
 @section('content')
     

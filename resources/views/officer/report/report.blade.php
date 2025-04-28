@@ -1,5 +1,5 @@
 @extends('dashboard')
-@extends('sidebar')
+
 @section('title', 'รายงาน')
 @section('content')
     <div class="card sticky-top m-3">

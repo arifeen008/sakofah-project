@@ -1,5 +1,5 @@
 @extends('dashboard')
-@extends('sidebar')
+
 @section('title', 'ค้นหาสินเชื่อ')
 @section('content')
     <div class="card card-success m-3">

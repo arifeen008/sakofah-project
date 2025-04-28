@@ -1,5 +1,5 @@
 @extends('dashboard')
-@extends('sidebar')
+
 @section('title', 'ค้นหาข้อมูลสมาชิก')
 @section('content')
     <form action="/searchMember" method="POST" class="form-horizontal">

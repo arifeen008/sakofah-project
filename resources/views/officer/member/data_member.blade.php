@@ -1,5 +1,5 @@
 @extends('dashboard')
-@extends('sidebar')
+
 @section('title')
     {{ $data_member->FNAME . ' ' . $data_member->LNAME . ' ' }}
 @endsection

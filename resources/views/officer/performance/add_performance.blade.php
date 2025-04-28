@@ -1,5 +1,5 @@
 @extends('dashboard')
-@extends('sidebar')
+
 @section('title', 'เพิ่มผลการดำเนินงานประจำปี')
 @section('content')
     <div class="card m-3">

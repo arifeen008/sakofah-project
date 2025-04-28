@@ -1,6 +1,5 @@
 @extends('dashboard')
-@extends('sidebar')
-@section('title', 'looker')
+@section('title', 'ข้อมูลสมาชิกปี 2568')
 @section('content')
     <div class="card m-3">
         <div class="card-header">

@@ -34,10 +34,10 @@
                 <img src="{{ url('board/บอร์ดก่อตั้ง.jpg') }}" style="width: 100%;">
             </div>
             <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="tab-2">
-                <img src="{{ url('board/คณะกรรมการ.jpg') }}" style="width: 100%;">
+                <img src="{{ url('board/คณะกรรมการ68.jpg') }}" style="width: 100%;">
             </div>
             <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="tab-3">
-                <img src="{{ url('board/ผู้บริหาร.jpg') }}" style="width: 100%;">
+                <img src="{{ url('board/ผู้บริหาร68.jpg') }}" style="width: 100%;">
             </div>
             <div class="tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="tab-4">
                 <img src="{{ url('board/คณะที่ปรึกษา.jpg') }}" style="width: 100%;">

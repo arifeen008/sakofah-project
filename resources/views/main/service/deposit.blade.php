@@ -12,7 +12,7 @@
             <p class="text-success my-3 custom-font" style="font-size: 1.5rem; font-family: 'Prompt', sans-serif;">มีทั้งหมด 6 ประเภท</p>
             <div id="scrollspy">
                 <div class="row mx-0">
-                    @foreach (['411.png', '412.png', '413.png', '415.png', '416.png'] as $index => $image)
+                    @foreach (['411.png', '412.png', '413.png', '415.png', '416.png','423.png'] as $index => $image)
                         <div class="col-md-4 my-3">
                             <a href="#deposit-{{ $index + 1 }}"><img src="{{ url("picture/$image") }}"
                                     class="img-fluid w-100"></a>
